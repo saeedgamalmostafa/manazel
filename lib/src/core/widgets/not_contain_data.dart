@@ -17,9 +17,9 @@ class NotContainData extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .7,
           height: MediaQuery.of(context).size.height * .3,
         ),
-        SizedBox(height: AppSize.sH10),
+        SizedBox(height: AppSizes.sH10),
         Text(LocaleKeys.errorExeptionNoconnection),
-        SizedBox(height: AppSize.sH10),
+        SizedBox(height: AppSizes.sH10),
         Text(LocaleKeys.errorexceptionNotcontaindesc),
       ],
     );

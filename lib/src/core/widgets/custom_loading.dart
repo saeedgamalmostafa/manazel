@@ -10,7 +10,7 @@ class CustomLoading {
     return Center(
       child: SpinKitDoubleBounce(
         color: AppColors.primary,
-        size: AppSize.sH40,
+        size: AppSizes.sH40,
       ),
     );
   }

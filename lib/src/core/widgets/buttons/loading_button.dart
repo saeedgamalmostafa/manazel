@@ -46,10 +46,10 @@ class LoadingButton extends StatelessWidget {
       child: CustomAnimatedButton(
         onTap: onTap,
         width: width ?? MediaQuery.sizeOf(context).width,
-        minWidth: AppSize.sW50,
-        height: height ?? AppSize.sH50,
+        minWidth: AppSizes.sW50,
+        height: height ?? AppSizes.sH50,
         color: color ?? AppColors.primary,
-        borderRadius: borderRadius ?? AppSize.sH10,
+        borderRadius: borderRadius ?? AppSizes.sH10,
         disabledColor: color ?? AppColors.primary,
         borderSide: borderSide,
         loader: const CupertinoActivityIndicator(

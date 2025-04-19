@@ -19,8 +19,8 @@ class CustomPinTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
-      width: AppSize.sW50,
-      height: AppSize.sH60,
+      width: AppSizes.sW50,
+      height: AppSizes.sH60,
       decoration: BoxDecoration(
         color: Colors.grey[200],
         borderRadius: BorderRadius.circular(AppCircular.r10),

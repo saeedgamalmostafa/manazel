@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:manazel/src/features/login/imports.dart';
 
 import '../../core/navigation/navigator.dart';
 
@@ -31,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // await ConstantManager.serviceLocator<NotificationService>()
     //     .setupNotifications(); //TODO add notification service
     Future.delayed(const Duration(seconds: 3), () {
-      Go.offAll(const HomeScreen());
+      Go.offAll(const LoginScreen());
     });
   }
 

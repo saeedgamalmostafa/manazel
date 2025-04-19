@@ -229,4 +229,7 @@ abstract class LocaleKeys {
   static const String _createAccount = 'create_account';
   static String get createAccount => _createAccount.tr();
 
+  static const String _confirm = 'confirm';
+  static String get confirm => _confirm.tr();
+
 }

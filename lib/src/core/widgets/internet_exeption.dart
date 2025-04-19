@@ -22,20 +22,20 @@ class InternetExpetion extends StatelessWidget {
               width: MediaQuery.of(context).size.width * .7,
               height: MediaQuery.of(context).size.height * .3,
             ),
-            SizedBox(height: AppSize.sH10),
+            SizedBox(height: AppSizes.sH10),
             Text(
               LocaleKeys.errorExeptionNoconnection,
               style: context.textTheme.titleLarge!.copyWith(
                 color: AppColors.secondary,
               ),
             ),
-            SizedBox(height: AppSize.sH10),
+            SizedBox(height: AppSizes.sH10),
             Text(
               LocaleKeys.errorexeptionNointernetdesc,
               style: context.textTheme.titleLarge!.copyWith(),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: AppSize.sH10),
+            SizedBox(height: AppSizes.sH10),
           ],
         ),
       ),

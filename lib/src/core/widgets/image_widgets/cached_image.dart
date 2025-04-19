@@ -89,7 +89,7 @@ class CachedImage extends StatelessWidget {
         ),
         child: SpinKitFadingCircle(
           color: AppColors.primary,
-          size: AppSize.sH30,
+          size: AppSizes.sH30,
         ),
       ),
       errorWidget: (context, url, error) => Container(

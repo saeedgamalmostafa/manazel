@@ -14,8 +14,8 @@ class ButtonClose extends StatelessWidget {
     return GestureDetector(
       onTap: onTap ?? () => Go.back(),
       child: Container(
-        height: AppSize.sH25,
-        width: AppSize.sW25,
+        height: AppSizes.sH25,
+        width: AppSizes.sW25,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppCircular.r20),
         ),
@@ -23,7 +23,7 @@ class ButtonClose extends StatelessWidget {
           child: Icon(
             Icons.close,
             color: AppColors.black,
-            size: AppSize.sH25,
+            size: AppSizes.sH25,
           ),
         ),
       ),

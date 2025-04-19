@@ -62,7 +62,7 @@ class DefaultButton extends StatelessWidget {
           ),
       child: SizedBox(
         width: width ?? MediaQuery.of(context).size.width,
-        height: height ?? AppSize.sH60,
+        height: height ?? AppSizes.sH60,
         child: ElevatedButton(
             onPressed: onTap,
             style: ElevatedButton.styleFrom(
@@ -72,7 +72,7 @@ class DefaultButton extends StatelessWidget {
               backgroundColor: color ?? AppColors.primary,
               shape: RoundedRectangleBorder(
                 borderRadius:
-                    borderRadius ?? BorderRadius.circular(AppSize.sH10),
+                    borderRadius ?? BorderRadius.circular(AppSizes.sH10),
                 side: borderColor != null
                     ? BorderSide(
                         color: borderColor ?? AppColors.primary,

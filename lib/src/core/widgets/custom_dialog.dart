@@ -23,7 +23,7 @@ Future showCustomDialog(BuildContext context,
           padding: padding ?? EdgeInsets.all(AppPadding.pH20),
           decoration: BoxDecoration(
             color: color ?? AppColors.white,
-            borderRadius: borderRadius ?? BorderRadius.circular(AppSize.sH25),
+            borderRadius: borderRadius ?? BorderRadius.circular(AppSizes.sH25),
           ),
           child: child,
         ),

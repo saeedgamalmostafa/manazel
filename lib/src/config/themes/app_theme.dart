@@ -28,9 +28,9 @@ class AppTheme {
         style: TextButton.styleFrom(
           padding: EdgeInsets.symmetric(horizontal: AppPadding.pW4),
           foregroundColor: AppColors.primary,
-          minimumSize: Size(AppSize.sW30, AppSize.sH30),
+          minimumSize: Size(AppSizes.sW30, AppSizes.sH30),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppSize.sH0),
+            borderRadius: BorderRadius.circular(AppSizes.sH0),
           ),
         ),
       ),
@@ -105,10 +105,10 @@ class AppTheme {
         style: TextButton.styleFrom(
           padding: EdgeInsets.symmetric(horizontal: AppPadding.pW4),
           foregroundColor: AppColorsWithDarkMode.primary,
-          minimumSize: Size(AppSize.sW30, AppSize.sH30),
+          minimumSize: Size(AppSizes.sW30, AppSizes.sH30),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              AppSize.sH0,
+              AppSizes.sH0,
             ),
           ),
         ),

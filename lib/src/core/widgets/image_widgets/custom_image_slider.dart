@@ -38,7 +38,7 @@ class _ImageSliderState extends State<ImageSlider> {
           itemBuilder:
               (BuildContext context, int itemIndex, int pageViewIndex) {
             return CachedImage(
-              width: AppSize.sW2,
+              width: AppSizes.sW2,
               borderRadius: BorderRadius.circular(AppCircular.r12),
               url: widget.images[itemIndex],
             ).paddingSymmetric(horizontal: AppPadding.pW16);
@@ -71,8 +71,8 @@ class _ImageSliderState extends State<ImageSlider> {
                 final isActive = index == value;
                 return AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
-                  width: isActive ? AppSize.sW25 : AppSize.sW8,
-                  height: AppSize.sH10,
+                  width: isActive ? AppSizes.sW25 : AppSizes.sW8,
+                  height: AppSizes.sH10,
                   margin: EdgeInsets.symmetric(horizontal: AppMargin.mW2),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(AppCircular.r5),
