@@ -63,6 +63,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/svg/
+    - assets/png/
     - assets/fonts/
     - assets/lottie/
     - assets/translations/
@@ -72,6 +73,7 @@ flutter_gen:
   line_length: 80
   integrations:
     lottie: true
+    image: true
     flutter_svg: true
   assets:
     enabled: true

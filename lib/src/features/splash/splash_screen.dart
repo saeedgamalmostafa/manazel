@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
+import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:manazel/src/features/login/imports.dart';
@@ -39,14 +40,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: AppColors.primary,
       height: 1.sh,
       width: 1.sw,
       child: Center(
-        child: AppAssets.svg.logo.svg(
-          height: 0.3.sh,
-          width: 0.3.sw,
-        ),
+        child: Image.asset(AppAssets.png.manazelWhiteLogoName.path),
       ),
     );
   }
