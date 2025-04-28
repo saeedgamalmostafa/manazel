@@ -106,6 +106,10 @@ class $AssetsSvgGen {
   /// File path: assets/svg/camera.svg
   SvgGenImage get camera => const SvgGenImage('assets/svg/camera.svg');
 
+  /// File path: assets/svg/location_pin.svg
+  SvgGenImage get locationPin =>
+      const SvgGenImage('assets/svg/location_pin.svg');
+
   /// File path: assets/svg/logo.svg
   SvgGenImage get logo => const SvgGenImage('assets/svg/logo.svg');
 
@@ -126,6 +130,7 @@ class $AssetsSvgGen {
     americaFlag,
     britishFlag,
     camera,
+    locationPin,
     logo,
     saudiCricularFlag,
     saudiSquareFlag,

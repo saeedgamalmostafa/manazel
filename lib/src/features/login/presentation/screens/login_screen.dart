@@ -5,7 +5,14 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      backgroundColor: AppColors.primary,
+      appBar: AppBar(
+        backgroundColor: AppColors.primary,
+        actions: const [
+          AuthLanguageStatusButton(),
+        ],
+      ),
       body: LoginBody(),
     );
   }

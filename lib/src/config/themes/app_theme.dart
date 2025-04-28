@@ -8,80 +8,224 @@ import '../res/color_manager.dart';
 class AppTheme {
   static ThemeData get light {
     return ThemeData(
-      primarySwatch: AppColors.primary.toMaterialColor(),
-      primaryColor: AppColors.primary,
-      useMaterial3: true,
-      bottomSheetTheme: const BottomSheetThemeData(
-        modalBackgroundColor: AppColors.white,
-        surfaceTintColor: Colors.transparent,
-      ),
-      scaffoldBackgroundColor: AppColors.scaffoldBackground,
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: AppColors.white,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.grey,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        type: BottomNavigationBarType.fixed,
-      ),
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: AppPadding.pW4),
-          foregroundColor: AppColors.primary,
-          minimumSize: Size(AppSizes.sW30, AppSizes.sH30),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppSizes.sH0),
+        useMaterial3: true,
+        primaryColor: AppColors.primary,
+        colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primaryContainer: AppColors.white,
+          primary: AppColors.primary,
+          onPrimary: AppColors.primary,
+          secondary: AppColors.primary.withValues(alpha: 0.1),
+          onSecondary: AppColors.primary.withValues(alpha: 0.1),
+          error: AppColors.error,
+          onError: AppColors.error,
+          surface: AppColors.white,
+          onSurface: AppColors.black,
+        ),
+        switchTheme: SwitchThemeData(
+          thumbColor: WidgetStateProperty.all(AppColors.white),
+          overlayColor: WidgetStateProperty.resolveWith<Color>(
+            (Set<WidgetState> states) {
+              if (states.contains(WidgetState.disabled)) {
+                return AppColors.grey; // Change to the desired border color
+              }
+              return AppColors
+                  .grey; // No border color when not in the inactive state
+            },
           ),
         ),
-      ),
-      dialogTheme: const DialogTheme(
-        surfaceTintColor: Colors.transparent,
-      ),
-      textSelectionTheme: TextSelectionThemeData(
-        cursorColor: AppColors.primary,
-        selectionColor: AppColors.primary.withOpacity(0.2),
-        selectionHandleColor: AppColors.primary,
-      ),
-      appBarTheme: const AppBarTheme(
-        foregroundColor: AppColors.white,
-      ),
-      iconTheme: const IconThemeData(
-        color: AppColors.white,
-      ),
-      inputDecorationTheme: const InputDecorationTheme(
-        prefixIconColor: AppColors.border,
-      ),
-      textTheme: GoogleFonts.poppinsTextTheme(
-        TextTheme(
-          // This Style For AppBar Text
+        dialogTheme: DialogTheme(
+            backgroundColor: AppColors.white,
+            surfaceTintColor: AppColors.white,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(AppRadius.bR15))),
+        tabBarTheme: const TabBarTheme(
+          mouseCursor: WidgetStatePropertyAll(MouseCursor.defer),
+          tabAlignment: TabAlignment.fill,
+          unselectedLabelColor: AppColors.grey,
+          indicatorSize: TabBarIndicatorSize.tab,
+          labelPadding: EdgeInsets.zero,
+          indicatorColor: AppColors.primary,
+          labelColor: AppColors.black,
+        ),
+        checkboxTheme: const CheckboxThemeData(
+          visualDensity: VisualDensity.compact,
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          mouseCursor: WidgetStatePropertyAll(MouseCursor.uncontrolled),
+        ),
+        // visualDensity: VisualDensity.compact,
+        fontFamily: 'Tajawal',
+        menuButtonTheme: const MenuButtonThemeData(
+            style: ButtonStyle(
+                side: WidgetStatePropertyAll(
+                    BorderSide(color: AppColors.primary)))),
+        dropdownMenuTheme: const DropdownMenuThemeData(
+            inputDecorationTheme: InputDecorationTheme(
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(color: AppColors.primary))),
+            menuStyle: MenuStyle(
+                shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                    side: BorderSide(color: AppColors.primary))))),
+        textTheme: TextTheme(
           headlineLarge: TextStyle(
-            fontSize: FontSize.s18,
-            color: AppColors.secondary,
-            fontWeight: FontWeightManager.medium,
+              color: AppColors.primary,
+              fontSize: AppRadius.bR24,
+              fontWeight: FontWeight.w700,
+              fontFamily: 'Tajawal'),
+          headlineMedium: TextStyle(
+              color: AppColors.primary,
+              fontSize: AppRadius.bR20,
+              fontWeight: FontWeight.w700,
+              fontFamily: 'Tajawal'),
+          headlineSmall: TextStyle(
+            color: AppColors.primary,
+            fontFamily: 'Tajawal',
+            fontSize: AppRadius.bR18,
+            fontWeight: FontWeight.w700,
           ),
-          // This Style For Normal Text With PrimaryColor
           titleLarge: TextStyle(
-            fontSize: FontSize.s13,
-            color: AppColors.primary,
-          ),
-          // This Style For Normal Text With SecondryColor
+              color: AppColors.grey,
+              fontSize: AppRadius.bR16,
+              fontWeight: FontWeight.w700,
+              fontFamily: 'Tajawal'),
           titleMedium: TextStyle(
-            fontSize: FontSize.s13,
-            color: AppColors.primary,
-          ),
-          // This Style For Normal Text With ThirdColor
+              color: AppColors.grey,
+              fontSize: AppRadius.bR14,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'Tajawal'),
           titleSmall: TextStyle(
-            fontSize: FontSize.s13,
-            color: AppColors.primary,
-          ),
-          // This Style For Hint Text
+              color: AppColors.black,
+              fontSize: AppRadius.bR12,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'Tajawal'),
+          bodyLarge: TextStyle(
+              color: AppColors.grey,
+              fontSize: AppRadius.bR10,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'Tajawal'),
+          bodyMedium: TextStyle(
+              color: AppColors.grey,
+              fontSize: AppRadius.bR8,
+              fontWeight: FontWeight.w600,
+              fontFamily: 'Tajawal'),
           bodySmall: TextStyle(
-            fontSize: FontSize.s8,
-            color: AppColors.hintText,
-          ),
+              color: AppColors.grey,
+              fontSize: AppRadius.bR6,
+              fontWeight: FontWeight.w600,
+              fontFamily: 'Tajawal'),
         ),
-      ),
-    );
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppRadius.bR48),
+          ),
+          backgroundColor: AppColors.primary,
+          iconSize: AppRadius.bR25,
+          enableFeedback: true,
+        ),
+        indicatorColor: AppColors.primary.withValues(alpha: 0.5),
+        bottomSheetTheme:
+            const BottomSheetThemeData(backgroundColor: Colors.white),
+
+        /// TODO :Dnd4: implement appbar theme.
+        appBarTheme: AppBarTheme(
+          color: AppColors.white,
+          foregroundColor: AppColors.white,
+          surfaceTintColor: AppColors.primary,
+          // systemOverlayStyle: SystemUiOverlayStyle(
+          //   statusBarColor: AppColors.transparent,
+          //   statusBarIconBrightness: Brightness.dark,
+          // ),
+          iconTheme: const IconThemeData(
+            size: 20.0,
+            color: AppColors.black,
+          ),
+          centerTitle: true,
+
+          titleTextStyle: TextStyle(
+              fontSize: AppSizes.sH20,
+              color: AppColors.grey,
+              fontWeight: FontWeight.w600,
+              fontFamily: 'Tajawal'),
+          // titleSpacing: 32,
+          elevation: 0.0,
+        ),
+
+        // iconTheme: IconThemeData(color: AppColors.white),
+        bottomAppBarTheme: BottomAppBarTheme(
+            color: AppColors.white,
+            height: AppSizes.sH75,
+            surfaceTintColor: AppColors.white),
+        textButtonTheme: const TextButtonThemeData(
+            style:
+                ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.zero))),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ButtonStyle(
+                // minimumSize: WidgetStatePropertyAll(
+                //     Size(AppSizes.screenWidth, AppSizes.sH45)),
+                backgroundColor:
+                    const WidgetStatePropertyAll(AppColors.primary),
+                shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(AppRadius.bR25))))),
+        // iconButtonTheme: IconButtonThemeData(
+        //     style: ButtonStyle(
+        //         minimumSize: WidgetStatePropertyAll(
+        //             Size(AppSizes.sW45, AppSizes.sH45)),
+        //         backgroundColor: WidgetStatePropertyAll(AppColors.primary),
+        //         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+        //             borderRadius: BorderRadius.circular(AppRadius.bR25))))),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+            style: ButtonStyle(
+                // minimumSize: WidgetStatePropertyAll(
+                //     Size(AppSizes.screenWidth, AppSizes.sH45)),
+                backgroundColor:
+                    const WidgetStatePropertyAll(AppColors.primary),
+                shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(AppRadius.bR25))))),
+        inputDecorationTheme: InputDecorationTheme(
+          isCollapsed: false,
+          activeIndicatorBorder: BorderSide.none,
+          labelStyle: TextStyle(
+              color: AppColors.grey,
+              fontSize: AppRadius.bR12,
+              fontWeight: FontWeight.w600,
+              fontFamily: 'Tajawal'),
+          hintStyle: TextStyle(
+              color: AppColors.grey,
+              fontSize: AppRadius.bR12,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Tajawal'),
+          contentPadding: EdgeInsets.symmetric(
+              vertical: AppRadius.bR10, horizontal: AppSizes.sW16),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(0),
+              borderSide: BorderSide(
+                  color: AppColors.grey.withValues(alpha: 0.2),
+                  width: AppRadius.bR2_5 / 2)),
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(0),
+              borderSide: BorderSide(
+                  color: AppColors.error, width: AppRadius.bR2_5 / 2)),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(0),
+              borderSide: BorderSide(
+                  color: AppColors.grey, width: AppRadius.bR2_5 / 2)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(0),
+              borderSide: BorderSide(
+                  color: AppColors.primary, width: AppRadius.bR2_5 / 2)),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(0),
+            borderSide:
+                BorderSide(color: AppColors.grey, width: AppRadius.bR2_5 / 2),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(0),
+            borderSide:
+                BorderSide(color: AppColors.error, width: AppRadius.bR2_5 / 2),
+          ),
+          outlineBorder:
+              BorderSide(color: AppColors.grey, width: AppRadius.bR2_5 / 2),
+        ));
   }
 
   static ThemeData get dark {

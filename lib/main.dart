@@ -44,9 +44,10 @@ void main() async {
   }
   runApp(
     EasyLocalization(
-      supportedLocales: Languages.suppoerLocales,
+      supportedLocales: Languages.supportedLocales,
       path: 'assets/translations',
       saveLocale: true,
+      startLocale: Languages.arabic.locale,
       fallbackLocale: const Locale('ar'),
       child: const App(),
     ),

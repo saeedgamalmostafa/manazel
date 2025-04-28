@@ -7,7 +7,7 @@ class LoginBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AppAssets.svg.saudiCricularFlag.svg()
+
       ],
     );
   }

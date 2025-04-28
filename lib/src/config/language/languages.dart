@@ -17,7 +17,7 @@ enum Languages {
     this.languageCode,
   );
 
-  static List<Locale> get suppoerLocales =>
+  static List<Locale> get supportedLocales =>
       Languages.values.map((e) => e.locale).toList();
 
   static List<String> get titles =>
