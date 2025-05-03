@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/core/extensions/material_color_extension.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +9,7 @@ import '../res/color_manager.dart';
 class AppTheme {
   static ThemeData get light {
     return ThemeData(
+        fontFamilyFallback: const ["Alexandria"],
         useMaterial3: true,
         primaryColor: AppColors.primary,
         colorScheme: ColorScheme(
@@ -54,7 +56,7 @@ class AppTheme {
           mouseCursor: WidgetStatePropertyAll(MouseCursor.uncontrolled),
         ),
         // visualDensity: VisualDensity.compact,
-        fontFamily: 'Tajawal',
+        fontFamily: 'Alexandria',
         menuButtonTheme: const MenuButtonThemeData(
             style: ButtonStyle(
                 side: WidgetStatePropertyAll(
@@ -71,48 +73,48 @@ class AppTheme {
               color: AppColors.primary,
               fontSize: AppRadius.bR24,
               fontWeight: FontWeight.w700,
-              fontFamily: 'Tajawal'),
+              fontFamily: 'Alexandria'),
           headlineMedium: TextStyle(
               color: AppColors.primary,
               fontSize: AppRadius.bR20,
               fontWeight: FontWeight.w700,
-              fontFamily: 'Tajawal'),
+              fontFamily: 'Alexandria'),
           headlineSmall: TextStyle(
             color: AppColors.primary,
-            fontFamily: 'Tajawal',
+            fontFamily: 'Alexandria',
             fontSize: AppRadius.bR18,
             fontWeight: FontWeight.w700,
           ),
           titleLarge: TextStyle(
-              color: AppColors.grey,
+              color: AppColors.black,
               fontSize: AppRadius.bR16,
               fontWeight: FontWeight.w700,
-              fontFamily: 'Tajawal'),
+              fontFamily: 'Alexandria'),
           titleMedium: TextStyle(
-              color: AppColors.grey,
+              color: AppColors.black,
               fontSize: AppRadius.bR14,
               fontWeight: FontWeight.w500,
-              fontFamily: 'Tajawal'),
+              fontFamily: 'Alexandria'),
           titleSmall: TextStyle(
               color: AppColors.black,
               fontSize: AppRadius.bR12,
               fontWeight: FontWeight.w500,
-              fontFamily: 'Tajawal'),
+              fontFamily: 'Alexandria'),
           bodyLarge: TextStyle(
               color: AppColors.grey,
               fontSize: AppRadius.bR10,
               fontWeight: FontWeight.w500,
-              fontFamily: 'Tajawal'),
+              fontFamily: 'Alexandria'),
           bodyMedium: TextStyle(
               color: AppColors.grey,
               fontSize: AppRadius.bR8,
               fontWeight: FontWeight.w600,
-              fontFamily: 'Tajawal'),
+              fontFamily: 'Alexandria'),
           bodySmall: TextStyle(
               color: AppColors.grey,
               fontSize: AppRadius.bR6,
               fontWeight: FontWeight.w600,
-              fontFamily: 'Tajawal'),
+              fontFamily: 'Alexandria'),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           shape: RoundedRectangleBorder(
@@ -145,7 +147,7 @@ class AppTheme {
               fontSize: AppSizes.sH20,
               color: AppColors.grey,
               fontWeight: FontWeight.w600,
-              fontFamily: 'Tajawal'),
+              fontFamily: 'Alexandria'),
           // titleSpacing: 32,
           elevation: 0.0,
         ),
@@ -164,8 +166,9 @@ class AppTheme {
                 //     Size(AppSizes.screenWidth, AppSizes.sH45)),
                 backgroundColor:
                     const WidgetStatePropertyAll(AppColors.primary),
+                minimumSize: WidgetStatePropertyAll(Size(323.w, 54.h)),
                 shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(AppRadius.bR25))))),
+                    borderRadius: BorderRadius.circular(AppRadius.bR8))))),
         // iconButtonTheme: IconButtonThemeData(
         //     style: ButtonStyle(
         //         minimumSize: WidgetStatePropertyAll(
@@ -175,12 +178,14 @@ class AppTheme {
         //             borderRadius: BorderRadius.circular(AppRadius.bR25))))),
         outlinedButtonTheme: OutlinedButtonThemeData(
             style: ButtonStyle(
-                // minimumSize: WidgetStatePropertyAll(
-                //     Size(AppSizes.screenWidth, AppSizes.sH45)),
-                backgroundColor:
-                    const WidgetStatePropertyAll(AppColors.primary),
+                backgroundColor: const WidgetStatePropertyAll(AppColors.white),
+                minimumSize: WidgetStatePropertyAll(Size(323.w, 54.h)),
+                side: const WidgetStatePropertyAll(
+                    BorderSide(color: AppColors.primary)),
                 shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(AppRadius.bR25))))),
+                  side: const BorderSide(color: AppColors.primary),
+                  borderRadius: BorderRadius.circular(AppRadius.bR8),
+                )))),
         inputDecorationTheme: InputDecorationTheme(
           isCollapsed: false,
           activeIndicatorBorder: BorderSide.none,
@@ -188,38 +193,38 @@ class AppTheme {
               color: AppColors.grey,
               fontSize: AppRadius.bR12,
               fontWeight: FontWeight.w600,
-              fontFamily: 'Tajawal'),
+              fontFamily: 'Alexandria'),
           hintStyle: TextStyle(
               color: AppColors.grey,
               fontSize: AppRadius.bR12,
               fontWeight: FontWeight.w400,
-              fontFamily: 'Tajawal'),
+              fontFamily: 'Alexandria'),
           contentPadding: EdgeInsets.symmetric(
               vertical: AppRadius.bR10, horizontal: AppSizes.sW16),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(0),
+              borderRadius: BorderRadius.circular(AppRadius.bR8),
               borderSide: BorderSide(
-                  color: AppColors.grey.withValues(alpha: 0.2),
+                  color: AppColors.grey.withValues(alpha: 0.35),
                   width: AppRadius.bR2_5 / 2)),
           errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(0),
+              borderRadius: BorderRadius.circular(AppRadius.bR8),
               borderSide: BorderSide(
                   color: AppColors.error, width: AppRadius.bR2_5 / 2)),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(0),
+              borderRadius: BorderRadius.circular(AppRadius.bR8),
               borderSide: BorderSide(
                   color: AppColors.grey, width: AppRadius.bR2_5 / 2)),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(0),
+              borderRadius: BorderRadius.circular(AppRadius.bR8),
               borderSide: BorderSide(
                   color: AppColors.primary, width: AppRadius.bR2_5 / 2)),
           disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(0),
+            borderRadius: BorderRadius.circular(AppRadius.bR8),
             borderSide:
                 BorderSide(color: AppColors.grey, width: AppRadius.bR2_5 / 2),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(0),
+            borderRadius: BorderRadius.circular(AppRadius.bR8),
             borderSide:
                 BorderSide(color: AppColors.error, width: AppRadius.bR2_5 / 2),
           ),
@@ -269,7 +274,7 @@ class AppTheme {
       inputDecorationTheme: const InputDecorationTheme(
         prefixIconColor: AppColorsWithDarkMode.border,
       ),
-      textTheme: GoogleFonts.poppinsTextTheme(
+      textTheme: GoogleFonts.alexandriaTextTheme(
         TextTheme(
           // This Style For AppBar Text
           headlineLarge: TextStyle(

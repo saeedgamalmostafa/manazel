@@ -6,11 +6,11 @@ class AppColors {
   static const Color third = Color(0xFF7EA259);
   static const Color white = Color(0xffFFFFFF);
   static const Color black = Color(0xFF1F201F);
-  static const Color grey = Color(0xFF5B5B5B);
+  static const Color grey = Colors.grey;
   static const Color whiteGrey = Color(0xFF5B5B5B);
   static const Color hintText = Color(0xFF5B5B5B);
   static const Color shadow = Color(0xFF5B5B5B);
-  static const Color border = Color(0xFF5B5B5B);
+  static const Color borderColor = Color(0xFFDADADA);
   static const Color scaffoldBackground = Color(0xffFFFFFF);
   static const Color buttonText = Color(0xffFFFFFF);
   static const Color error = Colors.red;

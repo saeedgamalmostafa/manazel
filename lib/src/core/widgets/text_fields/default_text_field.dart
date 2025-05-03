@@ -152,7 +152,7 @@ class _DefaultTextFieldState extends State<DefaultTextField> {
           borderRadius: BorderRadius.circular(AppCircular.r10),
           borderSide: widget.hasBorderColor == true
               ? BorderSide(
-                  color: widget.borderColor ?? AppColors.border,
+                  color: widget.borderColor ?? AppColors.borderColor,
                 )
               : BorderSide.none,
         ),

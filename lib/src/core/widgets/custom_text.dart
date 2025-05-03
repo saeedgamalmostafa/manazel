@@ -4,13 +4,13 @@ import 'package:manazel/src/core/navigation/navigator.dart';
 class CustomText extends StatelessWidget {
   const CustomText(
       this.text, {
-        Key? key,
+        super.key,
         required this.textStyle,
         this.textAlign,
         this.textDirection,
         this.overflow,
         this.maxLines,
-      }) : super(key: key);
+      });
 
   CustomText.headlineLarge(
       String text, {

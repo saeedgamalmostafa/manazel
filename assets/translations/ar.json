@@ -3,7 +3,7 @@
   "sign_in": "تسجيل الدخول",
   "welcome": "مرحباََ",
   "please_enter_the_code_sent_to": "يرجى إدخال الرمز المرسل لـ",
-  "register": "تسجيل",
+  "register": "إنشاء حساب",
   "home": "الشاشة الرئيسية",
   "product": "المنتج",
   "category": "الفئة",
@@ -75,5 +75,10 @@
   "confirm_password": "تأكيد كلمة المرور",
   "do_not_have_an_account": "ليس لديك حساب؟",
   "create_account": "انشاء حساب",
-  "confirm": "تأكيد"
+  "confirm": "تأكيد",
+  "enter_phone_number": "أدخل رقم جوالك",
+  "login": "تسجيل الدخول",
+  "plz_enter_login_data": "برجاء إدخال بياناتك المسجلة لدينا",
+  "arabic": "العربية",
+  "english": "الإنجليزية"
 }

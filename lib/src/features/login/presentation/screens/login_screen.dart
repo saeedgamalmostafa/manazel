@@ -1,4 +1,4 @@
-part of '../../imports.dart';
+part of '../../login_imports.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

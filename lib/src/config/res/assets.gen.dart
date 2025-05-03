@@ -38,6 +38,10 @@ class $AssetsLottieGen {
   LottieGenImage get logout =>
       const LottieGenImage('assets/lottie/logout.json');
 
+  /// File path: assets/lottie/manazel_logo.json
+  LottieGenImage get manazelLogo =>
+      const LottieGenImage('assets/lottie/manazel_logo.json');
+
   /// File path: assets/lottie/no_data.json
   LottieGenImage get noData =>
       const LottieGenImage('assets/lottie/no_data.json');
@@ -62,6 +66,7 @@ class $AssetsLottieGen {
     emptyCart,
     error,
     logout,
+    manazelLogo,
     noData,
     noInternet,
     success,

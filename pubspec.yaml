@@ -68,6 +68,20 @@ flutter:
     - assets/lottie/
     - assets/translations/
 
+  fonts:
+    - family: Alexandria
+      fonts:
+        - asset: assets/fonts/Alexandria-Black.ttf
+        - asset: assets/fonts/Alexandria-Medium.ttf
+        - asset: assets/fonts/Alexandria-Bold.ttf
+        - asset: assets/fonts/Alexandria-ExtraBold.ttf
+        - asset: assets/fonts/Alexandria-ExtraLight.ttf
+        - asset: assets/fonts/Alexandria-Light.ttf
+        - asset: assets/fonts/Alexandria-Medium.ttf
+        - asset: assets/fonts/Alexandria-Regular.ttf
+        - asset: assets/fonts/Alexandria-SemiBold.ttf
+
+
 flutter_gen:
   output: lib/src/config/res/
   line_length: 80
@@ -79,5 +93,8 @@ flutter_gen:
     enabled: true
     outputs:
       class_name: AppAssets
+
+
+
 
 

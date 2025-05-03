@@ -5,8 +5,8 @@ import 'package:manazel/src/core/widgets/custom_text.dart';
 
 import '../../../config/res/color_manager.dart';
 
-class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton({
+class CustomOutlinedButton extends StatelessWidget {
+  const CustomOutlinedButton({
     super.key,
     required this.onPressed,
     required this.text,
@@ -27,9 +27,9 @@ class CustomElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return OutlinedButton(
       onPressed: onPressed,
-      style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
+      style: Theme.of(context).outlinedButtonTheme.style?.copyWith(
           minimumSize:
               WidgetStatePropertyAll(Size(width ?? double.infinity, 54.h)),
           backgroundColor: WidgetStatePropertyAll(backgroundColor),
@@ -40,7 +40,7 @@ class CustomElevatedButton extends StatelessWidget {
       child: CustomText.titleSmall(text,
           textStyle: textStyle ??
               Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: AppColors.white, fontWeight: FontWeight.w500)),
+                  color: AppColors.primary, fontWeight: FontWeight.w500)),
     );
   }
 }

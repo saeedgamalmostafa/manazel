@@ -169,9 +169,9 @@ class DefaultDropDownField<T> extends StatelessWidget {
                     contentPadding:
                         EdgeInsets.symmetric(horizontal: 10.w, vertical: 14.h),
                     hintText: hint,
-                    hintStyle: const TextStyle(color: AppColors.border),
+                    hintStyle: const TextStyle(color: AppColors.borderColor),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: AppColors.border),
+                      borderSide: const BorderSide(color: AppColors.borderColor),
                       borderRadius: borderRadius ?? BorderRadius.circular(24),
                     ),
                     focusedBorder: OutlineInputBorder(
