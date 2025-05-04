@@ -47,51 +47,54 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return //Directionality(textDirection: TextDirection.ltr,
-        TextFormField(
-      focusNode: focusNode,
-      controller: controller,
-      onChanged: onChanged,
-      validator: validator,
-      textInputAction: textInputAction ?? TextInputAction.done,
-      textAlignVertical: TextAlignVertical.center,
-      cursorOpacityAnimates: true,
-      onTapOutside: (event) => FocusScope.of(context).unfocus(),
-      obscureText: obscureText,
-      style: style ??
-          Theme.of(context)
-              .textTheme
-              .bodyLarge
-              ?.copyWith(color: AppColors.black, fontSize: AppSizes.sW16),
-      keyboardType: textInputType ?? TextInputType.name,
-      decoration: inputDecoration ??
-          InputDecoration(
-            enabledBorder: enabledBorder ??
-                OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(AppRadius.bR8),
-                    borderSide: BorderSide(
-                        color: AppColors.grey.withValues(alpha: 0.35),
-                        width: AppRadius.bR2_5 / 2)),
-            contentPadding: EdgeInsets.symmetric(
-                vertical: AppRadius.bR15, horizontal: AppRadius.bR10),
-            fillColor: fillColor ?? AppColors.white,
-            filled: true,
-            hintStyle: Theme.of(context)
+        Padding(
+          padding: EdgeInsets.only(top: AppSizes.sW8),
+          child: TextFormField(
+                focusNode: focusNode,
+                controller: controller,
+                onChanged: onChanged,
+                validator: validator,
+                textInputAction: textInputAction ?? TextInputAction.done,
+                textAlignVertical: TextAlignVertical.center,
+                cursorOpacityAnimates: true,
+                onTapOutside: (event) => FocusScope.of(context).unfocus(),
+                obscureText: obscureText,
+                style: style ??
+            Theme.of(context)
                 .textTheme
-                .titleSmall!
-                .copyWith(color: AppColors.grey),
-            labelStyle: Theme.of(context)
-                .textTheme
-                .titleMedium!
-                .copyWith(color: AppColors.primary),
-            hintText: hintText,
-            labelText: labelText,
-            suffixIcon: suffixIcon,
-            prefixIcon: prefixIcon,
-          ),
-      onTap: onTap,
-      readOnly: readOnly,
-      maxLines: maxLines ?? 1,
-      //  ),
-    );
+                .bodyLarge
+                ?.copyWith(color: AppColors.black, fontSize: AppSizes.sW16),
+                keyboardType: textInputType ?? TextInputType.name,
+                decoration: inputDecoration ??
+            InputDecoration(
+              enabledBorder: enabledBorder ??
+                  OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(AppRadius.bR8),
+                      borderSide: BorderSide(
+                          color: AppColors.grey.withValues(alpha: 0.35),
+                          width: AppRadius.bR2_5 / 2)),
+              contentPadding: EdgeInsets.symmetric(
+                  vertical: AppRadius.bR15, horizontal: AppRadius.bR10),
+              fillColor: fillColor ?? AppColors.white,
+              filled: true,
+              hintStyle: Theme.of(context)
+                  .textTheme
+                  .titleSmall!
+                  .copyWith(color: AppColors.grey),
+              labelStyle: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(color: AppColors.primary),
+              hintText: hintText,
+              labelText: labelText,
+              suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
+            ),
+                onTap: onTap,
+                readOnly: readOnly,
+                maxLines: maxLines ?? 1,
+                //  ),
+              ),
+        );
   }
 }

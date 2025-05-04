@@ -11,7 +11,9 @@ class LoginActions extends StatelessWidget {
         children: [
           CustomElevatedButton(onPressed: () {}, text: LocaleKeys.login.tr()),
           SizedBox(height: AppSizes.sH12),
-          CustomOutlinedButton(onPressed: () {}, text: LocaleKeys.register.tr())
+          CustomOutlinedButton(onPressed: () {
+            Go.to(const RegisterScreen() );
+          }, text: LocaleKeys.register.tr())
         ],
       ),
     );

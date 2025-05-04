@@ -6,6 +6,7 @@ import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:manazel/src/features/login/login_imports.dart';
+import 'package:manazel/src/features/register/register_imports.dart';
 
 import '../../core/navigation/navigator.dart';
 

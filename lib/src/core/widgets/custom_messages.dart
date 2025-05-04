@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/constants_manager.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-
+//import 'package:fluttertoast/fluttertoast.dart';
 import '../../config/res/color_manager.dart';
 import '../navigation/navigator.dart';
 
@@ -32,13 +31,13 @@ class MessageUtils {
     Color? color,
     Color? textColor,
   }) {
-    Fluttertoast.showToast(
-      msg: msg,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-      backgroundColor: color ?? AppColors.primary,
-      textColor: textColor ?? AppColors.white,
-      fontSize: FontSize.s16,
-    );
+    // Fluttertoast.showToast(
+    //   msg: msg,
+    //   toastLength: Toast.LENGTH_SHORT,
+    //   gravity: ToastGravity.BOTTOM,
+    //   backgroundColor: color ?? AppColors.primary,
+    //   textColor: textColor ?? AppColors.white,
+    //   fontSize: FontSize.s16,
+   // );
   }
 }
