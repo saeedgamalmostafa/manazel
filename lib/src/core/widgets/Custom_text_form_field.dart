@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
 
@@ -46,8 +47,7 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return //Directionality(textDirection: TextDirection.ltr,
-        TextFormField(
+    return TextFormField(
       focusNode: focusNode,
       controller: controller,
       onChanged: onChanged,

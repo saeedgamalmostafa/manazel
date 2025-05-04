@@ -187,7 +187,12 @@ class AppTheme {
                   borderRadius: BorderRadius.circular(AppRadius.bR8),
                 )))),
         inputDecorationTheme: InputDecorationTheme(
-          isCollapsed: false,
+          isCollapsed: true,
+          isDense: true,
+          constraints: BoxConstraints(
+            minHeight: 54.h,
+            maxHeight: 54.h,
+          ),
           activeIndicatorBorder: BorderSide.none,
           labelStyle: TextStyle(
               color: AppColors.grey,

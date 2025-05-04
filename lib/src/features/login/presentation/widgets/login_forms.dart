@@ -8,19 +8,15 @@ class LoginForms extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
           top: AppSizes.sH32, left: AppSizes.sW16, right: AppSizes.sW16,bottom: 34.h),
-      child: Column(
+      child: Row(
         children: [
-          Row(
-            children: [
-              Expanded(
-                  child: CustomTextFormField(
-                textInputType: TextInputType.number,
-                textInputAction: TextInputAction.done,
-                hintText: LocaleKeys.enterPhoneNumber.tr(),
-              )),
-              const CustomCountyDropDown(),
-            ],
-          ),
+          Expanded(
+              child: CustomTextFormField(
+            textInputType: TextInputType.number,
+            textInputAction: TextInputAction.done,
+            hintText: LocaleKeys.enterPhoneNumber.tr(),
+          )),
+          const CustomCountyDropDown(),
         ],
       ),
     );

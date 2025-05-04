@@ -18,16 +18,19 @@ class LoginBody extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(AppRadius.bR50),
                     topRight: Radius.circular(AppRadius.bR50))),
-            child: Column(
-              children: [
-                AuthTitledHeader(
-                    title: Languages.currentLanguage.locale == const Locale("ar")
-                        ? "مرحبا بعودتك\u{1F44B}!"
-                        : "Welcome Back\u{1F44B}!",
-                    description: LocaleKeys.plzEnterLoginData.tr()),
-                const LoginForms(),
-                const LoginActions(),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  AuthTitledHeader(
+                      title:
+                          Languages.currentLanguage.locale == const Locale("ar")
+                              ? "مرحبا بعودتك\u{1F44B}!"
+                              : "Welcome Back\u{1F44B}!",
+                      description: LocaleKeys.plzEnterLoginData.tr()),
+                  const LoginForms(),
+                  const LoginActions(),
+                ],
+              ),
             ),
           ),
         )
