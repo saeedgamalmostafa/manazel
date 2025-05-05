@@ -3,6 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
+import 'package:manazel/src/core/navigation/constants/imports_constants.dart';
 import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:manazel/src/features/login/login_imports.dart';
@@ -82,7 +83,7 @@ class _SplashScreenState extends State<SplashScreen>
     // Listen for animation completion
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Go.offAll(const LoginScreen());
+        Go.offAll(const LoginScreen(), transition: TransitionType.slide);
       }
     });
 
