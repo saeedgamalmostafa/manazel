@@ -13,20 +13,16 @@ class CustomBottomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-        padding: const EdgeInsets.all(0.0),
-        child: Container(
-            color: AppColors.white,
-            width: double.infinity,
-            height: 105.h,
-          child: CustomElevatedButton(onPressed: () {},
-              text: LocaleKeys.confirm.tr()),
-          padding: EdgeInsets.all(40),
-
-
-
-          ),
-
+    return Padding(
+      padding: const EdgeInsets.all(0.0),
+      child: Container(
+        color: AppColors.white,
+        width: double.infinity,
+        height: 105.h,
+        child: CustomElevatedButton(
+            onPressed: () {}, text: LocaleKeys.confirm.tr()),
+        padding: EdgeInsets.all(40),
+      ),
     );
   }
 }
