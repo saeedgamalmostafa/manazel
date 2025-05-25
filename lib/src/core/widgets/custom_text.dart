@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:manazel/src/core/navigation/navigator.dart';
+ 
+import 'package:manazel/src/core/navigator/app_navigator.dart';
 
 class CustomText extends StatelessWidget {
   const CustomText(

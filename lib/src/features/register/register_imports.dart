@@ -16,6 +16,8 @@ import 'package:manazel/src/core/widgets/custom_text.dart';
 import 'package:manazel/src/core/widgets/text_fields/pin_text_field.dart';
 import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 
+import '../../core/widgets/custom_back_button.dart';
+
 part 'presentation/screens/register_screen.dart';
 part 'presentation/widgets/register_body.dart';
 part 'presentation/widgets/register_actions.dart';

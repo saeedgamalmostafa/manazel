@@ -1,12 +1,12 @@
 part of '../imports/data_imports.dart';
 
 abstract class HomeRemoteDataSource {
-  Future<BaseModel<List<PlayerModel>>> fetchPlayers([String? searchQuery]);
+  Future<BaseModel<List<UserModel>>> fetchPlayers([String? searchQuery]);
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   @override
-  Future<BaseModel<List<PlayerModel>>> fetchPlayers(
+  Future<BaseModel<List<UserModel>>> fetchPlayers(
       [String? searchQuery]) async {
     final NetworkRequest networkRequest = NetworkRequest(
       path: ApiConstants.players,
@@ -15,7 +15,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     );
     return await sl<NetworkService>().callApi(networkRequest,
         mapper: ((json) => (json as List)
-            .map((e) => PlayerModel.fromJson(e as Map<String, dynamic>))
+            .map((e) => UserModel.fromJson(e as Map<String, dynamic>))
             .toList()));
   }
 }

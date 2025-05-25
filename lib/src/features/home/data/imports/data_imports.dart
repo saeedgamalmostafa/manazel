@@ -10,5 +10,5 @@ import '../../../../core/network/network_service.dart';
 import '../../domain/imports/domain_imports.dart';
 
 part '../data_sources/home_remote_data_source.dart';
-part '../models/player_model.dart';
+part '../models/user_model.dart';
 part '../repositories/home_repository.dart';

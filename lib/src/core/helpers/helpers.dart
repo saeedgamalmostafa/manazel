@@ -8,7 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../config/language/locale_keys.g.dart';
-import '../navigation/navigator.dart';
+import '../navigator/app_navigator.dart';
 
 class Helpers {
   static Future<File?> getImage() async {
@@ -50,7 +50,7 @@ class Helpers {
                     if (currentImage != null) {
                       image = File(currentImage.path);
                     }
-                    Go.back();
+                    Go.pop();
                   },
                 ),
                 ListTile(
@@ -62,7 +62,7 @@ class Helpers {
                     if (currentImage != null) {
                       image = File(currentImage.path);
                     }
-                    Go.back();
+                    Go.pop();
                   },
                 ),
               ],

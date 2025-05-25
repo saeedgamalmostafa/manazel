@@ -3,13 +3,13 @@ import 'package:intl/intl.dart';
 
 import '../../config/language/languages.dart';
 import '../../config/res/color_manager.dart';
-import '../navigation/navigator.dart';
+import '../navigator/app_navigator.dart';
 
 Future<DateTime?> showCustomDatePicker(
     {required TextEditingController controller, String? dateFormat}) async {
   DateTime? pickedDate = await showDatePicker(
     locale: Languages.currentLanguage.locale,
-    context: Go.context,
+    context: Go.navigatorKey.currentContext!,
     initialDate: DateTime.now(),
     firstDate: DateTime.now(),
     initialEntryMode: DatePickerEntryMode.calendarOnly,

@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
           AuthLanguageStatusButton(),
         ],
       ),
-      body: LoginBody(),
+      body: const LoginBody(),
     );
   }
 }

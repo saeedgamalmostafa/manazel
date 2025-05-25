@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/core/extensions/sized_box_helper.dart';
-import 'package:manazel/src/core/navigation/navigator.dart';
+ 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:manazel/src/core/navigator/app_navigator.dart';
 
 Future showDefaultBottomSheet({BuildContext? context, required Widget child}) {
   return showModalBottomSheet(
       isScrollControlled: true,
-      context: context ?? Go.context,
+      context: context ?? Go.navigatorKey.currentContext!,
       builder: (context) => DefaultSheetBody(
             child: child,
           ));

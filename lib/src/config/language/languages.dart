@@ -1,7 +1,7 @@
  import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/navigation/navigator.dart';
+import '../../core/navigator/app_navigator.dart';
 
 enum Languages {
   english(Locale('en'), 'English', "en"),

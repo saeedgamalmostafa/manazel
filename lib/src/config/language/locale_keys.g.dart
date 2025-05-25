@@ -360,4 +360,21 @@ abstract class LocaleKeys {
 
   static String get english => _english.tr();
 
+  static const String _more = 'more';
+
+  static String get more => _more.tr();
+
+  static const String _enterFullName = 'enter_full_name';
+
+  static String get enterFullName => _enterFullName.tr();
+
+  static const String _plzEnterYourData = 'plz_enter_your_data';
+
+  static String get plzEnterYourDataToRegister => _plzEnterYourData.tr();
+
+  static const String _enterYourEmail = 'enter_your_email';
+
+  static String get enterYourEmail => _enterYourEmail.tr();
+
+
 }

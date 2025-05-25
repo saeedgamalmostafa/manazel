@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
+import 'package:manazel/src/core/navigator/app_navigator.dart';
 
 import '../../../config/res/color_manager.dart';
-import '../../navigation/navigator.dart';
 
 class ButtonClose extends StatelessWidget {
   final VoidCallback? onTap;
@@ -12,7 +12,7 @@ class ButtonClose extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap ?? () => Go.back(),
+      onTap: onTap ?? () => Go.pop(),
       child: Container(
         height: AppSizes.sH25,
         width: AppSizes.sW25,

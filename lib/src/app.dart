@@ -9,8 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'config/themes/app_theme.dart';
 import 'core/helpers/loading_manager.dart';
-import 'core/navigation/navigator.dart';
-import 'core/navigation/route_generator.dart';
+import 'core/navigator/app_navigator.dart';
 import 'core/shared/cubits/user_cubit/user_cubit.dart';
 import 'core/shared/route_observer.dart';
 
@@ -33,7 +32,6 @@ class App extends StatelessWidget {
             supportedLocales: context.supportedLocales,
             locale: context.locale,
             navigatorKey: Go.navigatorKey,
-            onGenerateRoute: RouterGenerator.getRoute,
             home: const SplashScreen(),
             navigatorObservers: [AppNavigationObserver()],
             theme: AppTheme.light,

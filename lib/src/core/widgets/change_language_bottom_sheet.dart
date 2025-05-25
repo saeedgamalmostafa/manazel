@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:manazel/src/config/language/locale_keys.g.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
-import 'package:manazel/src/core/navigation/navigator.dart';
+ 
+import 'package:manazel/src/core/navigator/app_navigator.dart';
 import 'package:manazel/src/core/widgets/buttons/custom_elevated_button.dart';
 import 'package:manazel/src/core/widgets/custom_language_radio_list_tile.dart';
 
@@ -73,7 +74,7 @@ class _ModelSheetState extends State<_ModelSheet> {
                   if (_selectedLocale != null) {
                     context.setLocale(_selectedLocale!);
                   }
-                  Go.back(); // Close the bottom sheet
+                  Go.pop(); // Close the bottom sheet
                 },
                 text: LocaleKeys.confirm.tr(),
               ),

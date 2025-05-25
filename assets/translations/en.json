@@ -80,5 +80,9 @@
   "login": "Login",
   "plz_enter_login_data": "Please Enter Login Data",
   "arabic": "Arabic",
-  "english": "English"
+  "english": "English",
+  "more": "More",
+  "enter_full_name": "Enter Full Name",
+  "plz_enter_your_data": "Enter Your Data to Register",
+  "enter_your_email": "Enter Your Email (Optional)"
 }
