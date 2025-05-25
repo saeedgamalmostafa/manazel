@@ -1,33 +1,36 @@
 part of 'login_cubit.dart';
 
-sealed class LoginState extends Equatable {
-  const LoginState();
-}
+class LoginState extends Equatable {
+  final String phone;
+  final RequestState requestState;
+  final String error;
+  final User? user;
 
-final class LoginInitial extends LoginState {
+  const LoginState({
+    this.phone = '',
+    this.requestState = RequestState.initial,
+    this.error = '',
+    this.user,
+  });
+
+  LoginState copyWith({
+    String? phone,
+    RequestState? requestState,
+    String? error,
+    final User? user,
+  }) {
+    return LoginState(
+      phone: phone ?? this.phone,
+      requestState: requestState ?? this.requestState,
+      error: error ?? this.error,
+      user: user ?? this.user,
+    );
+  }
+
   @override
-  List<Object> get props => [];
-}
-
-final class LoginLoading extends LoginState {
-  @override
-  List<Object> get props => [];
-}
-
-final class LoginSuccess extends LoginState {
-  final User user;
-
-  const LoginSuccess(this.user);
-
-  @override
-  List<Object> get props => [];
-}
-
-final class LoginError extends LoginState {
-  final String message;
-
-  const LoginError(this.message);
-
-  @override
-  List<Object> get props => [];
+  List<Object?> get props => [
+        phone,
+        requestState,
+        user,
+      ];
 }

@@ -9,12 +9,13 @@ class LoginActions extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: AppSizes.sW16),
       child: Column(
         children: [
-          CustomElevatedButton(onPressed: () {}, text: LocaleKeys.login.tr()),
+          CustomElevatedButton(
+              onPressed: () => context.read<LoginCubit>().login(),
+              text: LocaleKeys.login.tr()),
           SizedBox(height: AppSizes.sH12),
           CustomOutlinedButton(
-              onPressed: () {
-                Go.push(const RegisterScreen());
-              },
+              onPressed: () => Go.push(const RegisterScreen(),
+                  transitionType: TransitionType.slideFromRight),
               text: LocaleKeys.register.tr())
         ],
       ),
