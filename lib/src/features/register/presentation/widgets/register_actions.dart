@@ -9,7 +9,9 @@ class RegisterActions extends StatelessWidget {
       color: AppColors.white,
       padding: EdgeInsets.symmetric(horizontal: AppSizes.sW16,vertical: AppSizes.sH16),
       child:
-          CustomElevatedButton(onPressed: () {}, text: LocaleKeys.register.tr()),
+          CustomElevatedButton(
+              onPressed: () => context.read<RegisterCubit>().register(),
+              text: LocaleKeys.register.tr()),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:manazel/src/config/language/languages.dart';
 import 'package:manazel/src/config/language/locale_keys.g.dart';
@@ -10,12 +11,13 @@ import 'package:manazel/src/core/widgets/Custom_text_form_field.dart';
 import 'package:manazel/src/core/widgets/auth_language_status_button.dart';
 import 'package:manazel/src/core/widgets/auth_titled_header.dart';
 import 'package:manazel/src/core/widgets/buttons/custom_elevated_button.dart';
-import 'package:manazel/src/core/widgets/buttons/custom_outlined_button.dart';
 import 'package:manazel/src/core/widgets/custom_county_drop_down.dart';
-import 'package:manazel/src/core/widgets/custom_text.dart';
-import 'package:manazel/src/core/widgets/text_fields/pin_text_field.dart';
 import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
+import 'package:manazel/src/features/register/presentation/cubit/register_cubit.dart';
 
+import '../../config/res/constants_manager.dart';
+import '../../core/helpers/request_state.dart';
+import '../../core/navigator/app_navigator.dart';
 import '../../core/widgets/custom_back_button.dart';
 
 part 'presentation/screens/register_screen.dart';
