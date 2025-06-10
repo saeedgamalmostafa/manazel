@@ -16,6 +16,7 @@ class Go {
       TransitionType transitionType,
       ) {
     return PageRouteBuilder(
+      transitionDuration: const Duration(microseconds: 300),
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         switch (transitionType) {

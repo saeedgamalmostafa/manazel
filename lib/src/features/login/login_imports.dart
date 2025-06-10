@@ -18,6 +18,7 @@ import 'package:manazel/src/core/widgets/custom_text.dart';
 import 'package:manazel/src/core/widgets/text_fields/pin_text_field.dart';
 import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 import 'package:manazel/src/features/login/presentation/cubit/login_cubit.dart';
+import 'package:manazel/src/features/otp/otp_imports.dart';
 import 'package:manazel/src/features/register/register_imports.dart';
 
 import '../../config/res/constants_manager.dart';

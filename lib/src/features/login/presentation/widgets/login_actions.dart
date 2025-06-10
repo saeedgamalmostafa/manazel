@@ -10,7 +10,8 @@ class LoginActions extends StatelessWidget {
       child: Column(
         children: [
           CustomElevatedButton(
-              onPressed: () => context.read<LoginCubit>().login(),
+              onPressed: () => Go.push(const OtpScreen()),
+              // onPressed: () => context.read<LoginCubit>().login(),
               text: LocaleKeys.login.tr()),
           SizedBox(height: AppSizes.sH12),
           CustomOutlinedButton(

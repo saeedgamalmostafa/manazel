@@ -1,7 +1,7 @@
-part of '../../register_imports.dart';
+part of '../../otp_imports.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class OtpScreen extends StatelessWidget {
+  const OtpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class RegisterScreen extends StatelessWidget {
           AuthLanguageStatusButton(),
         ],
       ),
-      body: const RegisterBody(),
+      body: const OtpBody(),
     );
   }
 }

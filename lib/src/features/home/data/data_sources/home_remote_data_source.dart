@@ -9,7 +9,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   Future<BaseModel<List<UserModel>>> fetchPlayers(
       [String? searchQuery]) async {
     final NetworkRequest networkRequest = NetworkRequest(
-      path: ApiConstants.players,
+      path: "ApiConstants.players",
       method: RequestMethod.get,
       queryParameters: {'search': searchQuery},
     );

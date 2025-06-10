@@ -23,7 +23,7 @@ class LoginCubit extends Cubit<LoginState> {
       emit(state.copyWith(requestState: RequestState.loading));
       final user = await _loginUseCase(LoginUseCaseParams(
           phone: state.phone, type: "client", fcmToken: "fcmToken"));
-      emit(state.copyWith(requestState: RequestState.success, user: user));
+      emit(state.copyWith(requestState: RequestState.success, user: user.data));
     } catch (e) {
       emit(state.copyWith(
           requestState: RequestState.error, error: e.toString()));

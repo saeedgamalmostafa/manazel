@@ -1,3 +1,3 @@
 class ApiConstants {
-  static const String players = 'players';
+  static const String login = 'login';
 }

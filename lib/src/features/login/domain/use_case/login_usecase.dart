@@ -1,12 +1,14 @@
 import 'package:manazel/src/features/login/domain/entitiy/user.dart';
 import 'package:manazel/src/features/login/domain/repository/login_repository.dart';
 
+import '../../../../core/shared/base_model.dart';
+
 class LoginUseCase {
   final LoginRepository loginRepository;
 
   LoginUseCase(this.loginRepository);
 
-  Future<User> call(LoginUseCaseParams loginUseCaseParams) async {
+  Future<BaseModel<User>> call(LoginUseCaseParams loginUseCaseParams) async {
     return await loginRepository.login(
       loginUseCaseParams,
     );
