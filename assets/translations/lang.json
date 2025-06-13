@@ -4,7 +4,7 @@
     "Welcome": "مرحباََ",
     "please enter the code sent to": "يرجى إدخال الرمز المرسل لـ",
     "register": "تسجيل",
-    "home #$ Home Screen" : "الشاشة الرئيسية",
+    "home #$ Home Screen" : "الرئيسية",
     "product #$ Product" : "المنتج",
     "category #$ Category" : "الفئة",
     "empty_otp_required #$ OTP is required" : "الرمز المرسل مطلوب",
@@ -74,5 +74,36 @@
     "New Password": "كلمة المرور الجديدة",
     "Confirm Password": "تأكيد كلمة المرور",
     "Do not have an account": "ليس لديك حساب؟",
-    "Create Account" : "انشاء حساب"
+    "Create Account" : "انشاء حساب",
+    "favorite": "المفضلة",
+    "rate": "التقييم",
+    "profile": "الملف الشخصي",
+    "my_orders": "طلباتى",
+    "settings": "الإعدادات",
+    "contact_us": "تواصل معنا",
+    "about_us": "من نحن",
+    "privacy_policy": "سياسية الخصوصية",
+    "terms": "الشروط والأحكام",
+    "log_out": "تسجيل الخروج",
+    "do_you_want_logout": "هل تريد تسجيل الخروج؟",
+    "yes": "نعم",
+    "no": "لا",
+    "edit_profile": "تعديل الملف الشخصى",
+    "change_phone_number": "تغيير رقم الجوال",
+    "notification": "الإشعارات",
+    "delete_account": "حذف الحساب",
+    "send_message": "أرسل رسالة ",
+    "message_text": "نص الرسالة",
+    "enter_message": "أدخل نص الرسالة",
+    "send": "إرسال"
+
+
+
+
+
+
+
+
+
+
 }

@@ -52,6 +52,9 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       onChanged: onChanged,
       validator: validator,
+        expands: true,
+        maxLines: null,
+        minLines: null,
       textInputAction: textInputAction ?? TextInputAction.done,
       textAlignVertical: TextAlignVertical.center,
       cursorOpacityAnimates: true,
@@ -90,7 +93,7 @@ class CustomTextFormField extends StatelessWidget {
           ),
       onTap: onTap,
       readOnly: readOnly,
-      maxLines: maxLines ?? 1,
+      //maxLines: maxLines ?? 1,
       //  ),
     );
   }

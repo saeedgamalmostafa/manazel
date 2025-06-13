@@ -13,6 +13,8 @@ class AppColors {
   static const Color borderColor = Color(0xFFDADADA);
   static const Color scaffoldBackground = Color(0xffFFFFFF);
   static const Color buttonText = Color(0xffFFFFFF);
+  static const Color Text = Color(0xFF2D3036);
+  static const Color TextBold = Color(0xFF272727);
   static const Color error = Colors.red;
 }
 
@@ -29,5 +31,7 @@ class AppColorsWithDarkMode {
   static const Color border = Color(0xFF5B5B5B);
   static const Color scaffoldBackground = Color(0xFF5B5B5B);
   static const Color buttonText = Color(0xFF5B5B5B);
+  static const Color Text = Color(0xFF2D3036);
+  static const Color TextBold = Color(0xFF272727);
   static const Color error = Colors.red;
 }

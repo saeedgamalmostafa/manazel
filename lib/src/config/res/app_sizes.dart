@@ -152,6 +152,7 @@ class AppSizes {
   static double sH67 = 67.0.h;
   static double sH68 = 68.0.h;
   static double sH70 = 70.0.h;
+  static double sH74 = 74.0.h;
   static double sH75 = 75.0.h;
   static double sH80 = 80.0.h;
   static double sH85 = 85.0.h;

@@ -7,6 +7,7 @@ import 'package:manazel/src/features/login/data/repositories/login_repository_im
 import 'package:manazel/src/features/login/domain/use_case/login_usecase.dart';
 
 import '../../../config/res/constants_manager.dart';
+import '../../../features/app_layout/presentation/cubit/app_layout_cubit.dart';
 import '../../../features/home/di/home_di.dart';
 import '../../../features/login/domain/repository/login_repository.dart';
 import '../../../features/login/presentation/cubit/login_cubit.dart';
@@ -15,6 +16,7 @@ void setUpServiceLocator() {
   setUpHomeDependencies();
   setUpGeneralDependencies();
   setUpLoginDependencies();
+  setUpAppLayoutDependencies();
 }
 
 void setUpGeneralDependencies() {
@@ -29,7 +31,10 @@ void setUpGeneralDependencies() {
   sl.registerFactory<NotificationService>(
     () => NotificationService(),
   );
+
+
 }
+
 
 void setUpLoginDependencies() {
   // Data layer
@@ -43,4 +48,7 @@ void setUpLoginDependencies() {
 
   // Presentation layer
   sl.registerFactory(() => LoginCubit(sl()));
+}
+void setUpAppLayoutDependencies() {
+  sl.registerFactory<AppLayoutCubit>(() => AppLayoutCubit());
 }

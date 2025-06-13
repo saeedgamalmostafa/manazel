@@ -1,10 +1,17 @@
 part of '../../settings_imports.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+  const SettingsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: AppColors.scaffoldBackground,
+      appBar: CustomAppBar(
+        title: LocaleKeys.settings.tr(),
+        showBackArrow: true,
+      ),
+      body: SettingsBody()
+    );
   }
 }

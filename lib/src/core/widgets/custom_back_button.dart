@@ -16,16 +16,20 @@ class CustomBackButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppRadius.bR100),
         // onTap: () => Go.pop(),
         child: Container(
+          alignment: Alignment.centerRight,
           clipBehavior: Clip.antiAlias,
-          height: AppSizes.sH24,
-          width: AppSizes.sW24,
+          height: AppSizes.sH40,
+          width: AppSizes.sW40,
+          //margin: const EdgeInsets.all(16),
           decoration: const BoxDecoration(
             color: AppColors.white,
             shape: BoxShape.circle,
           ),
-          child: const Icon(
-            Icons.arrow_back_ios_new,
-            color: AppColors.primary,
+          child: Center(
+            child: const Icon(
+              Icons.arrow_back_ios_new,
+              color: AppColors.primary,
+            ),
           ),
         ),
       ),

@@ -8,6 +8,8 @@ import 'package:manazel/src/features/home/presentation/imports/presentaion_impor
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:manazel/src/features/login/login_imports.dart';
 
+import '../app_layout/app_layout_imports.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -32,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen>
     // Listen for animation completion
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Go.pushAndRemoveUntil(const LoginScreen(), transitionType: TransitionType.slideFromBottom);
+        Go.pushAndRemoveUntil(const AppLayoutScreen(currentIndex: 0,), transitionType: TransitionType.slideFromBottom);
       }
     });
 

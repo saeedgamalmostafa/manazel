@@ -7,9 +7,9 @@ part 'app_layout_state.dart';
 class AppLayoutCubit extends Cubit<AppLayoutState> {
   AppLayoutCubit() : super(AppLayoutState(index: 0));
 
-  initData(TickerProviderStateMixin tickerProvider,int currentIndex) {
-    state.controller = TabController(length:5, vsync: tickerProvider);
-    changeIndex( currentIndex);
+  initData(TickerProviderStateMixin tickerProvider, int currentIndex) {
+    state.controller = TabController(length: 4, vsync: tickerProvider);
+    changeIndex(currentIndex);
   }
 
   void changeIndex(int index) {

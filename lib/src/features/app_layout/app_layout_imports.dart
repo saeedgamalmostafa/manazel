@@ -11,9 +11,11 @@ import 'package:manazel/src/config/res/constants_manager.dart';
 import 'package:manazel/src/core/widgets/custom_text.dart';
 import 'package:manazel/src/features/app_layout/presentation/cubit/app_layout_cubit.dart';
 import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
+import 'package:manazel/src/features/more/more_imports.dart';
 
 import '../../config/res/app_sizes.dart';
-import '../settings/settings_imports.dart';
+import '../favorite/favorite_imports.dart';
+import '../rate/rate_imports.dart';
 
 part 'presentation/screen/app_layout_screen.dart';
 part 'presentation/widgets/app_layout_bottom_nav_bar_item.dart';

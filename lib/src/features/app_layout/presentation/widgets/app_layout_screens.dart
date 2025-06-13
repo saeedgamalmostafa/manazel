@@ -17,7 +17,9 @@ class AppLayoutScreens extends StatelessWidget {
                 controller: state.controller,
                 children: const [
                   HomeScreen(),
-                  SettingsScreen(),
+                  FavoriteScreen(),
+                  RateScreen(),
+                  MoreScreen(),
                 ],
               ),
             ),

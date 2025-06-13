@@ -31,7 +31,7 @@ class CustomElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
           minimumSize:
-              WidgetStatePropertyAll(Size(width ?? double.infinity, 54.h)),
+              WidgetStatePropertyAll(Size(width ?? double.infinity, 52.h)),
           backgroundColor: WidgetStatePropertyAll(backgroundColor),
           shape: WidgetStatePropertyAll(RoundedRectangleBorder(
               side: color == null ? BorderSide.none : BorderSide(color: color!),

@@ -13,6 +13,63 @@ import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:lottie/lottie.dart' as _lottie;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  /// File path: assets/fonts/Alexandria-Black.ttf
+  String get alexandriaBlack => 'assets/fonts/Alexandria-Black.ttf';
+
+  /// File path: assets/fonts/Alexandria-Bold.ttf
+  String get alexandriaBold => 'assets/fonts/Alexandria-Bold.ttf';
+
+  /// File path: assets/fonts/Alexandria-ExtraBold.ttf
+  String get alexandriaExtraBold => 'assets/fonts/Alexandria-ExtraBold.ttf';
+
+  /// File path: assets/fonts/Alexandria-ExtraLight.ttf
+  String get alexandriaExtraLight => 'assets/fonts/Alexandria-ExtraLight.ttf';
+
+  /// File path: assets/fonts/Alexandria-Light.ttf
+  String get alexandriaLight => 'assets/fonts/Alexandria-Light.ttf';
+
+  /// File path: assets/fonts/Alexandria-Medium.ttf
+  String get alexandriaMedium => 'assets/fonts/Alexandria-Medium.ttf';
+
+  /// File path: assets/fonts/Alexandria-Regular.ttf
+  String get alexandriaRegular => 'assets/fonts/Alexandria-Regular.ttf';
+
+  /// File path: assets/fonts/Alexandria-SemiBold.ttf
+  String get alexandriaSemiBold => 'assets/fonts/Alexandria-SemiBold.ttf';
+
+  /// File path: assets/fonts/Alexandria-Thin.ttf
+  String get alexandriaThin => 'assets/fonts/Alexandria-Thin.ttf';
+
+  /// List of all assets
+  List<String> get values => [
+    alexandriaBlack,
+    alexandriaBold,
+    alexandriaExtraBold,
+    alexandriaExtraLight,
+    alexandriaLight,
+    alexandriaMedium,
+    alexandriaRegular,
+    alexandriaSemiBold,
+    alexandriaThin,
+  ];
+}
+
+class $AssetsGifGen {
+  const $AssetsGifGen();
+
+  /// File path: assets/gif/54ba850821c93ade1e6c40921cfade3acd229306.gif
+  AssetGenImage get a54ba850821c93ade1e6c40921cfade3acd229306 =>
+      const AssetGenImage(
+        'assets/gif/54ba850821c93ade1e6c40921cfade3acd229306.gif',
+      );
+
+  /// List of all assets
+  List<AssetGenImage> get values => [a54ba850821c93ade1e6c40921cfade3acd229306];
+}
+
 class $AssetsLottieGen {
   const $AssetsLottieGen();
 
@@ -77,6 +134,10 @@ class $AssetsLottieGen {
 class $AssetsPngGen {
   const $AssetsPngGen();
 
+  /// File path: assets/png/Logout (1) 2.png
+  AssetGenImage get logout12 =>
+      const AssetGenImage('assets/png/Logout (1) 2.png');
+
   /// File path: assets/png/manazel_primary_logo_name.png
   AssetGenImage get manazelPrimaryLogoName =>
       const AssetGenImage('assets/png/manazel_primary_logo_name.png');
@@ -91,6 +152,7 @@ class $AssetsPngGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+    logout12,
     manazelPrimaryLogoName,
     manazelWhiteLogo,
     manazelWhiteLogoName,
@@ -100,16 +162,68 @@ class $AssetsPngGen {
 class $AssetsSvgGen {
   const $AssetsSvgGen();
 
+  /// File path: assets/svg/Arrow - Left 2.svg
+  SvgGenImage get arrowLeft2 =>
+      const SvgGenImage('assets/svg/Arrow - Left 2.svg');
+
+  /// File path: assets/svg/Icon.svg
+  SvgGenImage get icon => const SvgGenImage('assets/svg/Icon.svg');
+
+  /// File path: assets/svg/alert-diamond.svg
+  SvgGenImage get alertDiamond =>
+      const SvgGenImage('assets/svg/alert-diamond.svg');
+
   /// File path: assets/svg/america_flag.svg
   SvgGenImage get americaFlag =>
       const SvgGenImage('assets/svg/america_flag.svg');
+
+  /// File path: assets/svg/bookmark-check-01.svg
+  SvgGenImage get bookmarkCheck01 =>
+      const SvgGenImage('assets/svg/bookmark-check-01.svg');
 
   /// File path: assets/svg/british_flag.svg
   SvgGenImage get britishFlag =>
       const SvgGenImage('assets/svg/british_flag.svg');
 
+  /// File path: assets/svg/calendar-01.svg
+  SvgGenImage get calendar01 => const SvgGenImage('assets/svg/calendar-01.svg');
+
   /// File path: assets/svg/camera.svg
   SvgGenImage get camera => const SvgGenImage('assets/svg/camera.svg');
+
+  /// File path: assets/svg/chat-bot.svg
+  SvgGenImage get chatBot => const SvgGenImage('assets/svg/chat-bot.svg');
+
+  /// File path: assets/svg/customer-support.svg
+  SvgGenImage get customerSupport =>
+      const SvgGenImage('assets/svg/customer-support.svg');
+
+  /// File path: assets/svg/elements (1).svg
+  SvgGenImage get elements1 => const SvgGenImage('assets/svg/elements (1).svg');
+
+  /// File path: assets/svg/elements (2).svg
+  SvgGenImage get elements2 => const SvgGenImage('assets/svg/elements (2).svg');
+
+  /// File path: assets/svg/elements (3).svg
+  SvgGenImage get elements3 => const SvgGenImage('assets/svg/elements (3).svg');
+
+  /// File path: assets/svg/elements (5).svg
+  SvgGenImage get elements5 => const SvgGenImage('assets/svg/elements (5).svg');
+
+  /// File path: assets/svg/elements.svg
+  SvgGenImage get elements => const SvgGenImage('assets/svg/elements.svg');
+
+  /// File path: assets/svg/facebook-02.svg
+  SvgGenImage get facebook02 => const SvgGenImage('assets/svg/facebook-02.svg');
+
+  /// File path: assets/svg/favourite.svg
+  SvgGenImage get favourite => const SvgGenImage('assets/svg/favourite.svg');
+
+  /// File path: assets/svg/file-01.svg
+  SvgGenImage get file01 => const SvgGenImage('assets/svg/file-01.svg');
+
+  /// File path: assets/svg/instagram.svg
+  SvgGenImage get instagram => const SvgGenImage('assets/svg/instagram.svg');
 
   /// File path: assets/svg/location_pin.svg
   SvgGenImage get locationPin =>
@@ -117,6 +231,12 @@ class $AssetsSvgGen {
 
   /// File path: assets/svg/logo.svg
   SvgGenImage get logo => const SvgGenImage('assets/svg/logo.svg');
+
+  /// File path: assets/svg/mail-02.svg
+  SvgGenImage get mail02 => const SvgGenImage('assets/svg/mail-02.svg');
+
+  /// File path: assets/svg/new-twitter.svg
+  SvgGenImage get newTwitter => const SvgGenImage('assets/svg/new-twitter.svg');
 
   /// File path: assets/svg/saudi_cricular_flag.svg
   SvgGenImage get saudiCricularFlag =>
@@ -126,20 +246,60 @@ class $AssetsSvgGen {
   SvgGenImage get saudiSquareFlag =>
       const SvgGenImage('assets/svg/saudi_square_flag.svg');
 
+  /// File path: assets/svg/settings-01.svg
+  SvgGenImage get settings01 => const SvgGenImage('assets/svg/settings-01.svg');
+
+  /// File path: assets/svg/smart-phone-03.svg
+  SvgGenImage get smartPhone03 =>
+      const SvgGenImage('assets/svg/smart-phone-03.svg');
+
   /// File path: assets/svg/upload-image.svg
   SvgGenImage get uploadImage =>
       const SvgGenImage('assets/svg/upload-image.svg');
 
+  /// File path: assets/svg/user-edit-01.svg
+  SvgGenImage get userEdit01 =>
+      const SvgGenImage('assets/svg/user-edit-01.svg');
+
+  /// File path: assets/svg/user.svg
+  SvgGenImage get user => const SvgGenImage('assets/svg/user.svg');
+
+  /// File path: assets/svg/whatsapp.svg
+  SvgGenImage get whatsapp => const SvgGenImage('assets/svg/whatsapp.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
+    arrowLeft2,
+    icon,
+    alertDiamond,
     americaFlag,
+    bookmarkCheck01,
     britishFlag,
+    calendar01,
     camera,
+    chatBot,
+    customerSupport,
+    elements1,
+    elements2,
+    elements3,
+    elements5,
+    elements,
+    facebook02,
+    favourite,
+    file01,
+    instagram,
     locationPin,
     logo,
+    mail02,
+    newTwitter,
     saudiCricularFlag,
     saudiSquareFlag,
+    settings01,
+    smartPhone03,
     uploadImage,
+    userEdit01,
+    user,
+    whatsapp,
   ];
 }
 
@@ -162,6 +322,8 @@ class $AssetsTranslationsGen {
 class AppAssets {
   const AppAssets._();
 
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
+  static const $AssetsGifGen gif = $AssetsGifGen();
   static const $AssetsLottieGen lottie = $AssetsLottieGen();
   static const $AssetsPngGen png = $AssetsPngGen();
   static const $AssetsSvgGen svg = $AssetsSvgGen();

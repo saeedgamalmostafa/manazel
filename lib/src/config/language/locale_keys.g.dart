@@ -376,5 +376,91 @@ abstract class LocaleKeys {
 
   static String get enterYourEmail => _enterYourEmail.tr();
 
+  static const String _favorite = 'favorite';
+
+  static String get favorite => _favorite.tr();
+
+  static const String _rate= 'rate';
+
+  static String get rate => _rate.tr();
+
+  static const String _profile= 'profile';
+
+  static String get profile => _profile.tr();
+
+  static const String _my_orders= 'my_orders';
+
+  static String get my_orders => _my_orders.tr();
+
+  static const String _settings= 'settings';
+
+  static String get settings => _settings.tr();
+
+  static const String _contact_us= 'contact_us';
+
+  static String get contact_us => _contact_us.tr();
+
+  static const String _about_us= 'about_us';
+
+  static String get about_us => _about_us.tr();
+
+  static const String _privacy_policy= 'privacy_policy';
+
+  static String get privacy_policy => _privacy_policy.tr();
+
+  static const String _terms= 'terms';
+
+  static String get terms => _terms.tr();
+
+  static const String _log_out= 'log_out';
+
+  static String get log_out => _log_out.tr();
+
+  static const String _do_you_want_logout= 'do_you_want_logout';
+
+  static String get do_you_want_logout => _do_you_want_logout.tr();
+
+  static const String _yes= 'yes';
+
+  static String get yes => _yes.tr();
+
+  static const String _no= 'no';
+
+  static String get no => _no.tr();
+
+  static const String _edit_profile= 'edit_profile';
+
+  static String get edit_profile => _edit_profile.tr();
+
+  static const String _change_phone_number= 'change_phone_number';
+
+  static String get change_phone_number => _change_phone_number.tr();
+
+  static const String _notification= 'notification';
+
+  static String get notification => _notification.tr();
+
+  static const String _delete_account= 'delete_account';
+
+  static String get delete_account => _delete_account.tr();
+
+  static const String _send_message= 'send_message';
+
+  static String get send_message => _send_message.tr();
+
+  static const String _message_text= 'message_text';
+
+  static String get message_text => _message_text.tr();
+
+  static const String _enter_message= 'enter_message';
+
+  static String get enter_message => _enter_message.tr();
+
+  static const String _send= 'send';
+
+  static String get send => _send.tr();
+
+
+
 
 }

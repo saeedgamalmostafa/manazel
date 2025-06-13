@@ -84,5 +84,36 @@
   "more": "More",
   "enter_full_name": "Enter Full Name",
   "plz_enter_your_data": "Enter Your Data to Register",
-  "enter_your_email": "Enter Your Email (Optional)"
+  "enter_your_email": "Enter Your Email (Optional)",
+  "favorite": "Favorite",
+  "rate": "Rate",
+  "profile": "Profile",
+  "my_orders": "Orders",
+  "settings": "Settings",
+  "contact_us": "Contact Us",
+  "about_us": "About Us",
+  "privacy_policy": "Privacy Policy",
+  "terms": "Terms",
+  "log_out": "Log Out",
+  "do_you_want_logout": "Do you want logout?",
+  "yes": "Yes",
+  "no": "No",
+  "edit_profile": "Edit Profile",
+  "change_phone_number": "Change Phone",
+  "notification": "Notification",
+  "delete_account": "Delete Account",
+  "send_message": "Send Message",
+  "message_text": "Message",
+  "enter_message": "Enter Message",
+  "send": "Send"
+
+
+
+
+
+
+
+
+
+
 }

@@ -17,24 +17,25 @@ class CustomTabItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tab(
-        height: AppSizes.sH75,
+        height: AppSizes.sH74,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(
               imagePath,
-              height: AppSizes.sH30,
-              width: AppSizes.sW30,
+              height: AppSizes.sH21,
+              width: AppSizes.sW21,
               colorFilter: ColorFilter.mode(
                 isSelected ? AppColors.primary : AppColors.grey,
                 BlendMode.srcIn,
               ),
             ),
+
             // SizedBox(height: AppSizes.sH5),
             CustomText.titleSmall(
               title,
               textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  // fontSize: 12.sp,
+                  fontSize: 12,
                   color: isSelected ? AppColors.primary : AppColors.grey),
             ),
           ],

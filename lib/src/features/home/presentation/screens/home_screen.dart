@@ -5,14 +5,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit(
-        sl<GetBooksUseCase>(),
-      )..fetchPlayers(),
-      child: const _HomeView(),
-    );
+    return _HomeView();
   }
 }
+//     return BlocProvider(
+//       create: (context) => HomeCubit(
+//         sl<GetBooksUseCase>(),
+//       )..fetchPlayers(),
+//       child: const _HomeView(),
+//     );
+//   }
+// }
 
 class _HomeView extends StatelessWidget {
   const _HomeView();
