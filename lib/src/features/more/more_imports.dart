@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/core/widgets/custom_app_bar.dart';
 import 'package:manazel/src/core/widgets/custom_text.dart';
 import 'package:manazel/src/features/about_us/about_us_imports.dart';

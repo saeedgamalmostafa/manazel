@@ -177,6 +177,9 @@ class $AssetsSvgGen {
   SvgGenImage get americaFlag =>
       const SvgGenImage('assets/svg/america_flag.svg');
 
+  /// File path: assets/svg/arrow_left.svg
+  SvgGenImage get arrowLeft => const SvgGenImage('assets/svg/arrow_left.svg');
+
   /// File path: assets/svg/bookmark-check-01.svg
   SvgGenImage get bookmarkCheck01 =>
       const SvgGenImage('assets/svg/bookmark-check-01.svg');
@@ -273,6 +276,7 @@ class $AssetsSvgGen {
     icon,
     alertDiamond,
     americaFlag,
+    arrowLeft,
     bookmarkCheck01,
     britishFlag,
     calendar01,

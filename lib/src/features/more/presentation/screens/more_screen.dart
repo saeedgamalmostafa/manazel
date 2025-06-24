@@ -1,7 +1,7 @@
 part of '../../more_imports.dart';
 
 class MoreScreen extends StatelessWidget {
-  const MoreScreen({Key? key}) : super(key: key);
+  const MoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,6 +10,6 @@ class MoreScreen extends StatelessWidget {
         appBar: CustomAppBar(
           title: LocaleKeys.more.tr(),
         ),
-        body: MoreBody());
+        body: const MoreBody());
   }
 }

@@ -2,58 +2,65 @@ part of '../../more_imports.dart';
 
 class MoreItem extends StatelessWidget {
   final String title;
-  final Color TextColor;
-  final Color Arrowcolor;
   final VoidCallback onTap;
   final String imagePath;
+  final bool isLogout;
+  final Widget? suffixWidget;
 
   const MoreItem({
-    Key? key,
+    super.key,
     required this.title,
     required this.onTap,
-    required this.TextColor,
     required this.imagePath,
-    required this.Arrowcolor,
-  }) : super(key: key);
+    this.isLogout = false,
+    this.suffixWidget,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
+    return InkWell(
+      onTap: onTap,
       child: Container(
-          height: 52,
-          width: 343,
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.borderColor,
-                blurRadius: 6,
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
-          child: ListTile(
-            dense: true,
-            title: Row(
-              children: [
-                SvgPicture.asset(
-                  imagePath,
-                  width: 24,
-                  height: 24,
-                ),
-                SizedBox(width: 8),
-                CustomText(
-                  title,
-                  textStyle: TextStyle(fontSize: 14, color: TextColor),
-                ),
-              ],
+        padding: EdgeInsets.symmetric(
+            vertical: AppSizes.sH14, horizontal: AppSizes.sW12),
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: const [
+            BoxShadow(
+              color: AppColors.borderColor,
+              blurRadius: 6,
+              offset: Offset(0, 3),
             ),
-            trailing:
-                Icon(Icons.arrow_forward_ios, size: 20, color: Arrowcolor),
-            onTap: onTap,
-          )),
+          ],
+        ),
+        child: Row(
+          children: [
+            SvgPicture.asset(
+              imagePath,
+              width: AppSizes.sW24,
+              height: AppSizes.sH24,
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: AppSizes.sW8),
+                child: CustomText.titleMedium(
+                  title,
+                  textAlign: TextAlign.start,
+                  maxLines: 1,
+                ),
+              ),
+            ),
+            suffixWidget ??
+                SvgPicture.asset(
+                  AppAssets.svg.arrowLeft.path,
+                  colorFilter: ColorFilter.mode(
+                      isLogout ? Colors.red : AppColors.primary,
+                      BlendMode.srcIn),
+                ),
+          ],
+        ),
+      ),
     );
   }
 }

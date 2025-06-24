@@ -5,9 +5,11 @@ class MoreBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: ListView(
+    return SingleChildScrollView(
+      padding: EdgeInsets.symmetric(
+          vertical: AppSizes.sH16, horizontal: AppSizes.sW16),
+      child: Column(
+        spacing: AppSizes.sH16,
         children: [
           MoreItem(
             imagePath: AppAssets.svg.user.path,
@@ -15,15 +17,11 @@ class MoreBody extends StatelessWidget {
             onTap: () {
               Go.push(const ProfileScreen());
             },
-            TextColor: AppColors.Text,
-            Arrowcolor: AppColors.primary,
           ),
           MoreItem(
             imagePath: AppAssets.svg.calendar01.path,
             title: LocaleKeys.my_orders.tr(),
             onTap: () {},
-            TextColor: AppColors.Text,
-            Arrowcolor: AppColors.primary,
           ),
           MoreItem(
             imagePath: AppAssets.svg.settings01.path,
@@ -31,8 +29,6 @@ class MoreBody extends StatelessWidget {
             onTap: () {
               Go.push(const SettingsScreen());
             },
-            TextColor: AppColors.Text,
-            Arrowcolor: AppColors.primary,
           ),
           MoreItem(
             imagePath: AppAssets.svg.customerSupport.path,
@@ -40,8 +36,6 @@ class MoreBody extends StatelessWidget {
             onTap: () {
               Go.push(const ContactUsScreen());
             },
-            TextColor: AppColors.Text,
-            Arrowcolor: AppColors.primary,
           ),
           MoreItem(
             imagePath: AppAssets.svg.alertDiamond.path,
@@ -49,8 +43,6 @@ class MoreBody extends StatelessWidget {
             onTap: () {
               Go.push(AboutUsScreen());
             },
-            TextColor: AppColors.Text,
-            Arrowcolor: AppColors.primary,
           ),
           MoreItem(
             imagePath: AppAssets.svg.bookmarkCheck01.path,
@@ -58,8 +50,6 @@ class MoreBody extends StatelessWidget {
             onTap: () {
               Go.push(PrivacyPolicyScreen());
             },
-            TextColor: AppColors.Text,
-            Arrowcolor: AppColors.primary,
           ),
           MoreItem(
             imagePath: AppAssets.svg.file01.path,
@@ -67,8 +57,6 @@ class MoreBody extends StatelessWidget {
             onTap: () {
               Go.push(TermsScreen());
             },
-            TextColor: AppColors.Text,
-            Arrowcolor: AppColors.primary,
           ),
           MoreItem(
             imagePath: AppAssets.svg.elements1.path,
@@ -76,8 +64,7 @@ class MoreBody extends StatelessWidget {
             onTap: () {
               LogoutBottomSheet.show(context);
             },
-            TextColor: AppColors.error,
-            Arrowcolor: AppColors.error,
+            isLogout: true,
           ),
         ],
       ),
