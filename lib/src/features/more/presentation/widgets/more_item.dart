@@ -50,7 +50,6 @@ class MoreItem extends StatelessWidget {
                   maxLines: 1,
                 ),
               ),
-
             ),
             suffixWidget ??
                 SvgPicture.asset(
