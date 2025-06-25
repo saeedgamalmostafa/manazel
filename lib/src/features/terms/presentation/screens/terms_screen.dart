@@ -7,7 +7,7 @@ class TermsScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: AppColors.scaffoldBackground,
         appBar: CustomAppBar(
-          title: LocaleKeys.privacy_policy.tr(),
+          title: LocaleKeys.terms.tr(),
           showBackArrow: true,
         ),
         body: TermsBody()

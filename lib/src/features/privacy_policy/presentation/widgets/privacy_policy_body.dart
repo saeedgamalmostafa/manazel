@@ -22,37 +22,31 @@ class PrivacyPolicyBody extends StatelessWidget {
       'إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، ';
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-        child: Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: 38, right: 46.5, left: 46.5, bottom: 0),
-                  child: Image.asset(AppAssets.png.manazelPrimaryLogoName.path),
+    return Expanded(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            CustomLogo(),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: AppSizes.sW16),
+              child: AutoSizeText(
+                arabicText,
+                style: TextStyle(
+                  fontSize: 14,
+                  height: 1.8,
+                  color: AppColors.Text,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 38.0, bottom: 28, left: 18, right: 18),
-                  child: AutoSizeText(
-                    arabicText,
-                    style: TextStyle(
-                      fontSize: 14,
-                      height: 1.8,
-                      color: AppColors.Text,
-                    ),
-                    textAlign: TextAlign.justify,
-                    maxLines: 300,
-                    minFontSize: 12,
-                    overflow: TextOverflow.ellipsis,
-                    wrapWords: false,
-                  ),
-                ),
-              ],
+                textAlign: TextAlign.justify,
+                maxLines: 300,
+                minFontSize: 12,
+                overflow: TextOverflow.ellipsis,
+                wrapWords: false,
+              ),
             ),
-          ),
-        ));
+            SizedBox(height: AppSizes.sH38,)
+          ],
+        ),
+      ),
+    );
   }
 }

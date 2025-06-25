@@ -1,16 +1,23 @@
-part of '../../more_imports.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import '../../config/res/app_sizes.dart';
+import '../../config/res/color_manager.dart';
+import 'custom_text.dart';
+import 'package:manazel/src/config/res/assets.gen.dart';
 
-class MoreItem extends StatelessWidget {
+class CustomMoreItem extends StatelessWidget {
   final String title;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final String imagePath;
   final bool isLogout;
   final Widget? suffixWidget;
 
-  const MoreItem({
+  const CustomMoreItem({
     super.key,
     required this.title,
-    required this.onTap,
+    this.onTap,
     required this.imagePath,
     this.isLogout = false,
     this.suffixWidget,
@@ -38,8 +45,6 @@ class MoreItem extends StatelessWidget {
           children: [
             SvgPicture.asset(
               imagePath,
-              width: AppSizes.sW24,
-              height: AppSizes.sH24,
             ),
             Expanded(
               child: Padding(

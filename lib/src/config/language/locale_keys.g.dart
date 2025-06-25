@@ -460,6 +460,10 @@ abstract class LocaleKeys {
 
   static String get send => _send.tr();
 
+  static const String _language= 'language';
+
+  static String get language => _language.tr();
+
 
 
 

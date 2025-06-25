@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/core/widgets/custom_back_button.dart';
+import 'package:manazel/src/core/widgets/custom_text.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -16,30 +17,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: preferredSize.height,
-      color: AppColors.primary,
-      child: SafeArea(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Center(
-              child: Text(
-                title,
-                style: const TextStyle(
-                  color: AppColors.white,
-                  fontSize: 16,
-                  // fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            if (showBackArrow) Positioned(right: 0, child: CustomBackButton()),
-          ],
-        ),
+    return AppBar(
+      backgroundColor: AppColors.primary,
+      centerTitle: true,
+      elevation: 0,
+      automaticallyImplyLeading: false,
+      leading: showBackArrow ? CustomBackButton() : null,
+      title: CustomText.titleLarge(
+        title,
+        textStyle: TextStyle(color: AppColors.white),
       ),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(116);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 20);
 }

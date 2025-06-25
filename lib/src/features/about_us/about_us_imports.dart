@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:manazel/src/config/language/locale_keys.g.dart';
 import 'package:manazel/src/core/widgets/custom_app_bar.dart';
+import 'package:manazel/src/core/widgets/image_widgets/custom_logo.dart';
 
 import '../../config/res/app_sizes.dart';
 import '../../config/res/assets.gen.dart';

@@ -162,10 +162,6 @@ class $AssetsPngGen {
 class $AssetsSvgGen {
   const $AssetsSvgGen();
 
-  /// File path: assets/svg/Arrow - Left 2.svg
-  SvgGenImage get arrowLeft2 =>
-      const SvgGenImage('assets/svg/Arrow - Left 2.svg');
-
   /// File path: assets/svg/Icon.svg
   SvgGenImage get icon => const SvgGenImage('assets/svg/Icon.svg');
 
@@ -179,6 +175,9 @@ class $AssetsSvgGen {
 
   /// File path: assets/svg/arrow_left.svg
   SvgGenImage get arrowLeft => const SvgGenImage('assets/svg/arrow_left.svg');
+
+  /// File path: assets/svg/arrow_right.svg
+  SvgGenImage get arrowRight => const SvgGenImage('assets/svg/arrow_right.svg');
 
   /// File path: assets/svg/bookmark-check-01.svg
   SvgGenImage get bookmarkCheck01 =>
@@ -203,9 +202,6 @@ class $AssetsSvgGen {
 
   /// File path: assets/svg/elements (1).svg
   SvgGenImage get elements1 => const SvgGenImage('assets/svg/elements (1).svg');
-
-  /// File path: assets/svg/elements (2).svg
-  SvgGenImage get elements2 => const SvgGenImage('assets/svg/elements (2).svg');
 
   /// File path: assets/svg/elements (3).svg
   SvgGenImage get elements3 => const SvgGenImage('assets/svg/elements (3).svg');
@@ -241,6 +237,10 @@ class $AssetsSvgGen {
   /// File path: assets/svg/new-twitter.svg
   SvgGenImage get newTwitter => const SvgGenImage('assets/svg/new-twitter.svg');
 
+  /// File path: assets/svg/notification.svg
+  SvgGenImage get notification =>
+      const SvgGenImage('assets/svg/notification.svg');
+
   /// File path: assets/svg/saudi_cricular_flag.svg
   SvgGenImage get saudiCricularFlag =>
       const SvgGenImage('assets/svg/saudi_cricular_flag.svg');
@@ -272,11 +272,11 @@ class $AssetsSvgGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-    arrowLeft2,
     icon,
     alertDiamond,
     americaFlag,
     arrowLeft,
+    arrowRight,
     bookmarkCheck01,
     britishFlag,
     calendar01,
@@ -284,7 +284,6 @@ class $AssetsSvgGen {
     chatBot,
     customerSupport,
     elements1,
-    elements2,
     elements3,
     elements5,
     elements,
@@ -296,6 +295,7 @@ class $AssetsSvgGen {
     logo,
     mail02,
     newTwitter,
+    notification,
     saudiCricularFlag,
     saudiSquareFlag,
     settings01,

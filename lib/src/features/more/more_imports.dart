@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/core/widgets/custom_app_bar.dart';
+import 'package:manazel/src/core/widgets/custom_more_item.dart';
 import 'package:manazel/src/core/widgets/custom_text.dart';
 import 'package:manazel/src/features/about_us/about_us_imports.dart';
 import 'package:manazel/src/features/contact_us/contact_us_imports.dart';
@@ -19,5 +20,4 @@ import '../../core/widgets/logout_dialog_sheet.dart';
 import '../profile/profile_imports.dart';
 
 part 'presentation/screens/more_screen.dart';
-part 'presentation/widgets/more_item.dart';
 part 'presentation/widgets/more_body.dart';

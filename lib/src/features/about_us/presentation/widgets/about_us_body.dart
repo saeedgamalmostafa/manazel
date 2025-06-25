@@ -11,12 +11,12 @@ class AboutUsBody extends StatelessWidget {
       'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة. لقد تم توليد هذا النص من مولد النص العربى، '
       'إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، '
       'إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، '
-      'النص لن يبدو مقسما ولا يحوي أخطاء لغوية، هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة.'
-  ;
+      'النص لن يبدو مقسما ولا يحوي أخطاء لغوية، هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة.';
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(top: 40, left: 16.0, right: 16),
+        padding: EdgeInsets.symmetric(
+            vertical: AppSizes.sH40, horizontal: AppSizes.sW16),
         child: Container(
             decoration: BoxDecoration(
               color: AppColors.white,
@@ -36,19 +36,12 @@ class AboutUsBody extends StatelessWidget {
             ),
             child: Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.only(
-                    top: 0, bottom: 28,),
                 child: Column(
                   children: [
+                    CustomLogo(),
                     Padding(
-                      padding: EdgeInsets.only(
-                          top: 86, right: 46.5, left: 46.5, bottom: 38),
-                      child: Image.asset(
-                          AppAssets.png.manazelPrimaryLogoName.path),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 38.0, bottom: 28, left: 18, right: 18),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: AppSizes.sW18,),
                       child: AutoSizeText(
                         arabicText,
                         style: TextStyle(
@@ -63,6 +56,7 @@ class AboutUsBody extends StatelessWidget {
                         wrapWords: false,
                       ),
                     ),
+                    SizedBox(height: AppSizes.sH28,)
                   ],
                 ),
               ),

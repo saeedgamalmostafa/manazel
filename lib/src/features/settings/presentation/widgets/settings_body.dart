@@ -7,40 +7,33 @@ class SettingsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: ListView(
+      child: Column(
+        spacing: AppSizes.sH16,
         children: [
-          SettingsItem(
+          CustomMoreItem(
             imagePath: AppAssets.svg.userEdit01.path,
             title: LocaleKeys.edit_profile.tr(),
             onTap: () {},
-            TextColor: AppColors.Text,
-            Arrowcolor: AppColors.primary,
           ),
-          SettingsItem(
+          CustomMoreItem(
             imagePath: AppAssets.svg.smartPhone03.path,
             title: LocaleKeys.change_phone_number.tr(),
             onTap: () {},
-            TextColor: AppColors.Text,
-            Arrowcolor: AppColors.primary,
           ),
           NotificationSettingItem(
-            imagePath: AppAssets.svg.elements2.path,
+            imagePath: AppAssets.svg.notification.path,
             title: LocaleKeys.notification.tr(),
-            TextColor: AppColors.Text,
           ),
           LanguageSettingItem(
             imagePath: AppAssets.svg.elements3.path,
-            title: LocaleKeys.selectLanguage.tr(),
+            title: LocaleKeys.language.tr(),
             onTap: () {},
-            TextColor: AppColors.Text,
-            language: '',
           ),
-          SettingsItem(
+          CustomMoreItem(
             imagePath: AppAssets.svg.elements5.path,
             title: LocaleKeys.delete_account.tr(),
             onTap: () {},
-            TextColor: AppColors.error,
-            Arrowcolor: AppColors.error,
+            isLogout: true,
           ),
         ],
       ),

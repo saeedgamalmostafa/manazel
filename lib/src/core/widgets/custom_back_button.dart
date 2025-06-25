@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
+import 'package:manazel/src/config/res/assets.gen.dart';
 
 import '../../config/res/color_manager.dart';
 import '../navigator/app_navigator.dart';
@@ -14,7 +16,6 @@ class CustomBackButton extends StatelessWidget {
       child: InkWell(
         onTap: () => Go.pop(),
         borderRadius: BorderRadius.circular(AppRadius.bR100),
-        // onTap: () => Go.pop(),
         child: Container(
           alignment: Alignment.centerRight,
           clipBehavior: Clip.antiAlias,
@@ -26,9 +27,8 @@ class CustomBackButton extends StatelessWidget {
             shape: BoxShape.circle,
           ),
           child: Center(
-            child: const Icon(
-              Icons.arrow_back_ios_new,
-              color: AppColors.primary,
+            child: SvgPicture.asset(
+              AppAssets.svg.arrowRight.path,
             ),
           ),
         ),

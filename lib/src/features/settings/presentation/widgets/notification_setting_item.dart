@@ -2,69 +2,83 @@ part of '../../settings_imports.dart';
 
 class NotificationSettingItem extends StatefulWidget {
   final String title;
-  final Color TextColor;
+  final VoidCallback? onTap;
   final String imagePath;
+
   const NotificationSettingItem({
-    Key? key,
+    super.key,
     required this.title,
-    required this.TextColor,
+    this.onTap,
     required this.imagePath,
-  }) : super(key: key);
+  });
 
   @override
-  State<NotificationSettingItem> createState() => _NotificationSettingItem();
+  State<NotificationSettingItem> createState() =>
+      _NotificationSettingItemState();
 }
 
-class _NotificationSettingItem extends State<NotificationSettingItem> {
-  bool isSwitched = false;
-
-  void _onSwitchChanged(bool value) {
-    setState(() {
-      isSwitched = value;
-    });
-  }
-
+class _NotificationSettingItemState extends State<NotificationSettingItem> {
+  bool isOn = false;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0),
-        child: Container(
-          height: 52,
-          width: 343,
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.borderColor,
-                blurRadius: 6,
-                offset: Offset(0, 3),
+    return InkWell(
+      onTap: () => setState(() => isOn = !isOn),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+            vertical: AppSizes.sH14, horizontal: AppSizes.sW12),
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: const [
+            BoxShadow(
+              color: AppColors.borderColor,
+              blurRadius: 6,
+              offset: Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            SvgPicture.asset(
+              widget.imagePath,
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: AppSizes.sW8),
+                child: CustomText.titleMedium(
+                  widget.title,
+                  textAlign: TextAlign.start,
+                  maxLines: 1,
+                ),
               ),
-            ],
-          ),
-          child: ListTile(
-              dense: true,
-              title: Row(
-                children: [
-                  SvgPicture.asset(
-                    AppAssets.svg.elements2.path,
-                  ),
-                  SizedBox(width: 8),
-                  CustomText(
-                    LocaleKeys.notification.tr(),
-                    textStyle: TextStyle(color: AppColors.Text),
-                  ),
-                ],
-              ),
-              trailing: Switch(
-                value: isSwitched,
-                onChanged: _onSwitchChanged,
-                activeColor: AppColors.primary,
-                inactiveTrackColor: Colors.transparent,
-                inactiveThumbColor: AppColors.borderColor,
-                splashRadius: 0.0,
-                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              )),
-        ));
+            ),
+            AnimatedContainer(
+                duration: Duration(milliseconds: 300),
+                width: AppSizes.sW40,
+                height: AppSizes.sH24,
+                decoration: BoxDecoration(
+                  color: isOn ? AppColors.primary : AppColors.borderColor,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: AnimatedAlign(
+                    duration: Duration(milliseconds: 300),
+                    alignment:
+                        isOn ? Alignment.centerRight : Alignment.centerLeft,
+                    child: Container(
+                      width: AppSizes.sW19,
+                      height: AppSizes.sH19,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                    ))),
+          ],
+        ),
+      ),
+    );
   }
 }
+
+// GestureDetector(
+//
+// )

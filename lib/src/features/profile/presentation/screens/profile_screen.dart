@@ -6,13 +6,12 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.scaffoldBackground,
-      appBar: CustomAppBar(
-        title: LocaleKeys.profile.tr(),
-        showBackArrow: true,
-        onBackPressed: () {},
-      ),
-      body:const ProfileBody()
-    );
+        backgroundColor: AppColors.scaffoldBackground,
+        appBar: CustomAppBar(
+          title: LocaleKeys.profile.tr(),
+          showBackArrow: true,
+          onBackPressed: () {},
+        ),
+        body: const ProfileBody());
   }
 }

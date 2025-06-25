@@ -22,20 +22,14 @@ class TermsBody extends StatelessWidget {
       'إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، ';
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-        child: Expanded(
+    return  Expanded(
           child: SingleChildScrollView(
             child: Column(
               children: [
+                CustomLogo(),
                 Padding(
-                  padding: EdgeInsets.only(
-                      top: 38, right: 46.5, left: 46.5, bottom: 0),
-                  child: Image.asset(AppAssets.png.manazelPrimaryLogoName.path),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 38.0, bottom: 28, left: 18, right: 18),
+                  padding:
+                      EdgeInsets.symmetric(horizontal:AppSizes.sW16),
                   child: AutoSizeText(
                     arabicText,
                     style: TextStyle(
@@ -50,9 +44,9 @@ class TermsBody extends StatelessWidget {
                     wrapWords: false,
                   ),
                 ),
+                SizedBox(height: AppSizes.sH38,)
               ],
             ),
-          ),
         ));
   }
 }
