@@ -460,6 +460,14 @@ abstract class LocaleKeys {
 
   static String get send => _send.tr();
 
+  static const String _activationCode= 'activation_code';
+
+  static String get activationCode => _activationCode.tr();
+
+  static const String _plzEnterActivationCode= 'plz_enter_activation_code';
+
+  static String get plzEnterActivationCode => _plzEnterActivationCode.tr();
+
 
 
 

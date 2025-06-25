@@ -105,7 +105,9 @@
   "send_message": "Send Message",
   "message_text": "Message",
   "enter_message": "Enter Message",
-  "send": "Send"
+  "send": "Send",
+  "activation_code": "Activation Code",
+  "plz_enter_activation_code": "Please Enter Activation Code"
 
 
 

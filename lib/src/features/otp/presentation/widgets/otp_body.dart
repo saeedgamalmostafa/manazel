@@ -8,8 +8,11 @@ class OtpBody extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(top: AppSizes.sH65, bottom: AppSizes.sH110),
-          child: Image.asset(AppAssets.png.manazelWhiteLogoName.path),
+          padding: EdgeInsets.only(top: AppSizes.sH65, bottom: AppSizes.sH90),
+          child: Image.asset(
+            AppAssets.png.manazelWhiteLogoName.path,
+            height: AppSizes.sH33,
+          ),
         ),
         Expanded(
           child: Container(
@@ -22,17 +25,20 @@ class OtpBody extends StatelessWidget {
               child: Column(
                 children: [
                   AuthTitledHeader(
-                      title:
-                          Languages.currentLanguage.locale == const Locale("ar")
-                              ? "مرحبا بعودتك\u{1F44B}!"
-                              : "Welcome Back\u{1F44B}!",
-                      description: LocaleKeys.plzEnterLoginData.tr()),
+                      title: LocaleKeys.activationCode.tr(),
+                      description: LocaleKeys.plzEnterActivationCode.tr()),
+                  Image.asset(
+                    AppAssets.gif.waveHand.path,
+                    height: 150.h,
+                    width: 170.w,
+                  ),
                   const OtpForms(),
                 ],
               ),
             ),
           ),
-        )
+        ),
+        const OtpActions(),
       ],
     );
   }

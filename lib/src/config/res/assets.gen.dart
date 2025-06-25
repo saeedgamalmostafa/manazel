@@ -66,8 +66,14 @@ class $AssetsGifGen {
         'assets/gif/54ba850821c93ade1e6c40921cfade3acd229306.gif',
       );
 
+  /// File path: assets/gif/wave_hand.gif
+  AssetGenImage get waveHand => const AssetGenImage('assets/gif/wave_hand.gif');
+
   /// List of all assets
-  List<AssetGenImage> get values => [a54ba850821c93ade1e6c40921cfade3acd229306];
+  List<AssetGenImage> get values => [
+    a54ba850821c93ade1e6c40921cfade3acd229306,
+    waveHand,
+  ];
 }
 
 class $AssetsLottieGen {

@@ -104,7 +104,9 @@
   "send_message": "أرسل رسالة ",
   "message_text": "نص الرسالة",
   "enter_message": "أدخل نص الرسالة",
-  "send": "إرسال"
+  "send": "إرسال",
+  "activation_code": "كود التحقق",
+  "plz_enter_activation_code": "برجاء إدخال الكود المرسل علي جوالك"
 
 
 }

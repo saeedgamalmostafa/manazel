@@ -11,12 +11,12 @@ class OtpForms extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: AppSizes.sH32),
+      padding: EdgeInsets.symmetric(vertical: AppSizes.sH24,horizontal: AppSizes.sW40).copyWith(top: AppSizes.sH32),
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: PinCodeTextField(
           appContext: context,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           length: 4,
           animationType: AnimationType.fade,
           animationDuration: const Duration(milliseconds: 300),
@@ -25,12 +25,11 @@ class OtpForms extends StatelessWidget {
           keyboardType: TextInputType.number,
           enableActiveFill: true,
           pinTheme: PinTheme(
-            fieldOuterPadding: EdgeInsets.symmetric(horizontal: AppSizes.sW18),
             activeColor: AppColors.primary,
-            borderRadius: BorderRadius.circular(AppRadius.bR8),
+            borderRadius: BorderRadius.circular(AppRadius.bR14),
             inactiveFillColor: AppColors.white,
             selectedColor: AppColors.primary,
-            inactiveColor: AppColors.primary.withOpacity(0.3),
+            inactiveColor: AppColors.grey.withOpacity(0.3),
             activeFillColor: AppColors.white,
             selectedFillColor: AppColors.white,
             shape: PinCodeFieldShape.box,

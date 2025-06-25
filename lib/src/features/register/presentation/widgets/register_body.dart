@@ -11,9 +11,12 @@ class RegisterBody extends StatelessWidget {
           child: ListView(
             children: [
               Padding(
-                padding: EdgeInsets.only(
-                    top: AppSizes.sH65, bottom: AppSizes.sH110),
-                child: Image.asset(AppAssets.png.manazelWhiteLogoName.path),
+                padding:
+                    EdgeInsets.only(top: AppSizes.sH65, bottom: AppSizes.sH110),
+                child: Image.asset(
+                  AppAssets.png.manazelWhiteLogoName.path,
+                  height: AppSizes.sH33,
+                ),
               ),
               Container(
                 decoration: BoxDecoration(
