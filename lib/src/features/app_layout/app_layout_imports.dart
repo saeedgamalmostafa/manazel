@@ -14,6 +14,7 @@ import 'package:manazel/src/features/home/presentation/imports/presentaion_impor
 import 'package:manazel/src/features/more/more_imports.dart';
 
 import '../../config/res/app_sizes.dart';
+import '../../core/widgets/default_bottom_sheet.dart';
 import '../favorite/favorite_imports.dart';
 import '../rate/rate_imports.dart';
 

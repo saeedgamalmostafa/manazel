@@ -106,7 +106,56 @@
   "message_text": "Message",
   "enter_message": "Enter Message",
   "send": "Send",
-  "language": "Language"
+  "language": "Language",
+  "tire": "Tire",
+  "sell": "Sell",
+  "know_value_property": "Know The Value Of Your Property",
+  "continuity": "Continuity",
+  "sure": "sure",
+  "region": "Region",
+  "select_region": "Select The Region",
+  "space": "Space",
+  "enter_property_area": "Enter The Property Area",
+  "address": "Address",
+  "enter_address": "Enter The Address",
+  "street": "Street",
+  "select_street": "Select The Street",
+  "directions": "Directions",
+  "set_directions": "Set Directions",
+  "interface": "Interface",
+  "select_interface": "Select The Interface",
+  "building_age": "Construction Age",
+  "determine_age_building": "Determine The Age Of The Building",
+  "finishing_quality": "Finishing Quality",
+  "determine_quality_finishing": "Determine The Quality Of Finishing",
+  "number_floors": "Number Of Floors",
+  "determine_number_floors": "Determine The Number Of Floors",
+  "crypt": "Crypt",
+  "description": "Description",
+  "land": "Land"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

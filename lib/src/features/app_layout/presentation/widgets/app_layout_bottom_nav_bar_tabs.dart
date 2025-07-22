@@ -20,7 +20,15 @@ class AppLayoutTabs extends StatelessWidget {
           return TabBar(
             dividerColor: AppColors.white,
             labelPadding: const EdgeInsets.symmetric(horizontal: 9.835),
-            onTap: (index) => context.read<AppLayoutCubit>().changeIndex(index),
+            onTap: (index) {
+              if (index == 2) {
+                showDefaultBottomSheet(
+                  child: RateBottomSheet(),
+                );
+              } else {
+                context.read<AppLayoutCubit>().changeIndex(index);
+              }
+            },
             controller: state.controller,
             physics: const NeverScrollableScrollPhysics(),
             unselectedLabelColor: AppColors.grey,

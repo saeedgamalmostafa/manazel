@@ -96,7 +96,56 @@
     "message_text": "نص الرسالة",
     "enter_message": "أدخل نص الرسالة",
     "send": "إرسال",
-    "language": "اللغة"
+    "language": "اللغة",
+    "tire": "إيجار",
+    "sell": "بيع",
+    "know_value_property": "معرفة قيمة عقارك فى لحظة من خلالنا",
+    "continuity": "إستمرار",
+    "sure": "تأكيد",
+    "region": "المنطقة",
+    "select_region": "حدد المنطقة",
+    "space": "المساحة",
+    "enter_property_area": "أدخل مساحة العقار",
+    "address": "العنوان",
+    "enter_address": "أدخل العنوان",
+    "street": "الشارع",
+    "select_street": "حدد الشارع",
+    "directions": "الإتجاهات",
+    "set_directions": "حدد الإتجاهات",
+    "interface": "الواجهة",
+    "select_interface": "حدد الواجهة",
+    "building_age": "عمر البناء",
+    "determine_age_building": "حدد عمر البناء",
+    "finishing_quality": "جودة التشطيب",
+    "determine_quality_finishing": "حدد جودة التشطيب",
+    "number_floors": "عدد الطوابق",
+    "determine_number_floors": "حدد عدد الطوابق",
+    "crypt": "سرداب",
+    "description": "وصف",
+    "land": "أرض"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

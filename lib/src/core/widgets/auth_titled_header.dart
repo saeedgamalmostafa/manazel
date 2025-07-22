@@ -9,6 +9,7 @@ class AuthTitledHeader extends StatelessWidget {
   final String title;
   final String description;
 
+
   @override
   Widget build(BuildContext context) {
     return Padding(

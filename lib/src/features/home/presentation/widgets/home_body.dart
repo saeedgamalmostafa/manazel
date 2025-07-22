@@ -2,12 +2,26 @@ part of '../imports/presentaion_imports.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          // ImageSlider(
+          //   images: [
+          //     'assets/png/banner.png',
+          //     'assets/png/banner.png',
+          //     'assets/png/banner.png',
+          //   ],
+          // ),
+          HomeActions(),
+          HomeItemsCard()
+
+      ]),
+    );
   }
 }
+
 //       BlocBuilder<HomeCubit, HomeState>(
 //       builder: (context, state) {
 //         return switch (state.baseStatus) {

@@ -46,18 +46,6 @@ class DefaultSheetBody extends StatelessWidget {
               ),
               child: Wrap(
                 children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Container(
-                      width: 100.w,
-                      height: 5.h,
-                      decoration: BoxDecoration(
-                        color: AppColors.whiteGrey,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                  15.szH,
                   child,
                 ],
               ),

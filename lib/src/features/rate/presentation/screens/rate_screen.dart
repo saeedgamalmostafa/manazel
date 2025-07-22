@@ -5,13 +5,21 @@ class RateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: Text(
-          "Favorite ",
-          style: TextStyle(fontSize: 30),
+    return Scaffold(
+        appBar: CustomAppBar(
+          title: LocaleKeys.rate.tr(),
+          showBackArrow: true,
         ),
-      ),
-    );
+        body: RateBody(),
+        bottomNavigationBar: Padding(
+            padding: EdgeInsets.only(
+                top: AppSizes.sH16,
+                bottom: AppSizes.sH35,
+                right: AppSizes.sW16,
+                left: AppSizes.sW16),
+            child: CustomElevatedButton(
+              onPressed: () {},
+              text: LocaleKeys.sure.tr(),
+            )));
   }
 }

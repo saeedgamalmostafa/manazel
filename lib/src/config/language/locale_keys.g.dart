@@ -380,89 +380,199 @@ abstract class LocaleKeys {
 
   static String get favorite => _favorite.tr();
 
-  static const String _rate= 'rate';
+  static const String _rate = 'rate';
 
   static String get rate => _rate.tr();
 
-  static const String _profile= 'profile';
+  static const String _profile = 'profile';
 
   static String get profile => _profile.tr();
 
-  static const String _my_orders= 'my_orders';
+  static const String _my_orders = 'my_orders';
 
   static String get my_orders => _my_orders.tr();
 
-  static const String _settings= 'settings';
+  static const String _settings = 'settings';
 
   static String get settings => _settings.tr();
 
-  static const String _contact_us= 'contact_us';
+  static const String _contact_us = 'contact_us';
 
   static String get contact_us => _contact_us.tr();
 
-  static const String _about_us= 'about_us';
+  static const String _about_us = 'about_us';
 
   static String get about_us => _about_us.tr();
 
-  static const String _privacy_policy= 'privacy_policy';
+  static const String _privacy_policy = 'privacy_policy';
 
   static String get privacy_policy => _privacy_policy.tr();
 
-  static const String _terms= 'terms';
+  static const String _terms = 'terms';
 
   static String get terms => _terms.tr();
 
-  static const String _log_out= 'log_out';
+  static const String _log_out = 'log_out';
 
   static String get log_out => _log_out.tr();
 
-  static const String _do_you_want_logout= 'do_you_want_logout';
+  static const String _do_you_want_logout = 'do_you_want_logout';
 
   static String get do_you_want_logout => _do_you_want_logout.tr();
 
-  static const String _yes= 'yes';
+  static const String _yes = 'yes';
 
   static String get yes => _yes.tr();
 
-  static const String _no= 'no';
+  static const String _no = 'no';
 
   static String get no => _no.tr();
 
-  static const String _edit_profile= 'edit_profile';
+  static const String _edit_profile = 'edit_profile';
 
   static String get edit_profile => _edit_profile.tr();
 
-  static const String _change_phone_number= 'change_phone_number';
+  static const String _change_phone_number = 'change_phone_number';
 
   static String get change_phone_number => _change_phone_number.tr();
 
-  static const String _notification= 'notification';
+  static const String _notification = 'notification';
 
   static String get notification => _notification.tr();
 
-  static const String _delete_account= 'delete_account';
+  static const String _delete_account = 'delete_account';
 
   static String get delete_account => _delete_account.tr();
 
-  static const String _send_message= 'send_message';
+  static const String _send_message = 'send_message';
 
   static String get send_message => _send_message.tr();
 
-  static const String _message_text= 'message_text';
+  static const String _message_text = 'message_text';
 
   static String get message_text => _message_text.tr();
 
-  static const String _enter_message= 'enter_message';
+  static const String _enter_message = 'enter_message';
 
   static String get enter_message => _enter_message.tr();
 
-  static const String _send= 'send';
+  static const String _send = 'send';
 
   static String get send => _send.tr();
 
-  static const String _language= 'language';
+  static const String _language = 'language';
 
   static String get language => _language.tr();
+
+  static const String _tire = 'tire';
+
+  static String get tire => _tire.tr();
+
+  static const String _sell = 'sell';
+
+  static String get sell => _sell.tr();
+
+  static const String _know_value_property = 'know_value_property';
+
+  static String get know_value_property => _know_value_property.tr();
+
+  static const String _continuity = 'continuity';
+
+  static String get continuity => _continuity.tr();
+
+  static const String _sure = 'sure';
+
+  static String get sure => _sure.tr();
+
+  static const String _region = 'region';
+
+  static String get region => _region.tr();
+
+  static const String _select_region = 'select_region';
+
+  static String get select_region => _select_region.tr();
+
+  static const String _space = 'space';
+
+  static String get space => _space.tr();
+
+  static const String _enter_property_area = 'enter_property_area';
+
+  static String get enter_property_area => _enter_property_area.tr();
+
+  static const String _address = 'address';
+
+  static String get address => _address.tr();
+
+  static const String _enter_address = 'enter_address';
+
+  static String get enter_address => _enter_address.tr();
+
+  static const String _street = 'street';
+
+  static String get street => _street.tr();
+
+  static const String _select_street = 'select_street';
+
+  static String get select_street => _select_street.tr();
+
+  static const String _directions = 'directions';
+
+  static String get directions => _directions.tr();
+
+  static const String _set_directions = 'set_directions';
+
+  static String get set_directions => _set_directions.tr();
+
+  static const String _interface = 'interface';
+
+  static String get interface => _interface.tr();
+
+  static const String _select_interface = 'select_interface';
+
+  static String get select_interface => _select_interface.tr();
+
+  static const String _building_age = 'building_age';
+
+  static String get building_age => _building_age.tr();
+
+  static const String _determine_age_building = 'determine_age_building';
+
+  static String get determine_age_building => _determine_age_building.tr();
+
+  static const String _finishing_quality = 'finishing_quality';
+
+  static String get finishing_quality => _finishing_quality.tr();
+
+  static const String _determine_quality_finishing = 'determine_quality_finishing';
+
+  static String get determine_quality_finishing => _determine_quality_finishing.tr();
+
+  static const String _number_floors = 'number_floors';
+
+  static String get number_floors => _number_floors.tr();
+
+  static const String _determine_number_floors = 'determine_number_floors';
+
+  static String get determine_number_floors => _determine_number_floors.tr();
+
+  static const String _crypt = 'crypt';
+
+  static String get crypt => _crypt.tr();
+
+  static const String _description = 'description';
+
+  static String get description => _description.tr();
+
+  static const String _land = 'land';
+
+  static String get land => _land.tr();
+
+
+
+
+
+
 
 
 

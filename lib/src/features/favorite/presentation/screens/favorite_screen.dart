@@ -5,13 +5,12 @@ class FavoriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: Text(
-          "Favorite ",
-          style: TextStyle(fontSize: 30),
-        ),
+    return Scaffold(
+      appBar: CustomAppBar(
+        title: LocaleKeys.favorite.tr(),
       ),
+      body: FavoriteBody(),
+
     );
   }
 }

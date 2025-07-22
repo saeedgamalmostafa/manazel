@@ -146,7 +146,10 @@ class AppSizes {
   static double sH38 = 38.0.h;
   static double sH40 = 40.0.h;
   static double sH42 = 42.0.h;
+  static double sH44 = 44.0.h;
   static double sH45 = 45.0.h;
+  static double sH48 = 48.0.h;
+
   static double sH50 = 50.0.h;
   static double sH55 = 55.0.h;
   static double sH57 = 57.0.h;
@@ -161,13 +164,17 @@ class AppSizes {
   static double sH80 = 80.0.h;
   static double sH85 = 85.0.h;
   static double sH90 = 90.0.h;
+  static double sH96 = 96.0.h;
+
   static double sH100 = 100.0.h;
   static double sH105 = 105.0.h;
   static double sH110 = 110.0.h;
   static double sH120 = 120.0.h;
   static double sH125 = 125.0.h;
+  static double sH128 = 128.0.h;
   static double sH130 = 130.0.h;
   static double sH135 = 135.0.h;
+  static double sH138 = 138.0.h;
 
   static double sH140 = 140.0.h;
   static double sH145 = 145.0.h;
@@ -181,6 +188,7 @@ class AppSizes {
   static double sH180 = 180.0.h;
   static double sH185 = 185.0.h;
   static double sH190 = 190.0.h;
+  static double sH191 = 191.0.h;
   static double sH200 = 200.0.h;
   static double sH210 = 210.0.h;
   static double sH220 = 220.0.h;
@@ -196,14 +204,17 @@ class AppSizes {
   static double sH320 = 320.0.h;
   static double sH330 = 330.0.h;
   static double sH340 = 340.0.h;
+  static double sH344 = 344.0.h;
   static double sH350 = 350.0.h;
   static double sH360 = 360.0.h;
   static double sH195 = 195.0.h;
+  static double sH375 = 375.0.h;
 
   static double sH380 = 380.0.h;
   static double sH385 = 385.0.h;
   static double sH390 = 390.0.h;
   static double sH400 = 400.0.h;
+  static double sH401 = 401.0.h;
 
   static double sH540 = 540.0.h;
   static double sH651 = 651.0.h;
@@ -246,8 +257,11 @@ class AppSizes {
   static double sW35 = 35.0.w;
   static double sW40 = 40.0.w;
   static double sW42 = 42.0.w;
+  static double sW44 = 44.0.w;
+
   static double sW45 = 45.0.w;
   static double sW50 = 50.0.w;
+  static double sW53 = 53.0.w;
   static double sW55 = 55.0.w;
   static double sW56 = 56.0.w;
   static double sW59 = 59.0.w;
@@ -278,11 +292,14 @@ class AppSizes {
   static double sW125 = 125.0.w;
 
   static double sW130 = 130.0.w;
+  static double sW132 = 132.0.w;
+
   static double sW135 = 135.0.w;
   static double sW140 = 140.0.w;
   static double sW145 = 145.0.w;
   static double sW150 = 150.0.w;
   static double sW160 = 160.0.w;
+  static double sW166 = 166.0.w;
   static double sW167 = 167.0.w;
   static double sW170 = 170.0.w;
   static double sW180 = 180.0.w;
@@ -301,6 +318,7 @@ class AppSizes {
   static double sW300 = 300.0.w;
   static double sW323 = 323.0.w;
   static double sW343 = 343.0.w;
+  static double sW344 = 344.0.w;
   static double sW350 = 350.w;
   static double sW450 = 450.w;
   static double sW460 = 460.w;

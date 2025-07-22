@@ -10,6 +10,7 @@ import 'package:manazel/src/core/widgets/app_text.dart';
 import 'package:manazel/src/core/widgets/image_widgets/cached_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../config/res/app_sizes.dart';
 import '../helpers/validators.dart';
 
 enum DropDownType {
@@ -98,8 +99,8 @@ class DefaultDropDownField<T> extends StatelessWidget {
             return ListTile(
                 title: Text(itemAsString(item),
                     style: TextStyle(
-                      color: isSelected ? AppColors.primary : AppColors.black,
-                    )),
+                        color: isSelected ? AppColors.primary : AppColors.Text,
+                        fontSize: FontSize.s12)),
                 leading: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -145,9 +146,10 @@ class DefaultDropDownField<T> extends StatelessWidget {
         if (label != null)
           AppText(
             label!,
-            fontSize: 14,
+            fontSize: FontSize.s14,
+            color: AppColors.Text,
           ),
-        5.szH,
+        6.szH,
         Theme(
           data: context.theme.copyWith(
             highlightColor: Colors.transparent,
@@ -169,25 +171,36 @@ class DefaultDropDownField<T> extends StatelessWidget {
                     contentPadding:
                         EdgeInsets.symmetric(horizontal: 10.w, vertical: 14.h),
                     hintText: hint,
-                    hintStyle: const TextStyle(color: AppColors.borderColor),
+                    hintStyle: const TextStyle(color: AppColors.SubText),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: AppColors.borderColor),
-                      borderRadius: borderRadius ?? BorderRadius.circular(24),
+                      borderRadius: BorderRadius.circular(AppRadius.bR8),
+                      borderSide: BorderSide(
+                          color: AppColors.grey.withValues(alpha: 0.35),
+                          width: AppRadius.bR2_5 / 2),
+                      // borderRadius: borderRadius ?? BorderRadius.circular(24),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: AppColors.primary),
-                      borderRadius: borderRadius ?? BorderRadius.circular(24),
+                      borderRadius: BorderRadius.circular(AppRadius.bR8),
+                      borderSide: BorderSide(
+                          color: AppColors.primary, width: AppRadius.bR2_5 / 2),
+                      //borderRadius: borderRadius ?? BorderRadius.zero,
                     ),
                     border: OutlineInputBorder(
-                      borderSide: const BorderSide(color: AppColors.primary),
-                      borderRadius: borderRadius ?? BorderRadius.circular(24),
+                      borderRadius: BorderRadius.circular(AppRadius.bR8),
+                      borderSide: BorderSide(
+                          color: AppColors.primary, width: AppRadius.bR2_5 / 2),
+                      //borderRadius: borderRadius ?? BorderRadius.zero,
                     ),
                   )),
               dropdownBuilder: dropdownBuilder,
               compareFn: (item, selectedItem) => item == selectedItem,
               dropdownButtonProps: DropdownButtonProps(
                 padding: EdgeInsets.zero,
-                icon: suffixIcon ?? const Icon(Icons.arrow_drop_down),
+                icon: suffixIcon ??
+                    const Icon(
+                      Icons.keyboard_arrow_down,
+                      color: AppColors.SubText,
+                    ),
                 visualDensity: const VisualDensity(horizontal: 0, vertical: 0),
               ),
               autoValidateMode: AutovalidateMode.onUserInteraction,

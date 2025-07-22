@@ -138,6 +138,13 @@ class $AssetsPngGen {
   AssetGenImage get logout12 =>
       const AssetGenImage('assets/png/Logout (1) 2.png');
 
+  /// File path: assets/png/banner.png
+  AssetGenImage get banner => const AssetGenImage('assets/png/banner.png');
+
+  /// File path: assets/png/item_photo.png
+  AssetGenImage get itemPhoto =>
+      const AssetGenImage('assets/png/item_photo.png');
+
   /// File path: assets/png/manazel_primary_logo_name.png
   AssetGenImage get manazelPrimaryLogoName =>
       const AssetGenImage('assets/png/manazel_primary_logo_name.png');
@@ -150,12 +157,19 @@ class $AssetsPngGen {
   AssetGenImage get manazelWhiteLogoName =>
       const AssetGenImage('assets/png/manazel_white_logo_name.png');
 
+  /// File path: assets/png/predictive_chart.png
+  AssetGenImage get predictiveChart =>
+      const AssetGenImage('assets/png/predictive_chart.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
     logout12,
+    banner,
+    itemPhoto,
     manazelPrimaryLogoName,
     manazelWhiteLogo,
     manazelWhiteLogoName,
+    predictiveChart,
   ];
 }
 
@@ -164,6 +178,9 @@ class $AssetsSvgGen {
 
   /// File path: assets/svg/Icon.svg
   SvgGenImage get icon => const SvgGenImage('assets/svg/Icon.svg');
+
+  /// File path: assets/svg/Star.svg
+  SvgGenImage get star => const SvgGenImage('assets/svg/Star.svg');
 
   /// File path: assets/svg/alert-diamond.svg
   SvgGenImage get alertDiamond =>
@@ -215,6 +232,10 @@ class $AssetsSvgGen {
   /// File path: assets/svg/facebook-02.svg
   SvgGenImage get facebook02 => const SvgGenImage('assets/svg/facebook-02.svg');
 
+  /// File path: assets/svg/favorite_primary.svg
+  SvgGenImage get favoritePrimary =>
+      const SvgGenImage('assets/svg/favorite_primary.svg');
+
   /// File path: assets/svg/favourite.svg
   SvgGenImage get favourite => const SvgGenImage('assets/svg/favourite.svg');
 
@@ -223,6 +244,9 @@ class $AssetsSvgGen {
 
   /// File path: assets/svg/instagram.svg
   SvgGenImage get instagram => const SvgGenImage('assets/svg/instagram.svg');
+
+  /// File path: assets/svg/location.svg
+  SvgGenImage get location => const SvgGenImage('assets/svg/location.svg');
 
   /// File path: assets/svg/location_pin.svg
   SvgGenImage get locationPin =>
@@ -234,12 +258,19 @@ class $AssetsSvgGen {
   /// File path: assets/svg/mail-02.svg
   SvgGenImage get mail02 => const SvgGenImage('assets/svg/mail-02.svg');
 
+  /// File path: assets/svg/money.svg
+  SvgGenImage get money => const SvgGenImage('assets/svg/money.svg');
+
   /// File path: assets/svg/new-twitter.svg
   SvgGenImage get newTwitter => const SvgGenImage('assets/svg/new-twitter.svg');
 
   /// File path: assets/svg/notification.svg
   SvgGenImage get notification =>
       const SvgGenImage('assets/svg/notification.svg');
+
+  /// File path: assets/svg/notification_primary.svg
+  SvgGenImage get notificationPrimary =>
+      const SvgGenImage('assets/svg/notification_primary.svg');
 
   /// File path: assets/svg/saudi_cricular_flag.svg
   SvgGenImage get saudiCricularFlag =>
@@ -248,6 +279,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/saudi_square_flag.svg
   SvgGenImage get saudiSquareFlag =>
       const SvgGenImage('assets/svg/saudi_square_flag.svg');
+
+  /// File path: assets/svg/search.svg
+  SvgGenImage get search => const SvgGenImage('assets/svg/search.svg');
 
   /// File path: assets/svg/settings-01.svg
   SvgGenImage get settings01 => const SvgGenImage('assets/svg/settings-01.svg');
@@ -273,6 +307,7 @@ class $AssetsSvgGen {
   /// List of all assets
   List<SvgGenImage> get values => [
     icon,
+    star,
     alertDiamond,
     americaFlag,
     arrowLeft,
@@ -288,16 +323,21 @@ class $AssetsSvgGen {
     elements5,
     elements,
     facebook02,
+    favoritePrimary,
     favourite,
     file01,
     instagram,
+    location,
     locationPin,
     logo,
     mail02,
+    money,
     newTwitter,
     notification,
+    notificationPrimary,
     saudiCricularFlag,
     saudiSquareFlag,
+    search,
     settings01,
     smartPhone03,
     uploadImage,

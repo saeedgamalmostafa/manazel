@@ -1,28 +1,12 @@
 part of '../imports/presentaion_imports.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return _HomeView();
-  }
-}
-//     return BlocProvider(
-//       create: (context) => HomeCubit(
-//         sl<GetBooksUseCase>(),
-//       )..fetchPlayers(),
-//       child: const _HomeView(),
-//     );
-//   }
-// }
-
-class _HomeView extends StatelessWidget {
-  const _HomeView();
+  const HomeScreen();
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      appBar: AppbarHome(),
       backgroundColor: AppColors.scaffoldBackground,
       body: HomeBody(),
     );

@@ -45,6 +45,7 @@ class CustomTextFormField extends StatelessWidget {
   final FocusNode? focusNode;
   final InputDecoration? inputDecoration;
 
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -52,9 +53,9 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       onChanged: onChanged,
       validator: validator,
-        expands: true,
-        maxLines: null,
-        minLines: null,
+      expands: true,
+      maxLines: null,
+      minLines: null,
       textInputAction: textInputAction ?? TextInputAction.done,
       textAlignVertical: TextAlignVertical.center,
       cursorOpacityAnimates: true,
@@ -81,7 +82,7 @@ class CustomTextFormField extends StatelessWidget {
             hintStyle: Theme.of(context)
                 .textTheme
                 .titleSmall!
-                .copyWith(color: AppColors.grey),
+                .copyWith(color: AppColors.SubText,fontSize: FontSize.s12),
             labelStyle: Theme.of(context)
                 .textTheme
                 .titleMedium!

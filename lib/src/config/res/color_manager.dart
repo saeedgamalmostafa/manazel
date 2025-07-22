@@ -6,7 +6,7 @@ class AppColors {
   static const Color third = Color(0xFF7EA259);
   static const Color white = Color(0xffFFFFFF);
   static const Color black = Color(0xFF1F201F);
-  static const Color grey = Colors.grey;
+  static const Color grey = Color(0xFF8E94A399);
   static const Color whiteGrey = Color(0xFF5B5B5B);
   static const Color hintText = Color(0xFF5B5B5B);
   static const Color shadow = Color(0xFF5B5B5B);
@@ -14,10 +14,12 @@ class AppColors {
   static const Color scaffoldBackground = Color(0xffFFFFFF);
   static const Color buttonText = Color(0xffFFFFFF);
   static const Color Text = Color(0xFF2D3036);
+  static const Color SubText = Color(0xFF8E94A3);
   static const Color TextBold = Color(0xFF272727);
+  static const Color buttonColor = Color(0xFF316BFF);
   static const Color error = Colors.red;
-}
 
+}
 class AppColorsWithDarkMode {
   static const Color primary = Color(0xFF7EA259);
   static const Color secondary = Color(0xFFF2F6EE);
