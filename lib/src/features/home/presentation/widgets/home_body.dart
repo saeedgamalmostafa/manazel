@@ -6,18 +6,7 @@ class HomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        children: [
-          // ImageSlider(
-          //   images: [
-          //     'assets/png/banner.png',
-          //     'assets/png/banner.png',
-          //     'assets/png/banner.png',
-          //   ],
-          // ),
-          HomeActions(),
-          HomeItemsCard()
-
-      ]),
+          children: [CustomImageSlider(), HomeActions(), HomeItemsCard()]),
     );
   }
 }

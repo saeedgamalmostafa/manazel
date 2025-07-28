@@ -141,6 +141,10 @@ class $AssetsPngGen {
   /// File path: assets/png/banner.png
   AssetGenImage get banner => const AssetGenImage('assets/png/banner.png');
 
+  /// File path: assets/png/building_price.png
+  AssetGenImage get buildingPrice =>
+      const AssetGenImage('assets/png/building_price.png');
+
   /// File path: assets/png/item_photo.png
   AssetGenImage get itemPhoto =>
       const AssetGenImage('assets/png/item_photo.png');
@@ -165,6 +169,7 @@ class $AssetsPngGen {
   List<AssetGenImage> get values => [
     logout12,
     banner,
+    buildingPrice,
     itemPhoto,
     manazelPrimaryLogoName,
     manazelWhiteLogo,
@@ -204,11 +209,25 @@ class $AssetsSvgGen {
   SvgGenImage get britishFlag =>
       const SvgGenImage('assets/svg/british_flag.svg');
 
+  /// File path: assets/svg/building.svg
+  SvgGenImage get building => const SvgGenImage('assets/svg/building.svg');
+
   /// File path: assets/svg/calendar-01.svg
   SvgGenImage get calendar01 => const SvgGenImage('assets/svg/calendar-01.svg');
 
+  /// File path: assets/svg/calendar.svg
+  SvgGenImage get calendar => const SvgGenImage('assets/svg/calendar.svg');
+
   /// File path: assets/svg/camera.svg
   SvgGenImage get camera => const SvgGenImage('assets/svg/camera.svg');
+
+  /// File path: assets/svg/cancel_button.svg
+  SvgGenImage get cancelButton =>
+      const SvgGenImage('assets/svg/cancel_button.svg');
+
+  /// File path: assets/svg/cancel_circle.svg
+  SvgGenImage get cancelCircle =>
+      const SvgGenImage('assets/svg/cancel_circle.svg');
 
   /// File path: assets/svg/chat-bot.svg
   SvgGenImage get chatBot => const SvgGenImage('assets/svg/chat-bot.svg');
@@ -216,6 +235,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/customer-support.svg
   SvgGenImage get customerSupport =>
       const SvgGenImage('assets/svg/customer-support.svg');
+
+  /// File path: assets/svg/details.svg
+  SvgGenImage get details => const SvgGenImage('assets/svg/details.svg');
 
   /// File path: assets/svg/elements (1).svg
   SvgGenImage get elements1 => const SvgGenImage('assets/svg/elements (1).svg');
@@ -236,11 +258,18 @@ class $AssetsSvgGen {
   SvgGenImage get favoritePrimary =>
       const SvgGenImage('assets/svg/favorite_primary.svg');
 
+  /// File path: assets/svg/favorite_primary_border.svg
+  SvgGenImage get favoritePrimaryBorder =>
+      const SvgGenImage('assets/svg/favorite_primary_border.svg');
+
   /// File path: assets/svg/favourite.svg
   SvgGenImage get favourite => const SvgGenImage('assets/svg/favourite.svg');
 
   /// File path: assets/svg/file-01.svg
   SvgGenImage get file01 => const SvgGenImage('assets/svg/file-01.svg');
+
+  /// File path: assets/svg/filter.svg
+  SvgGenImage get filter => const SvgGenImage('assets/svg/filter.svg');
 
   /// File path: assets/svg/instagram.svg
   SvgGenImage get instagram => const SvgGenImage('assets/svg/instagram.svg');
@@ -268,9 +297,16 @@ class $AssetsSvgGen {
   SvgGenImage get notification =>
       const SvgGenImage('assets/svg/notification.svg');
 
+  /// File path: assets/svg/notification_circle.svg
+  SvgGenImage get notificationCircle =>
+      const SvgGenImage('assets/svg/notification_circle.svg');
+
   /// File path: assets/svg/notification_primary.svg
   SvgGenImage get notificationPrimary =>
       const SvgGenImage('assets/svg/notification_primary.svg');
+
+  /// File path: assets/svg/profile.svg
+  SvgGenImage get profile => const SvgGenImage('assets/svg/profile.svg');
 
   /// File path: assets/svg/saudi_cricular_flag.svg
   SvgGenImage get saudiCricularFlag =>
@@ -282,6 +318,9 @@ class $AssetsSvgGen {
 
   /// File path: assets/svg/search.svg
   SvgGenImage get search => const SvgGenImage('assets/svg/search.svg');
+
+  /// File path: assets/svg/search_gray.svg
+  SvgGenImage get searchGray => const SvgGenImage('assets/svg/search_gray.svg');
 
   /// File path: assets/svg/settings-01.svg
   SvgGenImage get settings01 => const SvgGenImage('assets/svg/settings-01.svg');
@@ -314,18 +353,25 @@ class $AssetsSvgGen {
     arrowRight,
     bookmarkCheck01,
     britishFlag,
+    building,
     calendar01,
+    calendar,
     camera,
+    cancelButton,
+    cancelCircle,
     chatBot,
     customerSupport,
+    details,
     elements1,
     elements3,
     elements5,
     elements,
     facebook02,
     favoritePrimary,
+    favoritePrimaryBorder,
     favourite,
     file01,
+    filter,
     instagram,
     location,
     locationPin,
@@ -334,10 +380,13 @@ class $AssetsSvgGen {
     money,
     newTwitter,
     notification,
+    notificationCircle,
     notificationPrimary,
+    profile,
     saudiCricularFlag,
     saudiSquareFlag,
     search,
+    searchGray,
     settings01,
     smartPhone03,
     uploadImage,

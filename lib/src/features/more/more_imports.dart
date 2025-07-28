@@ -17,6 +17,7 @@ import 'package:manazel/src/config/res/assets.gen.dart';
 
 import '../../core/navigator/app_navigator.dart';
 import '../../core/widgets/logout_dialog_sheet.dart';
+import '../My_orders/my_orders_imports.dart';
 import '../profile/profile_imports.dart';
 
 part 'presentation/screens/more_screen.dart';

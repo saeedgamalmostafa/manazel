@@ -22,7 +22,7 @@ class HomeNavigation implements NotificationNavigation {
   const HomeNavigation();
   @override
   void navigate({required Map<String, dynamic> data}) {
-    // Navigate to message screen with logic
+    // Navigate to message screens with logic
   }
 }
 
@@ -30,7 +30,7 @@ class MessageNavigation implements NotificationNavigation {
   const MessageNavigation();
   @override
   void navigate({required Map<String, dynamic> data}) {
-    // Navigate to message screen with logic
+    // Navigate to message screens with logic
   }
 }
 
@@ -38,6 +38,6 @@ class UpdateNavigation implements NotificationNavigation {
   const UpdateNavigation();
   @override
   void navigate({required Map<String, dynamic> data}) {
-    // Navigate to update screen
+    // Navigate to update screens
   }
 }

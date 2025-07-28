@@ -18,6 +18,9 @@ class AppColors {
   static const Color TextBold = Color(0xFF272727);
   static const Color buttonColor = Color(0xFF316BFF);
   static const Color error = Colors.red;
+  static const Color containerTextColor1 = Color(0xFFE09400);
+  static const Color containerTextColor2 = Color(0xFF9747FF);
+  static const Color radioColor = Color(0xFFF9FAFB);
 
 }
 class AppColorsWithDarkMode {

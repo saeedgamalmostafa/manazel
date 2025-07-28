@@ -10,7 +10,7 @@ class LoginScreen extends StatelessWidget {
       child: BlocListener<LoginCubit, LoginState>(
         listener: (context, state) {
           if(state.requestState == RequestState.success){
-            /// TODO : navigate to opt screen.
+            /// TODO : navigate to opt screens.
             Go.push(const HomeScreen());
           }
         },

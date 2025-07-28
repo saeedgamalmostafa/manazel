@@ -109,30 +109,54 @@
   "language": "Language",
   "tire": "Tire",
   "sell": "Sell",
-  "know_value_property": "Know The Value Of Your Property",
+  "know_value_property": "Know the value of your property",
   "continuity": "Continuity",
   "sure": "sure",
   "region": "Region",
-  "select_region": "Select The Region",
+  "select_region": "Select the region",
   "space": "Space",
-  "enter_property_area": "Enter The Property Area",
+  "enter_property_area": "Enter the property area",
   "address": "Address",
-  "enter_address": "Enter The Address",
+  "enter_address": "Enter the address",
   "street": "Street",
-  "select_street": "Select The Street",
+  "select_street": "Select the street",
   "directions": "Directions",
-  "set_directions": "Set Directions",
+  "set_directions": "Set directions",
   "interface": "Interface",
-  "select_interface": "Select The Interface",
-  "building_age": "Construction Age",
-  "determine_age_building": "Determine The Age Of The Building",
-  "finishing_quality": "Finishing Quality",
-  "determine_quality_finishing": "Determine The Quality Of Finishing",
-  "number_floors": "Number Of Floors",
-  "determine_number_floors": "Determine The Number Of Floors",
+  "select_interface": "Select the interface",
+  "building_age": "Construction age",
+  "determine_age_building": "Determine the age of the building",
+  "finishing_quality": "Finishing quality",
+  "determine_quality_finishing": "Determine the quality of finishing",
+  "number_floors": "Number of floors",
+  "determine_number_floors": "Determine the number of floors",
   "crypt": "Crypt",
   "description": "Description",
-  "land": "Land"
+  "land": "Land",
+  "building_details_title": "Property details",
+  "book_appointment_now": "Book an appointment now",
+  "contact_owner": "Contact the owner",
+  "book_inspection": "Book an appointment for inspection",
+  "appointments_available": "Appointments available",
+  "choose_appointment_examination": "Choose an appointment for an examination",
+  "convert_home_page": "You will be redirected to the home page in a few moments.",
+  "wish_unique_experience": "We wish you a unique experience through the Manazel application",
+  "search_result": "Search result",
+  "search_filter": "Search filter",
+  "purpose": "Purpose",
+  "building_type": "Property type",
+  "choose_building_type": "Choose property type",
+  "price": "Price"
+
+
+
+
+
+
+
+
+
+
 
 
 

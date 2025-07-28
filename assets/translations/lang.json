@@ -122,7 +122,33 @@
     "determine_number_floors": "حدد عدد الطوابق",
     "crypt": "سرداب",
     "description": "وصف",
-    "land": "أرض"
+    "land": "أرض",
+    "building_details_title": "تفاصيل العقار",
+    "book_appointment_now": "إحجز موعد الان",
+    "contact_owner": "تواصل مع المالك",
+    "book_inspection": "حجز موعد للمعاينة",
+    "appointments_available": "المواعيد المتاحة",
+    "choose_appointment_examination": "إختر موعد المعاينة",
+    "convert_home_page": "سيتم تحويلك للصفحة الرئيسية خلال لحظات",
+    "wish_unique_experience": "نتمنى لك تجربة مميزة من خلال تطبيق منازل",
+    "search_result": "نتيجة البحث",
+    "search_filter": "فلتر البحث",
+    "purpose": "الغرض",
+    "building_type": "نوع العقار",
+    "choose_building_type": "إختر نوع العقار",
+    "price": "السعر"
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -17,7 +17,7 @@ class FavoriteBody extends StatelessWidget {
               location: 'عالرياض، حي العزيزية',
               price: '17,500 ر.س',
               rate: '4.8',
-              imageFavourite: AppAssets.svg.favoritePrimary.path,
+              imageFavourite: AppAssets.svg.favoritePrimary.path, onTap: () {  },
             );
           }),
     );

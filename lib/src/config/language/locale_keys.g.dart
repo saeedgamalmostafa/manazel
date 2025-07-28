@@ -568,13 +568,59 @@ abstract class LocaleKeys {
 
   static String get land => _land.tr();
 
+  static const String _building_details_title = 'building_details_title';
 
+  static String get building_details_title => _building_details_title.tr();
 
+  static const String _book_appointment_now = 'book_appointment_now';
 
+  static String get book_appointment_now => _book_appointment_now.tr();
 
+  static const String _contact_owner = 'contact_owner';
 
+  static String get contact_owner => _contact_owner.tr();
 
+  static const String _book_inspection = 'book_inspection';
 
+  static String get book_inspection => _book_inspection.tr();
 
+  static const String _appointments_available = 'appointments_available';
 
+  static String get appointments_available => _appointments_available.tr();
+
+  static const String _choose_appointment_examination = 'choose_appointment_examination';
+
+  static String get choose_appointment_examination => _choose_appointment_examination.tr();
+
+  static const String _convert_home_page = 'convert_home_page';
+
+  static String get convert_home_page => _convert_home_page.tr();
+
+  static const String _wish_unique_experience = 'wish_unique_experience';
+
+  static String get wish_unique_experience => _wish_unique_experience.tr();
+
+  static const String _search_result = 'search_result';
+
+  static String get search_result => _search_result.tr();
+
+  static const String _search_filter = 'search_filter';
+
+  static String get search_filter => _search_filter.tr();
+
+  static const String _purpose = 'purpose';
+
+  static String get purpose => _purpose.tr();
+
+  static const String _building_type = 'building_type';
+
+  static String get building_type => _building_type.tr();
+
+  static const String _choose_building_type = 'choose_building_type';
+
+  static String get choose_building_type => _choose_building_type.tr();
+
+  static const String _price = 'price';
+
+  static String get price => _price.tr();
 }

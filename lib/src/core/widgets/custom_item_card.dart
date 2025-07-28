@@ -6,7 +6,7 @@ import '../../config/res/assets.gen.dart';
 import '../../config/res/color_manager.dart';
 import 'custom_text.dart';
 
-class CustomItemCard extends StatelessWidget {
+class CustomItemCard extends StatefulWidget {
   final String imagePath;
   final String description;
   final String imageFavourite;
@@ -16,7 +16,7 @@ class CustomItemCard extends StatelessWidget {
   final VoidCallback? onTap;
   const CustomItemCard(
       {super.key,
-      this.onTap,
+      required this.onTap,
       required this.imagePath,
       required this.description,
       required this.location,
@@ -25,14 +25,19 @@ class CustomItemCard extends StatelessWidget {
       required this.imageFavourite});
 
   @override
+  State<CustomItemCard> createState() => _CustomItemCardState();
+}
+
+class _CustomItemCardState extends State<CustomItemCard> {
+  bool isFavourite = false;
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {
-
-        },
+        onTap: widget.onTap,
         child: Padding(
             padding: EdgeInsets.only(
-                left: AppSizes.sW16, right: AppSizes.sW16,top: AppSizes.sH16),
+                left: AppSizes.sW16, right: AppSizes.sW16, top: AppSizes.sH16),
             child: SizedBox(
               height: AppSizes.sH128,
               child: Card(
@@ -51,7 +56,7 @@ class CustomItemCard extends StatelessWidget {
                         width: AppSizes.sW132,
                         height: AppSizes.sH128,
                         child: Image.asset(
-                          imagePath,
+                          widget.imagePath,
                           // AppAssets.png.itemPhoto.path,
                           fit: BoxFit.cover,
                           width: double.infinity,
@@ -73,8 +78,7 @@ class CustomItemCard extends StatelessWidget {
                                 children: [
                                   Expanded(
                                     child: CustomText(
-                                      description,
-                                      // "عقار سكني مميز",
+                                      widget.description,
                                       textStyle: TextStyle(
                                           fontSize: FontSize.s14,
                                           color: AppColors.Text),
@@ -84,9 +88,23 @@ class CustomItemCard extends StatelessWidget {
                                   SizedBox(
                                     width: AppSizes.sW20,
                                   ),
-                                  SvgPicture.asset(imageFavourite
-                                      // AppAssets.svg.favourite.path
-                                      )
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        isFavourite = !isFavourite;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 20,
+                                      width: 20,
+                                      child: SvgPicture.asset(
+                                        !isFavourite
+                                            ? AppAssets.svg.favourite.path
+                                            : AppAssets
+                                                .svg.favoritePrimary.path,
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
                               SizedBox(
@@ -98,7 +116,7 @@ class CustomItemCard extends StatelessWidget {
                                   SizedBox(
                                     width: 4,
                                   ),
-                                  CustomText(location,
+                                  CustomText(widget.location,
                                       //"عالرياض، حي العزيزية",
                                       textStyle: TextStyle(
                                           fontSize: FontSize.s12,
@@ -109,25 +127,33 @@ class CustomItemCard extends StatelessWidget {
                                 height: AppSizes.sH12,
                               ),
                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  SvgPicture.asset(AppAssets.svg.money.path),
-                                  SizedBox(
-                                    width: AppSizes.sW4,
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                          AppAssets.svg.money.path),
+                                      SizedBox(
+                                        width: AppSizes.sW4,
+                                      ),
+                                      CustomText(widget.price,
+                                          //"17,500 ر.س",
+                                          textStyle: TextStyle(
+                                              fontSize: FontSize.s12,
+                                              color: AppColors.Text)),
+                                    ],
                                   ),
-                                  CustomText(price,
-                                      //"17,500 ر.س",
-                                      textStyle: TextStyle(
-                                          fontSize: FontSize.s12,
-                                          color: AppColors.Text)),
-                                  SizedBox(
-                                    width: AppSizes.sW30,
-                                  ),
-                                  CustomText(rate,
-                                      //"4.8",
-                                      textStyle: TextStyle(
-                                          fontSize: FontSize.s12,
-                                          color: AppColors.Text)),
-                                  SvgPicture.asset(AppAssets.svg.star.path),
+                                  Row(
+                                    children: [
+                                      CustomText(widget.rate,
+                                          //"4.8",
+                                          textStyle: TextStyle(
+                                              fontSize: FontSize.s12,
+                                              color: AppColors.Text)),
+                                      SvgPicture.asset(AppAssets.svg.star.path),
+                                    ],
+                                  )
                                 ],
                               ),
                             ],

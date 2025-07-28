@@ -52,10 +52,27 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
               ],
             ),
           ),
-          CustomCirclurButton(imagepath: AppAssets.svg.search.path),
+          GestureDetector(
+            onTap: () {
+              Go.push(SearchScreen());
+            },
+            child: CustomCirclurButton(
+              imagepath: AppAssets.svg.search.path,
+              height: AppSizes.sH44,
+              width: AppSizes.sW44,
+            ),
+          ),
           SizedBox(width: 10),
-          CustomCirclurButton(
-              imagepath: AppAssets.svg.notificationPrimary.path),
+          GestureDetector(
+            onTap: () {
+              Go.push(NotificationsScreen());
+            },
+            child: CustomCirclurButton(
+              imagepath: AppAssets.svg.notificationPrimary.path,
+              height: AppSizes.sH44,
+              width: AppSizes.sW44,
+            ),
+          ),
         ],
       ),
     );

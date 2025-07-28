@@ -13,9 +13,14 @@ import 'package:manazel/src/core/widgets/custom_text.dart';
 
 import '../../config/language/languages.dart';
 import '../../config/language/locale_keys.g.dart';
+import '../../core/widgets/default_bottom_sheet.dart';
 import '../../core/widgets/drop_down_button.dart';
 import '../../core/widgets/text_fields/pin_text_field.dart';
+import '../book_appointment/book_appointment_imports.dart';
+import '../home/presentation/imports/presentaion_imports.dart';
 
 part 'presentation/screens/rate_screen.dart';
-part 'presentation/widgts/rate_body.dart';
+part 'presentation/widgts/rate_forms.dart';
 part 'presentation/widgts/rate_bottom_sheet.dart';
+part 'presentation/widgts/rate_price_bottom_sheet.dart';
+part 'presentation/widgts/rate_body.dart';

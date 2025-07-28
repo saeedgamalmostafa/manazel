@@ -86,7 +86,7 @@ class DefaultDropDownField<T> extends StatelessWidget {
             ));
       case DropDownType.bottomsheet:
         return PopupProps.bottomSheet(
-          showSearchBox: true,
+          showSearchBox: false,
           constraints: BoxConstraints(
               maxHeight: 300.h, maxWidth: 400.w, minWidth: 350.w),
           showSelectedItems: true,

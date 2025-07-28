@@ -18,8 +18,10 @@ class RateScreen extends StatelessWidget {
                 right: AppSizes.sW16,
                 left: AppSizes.sW16),
             child: CustomElevatedButton(
-              onPressed: () {},
-              text: LocaleKeys.sure.tr(),
+              onPressed: () {
+                showDefaultBottomSheet(child: RatePriceBottomSheet());
+              },
+              text: LocaleKeys.send.tr(),
             )));
   }
 }

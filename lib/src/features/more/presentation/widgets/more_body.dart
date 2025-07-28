@@ -21,7 +21,9 @@ class MoreBody extends StatelessWidget {
           CustomMoreItem(
             imagePath: AppAssets.svg.calendar01.path,
             title: LocaleKeys.my_orders.tr(),
-            onTap: () {},
+            onTap: () {
+              Go.push(const MyOrdersScreen());
+            },
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.settings01.path,

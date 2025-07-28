@@ -17,6 +17,9 @@ class HomeItemsCard extends StatelessWidget {
             price: '17,500 ر.س',
             rate: '4.8',
             imageFavourite: AppAssets.svg.favourite.path,
+            onTap: (){
+              Go.push(const BuildingDetailsScreen());
+            },
           );
         });
   }
