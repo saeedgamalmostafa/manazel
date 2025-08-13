@@ -50,7 +50,10 @@ class CustomMoreItem extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: AppSizes.sW8),
                 child: CustomText.titleMedium(
-                  title,
+                  title, textStyle: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(),
                   textAlign: TextAlign.start,
                   maxLines: 1,
                 ),

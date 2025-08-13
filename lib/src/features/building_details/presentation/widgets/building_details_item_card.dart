@@ -49,12 +49,14 @@ class BuildingDetailsItemCard extends StatelessWidget {
                             height: AppSizes.sH20,
                           ),
                           SizedBox(width: AppSizes.sW5),
-                          CustomText(
+                          CustomText.titleMedium(
                             description,
-                            textStyle: TextStyle(
-                              fontSize: FontSize.s14,
-                              color: AppColors.Text,
-                            ),
+                            textStyle: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                  color: AppColors.Text,
+                                ),
                             maxLines: 1,
                           ),
                         ],
@@ -73,20 +75,23 @@ class BuildingDetailsItemCard extends StatelessWidget {
                                   height: AppSizes.sH20,
                                 ),
                                 SizedBox(width: AppSizes.sW5),
-                                CustomText(profile_name,
-                                    textStyle: TextStyle(
-                                        fontSize: FontSize.s14,
-                                        color: AppColors.Text)),
+                                CustomText.titleMedium(profile_name,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(color: AppColors.Text)),
                               ],
                             ),
                             Row(
                               children: [
-                                CustomText(
+                                CustomText.titleMedium(
                                   rate,
-                                  textStyle: TextStyle(
-                                    fontSize: FontSize.s14,
-                                    color: AppColors.Text,
-                                  ),
+                                  textStyle: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium
+                                      ?.copyWith(
+                                        color: AppColors.Text,
+                                      ),
                                 ),
                                 SizedBox(width: AppSizes.sW4),
                                 SvgPicture.asset(
@@ -113,10 +118,11 @@ class BuildingDetailsItemCard extends StatelessWidget {
                               SizedBox(
                                 width: AppSizes.sW4,
                               ),
-                              CustomText(location,
-                                  textStyle: TextStyle(
-                                      fontSize: FontSize.s14,
-                                      color: AppColors.Text)),
+                              CustomText.titleMedium(location,
+                                  textStyle: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium
+                                      ?.copyWith(color: AppColors.Text)),
                             ],
                           ),
                           Row(
@@ -129,10 +135,11 @@ class BuildingDetailsItemCard extends StatelessWidget {
                               SizedBox(
                                 width: AppSizes.sW4,
                               ),
-                              CustomText(money,
-                                  textStyle: TextStyle(
-                                      fontSize: FontSize.s12,
-                                      color: AppColors.Text)),
+                              CustomText.titleMedium(money,
+                                  textStyle: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium
+                                      ?.copyWith(color: AppColors.Text)),
                             ],
                           ),
                         ],

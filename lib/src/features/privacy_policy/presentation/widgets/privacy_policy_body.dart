@@ -43,7 +43,9 @@ class PrivacyPolicyBody extends StatelessWidget {
                 wrapWords: false,
               ),
             ),
-            SizedBox(height: AppSizes.sH38,)
+            SizedBox(
+              height: AppSizes.sH38,
+            )
           ],
         ),
       ),

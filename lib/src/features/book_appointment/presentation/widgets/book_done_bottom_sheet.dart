@@ -13,13 +13,13 @@ class _BookDoneBottomSheetState extends State<BookDoneBottomSheet> {
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
       Go.pop();
-      Go.push(HomeScreen());
+      Go.push(AppLayoutScreen(currentIndex: 0));
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: Go.pop,
       child: Padding(
         padding: EdgeInsets.only(top: AppSizes.sH21),
@@ -32,22 +32,22 @@ class _BookDoneBottomSheetState extends State<BookDoneBottomSheet> {
               ),
             ),
             SizedBox(height: AppSizes.sH16),
-            CustomText(
+            CustomText.titleLarge(
               Languages.currentLanguage.locale == const Locale("ar")
                   ? "تم حجز موعدك بنجاح\u{1F44B}"
                   : "Your appointment has been successfully booked\u{1F44B}",
-              textStyle: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: FontSize.s16,
-                  color: AppColors.Text),
+              textStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold, color: AppColors.Text),
             ),
             SizedBox(
               height: AppSizes.sH6,
             ),
-            CustomText(
+            CustomText.titleMedium(
               LocaleKeys.convert_home_page.tr(),
-              textStyle:
-                  TextStyle(fontSize: FontSize.s14, color: AppColors.SubText),
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .titleMedium
+                  ?.copyWith(color: AppColors.SubText),
             ),
           ],
         ),

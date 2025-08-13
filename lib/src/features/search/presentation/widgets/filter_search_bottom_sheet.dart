@@ -23,9 +23,11 @@ class FilterSearchBottomSheet extends StatelessWidget {
                     fontWeight: FontWeight.bold)),
           ),
           SizedBox(height: AppSizes.sH18),
-          CustomText(LocaleKeys.purpose.tr(),
-              textStyle: TextStyle(
-                fontSize: FontSize.s14,
+          CustomText.titleMedium(LocaleKeys.purpose.tr(),
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .titleMedium
+                  ?.copyWith(
                 color: AppColors.Text,
               )),
           SizedBox(height: AppSizes.sH6),

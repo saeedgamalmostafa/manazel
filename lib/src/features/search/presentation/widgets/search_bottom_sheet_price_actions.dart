@@ -5,7 +5,7 @@ class SearchBottomSheetPriceActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: AppSizes.sH36,
       child: Row(
         children: [

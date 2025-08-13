@@ -12,20 +12,17 @@ class ChangeContainerBuildingDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       height: AppSizes.sH35, // Ensure this is equal to width
-      width: AppSizes.sH70,  // Use same value to keep it a circle
+      width: AppSizes.sH70, // Use same value to keep it a circle
       decoration: BoxDecoration(
-        color: background_color,
-          borderRadius: BorderRadius.circular(20)
-      ),
+          color: background_color, borderRadius: BorderRadius.circular(20)),
       child: Center(
-        child: CustomText(
+        child: CustomText.titleMedium(
           text,
-          textStyle: TextStyle(
-            color: color,
-            fontSize: FontSize.s14,
-          ),
+          textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: color,
+              ),
         ),
       ),
     );

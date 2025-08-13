@@ -21,6 +21,7 @@ class AppColors {
   static const Color containerTextColor1 = Color(0xFFE09400);
   static const Color containerTextColor2 = Color(0xFF9747FF);
   static const Color radioColor = Color(0xFFF9FAFB);
+  static const Color cancelAccount = Color(0xFFF0516D);
 
 }
 class AppColorsWithDarkMode {

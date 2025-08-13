@@ -22,31 +22,32 @@ class TermsBody extends StatelessWidget {
       'إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، ';
   @override
   Widget build(BuildContext context) {
-    return  Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                CustomLogo(),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal:AppSizes.sW16),
-                  child: AutoSizeText(
-                    arabicText,
-                    style: TextStyle(
-                      fontSize: 14,
-                      height: 1.8,
-                      color: AppColors.Text,
-                    ),
-                    textAlign: TextAlign.justify,
-                    maxLines: 300,
-                    minFontSize: 12,
-                    overflow: TextOverflow.ellipsis,
-                    wrapWords: false,
-                  ),
-                ),
-                SizedBox(height: AppSizes.sH38,)
-              ],
+    return Expanded(
+        child: SingleChildScrollView(
+      child: Column(
+        children: [
+          CustomLogo(),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.sW16),
+            child: AutoSizeText(
+              arabicText,
+              style: TextStyle(
+                fontSize: 14,
+                height: 1.8,
+                color: AppColors.Text,
+              ),
+              textAlign: TextAlign.justify,
+              maxLines: 300,
+              minFontSize: 12,
+              overflow: TextOverflow.ellipsis,
+              wrapWords: false,
             ),
-        ));
+          ),
+          SizedBox(
+            height: AppSizes.sH38,
+          )
+        ],
+      ),
+    ));
   }
 }

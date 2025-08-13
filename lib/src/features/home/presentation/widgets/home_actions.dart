@@ -7,79 +7,62 @@ class HomeActions extends StatefulWidget {
   State<HomeActions> createState() => _HomeActionsState();
 }
 
-class _HomeActionsState extends State<HomeActions> {
-  int selectedIndex = 0;
+class _HomeActionsState extends State<HomeActions>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  final List<String> tabTitles = [LocaleKeys.tire.tr(), LocaleKeys.sell.tr()];
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: tabTitles.length, vsync: this);
+    _tabController.addListener(() {
+      setState(() {}); // Rebuild on tab change
+    });
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  void _onTabTapped(int index) {
+    _tabController.animateTo(index);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: AppSizes.sW16, vertical: AppSizes.sH20),
-      child: Container(
-        color: Colors.white,
-        height: AppSizes.sH44,
-        width: AppSizes.sW343,
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Positioned(
-              right: 0,
+        vertical: AppSizes.sH20,
+        horizontal: AppSizes.sW16,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(tabTitles.length, (index) {
+          bool selected = _tabController.index == index;
+
+          return InkWell(
+              onTap: () => _onTabTapped(index),
               child: Container(
-                width: 211.5,
                 height: 44,
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      selectedIndex = 0;
-                    });
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        selectedIndex == 0 ? AppColors.buttonColor : AppColors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    side: selectedIndex == 0
-                        ? BorderSide.none
-                        : BorderSide(color: AppColors.white, width: 2),
-                    foregroundColor:
-                        selectedIndex == 0 ? AppColors.white : AppColors.grey,
-                  ),
-                  child: CustomText(LocaleKeys.sell.tr(), textStyle: TextStyle(fontSize: FontSize.s16),),
+                width: 170,
+                decoration: BoxDecoration(
+                  color: selected ? AppColors.buttonColor : Colors.white,
+                  borderRadius: BorderRadius.circular(50),
+                  border: Border.all(color: AppColors.grey, width: 0.5),
                 ),
-              ),
-            ),
-            Positioned(
-              left: 0,
-              top: 0,
-              child: Container(
-                width: 211.5,
-                height: 44,
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      selectedIndex = 1;
-                    });
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: selectedIndex == 1
-                        ? AppColors.buttonColor
-                        : AppColors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    side: selectedIndex == 1
-                        ? BorderSide.none
-                        : BorderSide(color: AppColors.white, width: 2),
-                    foregroundColor: selectedIndex == 1
-                        ? AppColors.white
-                        : AppColors.grey,
+                child: Center(
+                  child: CustomText.titleLarge(
+                    tabTitles[index],
+                    textStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: selected ? Colors.white : AppColors.grey,
+                        ),
                   ),
-                  child: CustomText(LocaleKeys.tire.tr(), textStyle: TextStyle(fontSize: FontSize.s16),),
                 ),
-              ),
-            ),
-          ],
-        ),
+              ));
+        }),
       ),
     );
   }

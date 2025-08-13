@@ -47,7 +47,7 @@ class SearchBody extends StatelessWidget {
           SizedBox(
             width: AppSizes.sW14,
           ),
-          GestureDetector(
+          InkWell(
             onTap: (){
               showFilterBottomSheet(context);
             },

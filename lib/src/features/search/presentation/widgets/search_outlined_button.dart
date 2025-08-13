@@ -48,11 +48,11 @@ class _SearchOutlinedButton extends State<SearchOutlinedButton> {
         ),
         backgroundColor: Colors.white,
       ),
-      child: CustomText(
+      child: CustomText.titleMedium(
         widget.text,
-        textStyle: TextStyle(
-          color: widget.color,
-        ),
+        textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
+              color: widget.color,
+            ),
       ),
     );
   }

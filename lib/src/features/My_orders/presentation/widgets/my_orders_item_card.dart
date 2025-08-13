@@ -7,15 +7,15 @@ class MyOrdersItemCard extends StatelessWidget {
   final String calendar;
   final String rate;
   final VoidCallback? onTap;
-   MyOrdersItemCard(
-      {super.key,
-        this.onTap,
-        required this.imagePath,
-        required this.description,
-        required this.profile_name,
-        required this.calendar,
-        required this.rate,
-        });
+  MyOrdersItemCard({
+    super.key,
+    this.onTap,
+    required this.imagePath,
+    required this.description,
+    required this.profile_name,
+    required this.calendar,
+    required this.rate,
+  });
   bool isFavourite = false;
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class MyOrdersItemCard extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(20),
                           bottomRight: Radius.circular(20)),
-                      child: Container(
+                      child: SizedBox(
                         width: AppSizes.sW132,
                         height: AppSizes.sH128,
                         child: Image.asset(
@@ -54,7 +54,7 @@ class MyOrdersItemCard extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: AppSizes.sW16, vertical: AppSizes.sH16),
-                        child: Container(
+                        child: SizedBox(
                           height: AppSizes.sH96,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,22 +64,24 @@ class MyOrdersItemCard extends StatelessWidget {
                                 children: [
                                   SvgPicture.asset(AppAssets.svg.building.path),
                                   Expanded(
-                                    child: CustomText(
+                                    child: CustomText.titleSmall(
                                       description,
-                                      textStyle: TextStyle(
-                                          fontSize: FontSize.s12,
-                                          color: AppColors.Text),
+                                      textStyle: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall
+                                          ?.copyWith(color: AppColors.Text),
                                       maxLines: 1,
                                     ),
                                   ),
                                   SizedBox(
                                     width: AppSizes.sW30,
                                   ),
-                                  CustomText(rate,
+                                  CustomText.titleSmall(rate,
                                       //"4.8",
-                                      textStyle: TextStyle(
-                                          fontSize: FontSize.s12,
-                                          color: AppColors.Text)),
+                                      textStyle: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall
+                                          ?.copyWith(color: AppColors.Text)),
                                   SvgPicture.asset(AppAssets.svg.star.path),
                                 ],
                               ),
@@ -92,11 +94,11 @@ class MyOrdersItemCard extends StatelessWidget {
                                   SizedBox(
                                     width: 4,
                                   ),
-                                  CustomText(profile_name,
-                                      //"عالرياض، حي العزيزية",
-                                      textStyle: TextStyle(
-                                          fontSize: FontSize.s12,
-                                          color: AppColors.Text)),
+                                  CustomText.titleSmall(profile_name,
+                                      textStyle: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall
+                                          ?.copyWith(color: AppColors.Text)),
                                 ],
                               ),
                               SizedBox(
@@ -108,10 +110,11 @@ class MyOrdersItemCard extends StatelessWidget {
                                   SizedBox(
                                     width: AppSizes.sW4,
                                   ),
-                                  CustomText(calendar,
-                                      textStyle: TextStyle(
-                                          fontSize: FontSize.s12,
-                                          color: AppColors.Text)),
+                                  CustomText.titleSmall(calendar,
+                                      textStyle: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall
+                                          ?.copyWith(color: AppColors.Text)),
                                 ],
                               ),
                             ],
@@ -125,4 +128,3 @@ class MyOrdersItemCard extends StatelessWidget {
             )));
   }
 }
-

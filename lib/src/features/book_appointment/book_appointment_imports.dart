@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:manazel/src/config/language/locale_keys.g.dart';
 import 'package:manazel/src/core/widgets/buttons/custom_elevated_button.dart';
 import 'package:manazel/src/core/widgets/custom_text.dart';
+import 'package:manazel/src/features/app_layout/app_layout_imports.dart';
 import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 
 import '../../config/language/languages.dart';

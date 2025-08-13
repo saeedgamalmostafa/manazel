@@ -146,7 +146,19 @@
   "purpose": "Purpose",
   "building_type": "Property type",
   "choose_building_type": "Choose property type",
-  "price": "Price"
+  "price": "Price",
+  "doWantToDeleteAccount": "Do you want to delete your account?",
+  "moneyInWalletYouWillLose": "There is money in your wallet and you will lose it",
+  "delete": "Delete",
+  "retreat": "Retreat",
+  "newMobileNumber": "New mobile number",
+  "enterNewMobileNumber": "Enter the new mobile number"
+
+
+
+
+
+
 
 
 

@@ -34,15 +34,13 @@ class _RateFormsState extends State<RateForms> {
         SizedBox(
           height: AppSizes.sH14,
         ),
-        CustomText(LocaleKeys.space.tr(),
-            textStyle: TextStyle(
-                fontSize: FontSize.s14,
-                color: AppColors.Text,
-                fontWeight: FontWeight.normal)),
+        CustomText.titleMedium(LocaleKeys.space.tr(),
+            textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: AppColors.Text, fontWeight: FontWeight.normal)),
         SizedBox(
           height: AppSizes.sH6,
         ),
-        Container(
+        SizedBox(
           height: 48,
           child: CustomTextFormField(
             textInputType: TextInputType.name,
@@ -56,15 +54,13 @@ class _RateFormsState extends State<RateForms> {
         SizedBox(
           height: AppSizes.sH14,
         ),
-        CustomText(LocaleKeys.address.tr(),
-            textStyle: TextStyle(
-                fontSize: FontSize.s14,
-                color: AppColors.Text,
-                fontWeight: FontWeight.normal)),
+        CustomText.titleMedium(LocaleKeys.address.tr(),
+            textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: AppColors.Text, fontWeight: FontWeight.normal)),
         SizedBox(
           height: AppSizes.sH6,
         ),
-        Container(
+        SizedBox(
           height: 48,
           child: CustomTextFormField(
             textInputType: TextInputType.name,

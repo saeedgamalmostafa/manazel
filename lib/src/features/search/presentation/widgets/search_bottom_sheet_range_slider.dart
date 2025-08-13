@@ -43,15 +43,19 @@ class _SearchBottomSheetRangeSliderState
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            CustomText.titleSmall(
               "ر.س ${_startValue.toInt()}",
-              style: TextStyle(
-                  fontSize: FontSize.s10, color: AppColors.buttonColor),
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .titleSmall
+                  ?.copyWith(color: AppColors.buttonColor),
             ),
-            Text(
+            CustomText.titleSmall(
               "ر.س ${_endValue.toInt()}",
-              style: TextStyle(
-                  fontSize: FontSize.s10, color: AppColors.buttonColor),
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .titleSmall
+                  ?.copyWith(color: AppColors.buttonColor),
             ),
           ],
         ),

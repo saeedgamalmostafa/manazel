@@ -623,4 +623,30 @@ abstract class LocaleKeys {
   static const String _price = 'price';
 
   static String get price => _price.tr();
+
+  static const String _doWantToDeleteAccount = 'doWantToDeleteAccount';
+
+  static String get doWantToDeleteAccount => _doWantToDeleteAccount.tr();
+
+  static const String _moneyInWalletYouWillLose = 'moneyInWalletYouWillLose';
+
+  static String get moneyInWalletYouWillLose => _moneyInWalletYouWillLose.tr();
+
+  static const String _delete = 'delete';
+
+  static String get delete => _delete.tr();
+
+  static const String _retreat = 'retreat';
+
+  static String get retreat => _retreat.tr();
+
+  static const String _newMobileNumber = 'newMobileNumber';
+
+  static String get newMobileNumber => _newMobileNumber.tr();
+
+  static const String _enterNewMobileNumber = 'enterNewMobileNumber';
+
+  static String get enterNewMobileNumber => _enterNewMobileNumber.tr();
+
+
 }

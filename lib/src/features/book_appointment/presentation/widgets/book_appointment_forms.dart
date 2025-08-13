@@ -22,15 +22,16 @@ class _BookAppointmentFormsState extends State<BookAppointmentForms> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomText(LocaleKeys.name.tr(),
-              textStyle: TextStyle(
-                fontSize: FontSize.s14,
-                color: AppColors.primary,
-              )),
+          CustomText.titleMedium(
+            LocaleKeys.name.tr(),
+            textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: AppColors.primary,
+                ),
+          ),
           SizedBox(
             height: AppSizes.sH6,
           ),
-          Container(
+          SizedBox(
             height: AppSizes.sH48,
             child: CustomTextFormField(
               readOnly: true,
@@ -42,15 +43,14 @@ class _BookAppointmentFormsState extends State<BookAppointmentForms> {
           SizedBox(
             height: AppSizes.sH14,
           ),
-          CustomText(LocaleKeys.phoneNumber.tr(),
-              textStyle: TextStyle(
-                fontSize: FontSize.s14,
-                color: AppColors.primary,
-              )),
+          CustomText.titleMedium(LocaleKeys.phoneNumber.tr(),
+              textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: AppColors.primary,
+                  )),
           SizedBox(
             height: AppSizes.sH6,
           ),
-          Container(
+          SizedBox(
             height: AppSizes.sH48,
             child: CustomTextFormField(
               readOnly: true,
@@ -62,11 +62,10 @@ class _BookAppointmentFormsState extends State<BookAppointmentForms> {
           SizedBox(
             height: AppSizes.sH14,
           ),
-          CustomText(LocaleKeys.appointments_available.tr(),
-              textStyle: TextStyle(
-                fontSize: FontSize.s14,
-                color: AppColors.Text,
-              )),
+          CustomText.titleMedium(LocaleKeys.appointments_available.tr(),
+              textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: AppColors.Text,
+                  )),
           SizedBox(
             height: AppSizes.sH6,
           ),
@@ -77,7 +76,7 @@ class _BookAppointmentFormsState extends State<BookAppointmentForms> {
                   TextStyle(color: AppColors.primary, fontSize: FontSize.s12),
               controller: _controller,
               readOnly: true,
-              onTap:  () async {
+              onTap: () async {
                 await showModalBottomSheet(
                   context: context,
                   builder: (context) => BookAppointmentBottomSheet(
