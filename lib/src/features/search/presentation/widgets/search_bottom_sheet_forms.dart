@@ -20,7 +20,6 @@ class _SearchBottomSheetFormsState extends State<SearchBottomSheetForms> {
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       DefaultDropDownField<String>(
-
         label: LocaleKeys.building_type.tr(),
         hint: LocaleKeys.choose_building_type.tr(),
         selectedItem: selectedCity,

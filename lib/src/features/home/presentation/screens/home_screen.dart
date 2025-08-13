@@ -1,7 +1,7 @@
 part of '../imports/presentaion_imports.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen();
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
