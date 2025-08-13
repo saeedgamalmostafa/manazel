@@ -3,6 +3,8 @@ import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/core/widgets/custom_back_button.dart';
 import 'package:manazel/src/core/widgets/custom_text.dart';
 
+import '../../config/res/app_sizes.dart';
+
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool showBackArrow;
@@ -14,7 +16,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showBackArrow = false,
     this.onBackPressed,
   });
-
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -23,9 +24,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       automaticallyImplyLeading: false,
       leading: showBackArrow ? CustomBackButton() : null,
-      title: CustomText.titleMedium(
+      title: CustomText.titleLarge(
         title,
-        textStyle: TextStyle(color: AppColors.white),
+        textStyle: Theme.of(context)
+            .textTheme
+            .titleLarge
+            ?.copyWith(color: AppColors.white),
       ),
     );
   }

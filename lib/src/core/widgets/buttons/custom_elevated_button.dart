@@ -40,7 +40,8 @@ class CustomElevatedButton extends StatelessWidget {
       child: CustomText.titleSmall(text,
           textStyle: textStyle ??
               Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: AppColors.white, fontWeight: FontWeight.w500)),
+                  color: AppColors.white, fontWeight: FontWeight.w500)
+      ),
     );
   }
 }

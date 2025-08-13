@@ -8,8 +8,9 @@ class NotificationsItemCard extends StatelessWidget {
     return GestureDetector(
         onTap: () {},
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: AppSizes.sH8,horizontal:AppSizes.sW8 ),
-          child: Container(
+          padding: EdgeInsets.symmetric(
+              vertical: AppSizes.sH8, horizontal: AppSizes.sW8),
+          child: SizedBox(
             height: AppSizes.sH62,
             width: AppSizes.sW343,
             child: Card(
@@ -21,7 +22,9 @@ class NotificationsItemCard extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                        right: AppSizes.sW8, top: AppSizes.sH9,bottom: AppSizes.sH9),
+                        right: AppSizes.sW8,
+                        top: AppSizes.sH9,
+                        bottom: AppSizes.sH9),
                     child: SvgPicture.asset(
                       AppAssets.svg.notificationCircle.path,
                       height: AppSizes.sH44,
@@ -29,9 +32,16 @@ class NotificationsItemCard extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: CustomText("لديك موعد لمعاينة العقار يوم السبت",
-                        textStyle: TextStyle(
-                            fontSize: FontSize.s12, color: AppColors.TextBold,fontWeight: FontWeight.normal),maxLines: 1,),
+                    child: CustomText.titleSmall(
+                      "لديك موعد لمعاينة العقار يوم السبت",
+                      textStyle: Theme.of(context)
+                          .textTheme
+                          .titleSmall
+                          ?.copyWith(
+                              color: AppColors.TextBold,
+                              fontWeight: FontWeight.normal),
+                      maxLines: 1,
+                    ),
                   ),
                   SizedBox(width: AppSizes.sW30),
                   Padding(

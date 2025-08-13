@@ -10,6 +10,7 @@ import 'package:manazel/src/core/widgets/Custom_text_form_field.dart';
 import 'package:manazel/src/core/widgets/buttons/custom_elevated_button.dart';
 import 'package:manazel/src/core/widgets/custom_app_bar.dart';
 import 'package:manazel/src/core/widgets/custom_text.dart';
+import 'package:manazel/src/features/app_layout/app_layout_imports.dart';
 
 import '../../config/language/languages.dart';
 import '../../config/language/locale_keys.g.dart';

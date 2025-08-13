@@ -16,7 +16,11 @@ class BookAppointmentBottomSheet extends StatefulWidget {
 class _BookAppointmentBottomSheet extends State<BookAppointmentBottomSheet> {
   String? tempSelected;
 
-  final List<String> options = ['السبت - 7:30 مساءا', 'الأحد - 9:30 مساءا', 'الأربعاء - 10:00 مساءا',];
+  final List<String> options = [
+    'السبت - 7:30 مساءا',
+    'الأحد - 9:30 مساءا',
+    'الأربعاء - 10:00 مساءا',
+  ];
 
   @override
   void initState() {
@@ -33,9 +37,13 @@ class _BookAppointmentBottomSheet extends State<BookAppointmentBottomSheet> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CustomText(LocaleKeys.choose_appointment_examination,
-                  textStyle: TextStyle(
-                      fontSize: FontSize.s16, color: AppColors.buttonColor)),
+              CustomText.titleLarge(
+                LocaleKeys.choose_appointment_examination,
+                textStyle: Theme.of(context)
+                    .textTheme
+                    .titleLarge
+                    ?.copyWith(color: AppColors.buttonColor),
+              ),
               SizedBox(height: AppSizes.sH18),
               ...options.map((option) => BookAppointmentRadioListTile<String>(
                     value: option,
@@ -50,12 +58,13 @@ class _BookAppointmentBottomSheet extends State<BookAppointmentBottomSheet> {
                   )),
               SizedBox(height: AppSizes.sH26),
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: AppSizes.sW16),
+                padding: EdgeInsets.symmetric(horizontal: AppSizes.sW16),
                 child: CustomElevatedButton(
                   onPressed: () {
                     widget.onSelected(tempSelected!);
                     Go.pop();
-                  }, text: LocaleKeys.sure.tr(),
+                  },
+                  text: LocaleKeys.sure.tr(),
                 ),
               )
             ],

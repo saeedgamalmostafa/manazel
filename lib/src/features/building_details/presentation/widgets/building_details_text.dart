@@ -35,17 +35,16 @@ class BuildingDetailsText extends StatelessWidget {
                           height: AppSizes.sH20,
                         ),
                         SizedBox(width: AppSizes.sW5),
-                        CustomText(
+                        CustomText.titleMedium(
                           LocaleKeys.building_details_title.tr(),
-                          textStyle: TextStyle(
-                            fontSize: FontSize.s14,
-                            color: AppColors.primary,
-                          ),
+                          textStyle:
+                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    color: AppColors.primary,
+                                  ),
                         ),
                       ],
                     ),
                     SizedBox(height: AppSizes.sH4),
-
                     AutoSizeText(
                       arabicText,
                       style: TextStyle(

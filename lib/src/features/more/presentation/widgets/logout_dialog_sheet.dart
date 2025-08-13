@@ -1,10 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:manazel/src/core/widgets/buttons/custom_elevated_button.dart';
-import 'package:manazel/src/core/widgets/buttons/custom_outlined_button.dart';
-import 'package:manazel/src/core/widgets/custom_text.dart';
-import '../../config/language/locale_keys.g.dart';
-import '../../config/res/color_manager.dart';
+part of '../../more_imports.dart';
 
 class LogoutBottomSheet {
   static void show(BuildContext context) {
@@ -24,17 +18,13 @@ class LogoutBottomSheet {
               // Icon in card
               Container(
                 child: Image.asset(
-                  'assets/gif/54ba850821c93ade1e6c40921cfade3acd229306.gif',
+                  'assets/gif/log_out.gif',
                   width: 120,
                   height: 120,
                   fit: BoxFit.contain,
                 ),
               ),
-
               const SizedBox(height: 28),
-
-              // Confirmation Text
-
               CustomText(LocaleKeys.do_you_want_logout.tr(),
                   textStyle: TextStyle(
                     fontSize: 18,
@@ -45,29 +35,30 @@ class LogoutBottomSheet {
               const SizedBox(height: 32),
 
               // Buttons Row
-              Row(
-                children: [
-                  Expanded(
-                    child: CustomElevatedButton(
-                        width: 163.5,
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        text: LocaleKeys.yes.tr()),
-                  ),
-
-                  const SizedBox(width: 16),
-                  // No Button
-                  Expanded(
-                      child: CustomOutlinedButton(
+              SizedBox(
+                height: AppSizes.sH50,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: CustomElevatedButton(
                           width: 163.5,
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          text: LocaleKeys.no.tr())),
+                          text: LocaleKeys.yes.tr()),
+                    ),
 
-                  // Yes Button
-                ],
+                    const SizedBox(width: 16),
+                    // No Button
+                    Expanded(
+                        child: CustomOutlinedButton(
+                            width: 163.5,
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            text: LocaleKeys.no.tr())),
+                  ],
+                ),
               ),
 
               const SizedBox(height: 16),

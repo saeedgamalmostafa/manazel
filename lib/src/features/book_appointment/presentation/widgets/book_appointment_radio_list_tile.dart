@@ -1,4 +1,5 @@
 part of '../../book_appointment_imports.dart';
+
 class BookAppointmentRadioListTile<T> extends StatelessWidget {
   final T value;
   final T groupValue;
@@ -20,9 +21,10 @@ class BookAppointmentRadioListTile<T> extends StatelessWidget {
     final bool selected = value == groupValue;
 
     return Padding(
-      padding:  EdgeInsets.only(right: AppSizes.sW14,left: AppSizes.sW14,bottom: AppSizes.sW14),
+      padding: EdgeInsets.only(
+          right: AppSizes.sW14, left: AppSizes.sW14, bottom: AppSizes.sW14),
       child: Card(
-        color:AppColors.radioColor ,
+        color: AppColors.radioColor,
         child: ListTile(
           leading: Container(
             width: AppSizes.sW18,
@@ -37,10 +39,10 @@ class BookAppointmentRadioListTile<T> extends StatelessWidget {
             ),
             child: selected
                 ? const Icon(
-              Icons.check,
-              color: Colors.white,
-              size: 16,
-            )
+                    Icons.check,
+                    color: Colors.white,
+                    size: 16,
+                  )
                 : null,
           ),
           title: Text(title),

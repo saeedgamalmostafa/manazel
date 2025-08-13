@@ -39,15 +39,20 @@ class ContactUsBody extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Center(
-                            child: CustomText(LocaleKeys.send_message.tr(),
-                                textStyle: TextStyle(
-                                    fontSize: 16, color: AppColors.primary))),
+                            child: CustomText.titleLarge(
+                                LocaleKeys.send_message.tr(),
+                                textStyle: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge
+                                    ?.copyWith(color: AppColors.primary))),
                         const SizedBox(height: 16),
-                        CustomText(LocaleKeys.message_text.tr(),
-                            textStyle: TextStyle(
-                                fontSize: 14, color: AppColors.TextBold)),
+                        CustomText.titleMedium(LocaleKeys.message_text.tr(),
+                            textStyle: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(color: AppColors.TextBold)),
                         const SizedBox(height: 4),
-                        Container(
+                        SizedBox(
                           height: 130,
                           width: 311,
                           child: const CustomTextFormField(),

@@ -22,23 +22,27 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomText(
+                CustomText.titleLarge(
                   Languages.currentLanguage.locale == const Locale("ar")
                       ? "مرحباً بك\u{1F44B}!"
                       : "Welcome \u{1F44B}!",
-                  textStyle: TextStyle(
-                    fontSize: FontSize.s16,
+                  textStyle: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(
                     color: AppColors.white,
                   ),
                 ),
                 SizedBox(height: AppSizes.sH5),
                 Row(
                   children: [
-                    CustomText(
+                    CustomText.titleLarge(
                       'في',
-                      textStyle: TextStyle(
+                      textStyle: Theme.of(context)
+                          .textTheme
+                          .titleLarge
+                          ?.copyWith(
                         color: AppColors.white,
-                        fontSize: FontSize.s16,
                       ),
                     ),
                     SizedBox(width: 4),
@@ -52,7 +56,7 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
               ],
             ),
           ),
-          GestureDetector(
+          InkWell(
             onTap: () {
               Go.push(SearchScreen());
             },
@@ -63,7 +67,7 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           SizedBox(width: 10),
-          GestureDetector(
+          InkWell(
             onTap: () {
               Go.push(NotificationsScreen());
             },

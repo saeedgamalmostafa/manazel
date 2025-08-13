@@ -16,22 +16,26 @@ class RateBottomSheet extends StatelessWidget {
             ),
           ),
           SizedBox(height: AppSizes.sH16),
-          CustomText(
+          CustomText.titleLarge(
             Languages.currentLanguage.locale == const Locale("ar")
                 ? "إحسب قيمة عقارك بسهولة\u{1F44B}"
                 : "Calculate the value of your property easily\u{1F44B}",
-            textStyle: TextStyle(
+            textStyle: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(
                 fontWeight: FontWeight.bold,
-                fontSize: FontSize.s16,
                 color: AppColors.Text),
           ),
           SizedBox(
             height: AppSizes.sH6,
           ),
-          CustomText(
+          CustomText.titleMedium(
             LocaleKeys.know_value_property.tr(),
-            textStyle:
-                TextStyle(fontSize: FontSize.s14, color: AppColors.SubText),
+            textStyle: Theme.of(context)
+                .textTheme
+                .titleMedium
+                ?.copyWith( color: AppColors.SubText),
           ),
           Padding(
             padding: EdgeInsets.only(

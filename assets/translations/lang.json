@@ -136,7 +136,19 @@
     "purpose": "الغرض",
     "building_type": "نوع العقار",
     "choose_building_type": "إختر نوع العقار",
-    "price": "السعر"
+    "price": "السعر",
+    "doWantToDeleteAccount": "هل تريد حذف حسابك؟",
+    "moneyInWalletYouWillLose": "يوجد مبلغ في محفظتك وسوف تفقده",
+    "delete": "حذف",
+    "retreat": "تراجع",
+    "newMobileNumber": "رقم الجوال الجديد",
+    "enterNewMobileNumber": "أدخل رقم الجوال الجديد"
+
+
+
+
+
+
 
 
 

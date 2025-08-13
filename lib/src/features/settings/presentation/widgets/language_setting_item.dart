@@ -42,6 +42,10 @@ class LanguageSettingItem extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: AppSizes.sW8),
                 child: CustomText.titleMedium(
                   title,
+                  textStyle: Theme.of(context)
+                      .textTheme
+                      .titleMedium
+                      ?.copyWith(),
                   textAlign: TextAlign.start,
                   maxLines: 1,
                 ),

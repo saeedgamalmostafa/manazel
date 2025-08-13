@@ -1,0 +1,20 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:manazel/src/config/res/app_sizes.dart';
+import 'package:manazel/src/config/res/color_manager.dart';
+import 'package:manazel/src/core/widgets/Custom_text_form_field.dart';
+import 'package:manazel/src/core/widgets/buttons/custom_elevated_button.dart';
+import 'package:manazel/src/core/widgets/custom_app_bar.dart';
+import 'package:manazel/src/core/widgets/custom_text.dart';
+import '../../config/language/languages.dart';
+import '../../config/language/locale_keys.g.dart';
+import '../../config/res/assets.gen.dart';
+import '../../core/navigator/app_navigator.dart';
+import '../../core/widgets/default_bottom_sheet.dart';
+import '../app_layout/app_layout_imports.dart';
+import '../rate/rate_imports.dart';
+
+part 'presentation/screens/edit_profile_screen.dart';
+part 'presentation/widgets/edit_profile_body.dart';
+part 'presentation/widgets/edit_profile_bottom_sheet.dart';

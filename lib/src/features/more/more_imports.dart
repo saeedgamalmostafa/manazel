@@ -16,9 +16,11 @@ import '../../config/res/color_manager.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 
 import '../../core/navigator/app_navigator.dart';
-import '../../core/widgets/logout_dialog_sheet.dart';
+import '../../core/widgets/buttons/custom_elevated_button.dart';
+import '../../core/widgets/buttons/custom_outlined_button.dart';
 import '../My_orders/my_orders_imports.dart';
 import '../profile/profile_imports.dart';
 
 part 'presentation/screens/more_screen.dart';
 part 'presentation/widgets/more_body.dart';
+part 'presentation/widgets/logout_dialog_sheet.dart';

@@ -70,52 +70,63 @@ class _BuildingDetailsImageSliderState
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: AppSizes.sH338,
           width: AppSizes.sW375,
-          child: PageView.builder(
-            controller: _controller,
-            itemCount: images.length,
-            onPageChanged: (index) {
-              setState(() => _current = index);
-            },
-            itemBuilder: (context, index) {
-              return ClipRRect(
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    Image.network(
+          child: Stack(
+            children: [
+              // Sliding Images
+              PageView.builder(
+                controller: _controller,
+                itemCount: images.length,
+                onPageChanged: (index) {
+                  setState(() => _current = index);
+                },
+                itemBuilder: (context, index) {
+                  return ClipRRect(
+                    child: Image.network(
                       images[index],
                       fit: BoxFit.fill,
                     ),
-                    Positioned(
-                      top: 16,
-                      child: CustomBackButton(),
-                    ),
-                    Positioned(
-                      top: 16,
-                      left: 16,
-                      child: CustomCirclurButton(
-                        imagepath: AppAssets.svg.favoritePrimaryBorder.path,
-                        onTap: () {},
-                        height: AppSizes.sH40,
-                        width: AppSizes.sW40,
-                      ),
-                    ),
-                    Positioned(
-                        bottom: 14,
-                        left: 14,
-                        child: ChangeContainerBuildingDetails(
-                            color: AppColors.containerTextColor1,
-                            background_color: AppColors.white,
-                            text: LocaleKeys.tire.tr())),
-                  ],
+                  );
+                },
+              ),
+
+              // Fixed Back Button
+              Positioned(
+                top: 16,
+                child: CustomBackButton(),
+              ),
+
+              // Fixed Favorite Button
+              Positioned(
+                top: 16,
+                left: 16,
+                child: CustomCirclurButton(
+                  imagepath: AppAssets.svg.favoritePrimaryBorder.path,
+                  onTap: () {},
+                  height: AppSizes.sH40,
+                  width: AppSizes.sW40,
                 ),
-              );
-            },
+              ),
+
+              // Bottom Label (changes with image if needed)
+              Positioned(
+                bottom: 14,
+                left: 14,
+                child: ChangeContainerBuildingDetails(
+                  color: AppColors.containerTextColor1,
+                  background_color: AppColors.white,
+                  text: LocaleKeys.tire.tr(),
+                ),
+              ),
+            ],
           ),
         ),
+
         SizedBox(height: AppSizes.sH12),
+
+        // Dots Indicator
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(images.length, _buildIndicator),

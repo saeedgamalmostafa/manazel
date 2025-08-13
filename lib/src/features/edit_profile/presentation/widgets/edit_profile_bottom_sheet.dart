@@ -1,13 +1,13 @@
-part of '../../rate_imports.dart';
+part of '../../edit_profile_imports.dart';
 
-class RatePriceBottomSheet extends StatefulWidget {
-  const RatePriceBottomSheet({super.key});
+class EditProfileBottomSheet extends StatefulWidget {
+  const EditProfileBottomSheet({super.key});
 
   @override
-  State<RatePriceBottomSheet> createState() => _RatePriceBottomSheet();
+  State<EditProfileBottomSheet> createState() => _EditProfileBottomSheet();
 }
 
-class _RatePriceBottomSheet extends State<RatePriceBottomSheet> {
+class _EditProfileBottomSheet extends State<EditProfileBottomSheet> {
   @override
   void initState() {
     super.initState();
@@ -19,7 +19,7 @@ class _RatePriceBottomSheet extends State<RatePriceBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: Go.pop,
       child: Padding(
         padding: EdgeInsets.only(top: AppSizes.sH21),
@@ -27,15 +27,15 @@ class _RatePriceBottomSheet extends State<RatePriceBottomSheet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Center(
-              child: Image.asset(
-                AppAssets.png.buildingPrice.path,
-              ),
+              // child: Image.asset(
+              //  // AppAssets.png.predictiveChart.path,
+              // ),
             ),
             SizedBox(height: AppSizes.sH16),
             CustomText.titleLarge(
               Languages.currentLanguage.locale == const Locale("ar")
-                  ? "قيمة عقارك 27,000 ر.س\u{1F44B}"
-                  : "Your property value is 27,000 SAR\u{1F44B}",
+                  ? "تم تحديث بياناتك بنجاح\u{1F44B}"
+                  : "Your data has been updated successfully\u{1F44B}",
               textStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold, color: AppColors.Text),
             ),
@@ -43,7 +43,7 @@ class _RatePriceBottomSheet extends State<RatePriceBottomSheet> {
               height: AppSizes.sH6,
             ),
             CustomText.titleMedium(
-              LocaleKeys.wish_unique_experience.tr(),
+              LocaleKeys.convert_home_page.tr(),
               textStyle: Theme.of(context)
                   .textTheme
                   .titleMedium

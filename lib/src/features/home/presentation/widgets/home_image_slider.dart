@@ -76,7 +76,7 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
         Padding(
           padding: EdgeInsets.only(
               top: AppSizes.sH20, left: AppSizes.sW12, right: AppSizes.sW12),
-          child: Container(
+          child: SizedBox(
             height: AppSizes.sH125,
             width: AppSizes.sW323,
             child: PageView.builder(
