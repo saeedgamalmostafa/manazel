@@ -1,7 +1,5 @@
 part of 'user_cubit.dart';
 
-
-
 enum UserStatus {
   loggedIn,
   loggedOut,
@@ -11,26 +9,33 @@ class UserState extends Equatable {
   final UserModel userModel;
   final UserStatus userStatus;
 
-  const UserState(
-      {required this.userModel,
-      this.userStatus = UserStatus.loggedOut,
-      });
+  const UserState({
+    required this.userModel,
+    this.userStatus = UserStatus.loggedOut,
+  });
 
   factory UserState.initial() {
     return UserState(
-        userModel: UserModel.initial(),
-        userStatus: UserStatus.loggedOut,
-        );
+      userModel: UserModel(
+          accessToken: "",
+          avatar: "",
+          id: 0,
+          isActive: false,
+          mobile: "",
+          name: "",
+          type: "client"),
+      userStatus: UserStatus.loggedOut,
+    );
   }
 
-  UserState copyWith(
-      {UserModel? userModel,
-      UserStatus? userStatus,
-   }) {
+  UserState copyWith({
+    UserModel? userModel,
+    UserStatus? userStatus,
+  }) {
     return UserState(
-        userModel: userModel ?? this.userModel,
-        userStatus: userStatus ?? this.userStatus,
-        );
+      userModel: userModel ?? this.userModel,
+      userStatus: userStatus ?? this.userStatus,
+    );
   }
 
   @override

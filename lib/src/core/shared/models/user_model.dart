@@ -1,75 +1,60 @@
 class UserModel {
-  final String id;
-  final String fullName;
-  final String phoneNumber;
-  final String email;
-  final String city;
-  final int userType;
-  final bool allowNotify;
-  final String? token;
-
   UserModel({
-    required this.id,
-    required this.fullName,
-    required this.phoneNumber,
-    required this.email,
-    required this.city,
-    required this.userType,
-    required this.allowNotify,
-    required this.token,
+    this.id,
+    this.name,
+    this.mobile,
+    this.type,
+    this.avatar,
+    this.isActive,
+    this.accessToken,
   });
 
-  factory UserModel.initial() => UserModel(
-        id: '',
-        fullName: '',
-        phoneNumber: '',
-        email: '',
-        city: '',
-        userType: 0,
-        allowNotify: false,
-        token: '',
-      );
-
-  UserModel copyWith({
-    String? id,
-    String? fullName,
-    String? phoneNumber,
-    String? email,
-    String? city,
-    int? userType,
-    bool? allowNotify,
-    String? token,
-  }) {
-    return UserModel(
-      id: id ?? this.id,
-      fullName: fullName ?? this.fullName,
-      phoneNumber: phoneNumber ?? this.phoneNumber,
-      email: email ?? this.email,
-      city: city ?? this.city,
-      userType: userType ?? this.userType,
-      allowNotify: allowNotify ?? this.allowNotify,
-      token: token ?? this.token,
-    );
+  UserModel.fromJson(dynamic json) {
+    id = json['id'];
+    name = json['name'];
+    mobile = json['mobile'];
+    type = json['type'];
+    avatar = json['avatar'];
+    isActive = json['is_active'];
+    accessToken = json['access_token'];
   }
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        id: json["id"],
-        fullName: json["fullName"],
-        phoneNumber: json["phoneNumber"],
-        email: json["email"],
-        city: json["city"],
-        userType: json["userType"],
-        allowNotify: json["allowNotify"],
-        token: json["token"],
+  num? id;
+  String? name;
+  String? mobile;
+  dynamic type;
+  String? avatar;
+  bool? isActive;
+  String? accessToken;
+
+  UserModel copyWith({
+    num? id,
+    String? name,
+    String? mobile,
+    dynamic type,
+    String? avatar,
+    bool? isActive,
+    String? accessToken,
+  }) =>
+      UserModel(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        mobile: mobile ?? this.mobile,
+        type: type ?? this.type,
+        avatar: avatar ?? this.avatar,
+        isActive: isActive ?? this.isActive,
+        accessToken: accessToken ?? this.accessToken,
       );
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "fullName": fullName,
-        "phoneNumber": phoneNumber,
-        "email": email,
-        "city": city,
-        "userType": userType,
-        "allowNotify": allowNotify,
-      };
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['id'] = id;
+    map['name'] = name;
+    map['mobile'] = mobile;
+    map['type'] = type;
+    map['avatar'] = avatar;
+    map['is_active'] = isActive;
+    map['access_token'] = accessToken;
+    return map;
+  }
 }
