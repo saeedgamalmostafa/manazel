@@ -4,11 +4,10 @@ import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/core/navigator/app_navigator.dart';
-import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:manazel/src/features/login/login_imports.dart';
 
 import '../app_layout/app_layout_imports.dart';
+import '../login/login_imports.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -34,9 +33,7 @@ class _SplashScreenState extends State<SplashScreen>
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         Go.pushAndRemoveUntil(
-            const AppLayoutScreen(
-              currentIndex: 0,
-            ),
+            const LoginScreen(),
             transitionType: TransitionType.slideFromBottom);
       }
     });

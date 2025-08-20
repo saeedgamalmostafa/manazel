@@ -1,6 +1,7 @@
+import 'package:multiple_result/multiple_result.dart';
+import 'package:manazel/src/core/error/failures.dart';
 import 'package:manazel/src/features/login/domain/entitiy/user.dart';
 import 'package:manazel/src/features/login/domain/repository/login_repository.dart';
-
 import '../../../../core/shared/base_model.dart';
 
 class LoginUseCase {
@@ -8,7 +9,7 @@ class LoginUseCase {
 
   LoginUseCase(this.loginRepository);
 
-  Future<BaseModel<User>> call(LoginUseCaseParams loginUseCaseParams) async {
+  Future<Result<BaseModel<User>, Failure>> call(LoginUseCaseParams loginUseCaseParams) async {
     return await loginRepository.login(
       loginUseCaseParams,
     );

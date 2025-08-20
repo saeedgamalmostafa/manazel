@@ -9,7 +9,7 @@ class ConstantManager {
   static const String token = "token";
   static const String projectName = "";
   static const int splashTimer = 4;
-  static const String baseUrl = "";
+  static const String baseUrl = "https://manazelq8.org";
   static const String emptyText = "";
   static const int zero = 0;
   static const double zeroAsDouble = 0.0;
