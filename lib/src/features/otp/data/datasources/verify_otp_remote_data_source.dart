@@ -3,7 +3,7 @@ import 'package:manazel/src/core/network/network_request.dart';
 import 'package:manazel/src/core/network/network_service.dart';
 import 'package:manazel/src/core/shared/base_model.dart';
 import 'package:manazel/src/features/login/domain/entitiy/user.dart';
-import 'package:manazel/src/features/login/domain/use_case/verify_otp_params.dart';
+import 'package:manazel/src/features/otp/domain/user_case/verify_otp_params.dart';
 
 import '../../../../config/res/constants_manager.dart';
 

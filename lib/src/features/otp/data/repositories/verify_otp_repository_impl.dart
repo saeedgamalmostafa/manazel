@@ -1,10 +1,10 @@
 import 'package:multiple_result/multiple_result.dart';
 import 'package:manazel/src/core/error/failures.dart';
 import 'package:manazel/src/core/shared/base_model.dart';
-import 'package:manazel/src/features/login/data/datasources/verify_otp_remote_data_source.dart';
+import 'package:manazel/src/features/otp/data/datasources/verify_otp_remote_data_source.dart';
 import 'package:manazel/src/features/login/domain/entitiy/user.dart';
-import 'package:manazel/src/features/login/domain/repository/verify_otp_repository.dart';
-import 'package:manazel/src/features/login/domain/use_case/verify_otp_params.dart';
+import 'package:manazel/src/features/otp/domain/repository/verify_otp_repository.dart';
+import 'package:manazel/src/features/otp/domain/user_case/verify_otp_params.dart';
 
 class VerifyOtpRepositoryImpl implements VerifyOtpRepository {
   final VerifyOtpRemoteDataSource remoteDataSource;

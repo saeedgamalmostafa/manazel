@@ -3,17 +3,17 @@ import 'package:manazel/src/core/network/network_service.dart';
 import 'package:manazel/src/core/notification/notification_service.dart';
 import 'package:manazel/src/core/shared/cubits/user_cubit/user_cubit.dart';
 import 'package:manazel/src/features/login/data/datasources/login_remote_data_source.dart';
-import 'package:manazel/src/features/login/data/datasources/verify_otp_remote_data_source.dart';
+import 'package:manazel/src/features/otp/data/datasources/verify_otp_remote_data_source.dart';
 import 'package:manazel/src/features/login/data/repositories/login_repository_impl.dart';
 import 'package:manazel/src/features/login/domain/use_case/login_usecase.dart';
 
 import '../../../config/res/constants_manager.dart';
 import '../../../features/app_layout/presentation/cubit/app_layout_cubit.dart';
 import '../../../features/home/di/home_di.dart';
-import '../../../features/login/data/repositories/verify_otp_repository_impl.dart';
+import '../../../features/otp/data/repositories/verify_otp_repository_impl.dart';
 import '../../../features/login/domain/repository/login_repository.dart';
-import '../../../features/login/domain/repository/verify_otp_repository.dart';
-import '../../../features/login/domain/use_case/verify_otp_usecase.dart';
+import '../../../features/otp/domain/repository/verify_otp_repository.dart';
+import '../../../features/otp/domain/user_case/verify_otp_usecase.dart';
 import '../../../features/login/presentation/cubit/login_cubit.dart';
 
 void setUpServiceLocator() {
@@ -60,8 +60,9 @@ void setUpLoginDependencies() {
 
 
   // Presentation layer
-  sl.registerFactory(() => LoginCubit(userCubit: sl(), loginUseCase: sl<LoginUseCase>(), verifyOtpUseCase: sl()));
-}
+  sl.registerFactory(() => LoginCubit(
+    loginUseCase: sl<LoginUseCase>(),
+  ));}
 /* <<<<<<<<<<<<<<  ✨ Windsurf Command ⭐ >>>>>>>>>>>>>>>> */
 /// Registers the dependencies required by [AppLayoutCubit].
 ///
