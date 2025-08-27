@@ -36,12 +36,12 @@ class AppTheme {
             },
           ),
         ),
-        dialogTheme: DialogTheme(
+        dialogTheme: DialogThemeData(
             backgroundColor: AppColors.white,
             surfaceTintColor: AppColors.white,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppRadius.bR15))),
-        tabBarTheme: const TabBarTheme(
+        tabBarTheme: const TabBarThemeData(
           mouseCursor: WidgetStatePropertyAll(MouseCursor.defer),
           tabAlignment: TabAlignment.fill,
           unselectedLabelColor: AppColors.grey,
@@ -267,7 +267,7 @@ class AppTheme {
           ),
         ),
       ),
-      dialogTheme: const DialogTheme(
+      dialogTheme: const DialogThemeData(
         surfaceTintColor: Colors.transparent,
       ),
       appBarTheme: const AppBarTheme(

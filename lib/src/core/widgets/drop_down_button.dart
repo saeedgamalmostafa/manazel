@@ -6,6 +6,7 @@ import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/core/extensions/context_extension.dart';
 import 'package:manazel/src/core/extensions/padding_extension.dart';
 import 'package:manazel/src/core/extensions/sized_box_helper.dart';
+import 'package:manazel/src/core/extensions/text_style_extensions.dart';
 import 'package:manazel/src/core/widgets/app_text.dart';
 import 'package:manazel/src/core/widgets/image_widgets/cached_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -67,7 +68,7 @@ class DefaultDropDownField<T> extends StatelessWidget {
                 title: Text(itemAsString(item),
                     style: TextStyle(
                       color: isSelected ? AppColors.primary : AppColors.black,
-                    )),
+                    ).medium),
                 leading: isSelected
                     ? const Icon(
                         Icons.check,
@@ -78,6 +79,15 @@ class DefaultDropDownField<T> extends StatelessWidget {
             },
             searchFieldProps: TextFieldProps(
                 decoration: InputDecoration(
+              enabledBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+              focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: AppColors.primary, width: 2),
+              ),
+              border: const UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
               hintText: LocaleKeys.search,
               prefixIcon: const Icon(Icons.search),
             )),
@@ -86,7 +96,7 @@ class DefaultDropDownField<T> extends StatelessWidget {
             ));
       case DropDownType.bottomsheet:
         return PopupProps.bottomSheet(
-          showSearchBox: false,
+          showSearchBox: true,
           constraints: BoxConstraints(
               maxHeight: 300.h, maxWidth: 400.w, minWidth: 350.w),
           showSelectedItems: true,
@@ -99,8 +109,8 @@ class DefaultDropDownField<T> extends StatelessWidget {
             return ListTile(
                 title: Text(itemAsString(item),
                     style: TextStyle(
-                        color: isSelected ? AppColors.primary : AppColors.Text,
-                        fontSize: FontSize.s12)),
+                      color: isSelected ? AppColors.primary : AppColors.black,
+                    )),
                 leading: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -144,16 +154,15 @@ class DefaultDropDownField<T> extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (label != null)
-          AppText(
+          Text(
             label!,
-            fontSize: FontSize.s14,
-            color: AppColors.Text,
+            style: const TextStyle(color: AppColors.primary).bold.s12,
           ),
-        6.szH,
+        5.szH,
         Theme(
           data: context.theme.copyWith(
-            highlightColor: Colors.transparent,
-            splashColor: Colors.transparent,
+            highlightColor: Colors.white,
+            splashColor: Colors.white,
           ),
           child: DropdownSearch<T>(
               validator: validator ?? Validators.validateDropDown,
@@ -165,42 +174,34 @@ class DefaultDropDownField<T> extends StatelessWidget {
                   padding: EdgeInsets.all(0),
                   alignment: Alignment.centerLeft),
               dropdownDecoratorProps: DropDownDecoratorProps(
-                  baseStyle: const TextStyle(color: Colors.black),
+                  baseStyle: const TextStyle(color: Colors.black).medium,
                   dropdownSearchDecoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
                     prefixIcon: prefixIcon,
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 14.h),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
                     hintText: hint,
-                    hintStyle: const TextStyle(color: AppColors.SubText),
+                    hintStyle:
+                        const TextStyle(color: AppColors.hintText, fontSize: 12)
+                            .medium,
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(AppRadius.bR8),
-                      borderSide: BorderSide(
-                          color: AppColors.grey.withValues(alpha: 0.35),
-                          width: AppRadius.bR2_5 / 2),
-                      // borderRadius: borderRadius ?? BorderRadius.circular(24),
+                      borderSide: BorderSide(color: Colors.grey.shade200),
+                      borderRadius: borderRadius ?? BorderRadius.circular(12),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(AppRadius.bR8),
-                      borderSide: BorderSide(
-                          color: AppColors.primary, width: AppRadius.bR2_5 / 2),
-                      //borderRadius: borderRadius ?? BorderRadius.zero,
+                      borderSide: const BorderSide(color: AppColors.primary),
+                      borderRadius: borderRadius ?? BorderRadius.circular(12),
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(AppRadius.bR8),
-                      borderSide: BorderSide(
-                          color: AppColors.primary, width: AppRadius.bR2_5 / 2),
-                      //borderRadius: borderRadius ?? BorderRadius.zero,
+                      borderSide: const BorderSide(color: AppColors.primary),
+                      borderRadius: borderRadius ?? BorderRadius.circular(12),
                     ),
                   )),
               dropdownBuilder: dropdownBuilder,
               compareFn: (item, selectedItem) => item == selectedItem,
               dropdownButtonProps: DropdownButtonProps(
                 padding: EdgeInsets.zero,
-                icon: suffixIcon ??
-                    const Icon(
-                      Icons.keyboard_arrow_down,
-                      color: AppColors.SubText,
-                    ),
+                icon: suffixIcon ?? const Icon(Icons.arrow_drop_down),
                 visualDensity: const VisualDensity(horizontal: 0, vertical: 0),
               ),
               autoValidateMode: AutovalidateMode.onUserInteraction,
