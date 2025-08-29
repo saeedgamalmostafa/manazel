@@ -4,19 +4,17 @@ import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/core/navigator/app_navigator.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../app_layout/app_layout_imports.dart';
 import '../login/login_imports.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  SplashScreenState createState() => SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
+class SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   late AnimationController _controller;
 
@@ -32,8 +30,7 @@ class _SplashScreenState extends State<SplashScreen>
     // Listen for animation completion
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Go.pushAndRemoveUntil(
-            const LoginScreen(),
+        Go.pushAndRemoveUntil(const LoginScreen(),
             transitionType: TransitionType.slideFromBottom);
       }
     });

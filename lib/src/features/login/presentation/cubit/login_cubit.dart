@@ -3,12 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:manazel/src/core/helpers/request_state.dart';
-import 'package:manazel/src/core/shared/cubits/user_cubit/user_cubit.dart';
-import 'package:manazel/src/core/shared/models/user_model.dart';
-import 'package:manazel/src/features/login/domain/entitiy/user.dart';
+
 import 'package:manazel/src/features/login/domain/use_case/login_usecase.dart';
-import 'package:manazel/src/features/otp/domain/user_case/verify_otp_usecase.dart';
-import 'package:manazel/src/features/otp/domain/user_case/verify_otp_params.dart';
 
 part 'login_state.dart';
 

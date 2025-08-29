@@ -14,8 +14,6 @@ class AuthLanguageStatusButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// TODO : Add change language bottom sheet.
-    /// TODO : Change text and image of flag depending on current local.
     return InkWell(
       onTap: () => changeLanguageBottomSheet(),
       child: Container(
