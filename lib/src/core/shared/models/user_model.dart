@@ -1,4 +1,6 @@
-class UserModel {
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/base_domain_imports.dart';
+
+class UserModel extends CrudResponse {
   UserModel({
     this.id,
     this.name,

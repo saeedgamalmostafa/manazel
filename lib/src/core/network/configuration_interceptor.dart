@@ -26,7 +26,7 @@ class ConfigurationInterceptor extends Interceptor {
 
   void _handleError(Response response) {
     final errorKey = response.data['key'];
-    final errorMessage = response.data['msg'];
+    final errorMessage = response.data['message'];
 
     final statusCode = _mapErrorKeyToStatusCode(errorKey);
 

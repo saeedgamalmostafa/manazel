@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:manazel/src/config/res/constants_manager.dart';
 import 'package:manazel/src/core/network/backend_configuation.dart';
 import 'package:manazel/src/core/network/extensions.dart';
-import 'package:manazel/src/core/shared/base_model.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
 
 import '../../config/language/locale_keys.g.dart';
 import '../error/exceptions.dart';
@@ -14,6 +15,7 @@ import 'log_interceptor.dart';
 import 'network_request.dart';
 import 'network_service.dart';
 
+@LazySingleton(as: NetworkService)
 class DioService implements NetworkService {
   late final Dio _dio;
 
@@ -72,9 +74,9 @@ class DioService implements NetworkService {
               method: networkRequest.asString(),
               headers: networkRequest.headers));
       if (mapper != null) {
-        return BaseModel.fromJson(response.data, jsonToModel: mapper);
+        return BaseModel.fromMap(response.data, mapper: mapper);
       } else {
-        return BaseModel.fromJson(response.data);
+        return BaseModel.fromMap(response.data);
       }
     } on DioException catch (e) {
       return _handleError(e);
@@ -108,6 +110,10 @@ class DioService implements NetworkService {
               error.response?.data['message'] ?? LocaleKeys.serverError,
             );
           case HttpStatus.internalServerError:
+            throw InternalServerErrorException(
+              error.response?.data['message'] ?? LocaleKeys.serverError,
+            );
+          case HttpStatus.unprocessableEntity:
             throw InternalServerErrorException(
               error.response?.data['message'] ?? LocaleKeys.serverError,
             );

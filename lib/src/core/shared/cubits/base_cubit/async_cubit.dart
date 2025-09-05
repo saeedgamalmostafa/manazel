@@ -23,7 +23,14 @@ abstract class AsyncCubit<T> extends Cubit<AsyncState<T>> {
     emit(state.loadingMore());
   }
 
-  void setSuccess({required T data}) {
+  void setSuccess({
+    required T data,
+    bool showToast = false,
+    String? errorMessage,
+  }) {
+    if (showToast && errorMessage != null) {
+      showSuccessToast(errorMessage);
+    }
     emit(state.success(data: data));
   }
 

@@ -25,7 +25,8 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
               json.map((x) => baseIdAndNameEntityFromJson<T>(x)),
             ),
     ))
-        .data;
+        .data!
+        .toList();
   }
 
   @override
@@ -40,6 +41,6 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
           onSendProgress: param.onSendProgress),
       mapper: (json) => param.mapper(json),
     ))
-        .data;
+        .data!;
   }
 }

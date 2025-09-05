@@ -12,6 +12,7 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
+import '../../network/dio_service.dart' as _i37;
 import '../../network/network_service.dart' as _i632;
 import '../cubits/lookups_cubit/data/base_data_imports.dart' as _i1052;
 import '../cubits/lookups_cubit/domain/base_domain_imports.dart' as _i961;
@@ -31,6 +32,7 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i563.GetBaseEntityCubit<dynamic>>(
         () => _i563.GetBaseEntityCubit());
+    gh.lazySingleton<_i632.NetworkService>(() => _i37.DioService());
     gh.lazySingleton<_i1052.BaseRemoteDataSource>(() =>
         _i1052.BaseRemoteDataSourceImpl(
             dioService: gh<_i632.NetworkService>()));

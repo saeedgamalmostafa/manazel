@@ -40,7 +40,6 @@ class LoadingButton extends StatelessWidget {
     return Padding(
       padding: margin ??
           EdgeInsets.symmetric(
-            horizontal: AppMargin.mW10,
             vertical: AppMargin.mH10,
           ),
       child: CustomAnimatedButton(

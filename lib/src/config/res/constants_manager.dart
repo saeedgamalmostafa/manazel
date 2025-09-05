@@ -6,7 +6,8 @@ class ConstantManager {
   static const String bundleId = "";
   static const String appName = "Best Promo";
   static const String fontFamily = "ArbFONTS";
-  static const String token = "token";
+  static const String token =
+      "sdfhs4f5g4fd5g4fdg45fd4g5fd4g5fd4gsdfhs4f5g4fd5g4fdg45fd4g5fd4g5fd4gsdfhs4f5g4fd5g4fdg45fd4g5fd4g5fd4g";
   static const String projectName = "";
   static const int splashTimer = 4;
   static const String baseUrl = "https://manazelq8.org";

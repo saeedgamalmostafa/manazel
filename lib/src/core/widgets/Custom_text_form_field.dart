@@ -45,7 +45,6 @@ class CustomTextFormField extends StatelessWidget {
   final FocusNode? focusNode;
   final InputDecoration? inputDecoration;
 
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -76,13 +75,13 @@ class CustomTextFormField extends StatelessWidget {
                         color: AppColors.grey.withValues(alpha: 0.35),
                         width: AppRadius.bR2_5 / 2)),
             contentPadding: EdgeInsets.symmetric(
-                vertical: AppRadius.bR15, horizontal: AppRadius.bR10),
+                vertical: AppRadius.bR10, horizontal: AppRadius.bR10),
             fillColor: fillColor ?? AppColors.white,
             filled: true,
             hintStyle: Theme.of(context)
                 .textTheme
                 .titleSmall!
-                .copyWith(color: AppColors.SubText,fontSize: FontSize.s12),
+                .copyWith(color: AppColors.SubText, fontSize: FontSize.s12),
             labelStyle: Theme.of(context)
                 .textTheme
                 .titleMedium!

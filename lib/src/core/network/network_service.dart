@@ -1,4 +1,5 @@
-import '../shared/base_model.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
+
 import 'network_request.dart';
 
 abstract interface class NetworkService {

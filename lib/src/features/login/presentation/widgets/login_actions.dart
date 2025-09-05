@@ -7,21 +7,23 @@ class LoginActions extends StatelessWidget {
   Widget build(BuildContext context) {
     context.locale;
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppSizes.sW16),
-      child: Column(
-        children: [
-          CustomElevatedButton(
-              // onPressed: () => Go.push(const OtpScreen()),
-              onPressed: () => context.read<LoginCubit>().login(),
-              text: LocaleKeys.login.tr()),
-          SizedBox(height: AppSizes.sH12),
-          CustomOutlinedButton(
-              onPressed: () => Go.push(const RegisterScreen(),
-                  transitionType: TransitionType.slideFromRight),
-              text: LocaleKeys.register)
-        ],
-      ),
-    );
+    return Builder(builder: (context) {
+      return Padding(
+        padding: EdgeInsets.symmetric(horizontal: AppSizes.sW16),
+        child: Column(
+          children: [
+            LoadingButton(
+                title: LocaleKeys.login,
+                onTap: () async {
+                  await context.read<LoginCubit>().login();
+                }),
+            CustomOutlinedButton(
+                onPressed: () => Go.push(const RegisterScreen(),
+                    transitionType: TransitionType.slideFromRight),
+                text: LocaleKeys.register)
+          ],
+        ),
+      );
+    });
   }
 }

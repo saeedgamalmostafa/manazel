@@ -1,17 +1,28 @@
 import '../base_domain_imports.dart';
 
 class BaseModel<T> {
-  final String key;
   final String msg;
   final T? data;
-  BaseModel({required this.key, required this.msg, this.data});
+  BaseModel({required this.msg, this.data});
 
-  factory BaseModel.fromMap(Map<String, dynamic> map,
-      {T Function(dynamic)? mapper}) {
+  factory BaseModel.fromMap(
+    Map<String, dynamic> map, {
+    T Function(dynamic)? mapper,
+  }) {
+    final rawData = map['data'];
+
+    T? parsedData;
+    if (mapper != null && rawData != null) {
+      if (rawData is List) {
+        parsedData = rawData.isNotEmpty ? mapper(rawData.first) : null;
+      } else {
+        parsedData = mapper(rawData);
+      }
+    }
+
     return BaseModel<T>(
-      key: map['key'] as String,
-      msg: map['msg'] as String,
-      data: map['data'] != null && mapper != null ? mapper(map['data']) : null,
+      msg: (map['message'] ?? map['message'] ?? '').toString(),
+      data: parsedData,
     );
   }
 }

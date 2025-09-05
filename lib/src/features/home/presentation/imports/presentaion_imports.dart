@@ -27,7 +27,6 @@ import '../../../../core/widgets/custom_circlur_button.dart';
 import '../widgets/home_image_slider.dart';
 import '../../../../core/widgets/custom_loading.dart';
 import '../../../../core/widgets/image_widgets/custom_image_slider.dart';
-import '../../domain/imports/domain_imports.dart';
 
 part '../cubit/home_cubit.dart';
 part '../cubit/home_state.dart';
