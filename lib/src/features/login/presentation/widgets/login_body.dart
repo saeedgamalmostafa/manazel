@@ -5,6 +5,7 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.locale;
     return Column(
       children: [
         Padding(

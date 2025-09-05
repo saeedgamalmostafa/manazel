@@ -9,7 +9,7 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
       width: double.infinity,
       padding: EdgeInsets.symmetric(
           horizontal: AppSizes.sW24, vertical: AppSizes.sH26),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.primary,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(30),
@@ -26,26 +26,21 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
                   Languages.currentLanguage.locale == const Locale("ar")
                       ? "مرحباً بك\u{1F44B}!"
                       : "Welcome \u{1F44B}!",
-                  textStyle: Theme.of(context)
-                      .textTheme
-                      .titleLarge
-                      ?.copyWith(
-                    color: AppColors.white,
-                  ),
+                  textStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: AppColors.white,
+                      ),
                 ),
                 SizedBox(height: AppSizes.sH5),
                 Row(
+                  spacing: 4.w,
                   children: [
                     CustomText.titleLarge(
                       'في',
-                      textStyle: Theme.of(context)
-                          .textTheme
-                          .titleLarge
-                          ?.copyWith(
-                        color: AppColors.white,
-                      ),
+                      textStyle:
+                          Theme.of(context).textTheme.titleLarge?.copyWith(
+                                color: AppColors.white,
+                              ),
                     ),
-                    SizedBox(width: 4),
                     Image.asset(
                       AppAssets.png.manazelWhiteLogoName.path,
                       height: AppSizes.sH12,

@@ -29,7 +29,6 @@ class _ModelSheetState extends State<_ModelSheet> {
   @override
   void initState() {
     super.initState();
-    // خزن اللغة الحالية كـ Locale
     _selectedLocale = Go.navigatorKey.currentContext!.locale;
   }
 
@@ -71,8 +70,8 @@ class _ModelSheetState extends State<_ModelSheet> {
             padding: EdgeInsets.symmetric(vertical: AppSizes.sH15),
             child: CustomElevatedButton(
               onPressed: () {
-                context.setLocale(_selectedLocale); // غيّر اللغة
-                Go.pop(); // اقفل الـ bottom sheet
+                context.setLocale(_selectedLocale);
+                Go.pop();
               },
               text: LocaleKeys.confirm.tr(),
             ),

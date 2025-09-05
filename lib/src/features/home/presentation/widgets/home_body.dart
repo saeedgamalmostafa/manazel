@@ -8,8 +8,8 @@ class HomeBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(children: [
         CustomImageSlider(),
-        HomeActions(),
-        HomeItemsCard(),
+        const HomeActions(),
+        const HomeItemsCard(),
       ]),
     );
   }

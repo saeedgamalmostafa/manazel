@@ -5,6 +5,8 @@ class LoginActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.locale;
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: AppSizes.sW16),
       child: Column(
@@ -17,7 +19,7 @@ class LoginActions extends StatelessWidget {
           CustomOutlinedButton(
               onPressed: () => Go.push(const RegisterScreen(),
                   transitionType: TransitionType.slideFromRight),
-              text: LocaleKeys.register.tr())
+              text: LocaleKeys.register)
         ],
       ),
     );

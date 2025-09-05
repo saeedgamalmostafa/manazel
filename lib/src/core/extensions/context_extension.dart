@@ -1,3 +1,6 @@
+import 'dart:ui' as mat;
+
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:manazel/src/config/language/languages.dart';
 import 'package:manazel/src/config/res/constants_manager.dart';
@@ -27,6 +30,14 @@ extension ContextExtension on BuildContext {
   bool get isLight => theme.brightness == Brightness.light;
 
   bool get isMaterial => theme.platform == TargetPlatform.android;
+
+  bool get isArabic => locale.languageCode == 'ar' ? true : false;
+  mat.TextDirection get textDirection => locale.languageCode == 'ar'
+      ? mat.TextDirection.rtl
+      : mat.TextDirection.ltr;
+  mat.TextDirection get textDirectionReversed => locale.languageCode == 'ar'
+      ? mat.TextDirection.ltr
+      : mat.TextDirection.rtl;
 }
 
 extension LanguageExtension on Widget {

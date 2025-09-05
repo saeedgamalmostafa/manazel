@@ -1,7 +1,7 @@
 part of '../../app_layout_imports.dart';
 
 class AppLayoutScreen extends StatefulWidget {
-  const AppLayoutScreen({super.key, required this.currentIndex});
+  const AppLayoutScreen({super.key, this.currentIndex = 0});
   final int currentIndex;
   @override
   State<AppLayoutScreen> createState() => _AppLayoutViewState();

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
+import 'package:manazel/src/core/extensions/context_extension.dart';
 
 import '../../config/res/color_manager.dart';
 import '../navigator/app_navigator.dart';
@@ -27,9 +28,9 @@ class CustomBackButton extends StatelessWidget {
             shape: BoxShape.circle,
           ),
           child: Center(
-            child: SvgPicture.asset(
-              AppAssets.svg.arrowRight.path,
-            ),
+            child: Directionality(
+                textDirection: context.textDirectionReversed,
+                child: AppAssets.svg.arrowRight.svg(matchTextDirection: true)),
           ),
         ),
       ),

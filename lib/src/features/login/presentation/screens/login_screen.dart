@@ -5,12 +5,13 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.locale;
     return BlocProvider(
       create: (context) => sl<LoginCubit>(),
       child: BlocListener<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state.requestState == RequestState.success) {
-            Go.push(const HomeScreen());
+            Go.pushReplacement(const AppLayoutScreen());
           }
         },
         child: Scaffold(

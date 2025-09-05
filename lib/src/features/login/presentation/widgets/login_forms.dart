@@ -5,6 +5,8 @@ class LoginForms extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.locale;
+
     return Padding(
       padding: EdgeInsets.only(
           top: AppSizes.sH32,
