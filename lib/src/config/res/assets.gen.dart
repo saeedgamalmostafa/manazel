@@ -60,14 +60,19 @@ class $AssetsFontsGen {
 class $AssetsGifGen {
   const $AssetsGifGen();
 
-  /// File path: assets/gif/54ba850821c93ade1e6c40921cfade3acd229306.gif
-  AssetGenImage get a54ba850821c93ade1e6c40921cfade3acd229306 =>
-      const AssetGenImage(
-        'assets/gif/54ba850821c93ade1e6c40921cfade3acd229306.gif',
-      );
+  /// File path: assets/gif/cancel_account.gif
+  AssetGenImage get cancelAccount =>
+      const AssetGenImage('assets/gif/cancel_account.gif');
+
+  /// File path: assets/gif/change_password.gif
+  AssetGenImage get changePassword =>
+      const AssetGenImage('assets/gif/change_password.gif');
+
+  /// File path: assets/gif/log_out.gif
+  AssetGenImage get logOut => const AssetGenImage('assets/gif/log_out.gif');
 
   /// List of all assets
-  List<AssetGenImage> get values => [a54ba850821c93ade1e6c40921cfade3acd229306];
+  List<AssetGenImage> get values => [cancelAccount, changePassword, logOut];
 }
 
 class $AssetsLottieGen {

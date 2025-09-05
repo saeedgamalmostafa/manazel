@@ -3,6 +3,8 @@ enum BaseStatus {
 
   loading,
 
+  loadingMore,
+
   success,
 
   error,
@@ -12,6 +14,8 @@ extension BasseStatusExt on BaseStatus {
   bool get isInitial => this == BaseStatus.initial;
 
   bool get isLoading => this == BaseStatus.loading;
+
+  bool get isLoadingMore => this == BaseStatus.loadingMore;
 
   bool get isSuccess => this == BaseStatus.success;
 
@@ -29,6 +33,7 @@ extension BasseStatusExt on BaseStatus {
       case BaseStatus.loading:
         return onLoading();
       case BaseStatus.success:
+      case BaseStatus.loadingMore:
         return onSuccess();
       case BaseStatus.error:
         return onError();

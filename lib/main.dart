@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:manazel/src/core/network/backend_configuation.dart';
+import 'package:manazel/src/core/shared/Functions/di.dart';
 import 'package:manazel/src/core/shared/Functions/setup_service_locators.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'src/app.dart';
@@ -33,6 +34,8 @@ void main() async {
   //     ),
   //   ),
   // );
+  configureDependencies();
+
   if (kReleaseMode) {
     ErrorWidget.builder =
         (FlutterErrorDetails details) => const ExceptionView();
