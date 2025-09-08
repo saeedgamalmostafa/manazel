@@ -10,7 +10,7 @@ class ContactUsScreen extends StatelessWidget {
       child: Scaffold(
           backgroundColor: AppColors.scaffoldBackground,
           appBar: CustomAppBar(
-            title: LocaleKeys.contact_us.tr(),
+            title: LocaleKeys.contactUs.tr(),
             showBackArrow: true,
           ),
           body: ContactUsBody()),

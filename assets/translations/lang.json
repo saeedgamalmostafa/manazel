@@ -142,40 +142,30 @@
     "delete": "حذف",
     "retreat": "تراجع",
     "newMobileNumber": "رقم الجوال الجديد",
-    "enterNewMobileNumber": "أدخل رقم الجوال الجديد"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    "enterNewMobileNumber": "أدخل رقم الجوال الجديد",
+    "Verification code": "كود التحقق",
+    "Please enter the code sent to your mobile phone": "برجاء إدخال الكود المرسل علي جوالك",
+    "Didn't receive the verification code? ": "لم تتلقى كود التحقق؟",
+    "Resend": "إعادة الإرسال",
+    "Confirm": "تأكيد",
+    "More": "المزيد",
+    "Login": "تسجيل الدخول",
+    "Please enter your login information": "الرجاء إدخال بيانات تسجيل الدخول",
+    "Please enter your data to register": "الرجاء إدخال بياناتك للتسجيل",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": ""
 
 
 

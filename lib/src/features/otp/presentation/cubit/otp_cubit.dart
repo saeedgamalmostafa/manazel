@@ -2,95 +2,52 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:manazel/src/config/res/constants_manager.dart';
+import 'package:manazel/src/core/helpers/toast.dart';
+import 'package:manazel/src/core/navigator/app_navigator.dart';
+import 'package:manazel/src/core/network/api_endpoints.dart';
+import 'package:manazel/src/core/network/network_service.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/base_domain_imports.dart';
+import 'package:manazel/src/core/shared/cubits/user_cubit/user_cubit.dart';
+import 'package:manazel/src/core/shared/models/user_model.dart';
+import 'package:manazel/src/features/app_layout/app_layout_imports.dart';
 
 import '../../../../core/helpers/request_state.dart';
-import '../../../../core/shared/cubits/user_cubit/user_cubit.dart';
-import '../../../../core/shared/models/user_model.dart';
 
 part 'otp_state.dart';
 
 class OtpCubit extends Cubit<OtpState> {
-  final UserCubit _userCubit;
-  StreamSubscription? _userSubscription;
-
-  OtpCubit({
-    required UserCubit userCubit,
-  })  : _userCubit = userCubit,
-        super(const OtpState()) {
-    _userSubscription = _userCubit.stream.listen((userState) {
-      if (userState.userStatus == UserStatus.loggedIn) {
-        emit(state.copyWith(
-          verificationState: RequestState.success,
-        ));
-      }
-    });
+  OtpCubit() : super(const OtpState()) {
+    baseCrudUseCase = injector();
   }
-
-  @override
-  Future<void> close() {
-    _userSubscription?.cancel();
-    return super.close();
-  }
-
-  void onVerificationCodeChanged(String code) {
-    emit(state.copyWith(verificationCode: code));
-  }
+  final codeController = TextEditingController();
+  late final BaseCrudUseCase baseCrudUseCase;
 
   Future<void> verifyOtp() async {
-    // if (state.verificationCode.length != 6) {
-    //   emit(state.copyWith(
-    //     verificationState: RequestState.error,
-    //     verificationError: 'Please enter a valid 6-digit code',
-    //   ));
-    //   return;
-    // }
-
-    // try {
-    //   emit(state.copyWith(
-    //     verificationState: RequestState.loading,
-    //     verificationError: '',
-    //   ));
-
-    //   final result = await _verifyOtpUseCase(VerifyOtpParams(
-    //     code: state.verificationCode,
-    //   ));
-
-    //   result.when(
-    //         (userResponse) {
-    //       if (userResponse.data.accessToken.isNotEmpty) {
-    //         _userCubit.setUserLoggedIn(
-    //           user: UserModel(
-    //             id: userResponse.data.id,
-    //             name: userResponse.data.name,
-    //             mobile: userResponse.data.mobile,
-    //             accessToken: userResponse.data.accessToken,
-    //             isActive: userResponse.data.isActive,
-    //           ),
-    //           token: userResponse.data.accessToken,
-    //         );
-    //       } else {
-    //         emit(state.copyWith(
-    //           verificationState: RequestState.error,
-    //           verificationError: 'Verification failed. Please try again.',
-    //         ));
-    //       }
-    //     },
-    //         (failure) {
-    //       emit(state.copyWith(
-    //         verificationState: RequestState.error,
-    //         verificationError: failure.message,
-    //       ));
-    //     },
-    //   );
-    // } catch (_) {
-    //   emit(state.copyWith(
-    //     verificationState: RequestState.error,
-    //     verificationError: 'An error occurred. Please try again.',
-    //   ));
-    // }
-  }
-
-  void resetVerification() {
-    emit(const OtpState());
+    final result = await baseCrudUseCase<UserModel>(
+      CrudBaseParams(
+        api: ApiConstants.verifyOtp,
+        httpRequestType: HttpRequestType.post,
+        body: {'code': codeController.text, 'type': 'client'},
+        mapper: (value) => UserModel.fromJson(value),
+      ),
+    );
+    result.when(
+      (response) {
+        if (response.data!.isNotEmpty) {
+          UserCubit.instance.setUserLoggedIn(
+              user: response.data!.first,
+              token: response.data!.first.accessToken ?? '');
+          Go.pushAndRemoveUntil(
+            const AppLayoutScreen(),
+            transitionType: TransitionType.slideFromRight,
+          );
+        }
+      },
+      (error) {
+        showErrorToast(error.message);
+      },
+    );
   }
 }

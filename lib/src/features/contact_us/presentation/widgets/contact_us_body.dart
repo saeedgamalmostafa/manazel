@@ -40,13 +40,13 @@ class ContactUsBody extends StatelessWidget {
                       children: [
                         Center(
                             child: CustomText.titleLarge(
-                                LocaleKeys.send_message.tr(),
+                                LocaleKeys.sendMessage.tr(),
                                 textStyle: Theme.of(context)
                                     .textTheme
                                     .titleLarge
                                     ?.copyWith(color: AppColors.primary))),
                         const SizedBox(height: 16),
-                        CustomText.titleMedium(LocaleKeys.message_text.tr(),
+                        CustomText.titleMedium(LocaleKeys.messageText.tr(),
                             textStyle: Theme.of(context)
                                 .textTheme
                                 .titleMedium

@@ -13,7 +13,7 @@ class _AppLayoutViewState extends State<AppLayoutScreen>
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          sl<AppLayoutCubit>()..initData(this, widget.currentIndex),
+          AppLayoutCubit()..initData(this, widget.currentIndex),
       child: BlocBuilder<AppLayoutCubit, AppLayoutState>(
         builder: (context, state) {
           return DefaultTabController(

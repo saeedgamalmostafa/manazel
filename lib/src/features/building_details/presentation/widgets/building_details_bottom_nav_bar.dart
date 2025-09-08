@@ -18,14 +18,14 @@ class BuildingDetailsBottomNavBar extends StatelessWidget {
               onPressed: () {
                 Go.push(BookAppointmentScreen());
               },
-              text: LocaleKeys.book_appointment_now.tr(),
+              text: LocaleKeys.bookAppointmentNow.tr(),
             ),
             SizedBox(
               height: AppSizes.sH12,
             ),
             CustomOutlinedButton(
               onPressed: () {},
-              text: LocaleKeys.contact_owner.tr(),
+              text: LocaleKeys.contactOwner.tr(),
             )
           ],
         ));

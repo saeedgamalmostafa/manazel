@@ -27,10 +27,10 @@ class _EditProfileBottomSheet extends State<EditProfileBottomSheet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Center(
-              // child: Image.asset(
-              //  // AppAssets.png.predictiveChart.path,
-              // ),
-            ),
+                // child: Image.asset(
+                //  // AppAssets.png.predictiveChart.path,
+                // ),
+                ),
             SizedBox(height: AppSizes.sH16),
             CustomText.titleLarge(
               Languages.currentLanguage.locale == const Locale("ar")
@@ -43,7 +43,7 @@ class _EditProfileBottomSheet extends State<EditProfileBottomSheet> {
               height: AppSizes.sH6,
             ),
             CustomText.titleMedium(
-              LocaleKeys.convert_home_page.tr(),
+              LocaleKeys.convertHomePage.tr(),
               textStyle: Theme.of(context)
                   .textTheme
                   .titleMedium

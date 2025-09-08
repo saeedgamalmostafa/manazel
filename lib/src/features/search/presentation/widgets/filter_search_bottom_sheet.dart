@@ -16,7 +16,7 @@ class FilterSearchBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Center(
-            child: CustomText(LocaleKeys.search_filter.tr(),
+            child: CustomText(LocaleKeys.searchFilter.tr(),
                 textStyle: TextStyle(
                     fontSize: FontSize.s16,
                     color: AppColors.buttonColor,
@@ -24,12 +24,9 @@ class FilterSearchBottomSheet extends StatelessWidget {
           ),
           SizedBox(height: AppSizes.sH18),
           CustomText.titleMedium(LocaleKeys.purpose.tr(),
-              textStyle: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(
-                color: AppColors.Text,
-              )),
+              textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: AppColors.Text,
+                  )),
           SizedBox(height: AppSizes.sH6),
           SearchBottomSheetActions(),
           SizedBox(height: AppSizes.sH4),
@@ -41,10 +38,8 @@ class FilterSearchBottomSheet extends StatelessWidget {
                 color: AppColors.Text,
               )),
           SizedBox(height: AppSizes.sH6),
-
           SearchBottomSheetPriceActions(),
           SizedBox(height: AppSizes.sH18),
-
           SearchBottomSheetRangeSlider(),
           Padding(
             padding: EdgeInsets.only(
@@ -55,7 +50,8 @@ class FilterSearchBottomSheet extends StatelessWidget {
             child: CustomElevatedButton(
                 onPressed: () {
                   Go.pop();
-                }, text: LocaleKeys.sure.tr()),
+                },
+                text: LocaleKeys.sure.tr()),
           ),
         ],
       ),

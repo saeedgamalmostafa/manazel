@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 
-final GetIt sl = GetIt.instance;
+final GetIt injector = GetIt.instance;
 
 class ConstantManager {
   static const String bundleId = "";

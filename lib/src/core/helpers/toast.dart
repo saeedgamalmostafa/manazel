@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/core/extensions/text_style_extensions.dart';
@@ -21,6 +22,9 @@ showToast(String? message, {Color? bg}) {
 showErrorToast(String message) {
   if (Go.navigatorKey.currentContext != null) {
     Flushbar(
+      borderRadius: BorderRadius.circular(16.r),
+      margin: EdgeInsets.all(20.sp),
+      flushbarPosition: FlushbarPosition.TOP,
       duration: const Duration(seconds: 2),
       messageText: Center(
         child: Text(
@@ -28,7 +32,7 @@ showErrorToast(String message) {
           textAlign: TextAlign.center,
           style: const TextStyle(
             color: AppColors.white,
-          ).medium,
+          ).medium.copyWith(fontSize: 12),
         ),
       ),
       backgroundColor: AppColors.error,
@@ -47,6 +51,9 @@ Future<void> showSuccessToast(String message) async {
     }
 
     flushbar = Flushbar(
+        borderRadius: BorderRadius.circular(16.r),
+        margin: EdgeInsets.all(20.sp),
+        flushbarPosition: FlushbarPosition.TOP,
         duration: const Duration(seconds: 2),
         messageText: Center(
           child: Text(
@@ -54,7 +61,7 @@ Future<void> showSuccessToast(String message) async {
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: AppColors.white,
-            ).medium,
+            ).medium.copyWith(fontSize: 12),
           ),
         ),
         backgroundColor: Colors.green);

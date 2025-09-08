@@ -4,6 +4,8 @@ import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/core/navigator/app_navigator.dart';
+import 'package:manazel/src/core/shared/cubits/user_cubit/user_cubit.dart';
+import 'package:manazel/src/features/app_layout/app_layout_imports.dart';
 
 import '../login/login_imports.dart';
 
@@ -27,11 +29,18 @@ class SplashScreenState extends State<SplashScreen>
       vsync: this,
     );
 
+    Future<bool> isUserLoggedIn = UserCubit.instance.init();
+
     // Listen for animation completion
-    _controller.addStatusListener((status) {
+    _controller.addStatusListener((status) async {
       if (status == AnimationStatus.completed) {
-        Go.pushAndRemoveUntil(const LoginScreen(),
-            transitionType: TransitionType.slideFromBottom);
+        if (await isUserLoggedIn) {
+          Go.pushAndRemoveUntil(const AppLayoutScreen(),
+              transitionType: TransitionType.slideFromBottom);
+        } else {
+          Go.pushAndRemoveUntil(const LoginScreen(),
+              transitionType: TransitionType.slideFromBottom);
+        }
       }
     });
 

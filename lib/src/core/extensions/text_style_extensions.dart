@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../config/res/color_manager.dart';
 import '../../config/res/constants_manager.dart';
 
-
 extension TextStyleEx on TextStyle {
   TextStyle get bold => copyWith(fontWeight: FontWeight.bold);
   TextStyle get semiBold => copyWith(fontWeight: FontWeight.w600);
@@ -38,10 +37,12 @@ extension TextStyleEx on TextStyle {
 
   TextStyle get ellipsis => copyWith(overflow: TextOverflow.ellipsis);
 
-  TextStyle get setMainTextColor => copyWith(color:  AppColors.primary);
+  TextStyle get setMainTextColor => copyWith(color: AppColors.primary);
   TextStyle get setPrimaryColor => copyWith(color: AppColors.primary);
   TextStyle get setHintColor => copyWith(color: AppColors.primary);
   TextStyle get setBlackColor => copyWith(color: AppColors.black);
+  TextStyle get setGreyColor => copyWith(color: AppColors.grey);
+
   TextStyle get setWhiteColor => copyWith(color: AppColors.primary);
   TextStyle setColor(Color color) => copyWith(color: color);
   TextStyle setFontSize(double size) => copyWith(fontSize: size);

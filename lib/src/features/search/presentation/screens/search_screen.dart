@@ -7,7 +7,7 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: LocaleKeys.search_result.tr(),
+        title: LocaleKeys.searchResult.tr(),
         showBackArrow: true,
       ),
       body: SearchBody(),

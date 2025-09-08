@@ -15,7 +15,7 @@ class GetBaseEntityCubit<T extends BaseEntity> extends Cubit<GetBaseEntityState>
     with HydratedMixin {
   GetBaseEntityCubit()
       : super(GetBaseEntityState(dataState: Async<List<T>>.initial())) {
-    getBaseEntityseCase = sl();
+    getBaseEntityseCase = injector();
     hydrate();
   }
 

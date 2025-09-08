@@ -36,7 +36,7 @@ class BuildingDetailsText extends StatelessWidget {
                         ),
                         SizedBox(width: AppSizes.sW5),
                         CustomText.titleMedium(
-                          LocaleKeys.building_details_title.tr(),
+                          LocaleKeys.buildingDetailsTitle.tr(),
                           textStyle:
                               Theme.of(context).textTheme.titleMedium?.copyWith(
                                     color: AppColors.primary,

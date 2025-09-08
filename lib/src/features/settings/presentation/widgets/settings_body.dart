@@ -12,17 +12,16 @@ class SettingsBody extends StatelessWidget {
         children: [
           CustomMoreItem(
             imagePath: AppAssets.svg.userEdit01.path,
-            title: LocaleKeys.edit_profile.tr(),
+            title: LocaleKeys.editProfile.tr(),
             onTap: () {
               Go.push(EditProfileScreen());
             },
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.smartPhone03.path,
-            title: LocaleKeys.change_phone_number.tr(),
+            title: LocaleKeys.changePhoneNumber.tr(),
             onTap: () {
               Go.push(ChangePasswordScreen());
-
             },
           ),
           NotificationSettingItem(
@@ -36,7 +35,7 @@ class SettingsBody extends StatelessWidget {
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.elements5.path,
-            title: LocaleKeys.delete_account.tr(),
+            title: LocaleKeys.deleteAccount.tr(),
             onTap: () {
               CancelAccountBottomSheet.show(context);
             },

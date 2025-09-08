@@ -20,8 +20,8 @@ class _SearchBottomSheetFormsState extends State<SearchBottomSheetForms> {
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       DefaultDropDownField<String>(
-        label: LocaleKeys.building_type.tr(),
-        hint: LocaleKeys.choose_building_type.tr(),
+        label: LocaleKeys.buildingType.tr(),
+        hint: LocaleKeys.chooseBuildingType.tr(),
         selectedItem: selectedCity,
         onChanged: (val) => setState(() => selectedCity = val),
         asyncItems: getCities,
@@ -30,7 +30,7 @@ class _SearchBottomSheetFormsState extends State<SearchBottomSheetForms> {
       SizedBox(height: AppSizes.sH14),
       DefaultDropDownField<String>(
         label: LocaleKeys.region.tr(),
-        hint: LocaleKeys.select_region.tr(),
+        hint: LocaleKeys.selectRegion.tr(),
         selectedItem: selectedCity,
         onChanged: (val) => setState(() => selectedCity = val),
         asyncItems: getCities,

@@ -8,7 +8,7 @@ class BookAppointmentScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: AppColors.scaffoldBackground,
         appBar: CustomAppBar(
-          title: LocaleKeys.book_inspection.tr(),
+          title: LocaleKeys.bookInspection.tr(),
           showBackArrow: true,
         ),
         body: BookAppointmentBody(),

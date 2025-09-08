@@ -27,7 +27,8 @@ class LoginBody extends StatelessWidget {
                           Languages.currentLanguage.locale == const Locale("ar")
                               ? "مرحبا بعودتك\u{1F44B}!"
                               : "Welcome Back\u{1F44B}!",
-                      description: LocaleKeys.plzEnterLoginData.tr()),
+                      description:
+                          LocaleKeys.pleaseEnterYourLoginInformation.tr()),
                   const LoginForms(),
                   const LoginActions(),
                 ],

@@ -62,7 +62,7 @@ class _BookAppointmentFormsState extends State<BookAppointmentForms> {
           SizedBox(
             height: AppSizes.sH14,
           ),
-          CustomText.titleMedium(LocaleKeys.appointments_available.tr(),
+          CustomText.titleMedium(LocaleKeys.appointmentsAvailable.tr(),
               textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: AppColors.Text,
                   )),

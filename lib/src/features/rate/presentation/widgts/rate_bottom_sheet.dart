@@ -23,19 +23,17 @@ class RateBottomSheet extends StatelessWidget {
             textStyle: Theme.of(context)
                 .textTheme
                 .titleLarge
-                ?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: AppColors.Text),
+                ?.copyWith(fontWeight: FontWeight.bold, color: AppColors.Text),
           ),
           SizedBox(
             height: AppSizes.sH6,
           ),
           CustomText.titleMedium(
-            LocaleKeys.know_value_property.tr(),
+            LocaleKeys.knowValueProperty.tr(),
             textStyle: Theme.of(context)
                 .textTheme
                 .titleMedium
-                ?.copyWith( color: AppColors.SubText),
+                ?.copyWith(color: AppColors.SubText),
           ),
           Padding(
             padding: EdgeInsets.only(
@@ -46,7 +44,8 @@ class RateBottomSheet extends StatelessWidget {
             child: CustomElevatedButton(
                 onPressed: () {
                   Go.push(RateScreen());
-                }, text: LocaleKeys.continuity.tr()),
+                },
+                text: LocaleKeys.continuity.tr()),
           ),
         ],
       ),

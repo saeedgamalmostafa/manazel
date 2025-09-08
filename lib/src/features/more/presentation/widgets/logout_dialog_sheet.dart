@@ -25,7 +25,7 @@ class LogoutBottomSheet {
                 ),
               ),
               const SizedBox(height: 28),
-              CustomText(LocaleKeys.do_you_want_logout.tr(),
+              CustomText(LocaleKeys.doYouWantLogout.tr(),
                   textStyle: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -43,7 +43,8 @@ class LogoutBottomSheet {
                       child: CustomElevatedButton(
                           width: 163.5,
                           onPressed: () {
-                            Navigator.pop(context);
+                            UserCubit.instance.logout();
+                            Go.pushAndRemoveUntil(const LoginScreen());
                           },
                           text: LocaleKeys.yes.tr()),
                     ),

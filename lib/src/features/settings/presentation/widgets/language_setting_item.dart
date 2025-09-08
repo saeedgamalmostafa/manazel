@@ -42,10 +42,8 @@ class LanguageSettingItem extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: AppSizes.sW8),
                 child: CustomText.titleMedium(
                   title,
-                  textStyle: Theme.of(context)
-                      .textTheme
-                      .titleMedium
-                      ?.copyWith(),
+                  textStyle:
+                      Theme.of(context).textTheme.titleMedium?.copyWith(),
                   textAlign: TextAlign.start,
                   maxLines: 1,
                 ),
@@ -56,8 +54,8 @@ class LanguageSettingItem extends StatelessWidget {
               children: [
                 CustomText.titleSmall(
                   Languages.currentLanguage.locale == const Locale("ar")
-                      ? LocaleKeys.arabic.tr()
-                      : LocaleKeys.english.tr(),
+                      ? 'العربية'
+                      : 'English',
                   textStyle: Theme.of(context)
                       .textTheme
                       .titleSmall

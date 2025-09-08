@@ -25,7 +25,7 @@ class UserCubit extends Cubit<UserState> with UserUtils {
       _saveUser(user),
       _saveToken(token),
     ]);
-    sl<NetworkService>().setToken(token);
+    injector<NetworkService>().setToken(token);
     emit(state.copyWith(userModel: user, userStatus: UserStatus.loggedIn));
   }
 
@@ -53,7 +53,7 @@ class UserCubit extends Cubit<UserState> with UserUtils {
 
     log('userMap $userMap, token $token');
     if (token != null && userMap != null) {
-      sl<NetworkService>().setToken(token);
+      injector<NetworkService>().setToken(token);
       emit(state.copyWith(
         userModel: UserModel.fromJson(userMap),
         userStatus: UserStatus.loggedIn,
@@ -64,12 +64,12 @@ class UserCubit extends Cubit<UserState> with UserUtils {
   }
 
   void _clearUser() {
-    sl<NetworkService>().removeToken();
+    injector<NetworkService>().removeToken();
     emit(UserState.initial());
   }
 
   UserModel get user => state.userModel;
-  static UserCubit get instance  => sl<UserCubit>();
+  static UserCubit get instance => UserCubit();
 
   bool get isUserLoggedIn => state.userStatus == UserStatus.loggedIn;
 }

@@ -30,7 +30,7 @@ class RegisterBody extends StatelessWidget {
                             ? "إنشاء حساب\u{1F44B}!"
                             : "Create Account\u{1F44B}!",
                         description:
-                            LocaleKeys.plzEnterYourDataToRegister.tr()),
+                            LocaleKeys.pleaseEnterYourDataToRegister.tr()),
                     const RegisterForms(),
                   ],
                 ),

@@ -3,7 +3,8 @@ part of '../base_data_imports.dart';
 abstract class BaseRemoteDataSource {
   Future<List<T>> getData<T extends BaseEntity>(GetBaseEntityParams? param);
 
-  Future<T> crudCall<T>(CrudBaseParams param);
+  // ⬇️ change return type to BaseModel<T>
+  Future<BaseModel<T>> crudCall<T>(CrudBaseParams param);
 }
 
 @LazySingleton(as: BaseRemoteDataSource)
@@ -26,21 +27,23 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
             ),
     ))
         .data!
-        .toList();
+        .toList()
+        .first;
   }
 
   @override
-  Future<T> crudCall<T>(CrudBaseParams param) async {
-    return (await dioService.callApi<T>(
+  Future<BaseModel<T>> crudCall<T>(CrudBaseParams param) async {
+    final res = await dioService.callApi<T>(
       NetworkRequest(
-          path: param.api,
-          method: param.httpRequestType.requestMethod,
-          body: param.body,
-          isFormData: param.isFromData,
-          queryParameters: param.queryParameters,
-          onSendProgress: param.onSendProgress),
+        path: param.api,
+        method: param.httpRequestType.requestMethod,
+        body: param.body,
+        isFormData: param.isFromData,
+        queryParameters: param.queryParameters,
+        onSendProgress: param.onSendProgress,
+      ),
       mapper: (json) => param.mapper(json),
-    ))
-        .data!;
+    );
+    return res; // 👈 no unwrapping
   }
 }

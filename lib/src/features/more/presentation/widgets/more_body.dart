@@ -20,7 +20,7 @@ class MoreBody extends StatelessWidget {
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.calendar01.path,
-            title: LocaleKeys.my_orders.tr(),
+            title: LocaleKeys.myOrders.tr(),
             onTap: () {
               Go.push(const MyOrdersScreen());
             },
@@ -34,21 +34,21 @@ class MoreBody extends StatelessWidget {
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.customerSupport.path,
-            title: LocaleKeys.contact_us.tr(),
+            title: LocaleKeys.contactUs.tr(),
             onTap: () {
               Go.push(const ContactUsScreen());
             },
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.alertDiamond.path,
-            title: LocaleKeys.about_us.tr(),
+            title: LocaleKeys.aboutUs.tr(),
             onTap: () {
               Go.push(AboutUsScreen());
             },
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.bookmarkCheck01.path,
-            title: LocaleKeys.privacy_policy.tr(),
+            title: LocaleKeys.privacyPolicy.tr(),
             onTap: () {
               Go.push(PrivacyPolicyScreen());
             },
@@ -62,7 +62,7 @@ class MoreBody extends StatelessWidget {
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.elements1.path,
-            title: LocaleKeys.log_out.tr(),
+            title: LocaleKeys.logOut.tr(),
             onTap: () {
               LogoutBottomSheet.show(context);
             },

@@ -4,7 +4,8 @@ class ChangePasswordBottomSheet extends StatefulWidget {
   const ChangePasswordBottomSheet({super.key});
 
   @override
-  State<ChangePasswordBottomSheet> createState() => _ChangePasswordBottomSheet();
+  State<ChangePasswordBottomSheet> createState() =>
+      _ChangePasswordBottomSheet();
 }
 
 class _ChangePasswordBottomSheet extends State<ChangePasswordBottomSheet> {
@@ -27,10 +28,10 @@ class _ChangePasswordBottomSheet extends State<ChangePasswordBottomSheet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Center(
-              // child: Image.asset(
-              //  // AppAssets.png.predictiveChart.path,
-              // ),
-            ),
+                // child: Image.asset(
+                //  // AppAssets.png.predictiveChart.path,
+                // ),
+                ),
             SizedBox(height: AppSizes.sH16),
             CustomText.titleLarge(
               Languages.currentLanguage.locale == const Locale("ar")
@@ -43,7 +44,7 @@ class _ChangePasswordBottomSheet extends State<ChangePasswordBottomSheet> {
               height: AppSizes.sH6,
             ),
             CustomText.titleMedium(
-              LocaleKeys.convert_home_page.tr(),
+              LocaleKeys.convertHomePage.tr(),
               textStyle: Theme.of(context)
                   .textTheme
                   .titleMedium

@@ -25,7 +25,7 @@ class _RateFormsState extends State<RateForms> {
       children: [
         DefaultDropDownField<String>(
           label: LocaleKeys.region.tr(),
-          hint: LocaleKeys.select_region.tr(),
+          hint: LocaleKeys.selectRegion.tr(),
           selectedItem: selectedCity,
           onChanged: (val) => setState(() => selectedCity = val),
           asyncItems: getCities,
@@ -45,7 +45,7 @@ class _RateFormsState extends State<RateForms> {
           child: CustomTextFormField(
             textInputType: TextInputType.name,
             textInputAction: TextInputAction.next,
-            hintText: LocaleKeys.enter_property_area.tr(),
+            hintText: LocaleKeys.enterPropertyArea.tr(),
             style: TextStyle(
               fontSize: FontSize.s12,
             ),
@@ -65,7 +65,7 @@ class _RateFormsState extends State<RateForms> {
           child: CustomTextFormField(
             textInputType: TextInputType.name,
             textInputAction: TextInputAction.next,
-            hintText: LocaleKeys.enter_address.tr(),
+            hintText: LocaleKeys.enterAddress.tr(),
             style: TextStyle(
               fontSize: FontSize.s12,
             ),
@@ -76,7 +76,7 @@ class _RateFormsState extends State<RateForms> {
         ),
         DefaultDropDownField<String>(
           label: LocaleKeys.street.tr(),
-          hint: LocaleKeys.select_street.tr(),
+          hint: LocaleKeys.selectStreet.tr(),
           selectedItem: selectedCity,
           onChanged: (val) => setState(() => selectedCity = val),
           asyncItems: getCities,
@@ -87,7 +87,7 @@ class _RateFormsState extends State<RateForms> {
         ),
         DefaultDropDownField<String>(
           label: LocaleKeys.directions.tr(),
-          hint: LocaleKeys.set_directions.tr(),
+          hint: LocaleKeys.setDirections.tr(),
           selectedItem: selectedCity,
           onChanged: (val) => setState(() => selectedCity = val),
           asyncItems: getCities,
@@ -98,7 +98,7 @@ class _RateFormsState extends State<RateForms> {
         ),
         DefaultDropDownField<String>(
           label: LocaleKeys.interface.tr(),
-          hint: LocaleKeys.select_interface.tr(),
+          hint: LocaleKeys.selectInterface.tr(),
           selectedItem: selectedCity,
           onChanged: (val) => setState(() => selectedCity = val),
           asyncItems: getCities,
@@ -108,8 +108,8 @@ class _RateFormsState extends State<RateForms> {
           height: AppSizes.sH14,
         ),
         DefaultDropDownField<String>(
-          label: LocaleKeys.building_age.tr(),
-          hint: LocaleKeys.determine_age_building.tr(),
+          label: LocaleKeys.buildingAge.tr(),
+          hint: LocaleKeys.determineAgeBuilding.tr(),
           selectedItem: selectedCity,
           onChanged: (val) => setState(() => selectedCity = val),
           asyncItems: getCities,
@@ -119,8 +119,8 @@ class _RateFormsState extends State<RateForms> {
           height: AppSizes.sH14,
         ),
         DefaultDropDownField<String>(
-          label: LocaleKeys.finishing_quality.tr(),
-          hint: LocaleKeys.determine_quality_finishing.tr(),
+          label: LocaleKeys.finishingQuality.tr(),
+          hint: LocaleKeys.determineQualityFinishing.tr(),
           selectedItem: selectedCity,
           onChanged: (val) => setState(() => selectedCity = val),
           asyncItems: getCities,
@@ -130,8 +130,8 @@ class _RateFormsState extends State<RateForms> {
           height: AppSizes.sH14,
         ),
         DefaultDropDownField<String>(
-          label: LocaleKeys.number_floors.tr(),
-          hint: LocaleKeys.determine_number_floors.tr(),
+          label: LocaleKeys.numberFloors.tr(),
+          hint: LocaleKeys.determineNumberFloors.tr(),
           selectedItem: selectedCity,
           onChanged: (val) => setState(() => selectedCity = val),
           asyncItems: getCities,

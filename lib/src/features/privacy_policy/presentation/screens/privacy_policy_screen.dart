@@ -6,7 +6,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: AppColors.scaffoldBackground,
         appBar: CustomAppBar(
-          title: LocaleKeys.privacy_policy.tr(),
+          title: LocaleKeys.privacyPolicy.tr(),
           showBackArrow: true,
         ),
         body: PrivacyPolicyBody());

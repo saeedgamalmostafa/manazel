@@ -38,7 +38,7 @@ class _BookAppointmentBottomSheet extends State<BookAppointmentBottomSheet> {
             mainAxisSize: MainAxisSize.min,
             children: [
               CustomText.titleLarge(
-                LocaleKeys.choose_appointment_examination,
+                LocaleKeys.chooseAppointmentExamination,
                 textStyle: Theme.of(context)
                     .textTheme
                     .titleLarge

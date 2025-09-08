@@ -43,7 +43,7 @@ class _RatePriceBottomSheet extends State<RatePriceBottomSheet> {
               height: AppSizes.sH6,
             ),
             CustomText.titleMedium(
-              LocaleKeys.wish_unique_experience.tr(),
+              LocaleKeys.wishUniqueExperience.tr(),
               textStyle: Theme.of(context)
                   .textTheme
                   .titleMedium

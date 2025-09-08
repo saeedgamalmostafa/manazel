@@ -26,7 +26,6 @@
   "visitor_text": "Visitor",
   "exception_error": "Something went wrong",
   "excpetion_error_desc": "Something went wrong",
-  "contact_us": "Contact Us",
   "cancel": "Cancel",
   "photo_library": "Photo Library",
   "camera": "Camera",
@@ -75,132 +74,81 @@
   "confirm_password": "Confirm Password",
   "do_not_have_an_account": "Do not have an account",
   "create_account": "Create Account",
-  "confirm": "Confirm",
-  "enter_phone_number": "Enter Phone Number",
-  "login": "Login",
-  "plz_enter_login_data": "Please Enter Login Data",
-  "arabic": "Arabic",
-  "english": "English",
-  "more": "More",
-  "enter_full_name": "Enter Full Name",
-  "plz_enter_your_data": "Enter Your Data to Register",
-  "enter_your_email": "Enter Your Email (Optional)",
-  "favorite": "Favorite",
-  "rate": "Rate",
-  "profile": "Profile",
-  "my_orders": "Orders",
-  "settings": "Settings",
-  "contact_us": "Contact Us",
-  "about_us": "About Us",
-  "privacy_policy": "Privacy Policy",
-  "terms": "Terms",
-  "log_out": "Log Out",
-  "do_you_want_logout": "Do you want logout?",
-  "yes": "Yes",
-  "no": "No",
-  "edit_profile": "Edit Profile",
-  "change_phone_number": "Change Phone",
-  "notification": "Notification",
-  "delete_account": "Delete Account",
-  "send_message": "Send Message",
-  "message_text": "Message",
-  "enter_message": "Enter Message",
-  "send": "Send",
-  "language": "Language",
-  "tire": "Tire",
-  "sell": "Sell",
-  "know_value_property": "Know the value of your property",
-  "continuity": "Continuity",
+  "favorite": "favorite",
+  "rate": "rate",
+  "profile": "profile",
+  "my_orders": "my_orders",
+  "settings": "settings",
+  "contact_us": "contact_us",
+  "about_us": "about_us",
+  "privacy_policy": "privacy_policy",
+  "terms": "terms",
+  "log_out": "log_out",
+  "do_you_want_logout": "do_you_want_logout",
+  "yes": "yes",
+  "no": "no",
+  "edit_profile": "edit_profile",
+  "change_phone_number": "change_phone_number",
+  "notification": "notification",
+  "delete_account": "delete_account",
+  "send_message": "send_message",
+  "message_text": "message_text",
+  "enter_message": "enter_message",
+  "send": "send",
+  "language": "language",
+  "tire": "tire",
+  "sell": "sell",
+  "know_value_property": "know_value_property",
+  "continuity": "continuity",
   "sure": "sure",
-  "region": "Region",
-  "select_region": "Select the region",
-  "space": "Space",
-  "enter_property_area": "Enter the property area",
-  "address": "Address",
-  "enter_address": "Enter the address",
-  "street": "Street",
-  "select_street": "Select the street",
-  "directions": "Directions",
-  "set_directions": "Set directions",
-  "interface": "Interface",
-  "select_interface": "Select the interface",
-  "building_age": "Construction age",
-  "determine_age_building": "Determine the age of the building",
-  "finishing_quality": "Finishing quality",
-  "determine_quality_finishing": "Determine the quality of finishing",
-  "number_floors": "Number of floors",
-  "determine_number_floors": "Determine the number of floors",
-  "crypt": "Crypt",
-  "description": "Description",
-  "land": "Land",
-  "building_details_title": "Property details",
-  "book_appointment_now": "Book an appointment now",
-  "contact_owner": "Contact the owner",
-  "book_inspection": "Book an appointment for inspection",
-  "appointments_available": "Appointments available",
-  "choose_appointment_examination": "Choose an appointment for an examination",
-  "convert_home_page": "You will be redirected to the home page in a few moments.",
-  "wish_unique_experience": "We wish you a unique experience through the Manazel application",
-  "search_result": "Search result",
-  "search_filter": "Search filter",
-  "purpose": "Purpose",
-  "building_type": "Property type",
-  "choose_building_type": "Choose property type",
-  "price": "Price",
-  "doWantToDeleteAccount": "Do you want to delete your account?",
-  "moneyInWalletYouWillLose": "There is money in your wallet and you will lose it",
-  "delete": "Delete",
-  "retreat": "Retreat",
-  "newMobileNumber": "New mobile number",
-  "enterNewMobileNumber": "Enter the new mobile number"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  "region": "region",
+  "select_region": "select_region",
+  "space": "space",
+  "enter_property_area": "enter_property_area",
+  "address": "address",
+  "enter_address": "enter_address",
+  "street": "street",
+  "select_street": "select_street",
+  "directions": "directions",
+  "set_directions": "set_directions",
+  "interface": "interface",
+  "select_interface": "select_interface",
+  "building_age": "building_age",
+  "determine_age_building": "determine_age_building",
+  "finishing_quality": "finishing_quality",
+  "determine_quality_finishing": "determine_quality_finishing",
+  "number_floors": "number_floors",
+  "determine_number_floors": "determine_number_floors",
+  "crypt": "crypt",
+  "description": "description",
+  "land": "land",
+  "building_details_title": "building_details_title",
+  "book_appointment_now": "book_appointment_now",
+  "contact_owner": "contact_owner",
+  "book_inspection": "book_inspection",
+  "appointments_available": "appointments_available",
+  "choose_appointment_examination": "choose_appointment_examination",
+  "convert_home_page": "convert_home_page",
+  "wish_unique_experience": "wish_unique_experience",
+  "search_result": "search_result",
+  "search_filter": "search_filter",
+  "purpose": "purpose",
+  "building_type": "building_type",
+  "choose_building_type": "choose_building_type",
+  "price": "price",
+  "do_want_to_delete_account": "doWantToDeleteAccount",
+  "money_in_wallet_you_will_lose": "moneyInWalletYouWillLose",
+  "delete": "delete",
+  "retreat": "retreat",
+  "new_mobile_number": "newMobileNumber",
+  "enter_new_mobile_number": "enterNewMobileNumber",
+  "verification_code": "Verification code",
+  "please_enter_the_code_sent_to_your_mobile_phone": "Please enter the code sent to your mobile phone",
+  "didnt_receive_the_verification_code": "Didn't receive the verification code?",
+  "resend": "Resend",
+  "confirm": "Confirm",
+  "more": "More",
+  "login": "Login",
+  "please_enter_your_login_information": "Please enter your login information",
+  "please_enter_your_data_to_register": "Please enter your data to register"
 }

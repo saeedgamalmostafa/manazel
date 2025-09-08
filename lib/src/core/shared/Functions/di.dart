@@ -10,7 +10,7 @@ import '../../../config/res/constants_manager.dart';
   asExtension: true,
 )
 void setUpInjector() async {
-  sl.registerLazySingleton(() => const FlutterSecureStorage(
+  injector.registerLazySingleton(() => const FlutterSecureStorage(
       aOptions: AndroidOptions(encryptedSharedPreferences: true)));
 
   // sl.registerFactory<NotificationService>(
@@ -19,11 +19,11 @@ void setUpInjector() async {
 }
 
 void configureDependencies() {
-  sl.init();
+  injector.init();
   setUpInjector();
 }
 
 Future<void> resetDependenciesScope() async {
-  await sl.resetScope();
+  await injector.resetScope();
   configureDependencies();
 }

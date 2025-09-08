@@ -12,7 +12,7 @@ part 'async_state.dart';
 
 abstract class AsyncCubit<T> extends Cubit<AsyncState<T>> {
   AsyncCubit(T initialData) : super(AsyncState.initial(data: initialData)) {
-    baseCrudUseCase = sl();
+    baseCrudUseCase = injector();
   }
   late final BaseCrudUseCase baseCrudUseCase;
   void setLoading() {

@@ -22,7 +22,7 @@ class LoginForms extends StatelessWidget {
               controller: context.read<LoginCubit>().phoneController,
               textInputType: TextInputType.number,
               textInputAction: TextInputAction.done,
-              hintText: LocaleKeys.enterPhoneNumber.tr(),
+              hintText: LocaleKeys.phoneNumber.tr(),
               validator: (v) => Validators.validatePhone(v),
             )),
             const CustomCountyDropDown(),

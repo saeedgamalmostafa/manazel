@@ -6,7 +6,7 @@ class BaseModel<T> {
   final List<dynamic>? error;
   final List<dynamic>? pagination;
   final List<dynamic>? extras;
-  final T? data;
+  final List<T>? data;
 
   BaseModel({
     required this.success,
@@ -21,24 +21,25 @@ class BaseModel<T> {
     Map<String, dynamic> map, {
     T Function(dynamic)? mapper,
   }) {
-    final rawData = map['data'];
+    final raw = map['data'];
 
-    T? parsedData;
-    if (mapper != null && rawData != null) {
-      if (rawData is List) {
-        parsedData = rawData.isNotEmpty ? mapper(rawData.first) : null;
+    List<T>? parsed;
+    if (mapper != null && raw != null) {
+      if (raw is List) {
+        parsed = raw.map<T>((e) => mapper(e)).toList();
       } else {
-        parsedData = mapper(rawData);
+        // if backend ever returns a single object
+        parsed = [mapper(raw)];
       }
     }
 
     return BaseModel<T>(
       success: map['success'] == true,
-      msg: (map['message'] ?? '').toString(), // ✅ safe
-      error: (map['error'] as List?) ?? [],
-      pagination: (map['pagination'] as List?) ?? [],
-      extras: (map['extras'] as List?) ?? [],
-      data: parsedData,
+      msg: (map['message'] ?? '').toString(),
+      error: (map['error'] as List?) ?? const [],
+      pagination: (map['pagination'] as List?) ?? const [],
+      extras: (map['extras'] as List?) ?? const [],
+      data: parsed,
     );
   }
 }

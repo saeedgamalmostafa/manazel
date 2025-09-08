@@ -28,8 +28,8 @@ class AuthLanguageStatusButton extends StatelessWidget {
           children: [
             CustomText.titleMedium(
               Languages.currentLanguage.locale == const Locale("ar")
-                  ? LocaleKeys.arabic.tr()
-                  : LocaleKeys.english.tr(),
+                  ? 'العربية'
+                  : 'English',
               textStyle: Theme.of(context)
                   .textTheme
                   .titleMedium

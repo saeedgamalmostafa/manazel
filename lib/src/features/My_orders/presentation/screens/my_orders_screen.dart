@@ -8,7 +8,7 @@ class MyOrdersScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.scaffoldBackground,
       appBar: CustomAppBar(
-        title: LocaleKeys.my_orders.tr(),
+        title: LocaleKeys.myOrders.tr(),
         showBackArrow: true,
       ),
       body: MyOrdersBody(),

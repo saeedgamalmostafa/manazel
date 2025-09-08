@@ -14,7 +14,10 @@ class OtpScreen extends StatelessWidget {
           AuthLanguageStatusButton(),
         ],
       ),
-      body: const OtpBody(),
+      body: BlocProvider(
+        create: (context) => OtpCubit(),
+        child: const OtpBody(),
+      ),
     );
   }
 }

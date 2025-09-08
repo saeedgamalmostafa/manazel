@@ -1,6 +1,5 @@
 part of '../../edit_profile_imports.dart';
 
-
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});
 
@@ -8,7 +7,7 @@ class EditProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomAppBar(
-          title: LocaleKeys.edit_profile.tr(),
+          title: LocaleKeys.editProfile.tr(),
           showBackArrow: true,
         ),
         body: EditProfileBody(),
