@@ -31,14 +31,19 @@ class Validators {
   }
 
   static String? validatePhone(String? value, {String? message}) {
-    if (value?.trim().isEmpty ?? true) {
-      return message ?? 'Empty Value Required!';
-    } else if (!RegExp(r'(^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]'
-                r'{4,6}$)')
-            .hasMatch(value!) ||
-        value.length < 10) {
+    final phone = value?.trim() ?? '';
+
+    if (phone.isEmpty) {
       return message ?? LocaleKeys.phoneValidation.tr();
     }
+
+    // ✅ allow optional "+" and at least 9 digits
+    final regex = RegExp(r'^\+?[0-9]{9,}$');
+
+    if (!regex.hasMatch(phone)) {
+      return message ?? LocaleKeys.phoneValidation.tr();
+    }
+
     return null;
   }
 

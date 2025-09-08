@@ -53,33 +53,40 @@ class DioService implements NetworkService {
   }
 
   @override
-  Future<BaseModel<Model>> callApi<Model>(NetworkRequest networkRequest,
-      {Model Function(dynamic json)? mapper}) async {
+  Future<BaseModel<Model>> callApi<Model>(
+    NetworkRequest networkRequest, {
+    Model Function(dynamic json)? mapper,
+  }) async {
     try {
       await networkRequest.prepareRequestData();
-      final response = await _dio.request(networkRequest.path,
-          data: networkRequest.hasBodyAndProgress()
-              ? networkRequest.isFormData
-                  ? FormData.fromMap(networkRequest.body!)
-                  : networkRequest.body
-              : networkRequest.body,
-          queryParameters: networkRequest.queryParameters,
-          onSendProgress: networkRequest.hasBodyAndProgress()
-              ? networkRequest.onSendProgress
-              : null,
-          onReceiveProgress: networkRequest.hasBodyAndProgress()
-              ? networkRequest.onReceiveProgress
-              : null,
-          options: Options(
-              method: networkRequest.asString(),
-              headers: networkRequest.headers));
-      if (mapper != null) {
-        return BaseModel.fromMap(response.data, mapper: mapper);
-      } else {
-        return BaseModel.fromMap(response.data);
-      }
+
+      final response = await _dio.request(
+        networkRequest.path,
+        data: networkRequest.hasBodyAndProgress()
+            ? networkRequest.isFormData
+                ? FormData.fromMap(networkRequest.body!)
+                : networkRequest.body
+            : networkRequest.body,
+        queryParameters: networkRequest.queryParameters,
+        onSendProgress: networkRequest.hasBodyAndProgress()
+            ? networkRequest.onSendProgress
+            : null,
+        onReceiveProgress: networkRequest.hasBodyAndProgress()
+            ? networkRequest.onReceiveProgress
+            : null,
+        options: Options(
+          method: networkRequest.asString(),
+          headers: networkRequest.headers,
+        ),
+      );
+
+      return BaseModel.fromMap(
+        response.data,
+        mapper: mapper,
+      );
     } on DioException catch (e) {
-      return _handleError(e);
+      _handleError(e); // always throws
+      rethrow; // in case _handleError doesn’t
     }
   }
 

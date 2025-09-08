@@ -14,16 +14,19 @@ class LoginCubit extends AsyncCubit<BaseModel?> with LoginContrlers {
   Future<void> login() async {
     if (!formKey.currentState!.validate()) return;
     setLoading();
+
     final result = await baseCrudUseCase<BaseModel>(
       CrudBaseParams(
         api: ApiConstants.login,
         httpRequestType: HttpRequestType.post,
         body: {
-          'mobile': '+201007179611',
+          'mobile': '+966${phoneController.text}',
           'cloud_messaging_token': ConstantManager.token,
-          'type': 'client'
+          'type': 'client',
         },
-        mapper: (value) => BaseModel.fromMap(value),
+        mapper: (value) => BaseModel.fromMap(
+          value,
+        ),
       ),
     );
     result.when(
@@ -41,4 +44,24 @@ class LoginCubit extends AsyncCubit<BaseModel?> with LoginContrlers {
 mixin LoginContrlers {
   final formKey = GlobalKey<FormState>();
   final phoneController = TextEditingController();
+}
+
+class UserModel {
+  final String verificationCode;
+  final String accessToken;
+  final bool isActive;
+
+  UserModel({
+    required this.verificationCode,
+    required this.accessToken,
+    required this.isActive,
+  });
+
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      verificationCode: json['verification_code']?.toString() ?? '',
+      accessToken: json['access_token']?.toString() ?? '',
+      isActive: json['is_active'] == true,
+    );
+  }
 }

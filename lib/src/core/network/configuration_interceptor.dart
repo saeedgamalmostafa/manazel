@@ -25,10 +25,8 @@ class ConfigurationInterceptor extends Interceptor {
   }
 
   void _handleError(Response response) {
-    final errorKey = response.data['key'];
     final errorMessage = response.data['message'];
-
-    final statusCode = _mapErrorKeyToStatusCode(errorKey);
+    final statusCode = _mapErrorKeyToStatusCode(response.statusCode ?? 400);
 
     if (statusCode != null) {
       throw DioException(
@@ -56,17 +54,17 @@ class ConfigurationInterceptor extends Interceptor {
   //   return false;
   // }
 
-  int? _mapErrorKeyToStatusCode(String errorKey) {
-    switch (errorKey) {
-      case 'fail':
+  int? _mapErrorKeyToStatusCode(int statusCode) {
+    switch (statusCode) {
+      case 400:
         return HttpStatus.badRequest;
-      case 'unauthenticated':
+      case 401:
         return HttpStatus.unauthorized;
-      case 'blocked':
+      case 423:
         return HttpStatus.locked;
-      case 'exception':
+      case 500:
         return HttpStatus.internalServerError;
-      case 'needActive':
+      case 403:
         return HttpStatus.forbidden;
       default:
         return null;

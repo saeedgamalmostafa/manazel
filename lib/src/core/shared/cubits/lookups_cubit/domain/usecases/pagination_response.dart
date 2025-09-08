@@ -1,9 +1,21 @@
 import '../base_domain_imports.dart';
 
 class BaseModel<T> {
+  final bool success;
   final String msg;
+  final List<dynamic>? error;
+  final List<dynamic>? pagination;
+  final List<dynamic>? extras;
   final T? data;
-  BaseModel({required this.msg, this.data});
+
+  BaseModel({
+    required this.success,
+    required this.msg,
+    this.error,
+    this.pagination,
+    this.extras,
+    this.data,
+  });
 
   factory BaseModel.fromMap(
     Map<String, dynamic> map, {
@@ -21,7 +33,11 @@ class BaseModel<T> {
     }
 
     return BaseModel<T>(
-      msg: (map['message'] ?? map['message'] ?? '').toString(),
+      success: map['success'] == true,
+      msg: (map['message'] ?? '').toString(), // ✅ safe
+      error: (map['error'] as List?) ?? [],
+      pagination: (map['pagination'] as List?) ?? [],
+      extras: (map['extras'] as List?) ?? [],
       data: parsedData,
     );
   }
