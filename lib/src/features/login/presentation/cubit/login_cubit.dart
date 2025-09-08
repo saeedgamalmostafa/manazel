@@ -45,23 +45,3 @@ mixin LoginContrlers {
   final formKey = GlobalKey<FormState>();
   final phoneController = TextEditingController();
 }
-
-class UserModel {
-  final String verificationCode;
-  final String accessToken;
-  final bool isActive;
-
-  UserModel({
-    required this.verificationCode,
-    required this.accessToken,
-    required this.isActive,
-  });
-
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
-      verificationCode: json['verification_code']?.toString() ?? '',
-      accessToken: json['access_token']?.toString() ?? '',
-      isActive: json['is_active'] == true,
-    );
-  }
-}

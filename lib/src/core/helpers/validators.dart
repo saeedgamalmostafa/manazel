@@ -20,7 +20,7 @@ class Validators {
 
   static String? validateEmail(String? value, {String? message}) {
     if (value?.trim().isEmpty ?? true) {
-      return message ?? LocaleKeys.mailValidation.tr();
+      return message ?? LocaleKeys.fillField.tr();
     } else if (!RegExp(
             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.["
             r"a-zA-Z]+")
@@ -34,7 +34,7 @@ class Validators {
     final phone = value?.trim() ?? '';
 
     if (phone.isEmpty) {
-      return message ?? LocaleKeys.phoneValidation.tr();
+      return message ?? LocaleKeys.fillField.tr();
     }
 
     // ✅ allow optional "+" and at least 9 digits

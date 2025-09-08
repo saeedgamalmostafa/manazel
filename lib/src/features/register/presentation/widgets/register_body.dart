@@ -5,14 +5,15 @@ class RegisterBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.locale;
     return Column(
       children: [
         Expanded(
           child: ListView(
             children: [
               Padding(
-                padding: EdgeInsets.only(
-                    top: AppSizes.sH65, bottom: AppSizes.sH110),
+                padding:
+                    EdgeInsets.only(top: AppSizes.sH65, bottom: AppSizes.sH110),
                 child: Image.asset(AppAssets.png.manazelWhiteLogoName.path),
               ),
               Container(
@@ -37,7 +38,12 @@ class RegisterBody extends StatelessWidget {
             ],
           ),
         ),
-        const RegisterActions(),
+        Builder(builder: (context) {
+          return BottomButton(onTap: () async {
+            print('object');
+            await context.read<RegisterCubit>().register();
+          });
+        })
       ],
     );
   }

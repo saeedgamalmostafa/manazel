@@ -14,7 +14,10 @@ class RegisterScreen extends StatelessWidget {
           AuthLanguageStatusButton(),
         ],
       ),
-      body: const RegisterBody(),
+      body: BlocProvider(
+        create: (context) => RegisterCubit(),
+        child: const RegisterBody(),
+      ),
     );
   }
 }
