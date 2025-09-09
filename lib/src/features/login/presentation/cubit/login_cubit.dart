@@ -41,7 +41,9 @@ class LoginCubit extends AsyncCubit<BaseModel?> with LoginContrlers {
         }
 
         Go.push(
-          const OtpScreen(),
+          OtpScreen(
+            phone: '+966${phoneController.text}',
+          ),
           transitionType: TransitionType.slideFromRight,
         );
       },

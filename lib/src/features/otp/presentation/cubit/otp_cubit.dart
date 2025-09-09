@@ -23,6 +23,7 @@ class OtpCubit extends Cubit<OtpState> {
   }
   final codeController = TextEditingController();
   late final BaseCrudUseCase baseCrudUseCase;
+  late String phone;
 
   Future<void> verifyOtp() async {
     final result = await baseCrudUseCase<UserModel>(
@@ -44,6 +45,25 @@ class OtpCubit extends Cubit<OtpState> {
             transitionType: TransitionType.slideFromRight,
           );
         }
+      },
+      (error) {
+        showErrorToast(error.message);
+      },
+    );
+  }
+
+  Future<void> resendCode() async {
+    final result = await baseCrudUseCase(
+      CrudBaseParams(
+        api: ApiConstants.sendOtp,
+        httpRequestType: HttpRequestType.post,
+        body: {'mobile': phone},
+        mapper: (value) => {},
+      ),
+    );
+    result.when(
+      (response) {
+        showSuccessToast(response.msg);
       },
       (error) {
         showErrorToast(error.message);

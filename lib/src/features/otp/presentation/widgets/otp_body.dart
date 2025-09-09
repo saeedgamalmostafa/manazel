@@ -38,7 +38,9 @@ class OtpBody extends StatelessWidget {
                           LocaleKeys.didntReceiveTheVerificationCode,
                           style: const TextStyle().setGreyColor.s12,
                         ),
-                        ResendCode(onResendCode: () {})
+                        ResendCode(onResendCode: () {
+                          cubit.resendCode();
+                        })
                       ],
                     ),
                   )
@@ -65,7 +67,9 @@ class ResendCode extends StatefulWidget {
 
 class _ResendCodeState extends State<ResendCode> {
   ValueNotifier<Duration> durationNotifier =
-      ValueNotifier(const Duration(seconds: kDebugMode ? 5 : 60));
+      ValueNotifier(const Duration(seconds: 60));
+
+  // ValueNotifier(const Duration(seconds: kDebugMode ? 5 : 60));
   late Timer timer;
 
   @override
@@ -101,8 +105,7 @@ class _ResendCodeState extends State<ResendCode> {
             ).withGestureDetector(onTap: () {
               if (seconds != 0) return;
               widget.onResendCode();
-              durationNotifier.value =
-                  const Duration(seconds: kDebugMode ? 5 : 60);
+              durationNotifier.value = const Duration(seconds: 60);
             }),
             Text(
               seconds > 0 ? "$seconds s" : "",
@@ -111,21 +114,6 @@ class _ResendCodeState extends State<ResendCode> {
           ],
         );
       },
-    );
-  }
-}
-
-extension GestureDetectorExt on Widget {
-  Widget withGestureDetector({
-    required Function() onTap,
-    Function()? onDoubleTap,
-    Function()? onLongPress,
-  }) {
-    return GestureDetector(
-      onLongPress: onLongPress,
-      onDoubleTap: onDoubleTap,
-      onTap: onTap,
-      child: this,
     );
   }
 }

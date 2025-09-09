@@ -40,7 +40,10 @@ class RegisterCubit extends AsyncCubit<BaseModel?> with RegisterControllers {
           injector<NetworkService>().setToken(token);
         }
 
-        Go.push(const OtpScreen(),
+        Go.push(
+            OtpScreen(
+              phone: '+966${phoneController.text}',
+            ),
             transitionType: TransitionType.slideFromRight);
       },
       (error) {

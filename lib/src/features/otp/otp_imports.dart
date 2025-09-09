@@ -9,6 +9,7 @@ import 'package:manazel/src/config/language/languages.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/core/extensions/text_style_extensions.dart';
+import 'package:manazel/src/core/extensions/widget_extenstion.dart';
 import 'package:manazel/src/core/widgets/auth_titled_header.dart';
 import 'package:manazel/src/core/widgets/buttons/bottom_button.dart';
 import 'package:manazel/src/core/widgets/underline_text_widget.dart';
