@@ -5,10 +5,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: AppbarHome(),
+    return Scaffold(
+      appBar: const AppbarHome(),
       backgroundColor: AppColors.scaffoldBackground,
-      body: HomeBody(),
+      body: BlocProvider(
+        create: (context) => HomeCubit(),
+        child: const HomeBody(),
+      ),
     );
   }
 }

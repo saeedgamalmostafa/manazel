@@ -16,7 +16,7 @@ class RegisterCubit extends AsyncCubit<BaseModel?> with RegisterControllers {
     if (!formKey.currentState!.validate()) return;
     setLoading();
     injector<NetworkService>().removeToken();
-    final result = await baseCrudUseCase<UserAuthModel>(
+    final result = await baseCrudUseCase<List<UserAuthModel>>(
       CrudBaseParams(
         api: ApiConstants.signUp,
         httpRequestType: HttpRequestType.post,
@@ -27,14 +27,13 @@ class RegisterCubit extends AsyncCubit<BaseModel?> with RegisterControllers {
           'name': nameController.text,
           'email': emailController.text
         },
-        mapper: (p0) => UserAuthModel.fromJson(p0),
+        mapper: (json) =>
+            (json as List).map((e) => UserAuthModel.fromJson(e)).toList(),
       ),
     );
     result.when(
       (response) {
-        final token = response.data?.isNotEmpty == true
-            ? response.data!.first.accessToken
-            : null;
+        final token = response.data?.first.accessToken;
 
         if (token != null) {
           injector<NetworkService>().setToken(token);

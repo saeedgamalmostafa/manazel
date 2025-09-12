@@ -26,25 +26,24 @@ class OtpCubit extends Cubit<OtpState> {
   late String phone;
 
   Future<void> verifyOtp() async {
-    final result = await baseCrudUseCase<UserModel>(
+    final result = await baseCrudUseCase<List<UserModel>>(
       CrudBaseParams(
         api: ApiConstants.verifyOtp,
         httpRequestType: HttpRequestType.post,
         body: {'code': codeController.text, 'type': 'client'},
-        mapper: (value) => UserModel.fromJson(value),
+        mapper: (json) =>
+            (json as List).map((e) => UserModel.fromJson(e)).toList(),
       ),
     );
     result.when(
       (response) {
-        if (response.data!.isNotEmpty) {
-          UserCubit.instance.setUserLoggedIn(
-              user: response.data!.first,
-              token: response.data!.first.accessToken ?? '');
-          Go.pushAndRemoveUntil(
-            const AppLayoutScreen(),
-            transitionType: TransitionType.slideFromRight,
-          );
-        }
+        UserCubit.instance.setUserLoggedIn(
+            user: response.data!.first,
+            token: response.data!.first.accessToken ?? '');
+        Go.pushAndRemoveUntil(
+          const AppLayoutScreen(),
+          transitionType: TransitionType.slideFromRight,
+        );
       },
       (error) {
         showErrorToast(error.message);
@@ -53,6 +52,7 @@ class OtpCubit extends Cubit<OtpState> {
   }
 
   Future<void> resendCode() async {
+    emit(state.copyWith(verificationState: RequestState.loading));
     final result = await baseCrudUseCase(
       CrudBaseParams(
         api: ApiConstants.sendOtp,
@@ -63,9 +63,13 @@ class OtpCubit extends Cubit<OtpState> {
     );
     result.when(
       (response) {
+        emit(state.copyWith(verificationState: RequestState.success));
+
         showSuccessToast(response.msg);
       },
       (error) {
+        emit(state.copyWith(verificationState: RequestState.error));
+
         showErrorToast(error.message);
       },
     );

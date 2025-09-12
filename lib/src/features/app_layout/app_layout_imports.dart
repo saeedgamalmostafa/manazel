@@ -1,5 +1,3 @@
-
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +8,7 @@ import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/config/res/constants_manager.dart';
 import 'package:manazel/src/core/widgets/custom_text.dart';
 import 'package:manazel/src/features/app_layout/presentation/cubit/app_layout_cubit.dart';
+import 'package:manazel/src/features/favorite/presentation/cubit/fav_cubit.dart';
 import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 import 'package:manazel/src/features/more/more_imports.dart';
 

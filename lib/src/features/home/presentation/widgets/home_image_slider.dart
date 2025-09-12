@@ -2,16 +2,23 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
+import 'package:manazel/src/core/extensions/text_style_extensions.dart';
+import 'package:manazel/src/core/widgets/image_widgets/cached_image.dart';
+import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 
 import '../../../../config/res/color_manager.dart';
 
 class CustomImageSlider extends StatefulWidget {
+  final List<Advertisement> advertisement;
+  const CustomImageSlider({super.key, required this.advertisement});
+
   @override
-  _CustomImageSliderState createState() => _CustomImageSliderState();
+  CustomImageSliderState createState() => CustomImageSliderState();
 }
 
-class _CustomImageSliderState extends State<CustomImageSlider> {
+class CustomImageSliderState extends State<CustomImageSlider> {
   final List<String> images = [
     'https://picsum.photos/id/1015/600/300',
     'https://picsum.photos/id/1016/600/300',
@@ -19,7 +26,6 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
     'https://picsum.photos/id/1015/600/300',
     'https://picsum.photos/id/1016/600/300',
     'https://picsum.photos/id/1018/600/300',
-
   ];
 
   int _current = 0;
@@ -34,7 +40,7 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
   }
 
   void _startAutoPlay() {
-    _timer = Timer.periodic(Duration(seconds: 4), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 4), (timer) {
       if (_current < images.length - 1) {
         _current++;
       } else {
@@ -42,7 +48,7 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
       }
       _controller.animateToPage(
         _current,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
       );
     });
@@ -58,8 +64,8 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
   Widget _buildIndicator(int index) {
     bool isActive = index == _current;
     return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
-      margin: EdgeInsets.symmetric(horizontal: 3),
+      duration: const Duration(milliseconds: 300),
+      margin: const EdgeInsets.symmetric(horizontal: 3),
       height: 8,
       width: isActive ? 15 : 8,
       decoration: BoxDecoration(
@@ -78,23 +84,32 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
               top: AppSizes.sH20, left: AppSizes.sW12, right: AppSizes.sW12),
           child: SizedBox(
             height: AppSizes.sH125,
-            width: AppSizes.sW323,
             child: PageView.builder(
               controller: _controller,
-              itemCount: images.length,
+              itemCount: widget.advertisement.length,
               onPageChanged: (index) {
                 setState(() => _current = index);
               },
               itemBuilder: (context, index) {
                 return Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.network(
-                      images[index],
-                      fit: BoxFit.cover,
-                    ),
+                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                  child: Stack(
+                    children: [
+                      CachedImage(
+                        borderRadius: BorderRadius.circular(16.r),
+                        url: widget.advertisement[index].image,
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Text(
+                            widget.advertisement[index].title,
+                            style: const TextStyle().medium.setWhiteColor.s18,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 );
               },
@@ -104,7 +119,7 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
         SizedBox(height: AppSizes.sH17),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(images.length, _buildIndicator),
+          children: List.generate(widget.advertisement.length, _buildIndicator),
         ),
       ],
     );

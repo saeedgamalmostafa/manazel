@@ -1,36 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
+
+import 'package:manazel/src/core/widgets/image_widgets/cached_image.dart';
+import 'package:manazel/src/features/favorite/presentation/cubit/fav_cubit.dart';
+import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 import '../../config/res/app_sizes.dart';
 import '../../config/res/assets.gen.dart';
 import '../../config/res/color_manager.dart';
 import 'custom_text.dart';
 
 class CustomItemCard extends StatefulWidget {
-  final String imagePath;
-  final String description;
-  final String imageFavourite;
-  final String location;
-  final String price;
-  final String rate;
+  final PropertyItem propertyItem;
   final VoidCallback? onTap;
-  const CustomItemCard(
-      {super.key,
-      required this.onTap,
-      required this.imagePath,
-      required this.description,
-      required this.location,
-      required this.price,
-      required this.rate,
-      required this.imageFavourite});
+  const CustomItemCard({
+    super.key,
+    required this.propertyItem,
+    required this.onTap,
+  });
 
   @override
   State<CustomItemCard> createState() => _CustomItemCardState();
 }
 
 class _CustomItemCardState extends State<CustomItemCard> {
-  bool isFavourite = false;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -49,26 +46,21 @@ class _CustomItemCardState extends State<CustomItemCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(20)),
-                      child: Container(
-                        width: AppSizes.sW132,
-                        height: AppSizes.sH128,
-                        child: Image.asset(
-                          widget.imagePath,
-                          // AppAssets.png.itemPhoto.path,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: double.infinity,
-                        ),
-                      ),
-                    ),
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20.r),
+                            bottomRight: Radius.circular(20.r)),
+                        child: CachedImage(
+                          url: widget.propertyItem.images != null
+                              ? ""
+                              : widget.propertyItem.images!.first,
+                          width: AppSizes.sW132,
+                          height: AppSizes.sH128,
+                        )),
                     Expanded(
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: AppSizes.sW16, vertical: AppSizes.sH16),
-                        child: Container(
+                        child: SizedBox(
                           height: AppSizes.sH96,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,7 +70,7 @@ class _CustomItemCardState extends State<CustomItemCard> {
                                 children: [
                                   Expanded(
                                     child: CustomText(
-                                      widget.description,
+                                      widget.propertyItem.title,
                                       textStyle: TextStyle(
                                           fontSize: FontSize.s14,
                                           color: AppColors.Text),
@@ -88,21 +80,51 @@ class _CustomItemCardState extends State<CustomItemCard> {
                                   SizedBox(
                                     width: AppSizes.sW20,
                                   ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        isFavourite = !isFavourite;
-                                      });
-                                    },
-                                    child: Container(
-                                      height: 20,
-                                      width: 20,
-                                      child: SvgPicture.asset(
-                                        !isFavourite
-                                            ? AppAssets.svg.favourite.path
-                                            : AppAssets
-                                                .svg.favoritePrimary.path,
-                                      ),
+                                  BlocProvider(
+                                    create: (context) => FavCubit(),
+                                    child: BlocBuilder<FavCubit, AsyncState>(
+                                      builder: (context, state) {
+                                        final cubit = context.read<FavCubit>();
+                                        return ValueListenableBuilder(
+                                            valueListenable:
+                                                widget.propertyItem.isFavourite,
+                                            builder: (context, value, child) {
+                                              return GestureDetector(
+                                                onTap: () {
+                                                  cubit.toggleFav(widget
+                                                      .propertyItem.id
+                                                      .toString());
+
+                                                  if (state.isSuccess) {
+                                                    widget
+                                                        .propertyItem
+                                                        .isFavourite
+                                                        .value = !value;
+                                                  }
+                                                },
+                                                child: state.isLoading
+                                                    ? const CupertinoActivityIndicator()
+                                                    : SizedBox(
+                                                        height: 30,
+                                                        width: 30,
+                                                        child: SvgPicture.asset(
+                                                          !widget
+                                                                  .propertyItem
+                                                                  .isFavourite
+                                                                  .value
+                                                              ? AppAssets
+                                                                  .svg
+                                                                  .favourite
+                                                                  .path
+                                                              : AppAssets
+                                                                  .svg
+                                                                  .favoritePrimary
+                                                                  .path,
+                                                        ),
+                                                      ),
+                                              );
+                                            });
+                                      },
                                     ),
                                   ),
                                 ],
@@ -111,16 +133,20 @@ class _CustomItemCardState extends State<CustomItemCard> {
                                 height: AppSizes.sH12,
                               ),
                               Row(
+                                spacing: 4.w,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SvgPicture.asset(AppAssets.svg.location.path),
-                                  SizedBox(
-                                    width: 4,
+                                  Expanded(
+                                    child: CustomText(
+                                        maxLines: 1,
+                                        textAlign: TextAlign.start,
+                                        widget.propertyItem.address,
+                                        //"عالريض، حي العزيزية",
+                                        textStyle: TextStyle(
+                                            fontSize: FontSize.s12,
+                                            color: AppColors.Text)),
                                   ),
-                                  CustomText(widget.location,
-                                      //"عالرياض، حي العزيزية",
-                                      textStyle: TextStyle(
-                                          fontSize: FontSize.s12,
-                                          color: AppColors.Text)),
                                 ],
                               ),
                               SizedBox(
@@ -137,7 +163,7 @@ class _CustomItemCardState extends State<CustomItemCard> {
                                       SizedBox(
                                         width: AppSizes.sW4,
                                       ),
-                                      CustomText(widget.price,
+                                      CustomText(widget.propertyItem.price,
                                           //"17,500 ر.س",
                                           textStyle: TextStyle(
                                               fontSize: FontSize.s12,
@@ -146,7 +172,7 @@ class _CustomItemCardState extends State<CustomItemCard> {
                                   ),
                                   Row(
                                     children: [
-                                      CustomText(widget.rate,
+                                      CustomText(widget.propertyItem.rate,
                                           //"4.8",
                                           textStyle: TextStyle(
                                               fontSize: FontSize.s12,

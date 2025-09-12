@@ -43,7 +43,7 @@ extension TextStyleEx on TextStyle {
   TextStyle get setBlackColor => copyWith(color: AppColors.black);
   TextStyle get setGreyColor => copyWith(color: AppColors.grey);
 
-  TextStyle get setWhiteColor => copyWith(color: AppColors.primary);
+  TextStyle get setWhiteColor => copyWith(color: AppColors.white);
   TextStyle setColor(Color color) => copyWith(color: color);
   TextStyle setFontSize(double size) => copyWith(fontSize: size);
   TextStyle setFontWeight(FontWeight weight) => copyWith(fontWeight: weight);

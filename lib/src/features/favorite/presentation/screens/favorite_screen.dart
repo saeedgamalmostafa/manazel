@@ -9,8 +9,10 @@ class FavoriteScreen extends StatelessWidget {
       appBar: CustomAppBar(
         title: LocaleKeys.favorite.tr(),
       ),
-      body: FavoriteBody(),
-
+      body: BlocProvider(
+        create: (context) => FavCubit()..getFavourites(),
+        child: const FavoriteBody(),
+      ),
     );
   }
 }

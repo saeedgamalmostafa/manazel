@@ -27,8 +27,7 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
             ),
     ))
         .data!
-        .toList()
-        .first;
+        .toList();
   }
 
   @override

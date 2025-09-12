@@ -24,7 +24,6 @@ class OtpForms extends StatelessWidget {
         backgroundColor: Colors.transparent,
         keyboardType: TextInputType.number,
         enableActiveFill: false,
-        validator: (value) => Validators.validateEmpty(value),
         pinTheme: PinTheme(
           activeColor: AppColors.primary,
           activeBorderWidth: 1,

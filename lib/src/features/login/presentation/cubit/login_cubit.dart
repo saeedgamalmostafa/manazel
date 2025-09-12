@@ -12,12 +12,13 @@ import 'package:manazel/src/features/otp/otp_imports.dart';
 
 class LoginCubit extends AsyncCubit<BaseModel?> with LoginContrlers {
   LoginCubit() : super(null);
+
   Future<void> login() async {
     if (!formKey.currentState!.validate()) return;
     setLoading();
     injector<NetworkService>().removeToken();
 
-    final result = await baseCrudUseCase<UserAuthModel>(
+    final result = await baseCrudUseCase<List<UserAuthModel>>(
       CrudBaseParams(
         api: ApiConstants.login,
         httpRequestType: HttpRequestType.post,
@@ -26,15 +27,14 @@ class LoginCubit extends AsyncCubit<BaseModel?> with LoginContrlers {
           'cloud_messaging_token': ConstantManager.token,
           'type': 'client',
         },
-        mapper: (json) => UserAuthModel.fromJson(json),
+        mapper: (json) =>
+            (json as List).map((e) => UserAuthModel.fromJson(e)).toList(),
       ),
     );
 
     result.when(
       (response) {
-        final token = response.data?.isNotEmpty == true
-            ? response.data!.first.accessToken
-            : null;
+        final token = response.data?.first.accessToken;
 
         if (token != null) {
           injector<NetworkService>().setToken(token);

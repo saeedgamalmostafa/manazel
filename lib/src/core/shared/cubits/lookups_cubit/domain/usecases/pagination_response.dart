@@ -1,12 +1,12 @@
 import '../base_domain_imports.dart';
 
-class BaseModel<T> {
+class BaseModel<D> {
   final bool success;
   final String msg;
   final List<dynamic>? error;
   final List<dynamic>? pagination;
   final List<dynamic>? extras;
-  final List<T>? data;
+  final D? data;
 
   BaseModel({
     required this.success,
@@ -19,21 +19,13 @@ class BaseModel<T> {
 
   factory BaseModel.fromMap(
     Map<String, dynamic> map, {
-    T Function(dynamic)? mapper,
+    D Function(dynamic)? mapper,
   }) {
-    final raw = map['data'];
-
-    List<T>? parsed;
-    if (mapper != null && raw != null) {
-      if (raw is List) {
-        parsed = raw.map<T>((e) => mapper(e)).toList();
-      } else {
-        // if backend ever returns a single object
-        parsed = [mapper(raw)];
-      }
+    D? parsed;
+    if (mapper != null && map['data'] != null) {
+      parsed = mapper(map['data']);
     }
-
-    return BaseModel<T>(
+    return BaseModel<D>(
       success: map['success'] == true,
       msg: (map['message'] ?? '').toString(),
       error: (map['error'] as List?) ?? const [],
@@ -42,6 +34,26 @@ class BaseModel<T> {
       data: parsed,
     );
   }
+
+  // Convenience factories
+  static BaseModel<T> fromSingle<T>(
+    Map<String, dynamic> map, {
+    required T Function(dynamic) mapper,
+  }) =>
+      BaseModel<T>.fromMap(map, mapper: mapper);
+
+  static BaseModel<List<T>> fromList<T>(
+    Map<String, dynamic> map, {
+    required T Function(dynamic) itemMapper,
+  }) =>
+      BaseModel<List<T>>.fromMap(
+        map,
+        mapper: (raw) {
+          if (raw is List) return raw.map<T>(itemMapper).toList();
+          // backend returned a single object; coerce to list
+          return [itemMapper(raw)];
+        },
+      );
 }
 
 class PaginationResponse<T> extends CrudResponse {

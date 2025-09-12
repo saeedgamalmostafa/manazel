@@ -1,26 +1,40 @@
 part of '../imports/presentaion_imports.dart';
 
 class HomeItemsCard extends StatelessWidget {
-  const HomeItemsCard({super.key});
+  final Properties properties;
+  final int tabIndex; // rename for clarity
+  const HomeItemsCard({
+    super.key,
+    required this.properties,
+    this.tabIndex = 0,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    final items = tabIndex == 0 ? properties.rent : properties.buy;
+
+    return AnimationLimiter(
+      child: ListView.builder(
+        key: ValueKey<int>(tabIndex),
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        itemCount: 20,
-        itemBuilder: (BuildContext context, int index) {
-          return CustomItemCard(
-            imagePath: AppAssets.png.itemPhoto.path,
-            description: 'عقار سكني مميز',
-            location: 'عالرياض، حي العزيزية',
-            price: '17,500 ر.س',
-            rate: '4.8',
-            imageFavourite: AppAssets.svg.favourite.path,
-            onTap: (){
-              Go.push(const BuildingDetailsScreen());
-            },
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: items.length,
+        itemBuilder: (context, i) {
+          return AnimationConfiguration.staggeredList(
+            position: i,
+            duration: const Duration(milliseconds: 375),
+            child: SlideAnimation(
+              verticalOffset: 20.0,
+              child: FadeInAnimation(
+                child: CustomItemCard(
+                  propertyItem: items[i],
+                  onTap: () => Go.push(const BuildingDetailsScreen()),
+                ),
+              ),
+            ),
           );
-        });
+        },
+      ),
+    );
   }
 }

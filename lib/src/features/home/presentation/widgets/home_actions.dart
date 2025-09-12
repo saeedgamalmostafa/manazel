@@ -1,7 +1,9 @@
 part of '../imports/presentaion_imports.dart';
 
 class HomeActions extends StatefulWidget {
-  const HomeActions({super.key});
+  final ValueChanged<int>? onTabChanged;
+
+  const HomeActions({super.key, this.onTabChanged});
 
   @override
   State<HomeActions> createState() => _HomeActionsState();
@@ -16,8 +18,11 @@ class _HomeActionsState extends State<HomeActions>
   void initState() {
     super.initState();
     _tabController = TabController(length: tabTitles.length, vsync: this);
+
     _tabController.addListener(() {
-      setState(() {}); // Rebuild on tab change
+      if (_tabController.indexIsChanging) return; // avoid double calls
+      widget.onTabChanged?.call(_tabController.index);
+      setState(() {}); // rebuild for UI
     });
   }
 
@@ -28,30 +33,40 @@ class _HomeActionsState extends State<HomeActions>
   }
 
   void _onTabTapped(int index) {
+    setState(() {}); // rebuild for UI
+
     _tabController.animateTo(index);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: AppSizes.sH20,
-        horizontal: AppSizes.sW16,
+    return Container(
+      margin: EdgeInsets.all(AppMargin.mH16),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 6,
+            offset: const Offset(0, 3),
+          ),
+        ],
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(50),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(tabTitles.length, (index) {
           bool selected = _tabController.index == index;
 
-          return InkWell(
+          return Expanded(
+            child: InkWell(
+              splashColor: Colors.transparent,
               onTap: () => _onTabTapped(index),
               child: Container(
-                height: 44,
-                width: 170,
+                height: 40.h,
                 decoration: BoxDecoration(
                   color: selected ? AppColors.buttonColor : Colors.white,
                   borderRadius: BorderRadius.circular(50),
-                  border: Border.all(color: AppColors.grey, width: 0.5),
                 ),
                 child: Center(
                   child: CustomText.titleLarge(
@@ -61,7 +76,9 @@ class _HomeActionsState extends State<HomeActions>
                         ),
                   ),
                 ),
-              ));
+              ),
+            ),
+          );
         }),
       ),
     );

@@ -67,9 +67,9 @@ class ResendCode extends StatefulWidget {
 
 class _ResendCodeState extends State<ResendCode> {
   ValueNotifier<Duration> durationNotifier =
-      ValueNotifier(const Duration(seconds: 60));
+      // ValueNotifier(const Duration(seconds: 60));
 
-  // ValueNotifier(const Duration(seconds: kDebugMode ? 5 : 60));
+      ValueNotifier(const Duration(seconds: kDebugMode ? 5 : 60));
   late Timer timer;
 
   @override
@@ -96,22 +96,31 @@ class _ResendCodeState extends State<ResendCode> {
       builder: (context, duration, child) {
         final seconds = duration.inSeconds;
 
-        return Row(
-          spacing: 5.sp,
-          children: [
-            UnderLineTextWidget(
-              text: LocaleKeys.resend,
-              color: seconds == 0 ? AppColors.primary : AppColors.grey,
-            ).withGestureDetector(onTap: () {
-              if (seconds != 0) return;
-              widget.onResendCode();
-              durationNotifier.value = const Duration(seconds: 60);
-            }),
-            Text(
-              seconds > 0 ? "$seconds s" : "",
-              style: const TextStyle().setPrimaryColor.s12,
-            ),
-          ],
+        return BlocBuilder<OtpCubit, OtpState>(
+          builder: (context, state) {
+            return Row(
+              spacing: 5.sp,
+              children: [
+                UnderLineTextWidget(
+                  text: LocaleKeys.resend,
+                  color: seconds == 0 ? AppColors.primary : AppColors.grey,
+                ).withGestureDetector(onTap: () {
+                  if (seconds != 0) return;
+                  widget.onResendCode();
+                  state.verificationState == RequestState.success
+                      ? durationNotifier.value =
+                          const Duration(seconds: kDebugMode ? 5 : 60)
+                      : null;
+                }),
+                state.verificationState == RequestState.loading
+                    ? const CupertinoActivityIndicator()
+                    : Text(
+                        seconds > 0 ? "$seconds s" : "",
+                        style: const TextStyle().setPrimaryColor.s12,
+                      ),
+              ],
+            );
+          },
         );
       },
     );
