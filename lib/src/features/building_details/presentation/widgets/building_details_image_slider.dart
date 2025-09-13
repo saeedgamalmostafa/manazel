@@ -1,7 +1,8 @@
 part of '../../building_details_imports.dart';
 
 class BuildingDetailsImageSlider extends StatefulWidget {
-  const BuildingDetailsImageSlider({super.key});
+  final PropertyModel model;
+  const BuildingDetailsImageSlider({super.key, required this.model});
 
   @override
   State<BuildingDetailsImageSlider> createState() =>
@@ -10,7 +11,7 @@ class BuildingDetailsImageSlider extends StatefulWidget {
 
 class _BuildingDetailsImageSliderState
     extends State<BuildingDetailsImageSlider> {
-  final List<String> images = [
+  final List<String> fallbackImages = [
     'https://picsum.photos/id/1015/600/300',
     'https://picsum.photos/id/1016/600/300',
     'https://picsum.photos/id/1018/600/300',
@@ -19,6 +20,7 @@ class _BuildingDetailsImageSliderState
     'https://picsum.photos/id/1018/600/300',
   ];
 
+  late List<String> images;
   int _current = 0;
   late PageController _controller;
   Timer? _timer;
@@ -26,22 +28,29 @@ class _BuildingDetailsImageSliderState
   @override
   void initState() {
     super.initState();
+    images = (widget.model.images != null && widget.model!.images.isNotEmpty)
+        ? widget.model.images
+        : fallbackImages;
+
     _controller = PageController();
     _startAutoPlay();
   }
 
   void _startAutoPlay() {
-    _timer = Timer.periodic(Duration(seconds: 4), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 4), (timer) {
+      if (images.isEmpty) return; // Prevent errors if empty
       if (_current < images.length - 1) {
         _current++;
       } else {
         _current = 0;
       }
-      _controller.animateToPage(
-        _current,
-        duration: Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
+      if (mounted) {
+        _controller.animateToPage(
+          _current,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+      }
     });
   }
 
@@ -55,8 +64,8 @@ class _BuildingDetailsImageSliderState
   Widget _buildIndicator(int index) {
     bool isActive = index == _current;
     return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
-      margin: EdgeInsets.symmetric(horizontal: 3),
+      duration: const Duration(milliseconds: 300),
+      margin: const EdgeInsets.symmetric(horizontal: 3),
       height: 8,
       width: isActive ? 15 : 8,
       decoration: BoxDecoration(
@@ -68,6 +77,11 @@ class _BuildingDetailsImageSliderState
 
   @override
   Widget build(BuildContext context) {
+    if (images.isEmpty) {
+      // Return placeholder if no images at all
+      return const Center(child: Text("No images available"));
+    }
+
     return Column(
       children: [
         SizedBox(
@@ -86,38 +100,63 @@ class _BuildingDetailsImageSliderState
                   return ClipRRect(
                     child: Image.network(
                       images[index],
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: double.infinity,
+                      errorBuilder: (context, error, stackTrace) =>
+                          const Center(child: Icon(Icons.broken_image)),
                     ),
                   );
                 },
               ),
 
-              // Fixed Back Button
-              Positioned(
-                top: 16,
-                child: CustomBackButton(),
-              ),
+              // Back Button
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 25.h),
+                child: Row(
+                  children: [
+                    const CustomBackButton(),
+                    const Spacer(),
+                    BlocProvider(
+                      create: (context) => FavCubit(),
+                      child: BlocBuilder<FavCubit, AsyncState>(
+                        builder: (context, state) {
+                          final cubit = context.read<FavCubit>();
+                          return ValueListenableBuilder(
+                              valueListenable: widget.model.isFavourite,
+                              builder: (context, value, child) {
+                                return CustomCirclurButton(
+                                  loadingWidget: state.isLoading
+                                      ? const Center(
+                                          child: CupertinoActivityIndicator())
+                                      : null,
+                                  imagepath: !widget.model.isFavourite.value
+                                      ? AppAssets.svg.favoritePrimaryBorder.path
+                                      : AppAssets.svg.favoritePrimary.path,
+                                  onTap: () {
+                                    cubit.toggleFav(widget.model.id.toString());
 
-              // Fixed Favorite Button
-              Positioned(
-                top: 16,
-                left: 16,
-                child: CustomCirclurButton(
-                  imagepath: AppAssets.svg.favoritePrimaryBorder.path,
-                  onTap: () {},
-                  height: AppSizes.sH40,
-                  width: AppSizes.sW40,
+                                    widget.model.isFavourite.value = !value;
+                                  },
+                                  height: AppSizes.sH40,
+                                  width: AppSizes.sW40,
+                                );
+                              });
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
 
-              // Bottom Label (changes with image if needed)
+              // Label
               Positioned(
                 bottom: 14,
                 left: 14,
                 child: ChangeContainerBuildingDetails(
                   color: AppColors.containerTextColor1,
                   background_color: AppColors.white,
-                  text: LocaleKeys.tire.tr(),
+                  text: widget.model.type,
                 ),
               ),
             ],
@@ -129,8 +168,19 @@ class _BuildingDetailsImageSliderState
         // Dots Indicator
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(images.length, _buildIndicator),
-        ),
+          children: List.generate(images.length, (index) {
+            return GestureDetector(
+              onTap: () {
+                _controller.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 400),
+                  curve: Curves.easeInOut,
+                );
+              },
+              child: _buildIndicator(index),
+            );
+          }),
+        )
       ],
     );
   }

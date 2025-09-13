@@ -43,7 +43,7 @@ class RateBottomSheet extends StatelessWidget {
                 left: AppSizes.sW16),
             child: CustomElevatedButton(
                 onPressed: () {
-                  Go.push(RateScreen());
+                  Go.push(const RateScreen());
                 },
                 text: LocaleKeys.continuity.tr()),
           ),

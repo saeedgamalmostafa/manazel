@@ -5,7 +5,7 @@ class HomeCubit extends AsyncCubit<HomeModel?> {
     fetchHome();
   }
 
-  void fetchHome() async {
+  Future<void> fetchHome() async {
     setLoading();
     final result = await baseCrudUseCase<HomeModel>(
       CrudBaseParams(

@@ -8,16 +8,20 @@ import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/core/navigator/app_navigator.dart';
 import 'package:manazel/src/core/widgets/buttons/custom_elevated_button.dart';
 import 'package:manazel/src/core/widgets/custom_language_radio_list_tile.dart';
+import 'package:manazel/src/features/app_layout/app_layout_imports.dart';
 
-changeLanguageBottomSheet() {
+enum ScreenType { setting, auth }
+
+changeLanguageBottomSheet(ScreenType screenType) {
   return showModalBottomSheet(
     context: Go.navigatorKey.currentContext!,
-    builder: (context) => const _ModelSheet(),
+    builder: (context) => _ModelSheet(screenType: screenType),
   );
 }
 
 class _ModelSheet extends StatefulWidget {
-  const _ModelSheet();
+  final ScreenType screenType;
+  const _ModelSheet({required this.screenType});
 
   @override
   _ModelSheetState createState() => _ModelSheetState();
@@ -71,7 +75,14 @@ class _ModelSheetState extends State<_ModelSheet> {
             child: CustomElevatedButton(
               onPressed: () {
                 context.setLocale(_selectedLocale);
-                Go.pop();
+                switch (widget.screenType) {
+                  case ScreenType.setting:
+                    Go.pushAndRemoveUntil(const AppLayoutScreen());
+                    break;
+                  case ScreenType.auth:
+                    Go.pop();
+                    break;
+                }
               },
               text: LocaleKeys.confirm.tr(),
             ),

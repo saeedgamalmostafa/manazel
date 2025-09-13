@@ -10,13 +10,14 @@ class CustomCirclurButton extends StatelessWidget {
   final double height;
   final double width;
   final VoidCallback? onTap;
-
+  final Widget? loadingWidget;
   const CustomCirclurButton(
       {super.key,
       required this.imagepath,
       this.onTap,
       required this.height,
-      required this.width});
+      required this.width,
+      this.loadingWidget});
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +28,18 @@ class CustomCirclurButton extends StatelessWidget {
         alignment: Alignment.centerRight,
         clipBehavior: Clip.antiAlias,
         height: height,
-        width:width,
+        width: width,
         //margin: const EdgeInsets.all(16),
         decoration: const BoxDecoration(
           color: AppColors.white,
           shape: BoxShape.circle,
         ),
-        child: Center(
-          child: SvgPicture.asset(
-            imagepath,
-          ),
-        ),
+        child: loadingWidget ??
+            Center(
+              child: SvgPicture.asset(
+                imagepath,
+              ),
+            ),
       ),
     );
   }

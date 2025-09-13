@@ -22,7 +22,9 @@ class FavoriteBody extends StatelessWidget {
                     return CustomItemCard(
                       propertyItem: state.data[index].property,
                       onTap: () {
-                        Go.push(const BuildingDetailsScreen());
+                        Go.push(PropertyDetailsScreen(
+                          id: state.data[index].property.id,
+                        ));
                       },
                     );
                   });

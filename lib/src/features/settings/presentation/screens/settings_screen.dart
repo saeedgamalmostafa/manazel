@@ -6,12 +6,11 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.scaffoldBackground,
-      appBar: CustomAppBar(
-        title: LocaleKeys.settings.tr(),
-        showBackArrow: true,
-      ),
-      body: SettingsBody()
-    );
+        backgroundColor: AppColors.scaffoldBackground,
+        appBar: CustomAppBar(
+          title: LocaleKeys.settings.tr(),
+          showBackArrow: true,
+        ),
+        body: const SettingsBody());
   }
 }

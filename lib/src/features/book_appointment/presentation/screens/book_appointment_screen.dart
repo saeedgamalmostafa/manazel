@@ -1,7 +1,8 @@
 part of '../../book_appointment_imports.dart';
 
 class BookAppointmentScreen extends StatelessWidget {
-  const BookAppointmentScreen({super.key});
+  final int id;
+  const BookAppointmentScreen({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -11,18 +12,14 @@ class BookAppointmentScreen extends StatelessWidget {
           title: LocaleKeys.bookInspection.tr(),
           showBackArrow: true,
         ),
-        body: BookAppointmentBody(),
-        bottomNavigationBar: Padding(
-            padding: EdgeInsets.only(
-                top: AppSizes.sH16,
-                bottom: AppSizes.sH35,
-                right: AppSizes.sW16,
-                left: AppSizes.sW16),
-            child: CustomElevatedButton(
-              onPressed: () {
-                showDefaultBottomSheet(child: BookDoneBottomSheet());
-              },
-              text: LocaleKeys.send.tr(),
-            )));
+        body: BlocProvider(
+          create: (context) => BookAppointmentCubit(propertyId: id),
+          child:
+              BlocBuilder<BookAppointmentCubit, AsyncState<List<Appointment>>>(
+            builder: (context, state) {
+              return const BookAppointmentBody();
+            },
+          ),
+        ));
   }
 }

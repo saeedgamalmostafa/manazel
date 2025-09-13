@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:lottie/lottie.dart';
 import 'package:manazel/src/config/language/locale_keys.g.dart';
+import 'package:manazel/src/config/res/app_sizes.dart';
+import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/core/extensions/text_style_extensions.dart';
 import 'package:manazel/src/core/shared/base_state.dart';
@@ -32,8 +35,7 @@ class StatusBuilder<T> extends StatelessWidget {
           Center(child: CustomLoading.showLoadingView());
     }, onError: () {
       return onFail?.call() ??
-          CenterErrorWidget(
-              message: errorMessage ?? LocaleKeys.errorexeptionNointernetdesc);
+          CenterErrorWidget(message: errorMessage ?? 'Sometihg went wrong');
     });
   }
 }
@@ -43,12 +45,36 @@ class CenterErrorWidget extends StatelessWidget {
   final String message;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        message,
-        textAlign: TextAlign.center,
-        style: const TextStyle(color: AppColors.error).medium.s12,
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: AppAssets.lottie.apiError.lottie(
+            width: AppSizes.sW50,
+            height: AppSizes.sH50,
+          ),
+        ),
+        Text(
+          message,
+          textAlign: TextAlign.center,
+          style: const TextStyle(color: AppColors.error).medium.s12,
+        ),
+      ],
     );
   }
 }
+
+// class CenterErrorWidget extends StatelessWidget {
+//   const CenterErrorWidget({super.key, required this.message});
+//   final String message;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Text(
+//         message,
+//         textAlign: TextAlign.center,
+//         style: const TextStyle(color: AppColors.error).medium.s12,
+//       ),
+//     );
+//   }
+// }

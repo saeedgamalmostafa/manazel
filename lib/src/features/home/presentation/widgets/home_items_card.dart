@@ -28,7 +28,9 @@ class HomeItemsCard extends StatelessWidget {
               child: FadeInAnimation(
                 child: CustomItemCard(
                   propertyItem: items[i],
-                  onTap: () => Go.push(const BuildingDetailsScreen()),
+                  onTap: () => Go.push(PropertyDetailsScreen(
+                    id: items[i].id,
+                  )),
                 ),
               ),
             ),

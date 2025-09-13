@@ -11,4 +11,7 @@ class ApiConstants {
   // favorite
   static const String toggleFav = '/api/v1/favourite/add-or-remove';
   static const String getFav = '/api/v1/favourite/list';
+
+  // property
+  static const String property = '/api/v1/property';
 }

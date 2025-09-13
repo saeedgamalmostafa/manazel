@@ -10,7 +10,7 @@ class RateScreen extends StatelessWidget {
           title: LocaleKeys.rate.tr(),
           showBackArrow: true,
         ),
-        body: RateBody(),
+        body: const RateBody(),
         bottomNavigationBar: Padding(
             padding: EdgeInsets.only(
                 top: AppSizes.sH16,
@@ -19,7 +19,7 @@ class RateScreen extends StatelessWidget {
                 left: AppSizes.sW16),
             child: CustomElevatedButton(
               onPressed: () {
-                showDefaultBottomSheet(child: RatePriceBottomSheet());
+                showDefaultBottomSheet(child: const RatePriceBottomSheet());
               },
               text: LocaleKeys.send.tr(),
             )));

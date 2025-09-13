@@ -95,12 +95,10 @@ class _CustomItemCardState extends State<CustomItemCard> {
                                                       .propertyItem.id
                                                       .toString());
 
-                                                  if (state.isSuccess) {
-                                                    widget
-                                                        .propertyItem
-                                                        .isFavourite
-                                                        .value = !value;
-                                                  }
+                                                  widget
+                                                      .propertyItem
+                                                      .isFavourite
+                                                      .value = !value;
                                                 },
                                                 child: state.isLoading
                                                     ? const CupertinoActivityIndicator()

@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:manazel/src/core/helpers/toast.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../config/language/locale_keys.g.dart';
@@ -14,19 +15,28 @@ class LauncherHelper {
     await launchUrl(Uri.parse(url));
   }
 
-  static void launchWhatsApp(String phone) async {
-    String message = 'مرحبا بك';
-    if (phone.startsWith("00966")) {
-      phone = phone.substring(5);
-    }
-    final whatsAppNativeApp = Platform.isIOS
-        ? "https://wa.me/$phone?text=$message"
-        : "whatsapp://send?phone=$phone&text=$message";
-    debugPrint(whatsAppNativeApp);
-    if (await canLaunchUrl(Uri.parse(whatsAppNativeApp))) {
-      await launchUrl(Uri.parse(whatsAppNativeApp));
-    } else {
-      throw LocaleKeys.exceptionError;
+  static Future<void> launchWhatsApp(String phone) async {
+    // Clean phone number (digits only)
+    phone = phone.replaceAll(RegExp(r'[^0-9]'), '');
+    if (phone.isEmpty) return;
+
+    final String message = Uri.encodeComponent('مرحبا بك');
+
+    // WhatsApp deep link
+    final Uri whatsappUri =
+        Uri.parse("whatsapp://send?phone=$phone&text=$message");
+
+    try {
+      final bool launched = await launchUrl(
+        whatsappUri,
+        mode: LaunchMode.externalNonBrowserApplication,
+      );
+
+      if (!launched) {
+        debugPrint("⚠️ Could not launch WhatsApp, but it should be installed.");
+      }
+    } catch (e) {
+      debugPrint("❌ WhatsApp launch error: $e");
     }
   }
 

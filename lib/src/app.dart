@@ -24,7 +24,7 @@ class App extends StatelessWidget {
       splitScreenMode: true,
       builder: (ctx, child) {
         return BlocProvider(
-          create: (context) => UserCubit(),
+          create: (context) => injector<UserCubit>(),
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             title: ConstantManager.projectName,

@@ -18,19 +18,25 @@ class _HomeBodyState extends State<HomeBody> {
             shamierWidget: const HomeShimmer(),
             data: state,
             onSuccess: (data, context) {
-              return SingleChildScrollView(
-                child: Column(children: [
-                  CustomImageSlider(advertisement: data!.advertisements),
-                  HomeActions(
-                    onTabChanged: (index) {
-                      setState(() {
-                        _selected = index;
-                      });
-                    },
-                  ),
-                  HomeItemsCard(
-                      properties: data.properties, tabIndex: _selected),
-                ]),
+              return RefreshIndicator.adaptive(
+                color: AppColors.primary,
+                onRefresh: () async {
+                  context.read<HomeCubit>().fetchHome();
+                },
+                child: SingleChildScrollView(
+                  child: Column(children: [
+                    CustomImageSlider(advertisement: data!.advertisements),
+                    HomeActions(
+                      onTabChanged: (index) {
+                        setState(() {
+                          _selected = index;
+                        });
+                      },
+                    ),
+                    HomeItemsCard(
+                        properties: data.properties, tabIndex: _selected),
+                  ]),
+                ),
               );
             });
       },

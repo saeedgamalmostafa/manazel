@@ -5,22 +5,25 @@ class ProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = UserCubit.instance.user;
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         spacing: AppSizes.sH16,
         children: [
           CustomMoreItem(
+            suffixWidget: const SizedBox.shrink(),
             imagePath: AppAssets.svg.user.path,
-            title: "محمد السعيد",
+            title: user.name ?? '',
           ),
+          // CustomMoreItem(
+          //   imagePath: AppAssets.svg.mail02.path,
+          //   title: user.email??'',
+          // ),
           CustomMoreItem(
-            imagePath: AppAssets.svg.mail02.path,
-            title: "mohamedelsaeed271@gmail.com",
-          ),
-          CustomMoreItem(
+            suffixWidget: const SizedBox.shrink(),
             imagePath: AppAssets.svg.smartPhone03.path,
-            title: "+201024500957",
+            title: user.mobile ?? '',
           ),
         ],
       ),

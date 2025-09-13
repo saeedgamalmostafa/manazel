@@ -8,36 +8,31 @@ class AppLayoutTabs extends StatelessWidget {
     return Container(
       height: AppSizes.sH74,
       decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 0,
+              blurRadius: 10,
+              offset: const Offset(0, -3),
+            ),
+          ],
           color: AppColors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(AppSizes.sH25),
-            topRight: Radius.circular(AppSizes.sH25),
-          ),
           border: const Border(top: BorderSide(color: AppColors.white))),
       alignment: Alignment.bottomCenter,
       child: BlocBuilder<AppLayoutCubit, AppLayoutState>(
         builder: (context, state) {
           return TabBar(
-            dividerColor: AppColors.white,
-            labelPadding: const EdgeInsets.symmetric(horizontal: 9.835),
-            onTap: (index) {
-              if (index == 2) {
-                showDefaultBottomSheet(
-                  child: RateBottomSheet(),
-                );
-              } else {
-                context.read<AppLayoutCubit>().changeIndex(index);
-              }
-            },
             controller: state.controller,
+            onTap: (index) => context.read<AppLayoutCubit>().changeIndex(index),
             physics: const NeverScrollableScrollPhysics(),
-            unselectedLabelColor: AppColors.grey,
+            dividerColor: Colors.transparent,
+            indicator: const TopIndicator(
+              color: AppColors.primary,
+              radius: 2,
+            ),
             labelColor: AppColors.primary,
-            indicatorColor: AppColors.white,
-            indicatorWeight: 0.0000001,
-            indicatorPadding: EdgeInsets.zero,
-            indicatorSize: TabBarIndicatorSize.label,
-            tabs: <Widget>[
+            unselectedLabelColor: AppColors.grey,
+            tabs: [
               CustomTabItem(
                 title: LocaleKeys.home.tr(),
                 imagePath: AppAssets.svg.icon.path,
@@ -63,5 +58,48 @@ class AppLayoutTabs extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+class TopIndicator extends Decoration {
+  final Color color;
+  final double thickness;
+  final double radius;
+
+  const TopIndicator({
+    required this.color,
+    this.thickness = 2,
+    this.radius = 0,
+  });
+
+  @override
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) {
+    return _TopIndicatorPainter(color, thickness, radius);
+  }
+}
+
+class _TopIndicatorPainter extends BoxPainter {
+  final Color color;
+  final double thickness;
+  final double radius;
+
+  _TopIndicatorPainter(this.color, this.thickness, this.radius);
+
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration config) {
+    final Rect rect =
+        Offset(offset.dx, offset.dy) & Size(config.size!.width, thickness);
+
+    final Paint paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.fill;
+
+    final RRect rrect = RRect.fromRectAndCorners(
+      rect,
+      topLeft: Radius.circular(radius),
+      topRight: Radius.circular(radius),
+    );
+
+    canvas.drawRRect(rrect, paint);
   }
 }

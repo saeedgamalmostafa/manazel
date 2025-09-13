@@ -5,6 +5,7 @@ class SettingsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.locale;
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -19,7 +20,7 @@ class SettingsBody extends StatelessWidget {
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.smartPhone03.path,
-            title: LocaleKeys.changePhoneNumber.tr(),
+            title: LocaleKeys.changePassword.tr(),
             onTap: () {
               Go.push(ChangePasswordScreen());
             },

@@ -1,5 +1,6 @@
 part of 'app_layout_cubit.dart';
 
+// ignore: must_be_immutable
 class AppLayoutState extends Equatable {
   final int index;
   TabController? controller;

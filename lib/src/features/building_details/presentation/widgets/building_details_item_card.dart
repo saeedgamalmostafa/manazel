@@ -2,8 +2,8 @@ part of '../../building_details_imports.dart';
 
 class BuildingDetailsItemCard extends StatelessWidget {
   final String imagePath;
-  final String description;
-  final String profile_name;
+  final String title;
+  final String profileName;
   final String location;
   final String rate;
   final String money;
@@ -12,8 +12,8 @@ class BuildingDetailsItemCard extends StatelessWidget {
     super.key,
     this.onTap,
     required this.imagePath,
-    required this.description,
-    required this.profile_name,
+    required this.title,
+    required this.profileName,
     required this.location,
     required this.rate,
     required this.money,
@@ -27,7 +27,6 @@ class BuildingDetailsItemCard extends StatelessWidget {
             padding: EdgeInsets.only(
                 left: AppSizes.sW16, right: AppSizes.sW16, top: AppSizes.sH16),
             child: SizedBox(
-              height: AppSizes.sH125,
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -50,7 +49,7 @@ class BuildingDetailsItemCard extends StatelessWidget {
                           ),
                           SizedBox(width: AppSizes.sW5),
                           CustomText.titleMedium(
-                            description,
+                            title,
                             textStyle: Theme.of(context)
                                 .textTheme
                                 .titleMedium
@@ -75,7 +74,7 @@ class BuildingDetailsItemCard extends StatelessWidget {
                                   height: AppSizes.sH20,
                                 ),
                                 SizedBox(width: AppSizes.sW5),
-                                CustomText.titleMedium(profile_name,
+                                CustomText.titleMedium(profileName,
                                     textStyle: Theme.of(context)
                                         .textTheme
                                         .titleMedium
@@ -106,24 +105,31 @@ class BuildingDetailsItemCard extends StatelessWidget {
                         height: AppSizes.sH12,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        spacing: 10.sp,
                         children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                AppAssets.svg.location.path,
-                                width: AppSizes.sW20,
-                                height: AppSizes.sH20,
-                              ),
-                              SizedBox(
-                                width: AppSizes.sW4,
-                              ),
-                              CustomText.titleMedium(location,
-                                  textStyle: Theme.of(context)
-                                      .textTheme
-                                      .titleMedium
-                                      ?.copyWith(color: AppColors.Text)),
-                            ],
+                          Expanded(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SvgPicture.asset(
+                                  AppAssets.svg.location.path,
+                                  width: AppSizes.sW20,
+                                  height: AppSizes.sH20,
+                                ),
+                                SizedBox(
+                                  width: AppSizes.sW4,
+                                ),
+                                Expanded(
+                                  child: CustomText.titleMedium(location,
+                                      textAlign: TextAlign.start,
+                                      textStyle: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(color: AppColors.Text)
+                                          .ellipsis),
+                                ),
+                              ],
+                            ),
                           ),
                           Row(
                             children: [

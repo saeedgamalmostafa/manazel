@@ -15,7 +15,7 @@ class AuthLanguageStatusButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => changeLanguageBottomSheet(),
+      onTap: () => changeLanguageBottomSheet(ScreenType.auth),
       child: Container(
         height: AppSizes.sH28,
         margin: EdgeInsetsDirectional.only(end: AppSizes.sW24),

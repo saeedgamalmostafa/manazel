@@ -1,14 +1,17 @@
 part of '../../building_details_imports.dart';
-class BuildingDetailsScreen extends StatelessWidget {
-  const BuildingDetailsScreen({super.key});
+
+class PropertyDetailsScreen extends StatelessWidget {
+  final int id;
+  const PropertyDetailsScreen({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.scaffoldBackground,
-      body: BuildingDetailsBody(),
-      bottomNavigationBar: BuildingDetailsBottomNavBar()
+      body: BlocProvider(
+        create: (context) => PropertyDetailsCubit()..fetchPropertyDetails(id),
+        child: const BuildingDetailsBody(),
+      ),
     );
   }
 }
-

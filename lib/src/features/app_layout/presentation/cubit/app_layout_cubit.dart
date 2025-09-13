@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:manazel/src/core/widgets/default_bottom_sheet.dart';
+import 'package:manazel/src/features/rate/rate_imports.dart';
 
 part 'app_layout_state.dart';
 
@@ -13,7 +15,16 @@ class AppLayoutCubit extends Cubit<AppLayoutState> {
   }
 
   void changeIndex(int index) {
-    emit(state.copyWith(index: index));
+    if (index == 2) {
+      showDefaultBottomSheet(
+        child: const RateBottomSheet(),
+      );
+      state.controller!.animateTo(state.index);
+
+      return;
+    } else {
+      emit(state.copyWith(index: index));
+    }
   }
 
   void changeController(TabController controller) {

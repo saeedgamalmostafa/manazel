@@ -16,7 +16,7 @@ class LanguageSettingItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        changeLanguageBottomSheet();
+        changeLanguageBottomSheet(ScreenType.setting);
       },
       child: Container(
         padding: EdgeInsets.symmetric(

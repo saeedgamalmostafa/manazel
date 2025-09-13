@@ -2,9 +2,11 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 import 'package:manazel/src/config/res/constants_manager.dart';
 import 'package:manazel/src/core/network/network_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/base_domain_imports.dart';
 
 import '../../../helpers/cache_service.dart';
 import '../../../network/log_interceptor.dart';
@@ -16,9 +18,12 @@ part 'user_utils.dart';
 const String _userKey = 'user';
 const String _tokenKey = 'token';
 
+@lazySingleton
 class UserCubit extends Cubit<UserState> with UserUtils {
-  UserCubit() : super(UserState.initial());
-
+  UserCubit() : super(UserState.initial()) {
+    baseCrudUseCase = injector();
+  }
+  late final BaseCrudUseCase baseCrudUseCase;
   Future<void> setUserLoggedIn(
       {required UserModel user, required String token}) async {
     await Future.wait([
@@ -69,7 +74,7 @@ class UserCubit extends Cubit<UserState> with UserUtils {
   }
 
   UserModel get user => state.userModel;
-  static UserCubit get instance => UserCubit();
+  static UserCubit get instance => injector<UserCubit>();
 
   bool get isUserLoggedIn => state.userStatus == UserStatus.loggedIn;
 }

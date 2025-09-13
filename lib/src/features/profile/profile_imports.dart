@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:manazel/src/core/shared/cubits/user_cubit/user_cubit.dart';
 
 import '../../config/language/locale_keys.g.dart';
 import '../../config/res/app_sizes.dart';
