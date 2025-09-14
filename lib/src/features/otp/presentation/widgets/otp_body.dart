@@ -38,9 +38,7 @@ class OtpBody extends StatelessWidget {
                           LocaleKeys.didntReceiveTheVerificationCode,
                           style: const TextStyle().setGreyColor.s12,
                         ),
-                        ResendCode(onResendCode: () {
-                          cubit.resendCode();
-                        })
+                        const ResendCode()
                       ],
                     ),
                   )
@@ -58,8 +56,7 @@ class OtpBody extends StatelessWidget {
 }
 
 class ResendCode extends StatefulWidget {
-  const ResendCode({super.key, required this.onResendCode});
-  final VoidCallback onResendCode;
+  const ResendCode({super.key});
 
   @override
   State<ResendCode> createState() => _ResendCodeState();
@@ -96,7 +93,7 @@ class _ResendCodeState extends State<ResendCode> {
       builder: (context, duration, child) {
         final seconds = duration.inSeconds;
 
-        return BlocBuilder<OtpCubit, OtpState>(
+        return BlocBuilder<OtpCubit, AsyncState>(
           builder: (context, state) {
             return Row(
               spacing: 5.sp,
@@ -106,13 +103,11 @@ class _ResendCodeState extends State<ResendCode> {
                   color: seconds == 0 ? AppColors.primary : AppColors.grey,
                 ).withGestureDetector(onTap: () {
                   if (seconds != 0) return;
-                  widget.onResendCode();
-                  state.verificationState == RequestState.success
-                      ? durationNotifier.value =
-                          const Duration(seconds: kDebugMode ? 5 : 60)
-                      : null;
+                  context.read<OtpCubit>().resendCode();
+                  durationNotifier.value =
+                      const Duration(seconds: kDebugMode ? 5 : 60);
                 }),
-                state.verificationState == RequestState.loading
+                state.isLoading
                     ? const CupertinoActivityIndicator()
                     : Text(
                         seconds > 0 ? "$seconds s" : "",
