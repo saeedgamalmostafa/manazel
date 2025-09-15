@@ -30,7 +30,7 @@ class BadRequestException extends ServerException {
 class UnauthorizedException extends ServerException {
   UnauthorizedException(super.message) {
     showErrorToast('Login first');
-    Go.pushReplacement(
+    Go.pushAndRemoveUntil(
         transitionType: TransitionType.fade, const LoginScreen());
   }
 }

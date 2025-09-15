@@ -1,16 +1,21 @@
-import 'dart:math';
-
 import 'package:manazel/src/core/helpers/toast.dart';
 import 'package:manazel/src/core/network/api_endpoints.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/base_domain_imports.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
 import 'package:manazel/src/features/home/presentation/imports/presentaion_imports.dart';
 
-class FavCubit extends AsyncCubit<List<FavouriteModel>> {
-  FavCubit() : super([]);
+class FavCubit extends AsyncCubit<BaseModel<List<FavouriteModel>>?> {
+  FavCubit() : super(null);
+
+  bool isFavLoading = false;
+
+  int currentPage = 1;
+  bool hasMore = true;
+  bool isProcessingRequest = false;
 
   Future<void> toggleFav(String id) async {
-    setLoading();
+    isFavLoading = true;
     final result = await baseCrudUseCase(
       CrudBaseParams(
         api: ApiConstants.toggleFav,
@@ -19,9 +24,11 @@ class FavCubit extends AsyncCubit<List<FavouriteModel>> {
         mapper: (value) => {},
       ),
     );
+
     result.when(
-      (response) {
-        setSuccess(data: state.data);
+      (response) async {
+        isFavLoading = false;
+        await deleteFav(id);
         showSuccessToast(response.msg);
       },
       (error) {
@@ -31,33 +38,97 @@ class FavCubit extends AsyncCubit<List<FavouriteModel>> {
     );
   }
 
-  void getFavourites() async {
-    setLoading();
-    final result = await baseCrudUseCase<List<FavouriteModel>>(
+  Future<void> getFavourites({bool isFirst = false}) async {
+    if (isProcessingRequest) return;
+    isProcessingRequest = true;
+
+    if (isFirst) {
+      currentPage = 1;
+      hasMore = true;
+      setSuccess(
+          data: BaseModel<List<FavouriteModel>>(
+        data: [],
+        pagination: null,
+        msg: '',
+      ));
+    }
+
+    if (!hasMore) {
+      isProcessingRequest = false;
+      return;
+    }
+
+    if (currentPage == 1) {
+      setLoading();
+    } else {
+      setLoadingMore();
+    }
+
+    if (!hasMore) return;
+    if (currentPage == 1) {
+      setLoading();
+    } else {
+      setLoadingMore();
+    }
+
+    final result = await baseCrudUseCase<BaseModel<List<FavouriteModel>>>(
       CrudBaseParams(
         api: ApiConstants.getFav,
+        queryParameters: {'page': currentPage},
         httpRequestType: HttpRequestType.get,
-        mapper: (json) => (json['favourites'] as List)
-            .map((e) => FavouriteModel.fromJson(e))
-            .toList(),
+        mapper: (json) {
+          return BaseModel<List<FavouriteModel>>(
+            msg: json['msg'] ?? '',
+            success: json['success'] ?? true,
+            data: (json['favourites'] as List)
+                .map((e) => FavouriteModel.fromJson(e))
+                .toList(),
+          );
+        },
       ),
     );
+
     result.when(
       (response) {
-        setSuccess(data: response.data!);
+        if (response.pagination!.first.lastPage > currentPage) {
+          currentPage++;
+        } else {
+          hasMore = false;
+        }
+
+        if (state.data!.data != null) {
+          setSuccess(
+            data: BaseModel(
+              msg: response.msg,
+              data: [...state.data!.data!, ...?response.data!.data],
+              pagination: response.pagination,
+            ),
+          );
+        } else {
+          // setSuccess(data: response.data);
+        }
       },
       (error) {
         setError(errorMessage: error.message);
         showErrorToast(error.message);
       },
     );
+
+    isProcessingRequest = false;
   }
 
-  void deleteFav(String id) {
+  Future<void> deleteFav(String id) async {
+    final current = state.data?.data ?? [];
+    final updated = List<FavouriteModel>.from(current)
+      ..removeWhere((element) => element.property.id == int.parse(id));
+
     setSuccess(
-        data: state.data
-            .where((element) => element.id != int.parse(id))
-            .toList());
+      data: BaseModel(
+        msg: '',
+        data: updated,
+        pagination: state.data?.pagination,
+      ),
+    );
   }
 }
 

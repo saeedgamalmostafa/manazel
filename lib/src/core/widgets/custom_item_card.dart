@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
 
 import 'package:manazel/src/core/widgets/image_widgets/cached_image.dart';
@@ -17,10 +16,12 @@ import 'custom_text.dart';
 class CustomItemCard extends StatefulWidget {
   final PropertyItem propertyItem;
   final VoidCallback? onTap;
+  final FavCubit? favCubit;
   const CustomItemCard({
     super.key,
     required this.propertyItem,
     required this.onTap,
+    this.favCubit,
   });
 
   @override
@@ -30,6 +31,8 @@ class CustomItemCard extends StatefulWidget {
 class _CustomItemCardState extends State<CustomItemCard> {
   @override
   Widget build(BuildContext context) {
+    final cubit = widget.favCubit ?? context.read<FavCubit?>();
+
     return GestureDetector(
         onTap: widget.onTap,
         child: Padding(
@@ -80,50 +83,42 @@ class _CustomItemCardState extends State<CustomItemCard> {
                                   SizedBox(
                                     width: AppSizes.sW20,
                                   ),
-                                  BlocProvider(
-                                    create: (context) => FavCubit(),
-                                    child: BlocBuilder<FavCubit, AsyncState>(
-                                      builder: (context, state) {
-                                        final cubit = context.read<FavCubit>();
-                                        return ValueListenableBuilder(
-                                            valueListenable:
-                                                widget.propertyItem.isFavourite,
-                                            builder: (context, value, child) {
-                                              return GestureDetector(
-                                                onTap: () {
-                                                  cubit.toggleFav(widget
-                                                      .propertyItem.id
-                                                      .toString());
+                                  BlocBuilder<FavCubit, AsyncState>(
+                                    builder: (context, state) {
+                                      return ValueListenableBuilder(
+                                          valueListenable:
+                                              widget.propertyItem.isFavourite,
+                                          builder: (context, value, child) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                cubit.toggleFav(widget
+                                                    .propertyItem.id
+                                                    .toString());
 
-                                                  widget
-                                                      .propertyItem
-                                                      .isFavourite
-                                                      .value = !value;
-                                                },
-                                                child: state.isLoading
-                                                    ? const CupertinoActivityIndicator()
-                                                    : SizedBox(
-                                                        height: 30,
-                                                        width: 30,
-                                                        child: SvgPicture.asset(
-                                                          !widget
-                                                                  .propertyItem
-                                                                  .isFavourite
-                                                                  .value
-                                                              ? AppAssets
-                                                                  .svg
-                                                                  .favourite
-                                                                  .path
-                                                              : AppAssets
-                                                                  .svg
-                                                                  .favoritePrimary
-                                                                  .path,
-                                                        ),
+                                                widget.propertyItem.isFavourite
+                                                    .value = !value;
+                                              },
+                                              child: cubit!.isFavLoading
+                                                  ? const CupertinoActivityIndicator()
+                                                  : SizedBox(
+                                                      height: 30,
+                                                      width: 30,
+                                                      child: SvgPicture.asset(
+                                                        !widget
+                                                                .propertyItem
+                                                                .isFavourite
+                                                                .value
+                                                            ? AppAssets.svg
+                                                                .favourite.path
+                                                            : AppAssets
+                                                                .svg
+                                                                .favoritePrimary
+                                                                .path,
                                                       ),
-                                              );
-                                            });
-                                      },
-                                    ),
+                                                    ),
+                                            );
+                                          });
+                                    },
                                   ),
                                 ],
                               ),

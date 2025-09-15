@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:lottie/lottie.dart';
-import 'package:manazel/src/config/language/locale_keys.g.dart';
+
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/config/res/color_manager.dart';

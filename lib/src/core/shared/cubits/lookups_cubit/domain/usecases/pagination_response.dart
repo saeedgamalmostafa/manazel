@@ -1,15 +1,15 @@
 import '../base_domain_imports.dart';
 
 class BaseModel<D> {
-  final bool success;
+  final bool? success;
   final String msg;
   final List<dynamic>? error;
-  final List<dynamic>? pagination;
+  final List<Pagination>? pagination;
   final List<dynamic>? extras;
   final D? data;
 
   BaseModel({
-    required this.success,
+    this.success,
     required this.msg,
     this.error,
     this.pagination,
@@ -29,7 +29,9 @@ class BaseModel<D> {
       success: map['success'] == true,
       msg: (map['message'] ?? '').toString(),
       error: (map['error'] as List?) ?? const [],
-      pagination: (map['pagination'] as List?) ?? const [],
+      pagination: (map['pagination'] as List?)
+          ?.map((e) => Pagination.fromJson(e))
+          .toList(),
       extras: (map['extras'] as List?) ?? const [],
       data: parsed,
     );
@@ -54,32 +56,21 @@ class BaseModel<D> {
           return [itemMapper(raw)];
         },
       );
-}
 
-class PaginationResponse<T> extends CrudResponse {
-  final Pagination? pagination;
-
-  final List<T>? data;
-  PaginationResponse({required this.pagination, this.data});
-
-  factory PaginationResponse.fromJson(Map<String, dynamic> map,
-      {List<T> Function(dynamic)? mapper, String? dataKey}) {
-    return PaginationResponse<T>(
-      pagination: map["pagination"] != null
-          ? Pagination.fromJson(map["pagination"])
-          : null,
-      data: map[dataKey ?? 'data'] != null && mapper != null
-          ? mapper(map[dataKey ?? 'data'])
-          : null,
-    );
-  }
-
-  PaginationResponse<T> copyWith({
-    Pagination? pagination,
-    List<T>? data,
+  BaseModel<D> copyWith({
+    bool? success,
+    String? msg,
+    List<dynamic>? error,
+    List<Pagination>? pagination,
+    List<dynamic>? extras,
+    D? data,
   }) {
-    return PaginationResponse<T>(
+    return BaseModel<D>(
+      success: success ?? this.success,
+      msg: msg ?? this.msg,
+      error: error ?? this.error,
       pagination: pagination ?? this.pagination,
+      extras: extras ?? this.extras,
       data: data ?? this.data,
     );
   }
@@ -87,61 +78,36 @@ class PaginationResponse<T> extends CrudResponse {
 
 class Pagination {
   final int totalItems;
-  final int countItems;
   final int perPage;
-  final int totalPages;
+  final int lastPage;
   final int currentPage;
-  final String nextPageUrl;
-  final String pervPageUrl;
 
   Pagination({
     required this.totalItems,
-    required this.countItems,
     required this.perPage,
-    required this.totalPages,
+    required this.lastPage,
     required this.currentPage,
-    required this.nextPageUrl,
-    required this.pervPageUrl,
   });
 
   Pagination copyWith({
     int? totalItems,
-    int? countItems,
+    int? lastPage,
     int? perPage,
-    int? totalPages,
     int? currentPage,
-    String? nextPageUrl,
-    String? pervPageUrl,
   }) =>
       Pagination(
         totalItems: totalItems ?? this.totalItems,
-        countItems: countItems ?? this.countItems,
         perPage: perPage ?? this.perPage,
-        totalPages: totalPages ?? this.totalPages,
+        lastPage: lastPage ?? this.lastPage,
         currentPage: currentPage ?? this.currentPage,
-        nextPageUrl: nextPageUrl ?? this.nextPageUrl,
-        pervPageUrl: pervPageUrl ?? this.pervPageUrl,
       );
 
   factory Pagination.fromJson(Map<String, dynamic> json) => Pagination(
-        totalItems: json["total_items"],
-        countItems: json["count_items"],
+        totalItems: json["total"],
+        lastPage: json["last_page"],
         perPage: json["per_page"],
-        totalPages: json["total_pages"],
         currentPage: json["current_page"],
-        nextPageUrl: json["next_page_url"],
-        pervPageUrl: json["perv_page_url"],
       );
-
-  Map<String, dynamic> toJson() => {
-        "total_items": totalItems,
-        "count_items": countItems,
-        "per_page": perPage,
-        "total_pages": totalPages,
-        "current_page": currentPage,
-        "next_page_url": nextPageUrl,
-        "perv_page_url": pervPageUrl,
-      };
 }
 
 class BaseKeyMessageModel<T> {
@@ -157,3 +123,32 @@ class BaseKeyMessageModel<T> {
     );
   }
 }
+
+// class PaginationResponse<T> extends CrudResponse {
+//   final Pagination? pagination;
+
+//   final List<T>? data;
+//   PaginationResponse({required this.pagination, this.data});
+
+//   factory PaginationResponse.fromJson(Map<String, dynamic> map,
+//       {List<T> Function(dynamic)? mapper, String? dataKey}) {
+//     return PaginationResponse<T>(
+//       pagination: map["pagination"] != null
+//           ? Pagination.fromJson(map["pagination"])
+//           : null,
+//       data: map[dataKey ?? 'data'] != null && mapper != null
+//           ? mapper(map[dataKey ?? 'data'])
+//           : null,
+//     );
+//   }
+
+//   PaginationResponse<T> copyWith({
+//     Pagination? pagination,
+//     List<T>? data,
+//   }) {
+//     return PaginationResponse<T>(
+//       pagination: pagination ?? this.pagination,
+//       data: data ?? this.data,
+//     );
+//   }
+// }

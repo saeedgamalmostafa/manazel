@@ -1,10 +1,30 @@
 part of '../../favorite_imports.dart';
 
-class FavoriteBody extends StatelessWidget {
+class FavoriteBody extends StatefulWidget {
   const FavoriteBody({super.key});
+
+  @override
+  State<FavoriteBody> createState() => _FavoriteBodyState();
+}
+
+class _FavoriteBodyState extends State<FavoriteBody> {
+  late final ScrollController _scrollController;
+  @override
+  void initState() {
+    super.initState();
+
+    _scrollController = ScrollController();
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        context.read<FavCubit>().getFavourites();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavCubit, AsyncState<List<FavouriteModel>>>(
+    return BlocBuilder<FavCubit, AsyncState<BaseModel<List<FavouriteModel>>?>>(
       builder: (context, state) {
         return StatusBuilder(
             shamierWidget: ListView.builder(
@@ -13,21 +33,40 @@ class FavoriteBody extends StatelessWidget {
             ),
             data: state,
             onSuccess: (data, context) {
-              if (state.data.isEmpty) {
+              if (state.data!.data!.isEmpty) {
                 return const NotContainData();
               }
-              return ListView.builder(
-                  itemCount: state.data.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return CustomItemCard(
-                      propertyItem: state.data[index].property,
-                      onTap: () {
-                        Go.push(PropertyDetailsScreen(
-                          id: state.data[index].property.id,
-                        ));
-                      },
-                    );
-                  });
+              return RefreshIndicator(
+                color: AppColors.primary,
+                onRefresh: () async {
+                  context.read<FavCubit>().getFavourites(isFirst: true);
+                },
+                child: ListView.builder(
+                    controller: _scrollController,
+                    itemCount: data!.data!.length + 1,
+                    itemBuilder: (BuildContext context, int index) {
+                      if (index == data.data!.length) {
+                        if (state.isLoadingMore) {
+                          return CustomLoading.showLoadingView();
+                        } else {
+                          return const SizedBox.shrink();
+                        }
+                      }
+                      return CustomItemCard(
+                        favCubit: context.read<FavCubit>(),
+                        propertyItem: state.data!.data![index].property,
+                        onTap: () {
+                          Go.push(PropertyDetailsScreen(
+                            id: state.data!.data![index].property.id,
+                          )).then((value) {
+                            context
+                                .read<FavCubit>()
+                                .getFavourites(isFirst: true);
+                          });
+                        },
+                      );
+                    }),
+              );
             });
       },
     );

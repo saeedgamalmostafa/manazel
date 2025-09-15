@@ -10,7 +10,7 @@ class FavoriteScreen extends StatelessWidget {
         title: LocaleKeys.favorite.tr(),
       ),
       body: BlocProvider(
-        create: (context) => FavCubit()..getFavourites(),
+        create: (context) => FavCubit()..getFavourites(isFirst: true),
         child: const FavoriteBody(),
       ),
     );

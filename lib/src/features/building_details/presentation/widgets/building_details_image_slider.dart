@@ -126,7 +126,7 @@ class _BuildingDetailsImageSliderState
                               valueListenable: widget.model.isFavourite,
                               builder: (context, value, child) {
                                 return CustomCirclurButton(
-                                  loadingWidget: state.isLoading
+                                  loadingWidget: cubit.isFavLoading
                                       ? const Center(
                                           child: CupertinoActivityIndicator())
                                       : null,
