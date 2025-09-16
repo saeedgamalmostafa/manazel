@@ -2,21 +2,20 @@ part of '../../my_orders_imports.dart';
 
 class MyOrdersItemCard extends StatelessWidget {
   final String imagePath;
-  final String description;
-  final String profile_name;
+  final String title;
+  final String profileName;
   final String calendar;
   final String rate;
   final VoidCallback? onTap;
-  MyOrdersItemCard({
+  const MyOrdersItemCard({
     super.key,
     this.onTap,
     required this.imagePath,
-    required this.description,
-    required this.profile_name,
+    required this.title,
+    required this.profileName,
     required this.calendar,
     required this.rate,
   });
-  bool isFavourite = false;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -36,8 +35,8 @@ class MyOrdersItemCard extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(20)),
+                          topRight: Radius.circular(20.r),
+                          bottomRight: Radius.circular(20.r)),
                       child: SizedBox(
                         width: AppSizes.sW132,
                         height: AppSizes.sH128,
@@ -65,7 +64,7 @@ class MyOrdersItemCard extends StatelessWidget {
                                   SvgPicture.asset(AppAssets.svg.building.path),
                                   Expanded(
                                     child: CustomText.titleSmall(
-                                      description,
+                                      title,
                                       textStyle: Theme.of(context)
                                           .textTheme
                                           .titleSmall
@@ -89,12 +88,10 @@ class MyOrdersItemCard extends StatelessWidget {
                                 height: AppSizes.sH12,
                               ),
                               Row(
+                                spacing: 4.sp,
                                 children: [
                                   SvgPicture.asset(AppAssets.svg.profile.path),
-                                  SizedBox(
-                                    width: 4,
-                                  ),
-                                  CustomText.titleSmall(profile_name,
+                                  CustomText.titleSmall(profileName,
                                       textStyle: Theme.of(context)
                                           .textTheme
                                           .titleSmall

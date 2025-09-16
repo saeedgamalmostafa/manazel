@@ -1,5 +1,3 @@
-import '../base_domain_imports.dart';
-
 class BaseModel<D> {
   final bool? success;
   final String msg;

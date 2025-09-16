@@ -11,7 +11,10 @@ class MyOrdersScreen extends StatelessWidget {
         title: LocaleKeys.myOrders.tr(),
         showBackArrow: true,
       ),
-      body: MyOrdersBody(),
+      body: BlocProvider(
+        create: (context) => ReservationCubit()..getReservatons(isFirst: true),
+        child: const MyOrdersBody(),
+      ),
     );
   }
 }

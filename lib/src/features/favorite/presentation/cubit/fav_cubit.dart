@@ -104,8 +104,6 @@ class FavCubit extends AsyncCubit<BaseModel<List<FavouriteModel>>?> {
               pagination: response.pagination,
             ),
           );
-        } else {
-          // setSuccess(data: response.data);
         }
       },
       (error) {

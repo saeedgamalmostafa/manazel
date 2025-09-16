@@ -28,9 +28,8 @@ class _BuildingDetailsImageSliderState
   @override
   void initState() {
     super.initState();
-    images = (widget.model.images != null && widget.model!.images.isNotEmpty)
-        ? widget.model.images
-        : fallbackImages;
+    images =
+        widget.model.images.isNotEmpty ? widget.model.images : fallbackImages;
 
     _controller = PageController();
     _startAutoPlay();

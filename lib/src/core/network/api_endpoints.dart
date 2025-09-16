@@ -14,4 +14,5 @@ class ApiConstants {
 
   // property
   static const String property = '/api/v1/property';
+  static const String reservations = '/api/v1/property/client/reservations';
 }

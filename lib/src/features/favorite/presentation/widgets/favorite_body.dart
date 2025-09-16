@@ -42,6 +42,7 @@ class _FavoriteBodyState extends State<FavoriteBody> {
                   context.read<FavCubit>().getFavourites(isFirst: true);
                 },
                 child: ListView.builder(
+                    padding: EdgeInsets.only(bottom: AppSizes.sH20),
                     controller: _scrollController,
                     itemCount: data!.data!.length + 1,
                     itemBuilder: (BuildContext context, int index) {
@@ -59,9 +60,11 @@ class _FavoriteBodyState extends State<FavoriteBody> {
                           Go.push(PropertyDetailsScreen(
                             id: state.data!.data![index].property.id,
                           )).then((value) {
-                            context
-                                .read<FavCubit>()
-                                .getFavourites(isFirst: true);
+                            if (context.mounted) {
+                              context
+                                  .read<FavCubit>()
+                                  .getFavourites(isFirst: true);
+                            }
                           });
                         },
                       );
