@@ -62,7 +62,7 @@ class ReservationCubit extends AsyncCubit<BaseModel<List<ReservationModel>>?> {
 
     result.when(
       (response) {
-        if (response.pagination!.lastPage > currentPage) {
+        if (response.pagination!.first.lastPage > currentPage) {
           currentPage++;
         } else {
           hasMore = false;

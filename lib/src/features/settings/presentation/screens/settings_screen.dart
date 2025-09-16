@@ -1,7 +1,7 @@
 part of '../../settings_imports.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +11,9 @@ class SettingsScreen extends StatelessWidget {
           title: LocaleKeys.settings.tr(),
           showBackArrow: true,
         ),
-        body: const SettingsBody());
+        body: BlocProvider(
+          create: (context) => SettingsCubit(),
+          child: const SettingsBody(),
+        ));
   }
 }

@@ -5,6 +5,8 @@ class SettingsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<SettingsCubit>();
+
     context.locale;
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -15,14 +17,14 @@ class SettingsBody extends StatelessWidget {
             imagePath: AppAssets.svg.userEdit01.path,
             title: LocaleKeys.editProfile.tr(),
             onTap: () {
-              Go.push(EditProfileScreen());
+              Go.push(const EditProfileScreen());
             },
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.smartPhone03.path,
             title: LocaleKeys.changePassword.tr(),
             onTap: () {
-              Go.push(ChangePasswordScreen());
+              Go.push(const ChangePasswordScreen());
             },
           ),
           NotificationSettingItem(
@@ -38,7 +40,7 @@ class SettingsBody extends StatelessWidget {
             imagePath: AppAssets.svg.elements5.path,
             title: LocaleKeys.deleteAccount.tr(),
             onTap: () {
-              CancelAccountBottomSheet.show(context);
+              DeleteAccountBottomSheet.show(context, cubit);
             },
             isLogout: true,
           ),

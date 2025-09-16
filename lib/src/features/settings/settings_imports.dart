@@ -1,11 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
 import 'package:manazel/src/core/widgets/auth_language_status_button.dart';
+import 'package:manazel/src/core/widgets/buttons/loading_button.dart';
 import 'package:manazel/src/core/widgets/custom_more_item.dart';
 import 'package:manazel/src/features/change_password/change_password_imports.dart';
 import 'package:manazel/src/features/edit_profile/edit_profile_imports.dart';
+import 'package:manazel/src/features/settings/presentation/cubit/settings_cubit.dart';
 
 import '../../config/language/languages.dart';
 import '../../config/language/locale_keys.g.dart';
@@ -22,4 +27,4 @@ part 'presentation/screens/settings_screen.dart';
 part 'presentation/widgets/language_setting_item.dart';
 part 'presentation/widgets/notification_setting_item.dart';
 part 'presentation/widgets/settings_body.dart';
-part 'presentation/widgets/cancel_account_bottom_sheet.dart';
+part 'presentation/widgets/delete_account_bottom_sheet.dart';
