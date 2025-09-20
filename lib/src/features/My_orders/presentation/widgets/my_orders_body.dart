@@ -55,10 +55,10 @@ class _MyOrdersBodyState extends State<MyOrdersBody> {
                       final model = data.data![index];
                       return MyOrdersItemCard(
                         imagePath: AppAssets.png.itemPhoto.path,
-                        title: model.name,
-                        profileName: model.property.title,
-                        calendar: model.property.rate,
-                        rate: model.appointment.dateTimeFormatted,
+                        title: model.property.title,
+                        profileName: model.name,
+                        calendar: model.appointment.dateTimeFormatted,
+                        rate: model.property.rate,
                       );
                     }),
               );

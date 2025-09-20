@@ -10,7 +10,10 @@ class SearchScreen extends StatelessWidget {
         title: LocaleKeys.searchResult.tr(),
         showBackArrow: true,
       ),
-      body: SearchBody(),
+      body: BlocProvider(
+        create: (context) => FilterCubit()..getPropertyByFilter(isFirst: true),
+        child: const SearchBody(),
+      ),
     );
   }
 }

@@ -12,9 +12,9 @@ class Go {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   static PageRouteBuilder<dynamic> _buildPageRoute(
-      Widget page,
-      TransitionType transitionType,
-      ) {
+    Widget page,
+    TransitionType transitionType,
+  ) {
     return PageRouteBuilder(
       transitionDuration: const Duration(microseconds: 300),
       pageBuilder: (context, animation, secondaryAnimation) => page,
@@ -63,34 +63,34 @@ class Go {
   }
 
   static Future<dynamic> push(
-      Widget page, {
-        TransitionType transitionType = TransitionType.fade,
-      }) {
+    Widget page, {
+    TransitionType transitionType = TransitionType.fade,
+  }) {
     return navigatorKey.currentState!.push(
       _buildPageRoute(page, transitionType),
     );
   }
 
   static Future<dynamic> pushReplacement(
-      Widget page, {
-        TransitionType transitionType = TransitionType.fade,
-      }) {
+    Widget page, {
+    TransitionType transitionType = TransitionType.fade,
+  }) {
     return navigatorKey.currentState!.pushReplacement(
       _buildPageRoute(page, transitionType),
     );
   }
 
   static Future<dynamic> pushAndRemoveUntil(
-      Widget page, {
-        TransitionType transitionType = TransitionType.fade,
-      }) {
+    Widget page, {
+    TransitionType transitionType = TransitionType.fade,
+  }) {
     return navigatorKey.currentState!.pushAndRemoveUntil(
       _buildPageRoute(page, transitionType),
-          (route) => false,
+      (route) => false,
     );
   }
 
-  static void pop() {
-    navigatorKey.currentState!.pop();
+  static void pop<T extends Object?>([Map<String, T>? result]) {
+    navigatorKey.currentState!.pop(result);
   }
 }

@@ -103,7 +103,7 @@ class _ResendCodeState extends State<ResendCode> {
                   color: seconds == 0 ? AppColors.primary : AppColors.grey,
                 ).withGestureDetector(onTap: () {
                   if (seconds != 0) return;
-                  context.read<OtpCubit>().resendCode();
+                  context.read<OtpCubit>().sendCode();
                   durationNotifier.value =
                       const Duration(seconds: kDebugMode ? 5 : 60);
                 }),

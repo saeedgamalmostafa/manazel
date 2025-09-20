@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:manazel/src/config/res/constants_manager.dart';
+import 'package:manazel/src/core/error/failures.dart';
 import 'package:manazel/src/core/helpers/toast.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/base_domain_imports.dart';
 import 'package:multiple_result/multiple_result.dart';
 
-import '../../../error/failure.dart';
 import '../../base_state.dart';
 
 part 'async_state.dart';

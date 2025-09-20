@@ -2,7 +2,7 @@ part of '../imports/presentaion_imports.dart';
 
 class HomeItemsCard extends StatelessWidget {
   final Properties properties;
-  final int tabIndex; // rename for clarity
+  final int tabIndex;
   const HomeItemsCard({
     super.key,
     required this.properties,
@@ -17,6 +17,7 @@ class HomeItemsCard extends StatelessWidget {
       child: ListView.builder(
         key: ValueKey<int>(tabIndex),
         shrinkWrap: true,
+        padding: EdgeInsets.only(bottom: 20.h),
         physics: const NeverScrollableScrollPhysics(),
         itemCount: items.length,
         itemBuilder: (context, i) {

@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:manazel/src/config/res/constants_manager.dart';
 import 'package:manazel/src/core/error/failure.dart';
+import 'package:manazel/src/core/error/failures.dart';
 import 'package:manazel/src/core/helpers/toast.dart';
 import 'package:manazel/src/core/shared/base_state.dart';
 import 'package:multiple_result/multiple_result.dart';

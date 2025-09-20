@@ -40,7 +40,6 @@ class RegisterBody extends StatelessWidget {
         ),
         Builder(builder: (context) {
           return BottomButton(onTap: () async {
-            print('object');
             await context.read<RegisterCubit>().register();
           });
         })

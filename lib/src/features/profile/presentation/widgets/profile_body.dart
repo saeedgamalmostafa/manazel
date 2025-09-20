@@ -16,10 +16,12 @@ class ProfileBody extends StatelessWidget {
             imagePath: AppAssets.svg.user.path,
             title: user.name ?? '',
           ),
-          // CustomMoreItem(
-          //   imagePath: AppAssets.svg.mail02.path,
-          //   title: user.email??'',
-          // ),
+          if (user.email != null && user.email!.isNotEmpty)
+            CustomMoreItem(
+              suffixWidget: const SizedBox.shrink(),
+              imagePath: AppAssets.svg.mail02.path,
+              title: user.email ?? '',
+            ),
           CustomMoreItem(
             suffixWidget: const SizedBox.shrink(),
             imagePath: AppAssets.svg.smartPhone03.path,

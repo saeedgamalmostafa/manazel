@@ -44,7 +44,7 @@ class RegisterForms extends StatelessWidget {
               textInputType: TextInputType.emailAddress,
               textInputAction: TextInputAction.done,
               hintText: LocaleKeys.email.tr(),
-              validator: (v) => Validators.validateEmail(v),
+              // validator: (v) => Validators.validateEmail(v),
             )
           ],
         ),

@@ -8,7 +8,7 @@ import 'package:manazel/src/config/res/constants_manager.dart';
 import 'package:manazel/src/core/helpers/cache_service.dart';
 import 'package:manazel/src/core/helpers/validators.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
-import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/base_model.dart';
 import 'package:manazel/src/core/shared/cubits/user_cubit/user_cubit.dart';
 import 'package:manazel/src/core/widgets/buttons/custom_elevated_button.dart';
 import 'package:manazel/src/core/widgets/buttons/loading_button.dart';

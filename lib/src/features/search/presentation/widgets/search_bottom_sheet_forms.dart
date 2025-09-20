@@ -1,40 +1,69 @@
 part of '../../search_imports.dart';
 
 class SearchBottomSheetForms extends StatefulWidget {
-  const SearchBottomSheetForms({super.key});
+  const SearchBottomSheetForms({
+    super.key,
+    required this.buildingTypes,
+    required this.regions,
+    this.onBuildingTypeChanged,
+    this.onRegionChanged,
+  });
+
+  final List<DropDownItem> buildingTypes;
+  final List<DropDownItem> regions;
+  final ValueChanged<int?>? onBuildingTypeChanged;
+  final ValueChanged<int?>? onRegionChanged;
 
   @override
   State<SearchBottomSheetForms> createState() => _SearchBottomSheetFormsState();
 }
 
 class _SearchBottomSheetFormsState extends State<SearchBottomSheetForms> {
-  String? selectedCity;
+  DropDownItem? selectedBuildingType;
+  DropDownItem? selectedRegion;
 
-  Future<List<String>> getCities(String filter) async {
-    return ["القاهرة", "الإسكندرية", "أسوان"]
-        .where((e) => e.contains(filter))
-        .toList();
+  @override
+  void initState() {
+    super.initState();
+    if (widget.buildingTypes.isNotEmpty) {
+      selectedBuildingType = widget.buildingTypes.first;
+      widget.onBuildingTypeChanged?.call(selectedBuildingType?.id);
+    }
+    if (widget.regions.isNotEmpty) {
+      selectedRegion = widget.regions.first;
+      widget.onRegionChanged?.call(selectedRegion?.id);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      DefaultDropDownField<String>(
+      DefaultDropDownField<DropDownItem>(
         label: LocaleKeys.buildingType.tr(),
         hint: LocaleKeys.chooseBuildingType.tr(),
-        selectedItem: selectedCity,
-        onChanged: (val) => setState(() => selectedCity = val),
-        asyncItems: getCities,
-        itemAsString: (item) => item ?? '',
+        selectedItem: selectedBuildingType,
+        onChanged: (val) {
+          setState(() => selectedBuildingType = val);
+          widget.onBuildingTypeChanged?.call(val?.id);
+        },
+        asyncItems: (f) async {
+          return widget.buildingTypes;
+        },
+        itemAsString: (item) => item?.name ?? '',
       ),
       SizedBox(height: AppSizes.sH14),
-      DefaultDropDownField<String>(
+      DefaultDropDownField<DropDownItem>(
         label: LocaleKeys.region.tr(),
         hint: LocaleKeys.selectRegion.tr(),
-        selectedItem: selectedCity,
-        onChanged: (val) => setState(() => selectedCity = val),
-        asyncItems: getCities,
-        itemAsString: (item) => item ?? '',
+        selectedItem: selectedRegion,
+        onChanged: (val) {
+          setState(() => selectedRegion = val);
+          widget.onRegionChanged?.call(val?.id);
+        },
+        asyncItems: (f) async {
+          return widget.regions;
+        },
+        itemAsString: (item) => item?.name ?? '',
       ),
     ]);
   }

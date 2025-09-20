@@ -4,7 +4,7 @@ import 'package:manazel/src/core/navigator/app_navigator.dart';
 import 'package:manazel/src/core/network/api_endpoints.dart';
 import 'package:manazel/src/core/network/network_service.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/base_domain_imports.dart';
-import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/base_model.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
 import 'package:manazel/src/features/login/presentation/cubit/login_cubit.dart';
 import 'package:manazel/src/features/otp/otp_imports.dart';
@@ -16,8 +16,7 @@ class RegisterCubit extends AsyncCubit<BaseModel?> with RegisterControllers {
     if (!formKey.currentState!.validate()) return;
     setLoading();
     injector<NetworkService>().removeToken();
-    final result = await baseCrudUseCase<List<UserAuthModel>>(
-      CrudBaseParams(
+    final result = await baseCrudUseCase<UserAuthModel>(CrudBaseParams(
         api: ApiConstants.signUp,
         httpRequestType: HttpRequestType.post,
         body: {
@@ -26,14 +25,12 @@ class RegisterCubit extends AsyncCubit<BaseModel?> with RegisterControllers {
           'type': 'client',
           'name': nameController.text,
           'email': emailController.text
-        },
+        }..removeWhere((key, value) => value == null),
         mapper: (json) =>
-            (json as List).map((e) => UserAuthModel.fromJson(e)).toList(),
-      ),
-    );
+            UserAuthModel.fromJson(json['user'] as Map<String, dynamic>)));
     result.when(
       (response) {
-        final token = response.data?.first.accessToken;
+        final token = response.data?.accessToken;
 
         if (token != null) {
           injector<NetworkService>().setToken(token);

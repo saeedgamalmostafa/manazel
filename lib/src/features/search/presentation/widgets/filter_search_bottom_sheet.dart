@@ -1,60 +1,111 @@
 part of '../../search_imports.dart';
 
-class FilterSearchBottomSheet extends StatelessWidget {
+class FilterSearchBottomSheet extends StatefulWidget {
+  const FilterSearchBottomSheet({super.key});
+
+  @override
+  State<FilterSearchBottomSheet> createState() =>
+      _FilterSearchBottomSheetState();
+}
+
+class _FilterSearchBottomSheetState extends State<FilterSearchBottomSheet> {
+  int? typeId;
+  int? purposeId;
+  int? regionId;
+  double? minPrice;
+  double? maxPrice;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: AppSizes.sH566,
-      padding: EdgeInsets.symmetric(
-          horizontal: AppSizes.sW16, vertical: AppSizes.sH16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Center(
-            child: CustomText(LocaleKeys.searchFilter.tr(),
-                textStyle: TextStyle(
+    return BlocBuilder<FilterDataCubit, AsyncState<FilterResponse?>>(
+      builder: (context, state) {
+        if (state.isLoading) {
+          return SizedBox(
+            height: 200.h,
+            child: const Center(child: CupertinoActivityIndicator()),
+          );
+        }
+        typeId = state.data?.type.first.id;
+        purposeId = state.data?.purpose.first.id;
+        regionId = state.data?.cities.first.id;
+        minPrice = state.data?.priceMin;
+        maxPrice = state.data?.priceMax;
+        return Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSizes.sW16,
+            vertical: AppSizes.sH16,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            spacing: 16.sp,
+            children: [
+              Center(
+                child: CustomText(
+                  LocaleKeys.searchFilter.tr(),
+                  textStyle: TextStyle(
                     fontSize: FontSize.s16,
                     color: AppColors.buttonColor,
-                    fontWeight: FontWeight.bold)),
-          ),
-          SizedBox(height: AppSizes.sH18),
-          CustomText.titleMedium(LocaleKeys.purpose.tr(),
-              textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: AppColors.Text,
-                  )),
-          SizedBox(height: AppSizes.sH6),
-          SearchBottomSheetActions(),
-          SizedBox(height: AppSizes.sH4),
-          SearchBottomSheetForms(),
-          SizedBox(height: AppSizes.sH14),
-          CustomText(LocaleKeys.price.tr(),
-              textStyle: TextStyle(
-                fontSize: FontSize.s14,
-                color: AppColors.Text,
-              )),
-          SizedBox(height: AppSizes.sH6),
-          SearchBottomSheetPriceActions(),
-          SizedBox(height: AppSizes.sH18),
-          SearchBottomSheetRangeSlider(),
-          Padding(
-            padding: EdgeInsets.only(
-                top: AppSizes.sH16,
-                bottom: AppSizes.sH35,
-                right: AppSizes.sW16,
-                left: AppSizes.sW16),
-            child: CustomElevatedButton(
-                onPressed: () {
-                  Go.pop();
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              CustomText(
+                LocaleKeys.purpose.tr(),
+                textStyle: TextStyle(
+                  fontSize: FontSize.s14,
+                  color: AppColors.Text,
+                ),
+              ),
+
+              /// Purpose (Sell / Rent)
+              SearchBottomSheetType(
+                types: state.data?.type ?? [],
+                onChanged: (id) {
+                  typeId = id;
                 },
-                text: LocaleKeys.sure.tr()),
+              ),
+
+              /// Building type + Region
+              SearchBottomSheetForms(
+                buildingTypes: state.data?.purpose ?? [],
+                regions: state.data?.cities ?? [],
+                onBuildingTypeChanged: (id) {
+                  purposeId = id;
+                },
+                onRegionChanged: (id) {
+                  regionId = id;
+                  regionId = id;
+                },
+              ),
+
+              /// Price Range
+              SearchBottomSheetRangeSlider(
+                minPrice: state.data?.priceMin ?? 0,
+                maxPrice: state.data?.priceMax ?? 0,
+                onRangeChanged: (min, max) {
+                  minPrice = min;
+                  maxPrice = max;
+                },
+              ),
+
+              /// Confirm button
+              CustomElevatedButton(
+                onPressed: () {
+                  Go.pop({
+                    "purposeId": purposeId.toString(),
+                    "typeId": typeId.toString(),
+                    "cityId": regionId.toString(),
+                    "minPrice": minPrice?.toStringAsFixed(0),
+                    "maxPrice": maxPrice?.toStringAsFixed(0),
+                  });
+                },
+                text: LocaleKeys.sure.tr(),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

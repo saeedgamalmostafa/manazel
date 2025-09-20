@@ -59,29 +59,31 @@ class MyOrdersItemCard extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
+                                spacing: 4.sp,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SvgPicture.asset(AppAssets.svg.building.path),
-                                  Expanded(
-                                    child: CustomText.titleSmall(
-                                      title,
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .titleSmall
-                                          ?.copyWith(color: AppColors.Text),
-                                      maxLines: 1,
-                                    ),
+                                  CustomText.titleSmall(
+                                    title,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .titleSmall
+                                        ?.copyWith(color: AppColors.Text),
+                                    maxLines: 1,
                                   ),
-                                  SizedBox(
-                                    width: AppSizes.sW30,
+                                  const Spacer(),
+                                  Row(
+                                    spacing: 4.sp,
+                                    children: [
+                                      CustomText.titleSmall(rate,
+                                          textStyle: Theme.of(context)
+                                              .textTheme
+                                              .titleSmall
+                                              ?.copyWith(
+                                                  color: AppColors.Text)),
+                                      SvgPicture.asset(AppAssets.svg.star.path),
+                                    ],
                                   ),
-                                  CustomText.titleSmall(rate,
-                                      //"4.8",
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .titleSmall
-                                          ?.copyWith(color: AppColors.Text)),
-                                  SvgPicture.asset(AppAssets.svg.star.path),
                                 ],
                               ),
                               SizedBox(

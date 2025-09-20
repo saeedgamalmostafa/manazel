@@ -46,14 +46,6 @@ class ConfigurationInterceptor extends Interceptor {
     }
   }
 
-  // bool isNeedApproval(String key) {
-  //   if (key == 'needApproval') {
-  //     UserCubit.instance.setUserStatus(UserStatus.needApproval);
-  //   }
-  //   UserCubit.instance.setUserStatus(UserStatus.needApproval);
-  //   return false;
-  // }
-
   int? _mapErrorKeyToStatusCode(int statusCode) {
     switch (statusCode) {
       case 400:

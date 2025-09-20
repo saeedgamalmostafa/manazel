@@ -77,12 +77,11 @@ class CustomImageSliderState extends State<CustomImageSlider> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(
-              top: AppSizes.sH20, left: AppSizes.sW12, right: AppSizes.sW12),
-          child: SizedBox(
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 20.h),
+      child: Column(
+        children: [
+          SizedBox(
             height: AppSizes.sH125,
             child: PageView.builder(
               controller: _controller,
@@ -115,13 +114,14 @@ class CustomImageSliderState extends State<CustomImageSlider> {
               },
             ),
           ),
-        ),
-        SizedBox(height: AppSizes.sH17),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(widget.advertisement.length, _buildIndicator),
-        ),
-      ],
+          SizedBox(height: AppSizes.sH17),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:
+                List.generate(widget.advertisement.length, _buildIndicator),
+          ),
+        ],
+      ),
     );
   }
 }

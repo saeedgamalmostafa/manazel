@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:manazel/src/config/language/locale_keys.g.dart';
 import 'package:manazel/src/core/helpers/status_builder.dart';
-import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/base_model.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
 import 'package:manazel/src/core/widgets/custom_app_bar.dart';
 import 'package:manazel/src/core/widgets/custom_loading.dart';

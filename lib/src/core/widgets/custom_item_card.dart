@@ -53,9 +53,9 @@ class _CustomItemCardState extends State<CustomItemCard> {
                             topRight: Radius.circular(20.r),
                             bottomRight: Radius.circular(20.r)),
                         child: CachedImage(
-                          url: widget.propertyItem.images != null
-                              ? ""
-                              : widget.propertyItem.images!.first,
+                          url: widget.propertyItem.images!.isNotEmpty
+                              ? widget.propertyItem.images!.first
+                              : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE_MdEx5jqXS1AXGmgOxY_PJh7LF5ng2MMsE8PDceRgt_WSM7IxmS3HiIM0qz4F8QPD1o&usqp=CAU',
                           width: AppSizes.sW132,
                           height: AppSizes.sH128,
                         )),
@@ -135,7 +135,6 @@ class _CustomItemCardState extends State<CustomItemCard> {
                                         maxLines: 1,
                                         textAlign: TextAlign.start,
                                         widget.propertyItem.address,
-                                        //"عالريض، حي العزيزية",
                                         textStyle: TextStyle(
                                             fontSize: FontSize.s12,
                                             color: AppColors.Text)),
@@ -157,7 +156,6 @@ class _CustomItemCardState extends State<CustomItemCard> {
                                         width: AppSizes.sW4,
                                       ),
                                       CustomText(widget.propertyItem.price,
-                                          //"17,500 ر.س",
                                           textStyle: TextStyle(
                                               fontSize: FontSize.s12,
                                               color: AppColors.Text)),

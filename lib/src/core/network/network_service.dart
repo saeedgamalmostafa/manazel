@@ -1,4 +1,4 @@
-import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/base_model.dart';
 
 import 'network_request.dart';
 

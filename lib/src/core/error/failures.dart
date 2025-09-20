@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-abstract class Failure extends Equatable {
+class Failure extends Equatable {
   final String message;
   final String? code;
 
@@ -41,4 +41,8 @@ class TimeoutFailure extends Failure {
 
 class UnknownFailure extends Failure {
   const UnknownFailure(super.message, {super.code});
+}
+
+class NeedActiveFailure extends Failure {
+  const NeedActiveFailure(super.message, {super.code});
 }

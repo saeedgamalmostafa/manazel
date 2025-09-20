@@ -11,8 +11,6 @@ class BaseCrudUseCase {
   }
 }
 
-class CrudResponse {}
-
 enum HttpRequestType {
   get(requestMethod: RequestMethod.get),
   post(requestMethod: RequestMethod.post),

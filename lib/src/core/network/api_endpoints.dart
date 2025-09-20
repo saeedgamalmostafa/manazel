@@ -17,4 +17,8 @@ class ApiConstants {
   // property
   static const String property = '/api/v1/property';
   static const String reservations = '/api/v1/property/client/reservations';
+  static const String filter = '/api/v1/property/filter-data';
+
+  // settings
+  static const String editProifle = '  /api/v1/auth/edit-profile';
 }

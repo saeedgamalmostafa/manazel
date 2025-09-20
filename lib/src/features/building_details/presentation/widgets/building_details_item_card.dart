@@ -33,10 +33,9 @@ class BuildingDetailsItemCard extends StatelessWidget {
                 ),
                 color: AppColors.white,
                 child: Padding(
-                  padding: EdgeInsets.only(
-                      right: AppSizes.sW16,
-                      top: AppSizes.sH16,
-                      left: AppSizes.sW16),
+                  padding: EdgeInsets.all(
+                    AppSizes.sW16,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

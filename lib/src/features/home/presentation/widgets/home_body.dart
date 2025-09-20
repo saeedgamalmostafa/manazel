@@ -26,15 +26,22 @@ class _HomeBodyState extends State<HomeBody> {
                 child: SingleChildScrollView(
                   child: Column(children: [
                     CustomImageSlider(advertisement: data!.advertisements),
-                    HomeActions(
-                      onTabChanged: (index) {
-                        setState(() {
-                          _selected = index;
-                        });
-                      },
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          HomeActions(
+                            onTabChanged: (index) {
+                              setState(() {
+                                _selected = index;
+                              });
+                            },
+                          ),
+                          HomeItemsCard(
+                              properties: data.properties, tabIndex: _selected),
+                        ],
+                      ),
                     ),
-                    HomeItemsCard(
-                        properties: data.properties, tabIndex: _selected),
                   ]),
                 ),
               );
@@ -117,7 +124,7 @@ class HomeShimmer extends StatelessWidget {
                     SizedBox(width: AppSizes.sW12),
 
                     // text placeholders
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

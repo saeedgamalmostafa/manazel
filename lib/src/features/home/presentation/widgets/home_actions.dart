@@ -41,7 +41,7 @@ class _HomeActionsState extends State<HomeActions>
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(AppMargin.mH16),
+      margin: EdgeInsets.symmetric(horizontal: AppMargin.mH16),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(

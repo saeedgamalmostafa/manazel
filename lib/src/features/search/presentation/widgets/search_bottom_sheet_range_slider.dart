@@ -1,7 +1,16 @@
 part of '../../search_imports.dart';
 
 class SearchBottomSheetRangeSlider extends StatefulWidget {
-  const SearchBottomSheetRangeSlider({super.key});
+  final double? minPrice;
+  final double? maxPrice;
+  final void Function(double min, double max)? onRangeChanged;
+
+  const SearchBottomSheetRangeSlider({
+    super.key,
+    required this.minPrice,
+    required this.maxPrice,
+    this.onRangeChanged,
+  });
 
   @override
   State<SearchBottomSheetRangeSlider> createState() =>
@@ -10,35 +19,48 @@ class SearchBottomSheetRangeSlider extends StatefulWidget {
 
 class _SearchBottomSheetRangeSliderState
     extends State<SearchBottomSheetRangeSlider> with TickerProviderStateMixin {
-  TabController? _tabController;
   double _startValue = 10000;
   double _endValue = 20000;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _startValue = widget.minPrice ?? _startValue;
+    _endValue = widget.maxPrice ?? _endValue;
+  }
+
+  void _onRangeChanged(RangeValues values) {
+    setState(() {
+      _startValue = values.start;
+      _endValue = values.end;
+    });
+    widget.onRangeChanged?.call(_startValue, _endValue);
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        CustomText(
+          LocaleKeys.price.tr(),
+          textStyle: TextStyle(
+            fontSize: FontSize.s14,
+            color: AppColors.Text,
+          ),
+        ),
+        AppSizes.sH4.szH,
+        SearchBottomSheetPriceActions(
+          startValue: _startValue.toStringAsFixed(0),
+          endValue: _endValue.toStringAsFixed(0),
+        ),
         RangeSlider(
           values: RangeValues(_startValue, _endValue),
-          min: 10000,
-          max: 20000,
+          min: widget.minPrice ?? 10000,
+          max: widget.maxPrice ?? 20000,
           divisions: 10,
-          labels: RangeLabels(
-              "${_startValue.toInt()} ر.س", "${_endValue.toInt()} ر.س"),
-          onChanged: (RangeValues values) {
-            setState(() {
-              _startValue = values.start;
-              _endValue = values.end;
-            });
-          },
+          onChanged: _onRangeChanged,
           activeColor: AppColors.buttonColor,
-          //inactiveColor: Colors.blue[100],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

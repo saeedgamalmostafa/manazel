@@ -7,7 +7,7 @@ import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/core/helpers/status_builder.dart';
 import 'package:manazel/src/core/navigator/app_navigator.dart';
-import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/base_model.dart';
 import 'package:manazel/src/core/widgets/custom_app_bar.dart';
 import 'package:manazel/src/core/widgets/custom_loading.dart';
 import 'package:manazel/src/core/widgets/custom_shimmer.dart';

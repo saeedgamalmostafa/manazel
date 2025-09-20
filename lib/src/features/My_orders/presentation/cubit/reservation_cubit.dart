@@ -1,7 +1,7 @@
 import 'package:manazel/src/core/helpers/toast.dart';
 import 'package:manazel/src/core/network/api_endpoints.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/base_domain_imports.dart';
-import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/base_model.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
 
 class ReservationCubit extends AsyncCubit<BaseModel<List<ReservationModel>>?> {
@@ -62,7 +62,7 @@ class ReservationCubit extends AsyncCubit<BaseModel<List<ReservationModel>>?> {
 
     result.when(
       (response) {
-        if (response.pagination!.first.lastPage > currentPage) {
+        if (response.pagination!.lastPage > currentPage) {
           currentPage++;
         } else {
           hasMore = false;

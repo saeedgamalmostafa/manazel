@@ -7,11 +7,9 @@ import 'package:manazel/src/core/extensions/context_extension.dart';
 import 'package:manazel/src/core/extensions/padding_extension.dart';
 import 'package:manazel/src/core/extensions/sized_box_helper.dart';
 import 'package:manazel/src/core/extensions/text_style_extensions.dart';
-import 'package:manazel/src/core/widgets/app_text.dart';
 import 'package:manazel/src/core/widgets/image_widgets/cached_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../config/res/app_sizes.dart';
 import '../helpers/validators.dart';
 
 enum DropDownType {
@@ -156,7 +154,7 @@ class DefaultDropDownField<T> extends StatelessWidget {
         if (label != null)
           Text(
             label!,
-            style: const TextStyle(color: AppColors.primary).bold.s12,
+            style: const TextStyle(color: AppColors.Text).bold.s12,
           ),
         5.szH,
         Theme(
@@ -180,7 +178,15 @@ class DefaultDropDownField<T> extends StatelessWidget {
                     fillColor: Colors.white,
                     prefixIcon: prefixIcon,
                     contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
-                    hintText: hint,
+                    hint: Padding(
+                      padding: EdgeInsets.only(top: 16.h),
+                      child: Text(
+                        hint ?? '',
+                        style: const TextStyle(
+                                color: AppColors.hintText, fontSize: 12)
+                            .medium,
+                      ),
+                    ),
                     hintStyle:
                         const TextStyle(color: AppColors.hintText, fontSize: 12)
                             .medium,
