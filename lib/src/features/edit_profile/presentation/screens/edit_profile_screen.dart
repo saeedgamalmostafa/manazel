@@ -10,18 +10,9 @@ class EditProfileScreen extends StatelessWidget {
           title: LocaleKeys.editProfile.tr(),
           showBackArrow: true,
         ),
-        body: EditProfileBody(),
-        bottomNavigationBar: Padding(
-            padding: EdgeInsets.only(
-                top: AppSizes.sH16,
-                bottom: AppSizes.sH35,
-                right: AppSizes.sW16,
-                left: AppSizes.sW16),
-            child: CustomElevatedButton(
-              onPressed: () {
-                showDefaultBottomSheet(child: EditProfileBottomSheet());
-              },
-              text: LocaleKeys.sure.tr(),
-            )));
+        body: BlocProvider(
+          create: (context) => EditProfileCubit(),
+          child: const EditProfileBody(),
+        ));
   }
 }

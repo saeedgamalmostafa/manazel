@@ -20,5 +20,5 @@ class ApiConstants {
   static const String filter = '/api/v1/property/filter-data';
 
   // settings
-  static const String editProifle = '  /api/v1/auth/edit-profile';
+  static const String editProifle = '/api/v1/auth/edit-profile';
 }

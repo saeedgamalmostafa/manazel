@@ -11,9 +11,9 @@ class _EditProfileBottomSheet extends State<EditProfileBottomSheet> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Go.pop();
-      Go.push(AppLayoutScreen(currentIndex: 0));
+      Go.push(const AppLayoutScreen(currentIndex: 0));
     });
   }
 
@@ -26,11 +26,6 @@ class _EditProfileBottomSheet extends State<EditProfileBottomSheet> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Center(
-                // child: Image.asset(
-                //  // AppAssets.png.predictiveChart.path,
-                // ),
-                ),
             SizedBox(height: AppSizes.sH16),
             CustomText.titleLarge(
               Languages.currentLanguage.locale == const Locale("ar")
