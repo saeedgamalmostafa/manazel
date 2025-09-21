@@ -24,7 +24,10 @@ class SettingsBody extends StatelessWidget {
             imagePath: AppAssets.svg.smartPhone03.path,
             title: LocaleKeys.changePassword.tr(),
             onTap: () {
-              Go.push(const ChangePasswordScreen());
+              Go.push(OtpScreen(
+                otpType: OtpType.canCangePhone,
+                phone: cubit.userCubit.user.mobile ?? '',
+              ));
             },
           ),
           NotificationSettingItem(

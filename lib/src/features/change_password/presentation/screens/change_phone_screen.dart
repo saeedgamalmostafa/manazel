@@ -1,6 +1,7 @@
 part of '../../change_password_imports.dart';
-class ChangePasswordScreen extends StatelessWidget {
-  const ChangePasswordScreen({super.key});
+
+class ChangePhoneScreen extends StatelessWidget {
+  const ChangePhoneScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +10,7 @@ class ChangePasswordScreen extends StatelessWidget {
           title: LocaleKeys.changePassword.tr(),
           showBackArrow: true,
         ),
-        body: ChangePasswordBody(),
+        body: const ChangePhoneBody(),
         bottomNavigationBar: Padding(
             padding: EdgeInsets.only(
                 top: AppSizes.sH16,

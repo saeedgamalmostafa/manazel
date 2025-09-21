@@ -2,8 +2,8 @@ part of '../../otp_imports.dart';
 
 class OtpScreen extends StatelessWidget {
   final String phone;
-
-  const OtpScreen({super.key, required this.phone});
+  final OtpType otpType;
+  const OtpScreen({super.key, required this.phone, required this.otpType});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +19,7 @@ class OtpScreen extends StatelessWidget {
       body: BlocProvider(
         create: (context) => OtpCubit()
           ..phone = phone
+          ..otpType = otpType
           ..sendCode(),
         child: const OtpBody(),
       ),

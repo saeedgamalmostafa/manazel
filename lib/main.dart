@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:manazel/firebase_options.dart';
 import 'package:manazel/src/config/language/languages.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +20,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Future.wait(
     [EasyLocalization.ensureInitialized(), CacheStorage.init()],
+  );
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
   );
   SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],

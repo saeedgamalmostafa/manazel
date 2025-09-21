@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "214466907478",
+    "project_id": "manazel-c61ab",
+    "storage_bucket": "manazel-c61ab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214466907478:android:66ff66779524344b099af7",
+        "android_client_info": {
+          "package_name": "com.example.manazel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLGK7A1Xoq76hPUmls9fA9uzJ8yDKrnz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

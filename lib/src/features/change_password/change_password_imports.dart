@@ -16,12 +16,9 @@ import '../../core/widgets/default_bottom_sheet.dart';
 import '../app_layout/app_layout_imports.dart';
 import '../rate/rate_imports.dart';
 
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
 
-
-part 'presentation/screens/change_password_screen.dart';
+part 'presentation/screens/change_phone_screen.dart';
 part 'presentation/widgets/change_password_body.dart';
 part 'presentation/widgets/change_password_bottom_sheet.dart';

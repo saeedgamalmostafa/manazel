@@ -1,8 +1,7 @@
 part of '../../change_password_imports.dart';
 
-
-class ChangePasswordBody extends StatelessWidget {
-  const ChangePasswordBody({super.key});
+class ChangePhoneBody extends StatelessWidget {
+  const ChangePhoneBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,9 @@ class ChangePasswordBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: AppSizes.sH120,),
+          SizedBox(
+            height: AppSizes.sH120,
+          ),
           Center(
             child: Container(
               child: Image.asset(
@@ -26,7 +27,9 @@ class ChangePasswordBody extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: AppSizes.sH28,),
+          SizedBox(
+            height: AppSizes.sH28,
+          ),
           CustomText.titleMedium(LocaleKeys.newMobileNumber.tr(),
               textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
                   color: AppColors.Text, fontWeight: FontWeight.normal)),
@@ -35,12 +38,12 @@ class ChangePasswordBody extends StatelessWidget {
           ),
           Row(
             children: [
-              Expanded(child: CustomTextFormField(
-                    textInputType: TextInputType.number,
-                    textInputAction: TextInputAction.done,
-                    hintText: LocaleKeys.enterNewMobileNumber.tr(),
-                  )
-              ),
+              Expanded(
+                  child: CustomTextFormField(
+                textInputType: TextInputType.number,
+                textInputAction: TextInputAction.done,
+                hintText: LocaleKeys.enterNewMobileNumber.tr(),
+              )),
               const CustomCountyDropDown(),
             ],
           ),

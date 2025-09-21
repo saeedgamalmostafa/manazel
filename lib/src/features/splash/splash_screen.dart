@@ -1,9 +1,12 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
+import 'package:manazel/src/config/res/constants_manager.dart';
 import 'package:manazel/src/core/navigator/app_navigator.dart';
+import 'package:manazel/src/core/notification/notification_service.dart';
 import 'package:manazel/src/core/shared/cubits/user_cubit/user_cubit.dart';
 import 'package:manazel/src/features/app_layout/app_layout_imports.dart';
 
@@ -23,18 +26,26 @@ class SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
+    _initApp();
+  }
+
+  void _initApp() async {
+    NotificationNavigator(
+            onRoutingMessage: (RemoteMessage message) {},
+            onNoInitialMessage: () {})
+        .init();
+
+    NotificationService().setupNotifications();
+
     _controller = AnimationController(
       duration: const Duration(seconds: 3),
       // Adjust duration to match your animation
       vsync: this,
     );
 
-    Future<bool> isUserLoggedIn = UserCubit.instance.init();
-
-    // Listen for animation completion
     _controller.addStatusListener((status) async {
       if (status == AnimationStatus.completed) {
-        if (await isUserLoggedIn) {
+        if (UserCubit.instance.isUserLoggedIn) {
           Go.pushAndRemoveUntil(const AppLayoutScreen(),
               transitionType: TransitionType.slideFromBottom);
         } else {

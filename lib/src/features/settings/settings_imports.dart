@@ -10,6 +10,8 @@ import 'package:manazel/src/core/widgets/buttons/loading_button.dart';
 import 'package:manazel/src/core/widgets/custom_more_item.dart';
 import 'package:manazel/src/features/change_password/change_password_imports.dart';
 import 'package:manazel/src/features/edit_profile/edit_profile_imports.dart';
+import 'package:manazel/src/features/otp/otp_imports.dart';
+import 'package:manazel/src/features/otp/presentation/cubit/otp_cubit.dart';
 import 'package:manazel/src/features/settings/presentation/cubit/settings_cubit.dart';
 
 import '../../config/language/languages.dart';
