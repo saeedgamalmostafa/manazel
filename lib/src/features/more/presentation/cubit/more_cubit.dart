@@ -2,22 +2,21 @@ import 'package:manazel/src/core/helpers/toast.dart';
 import 'package:manazel/src/core/navigator/app_navigator.dart';
 import 'package:manazel/src/core/network/api_endpoints.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/base_domain_imports.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/base_model.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
 import 'package:manazel/src/core/shared/cubits/user_cubit/user_cubit.dart';
-import 'package:manazel/src/core/shared/models/user_model.dart';
 import 'package:manazel/src/features/login/login_imports.dart';
 
-class SettingsCubit extends AsyncCubit {
-  SettingsCubit() : super(null);
+class MoreCubit extends AsyncCubit {
+  MoreCubit() : super(null);
+  final UserCubit userCubit = UserCubit.instance;
 
-  UserCubit userCubit = UserCubit.instance;
-
-  Future<void> deleteAccount() async {
+  Future<void> logOut() async {
     final result = await baseCrudUseCase(
       CrudBaseParams(
-          api: ApiConstants.deleteAccount,
+          api: ApiConstants.logout,
           httpRequestType: HttpRequestType.post,
-          mapper: (json) => {}),
+          mapper: (json) {}),
     );
 
     result.when(
@@ -28,27 +27,6 @@ class SettingsCubit extends AsyncCubit {
           const LoginScreen(),
           transitionType: TransitionType.slideFromTop,
         );
-      },
-      (error) {
-        setError(errorMessage: error.message, showToast: true);
-      },
-    );
-  }
-
-  Future<void> changeNotifier(bool val) async {
-    setLoading();
-    final result = await baseCrudUseCase<UserModel>(
-      CrudBaseParams(
-          api: ApiConstants.changeNotfiy,
-          httpRequestType: HttpRequestType.post,
-          body: {'notification': val},
-          mapper: (json) => UserModel.fromJson(json['user'])),
-    );
-
-    result.when(
-      (response) {
-        showSuccessToast(response.msg ?? '');
-        userCubit.updateUser(response.data!);
       },
       (error) {
         setError(errorMessage: error.message, showToast: true);

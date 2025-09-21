@@ -6,6 +6,8 @@ class ApiConstants {
   static const String sendOtp = '/api/v1/auth/send-otp';
 
   static const String deleteAccount = '/api/v1/auth/delete-account';
+  static const String logout = '/api/v1/auth/logout';
+  static const String changeNotfiy = '/api/v1/auth/edit-preferences';
 
   // home
   static const String home = '/api/v1/home';

@@ -64,7 +64,11 @@ class MoreBody extends StatelessWidget {
             imagePath: AppAssets.svg.elements1.path,
             title: LocaleKeys.logOut.tr(),
             onTap: () {
-              LogoutBottomSheet.show(context);
+              showDefaultBottomSheet(
+                  child: BlocProvider.value(
+                value: context.read<MoreCubit>(),
+                child: const LogOutWidget(),
+              ));
             },
             isLogout: true,
           ),

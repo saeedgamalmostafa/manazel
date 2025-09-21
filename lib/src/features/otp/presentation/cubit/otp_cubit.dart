@@ -76,7 +76,7 @@ class OtpCubit extends AsyncCubit {
     result.when(
       (response) {
         setSuccess(data: response);
-        showSuccessToast(response.msg);
+        showSuccessToast(response.msg ?? '');
       },
       (error) {
         showErrorToast(error.message);

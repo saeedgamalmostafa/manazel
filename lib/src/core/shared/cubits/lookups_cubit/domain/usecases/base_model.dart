@@ -1,6 +1,6 @@
 class BaseModel<D> {
   final bool? success;
-  final String msg;
+  final String? msg;
   final dynamic error;
   final Pagination? pagination;
   final dynamic extras;
@@ -8,7 +8,7 @@ class BaseModel<D> {
 
   BaseModel({
     this.success,
-    required this.msg,
+    this.msg,
     this.error,
     this.pagination,
     this.extras,

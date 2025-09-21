@@ -29,7 +29,7 @@ class FavCubit extends AsyncCubit<BaseModel<List<FavouriteModel>>?> {
       (response) async {
         isFavLoading = false;
         await deleteFav(id);
-        showSuccessToast(response.msg);
+        showSuccessToast(response.msg ?? '');
       },
       (error) {
         setError(errorMessage: error.message);

@@ -10,6 +10,9 @@ class MoreScreen extends StatelessWidget {
         appBar: CustomAppBar(
           title: LocaleKeys.more.tr(),
         ),
-        body: const MoreBody());
+        body: BlocProvider(
+          create: (context) => MoreCubit(),
+          child: const MoreBody(),
+        ));
   }
 }

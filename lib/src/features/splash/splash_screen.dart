@@ -4,7 +4,6 @@ import 'package:lottie/lottie.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
-import 'package:manazel/src/config/res/constants_manager.dart';
 import 'package:manazel/src/core/navigator/app_navigator.dart';
 import 'package:manazel/src/core/notification/notification_service.dart';
 import 'package:manazel/src/core/shared/cubits/user_cubit/user_cubit.dart';
@@ -43,9 +42,11 @@ class SplashScreenState extends State<SplashScreen>
       vsync: this,
     );
 
+    final isUserLoggedIn = await UserCubit.instance.init();
+
     _controller.addStatusListener((status) async {
       if (status == AnimationStatus.completed) {
-        if (UserCubit.instance.isUserLoggedIn) {
+        if (isUserLoggedIn) {
           Go.pushAndRemoveUntil(const AppLayoutScreen(),
               transitionType: TransitionType.slideFromBottom);
         } else {
