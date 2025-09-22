@@ -5,6 +5,7 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.locale;
     return Column(
       children: [
         Padding(
@@ -23,10 +24,11 @@ class LoginBody extends StatelessWidget {
                 children: [
                   AuthTitledHeader(
                       title:
-                          Languages.currentLanguage.locale == const Locale("ar")
-                              ? "مرحبا بعودتك\u{1F44B}!"
-                              : "Welcome Back\u{1F44B}!",
-                      description: LocaleKeys.plzEnterLoginData.tr()),
+                      Languages.currentLanguage.locale == const Locale("ar")
+                          ? "مرحبا بعودتك\u{1F44B}!"
+                          : "Welcome Back\u{1F44B}!",
+                      description:
+                      LocaleKeys.plzEnterLoginData.tr()),
                   const LoginForms(),
                   const LoginActions(),
                 ],

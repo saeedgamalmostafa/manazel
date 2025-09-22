@@ -34,9 +34,7 @@ class _SplashScreenState extends State<SplashScreen>
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         Go.pushAndRemoveUntil(
-            const AppLayoutScreen(
-              currentIndex: 0,
-            ),
+            const LoginScreen(),
             transitionType: TransitionType.slideFromBottom);
       }
     });

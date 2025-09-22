@@ -1,32 +1,82 @@
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
-import 'package:manazel/src/core/shared/models/user_model.dart';
-import 'package:manazel/src/features/login/domain/use_case/login_usecase.dart';
+import 'dart:async';
+import 'dart:developer';
+import 'package:flutter/material.dart';
+import 'package:manazel/src/config/res/constants_manager.dart';
+import 'package:manazel/src/core/navigator/app_navigator.dart';
+import 'package:manazel/src/core/network/api_endpoints.dart';
+import 'package:manazel/src/core/network/network_service.dart';
+import 'package:manazel/src/core/shared/cubits/base_cubit/async_cubit.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/base_domain_imports.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/pagination_response.dart';
+import 'package:manazel/src/features/otp/otp_imports.dart';
 
-import '../../../../core/helpers/request_state.dart';
-import '../../domain/entitiy/user.dart';
+import '../../../../core/shared/Functions/di.dart';
 
-part 'login_state.dart';
-
-class LoginCubit extends Cubit<LoginState> {
-  final LoginUseCase _loginUseCase;
-
-  LoginCubit(this._loginUseCase) : super(const LoginState());
-
-  void onPhoneChanged(String phone) {
-    emit(state.copyWith(phone: phone));
-  }
+class LoginCubit extends AsyncCubit<BaseModel?> with LoginContrlers {
+  LoginCubit() : super(null);
 
   Future<void> login() async {
-    try {
-      emit(state.copyWith(requestState: RequestState.loading));
-      final user = await _loginUseCase(LoginUseCaseParams(
-          phone: state.phone, type: "client", fcmToken: "fcmToken"));
-      emit(state.copyWith(requestState: RequestState.success, user: user.data));
-    } catch (e) {
-      emit(state.copyWith(
-          requestState: RequestState.error, error: e.toString()));
-    }
+    if (!formKey.currentState!.validate()) return;
+    setLoading();
+    injector<NetworkService>().removeToken();
+
+    final result = await baseCrudUseCase<List<UserAuthModel>>(
+      CrudBaseParams(
+        api: ApiConstants.login,
+        httpRequestType: HttpRequestType.post,
+        body: {
+          'mobile': '+966${phoneController.text}',
+          'cloud_messaging_token': ConstantManager.token,
+          'type': 'client',
+        },
+        mapper: (json) =>
+            (json as List).map((e) => UserAuthModel.fromJson(e)).toList(),
+      ),
+    );
+
+    result.when(
+          (response) {
+        final token = response.data?.first.accessToken;
+
+        if (token != null) {
+          injector<NetworkService>().setToken(token);
+        }
+
+        Go.push(
+          OtpScreen(
+           // phone: '+966${phoneController.text}',
+          ),
+          transitionType: TransitionType.slideFromRight,
+        );
+      },
+          (error) {
+        setError(errorMessage: error.message, showToast: true);
+      },
+    );
+  }
+}
+
+mixin LoginContrlers {
+  final formKey = GlobalKey<FormState>();
+  final phoneController = TextEditingController();
+}
+
+class UserAuthModel {
+  final String verificationCode;
+  final String accessToken;
+  final bool isActive;
+
+  UserAuthModel({
+    required this.verificationCode,
+    required this.accessToken,
+    required this.isActive,
+  });
+
+  factory UserAuthModel.fromJson(Map<String, dynamic> json) {
+    return UserAuthModel(
+      verificationCode: json['verification_code'].toString(),
+      accessToken: json['access_token'].toString(),
+      isActive: json['is_active'] == true,
+    );
   }
 }
