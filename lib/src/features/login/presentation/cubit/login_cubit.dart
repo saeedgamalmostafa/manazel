@@ -15,38 +15,7 @@ class LoginCubit extends AsyncCubit<UserAuthModel?> with LoginContrlers {
   LoginCubit() : super(null);
 
   Future<void> login() async {
-    if (!formKey.currentState!.validate()) return;
-    setLoading();
-    injector<NetworkService>().removeToken();
 
-    final result = await baseCrudUseCase<UserAuthModel>(CrudBaseParams(
-        api: ApiConstants.login,
-        httpRequestType: HttpRequestType.post,
-        body: {
-          'mobile': '+966${phoneController.text}',
-          'cloud_messaging_token': NotificationService.deviceToken,
-          'type': 'client',
-        },
-        mapper: (json) => UserAuthModel.fromJson(json['user'])));
-    result.when(
-      (response) {
-        final token = response.data?.accessToken;
-
-        if (token != null) {
-          injector<NetworkService>().setToken(token);
-        }
-        Go.push(
-          OtpScreen(
-            otpType: OtpType.auth,
-            phone: '+966${phoneController.text}',
-          ),
-          transitionType: TransitionType.slideFromRight,
-        );
-      },
-      (error) {
-        setError(errorMessage: error.message, showToast: true);
-      },
-    );
   }
 }
 
