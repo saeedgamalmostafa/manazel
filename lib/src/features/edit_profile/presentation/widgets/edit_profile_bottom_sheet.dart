@@ -26,6 +26,7 @@ class _EditProfileBottomSheet extends State<EditProfileBottomSheet> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            AppAssets.lottie.done.lottie(),
             SizedBox(height: AppSizes.sH16),
             CustomText.titleLarge(
               Languages.currentLanguage.locale == const Locale("ar")

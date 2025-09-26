@@ -153,7 +153,7 @@ class ReservationModel {
 class Property {
   final int id;
   final String title;
-  final List<String> images;
+  final List<String>? images;
   final String rate;
 
   Property({

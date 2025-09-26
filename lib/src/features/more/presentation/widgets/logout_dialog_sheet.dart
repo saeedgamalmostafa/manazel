@@ -11,14 +11,8 @@ class LogOutWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         // Icon in card
-        Image.asset(
-          'assets/gif/log_out.gif',
-          width: 120.w,
-          height: 120.h,
-          fit: BoxFit.contain,
-        ),
-        const SizedBox(height: 28),
-        CustomText(LocaleKeys.doYouWantLogout.tr(),
+        AppAssets.lottie.logout.lottie(height: 250.h),
+        CustomText(LocaleKeys.doYouWantToLogout,
             textStyle: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,

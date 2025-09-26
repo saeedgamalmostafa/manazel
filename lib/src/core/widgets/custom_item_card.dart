@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:manazel/src/core/extensions/context_extension.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
 
 import 'package:manazel/src/core/widgets/image_widgets/cached_image.dart';
@@ -32,7 +33,7 @@ class _CustomItemCardState extends State<CustomItemCard> {
   @override
   Widget build(BuildContext context) {
     final cubit = widget.favCubit ?? context.read<FavCubit?>();
-
+    final isArabic = context.isArabic;
     return GestureDetector(
         onTap: widget.onTap,
         child: Padding(
@@ -42,7 +43,7 @@ class _CustomItemCardState extends State<CustomItemCard> {
               height: AppSizes.sH128,
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                 ),
                 color: AppColors.white,
                 child: Row(
@@ -50,8 +51,15 @@ class _CustomItemCardState extends State<CustomItemCard> {
                   children: [
                     ClipRRect(
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20.r),
-                            bottomRight: Radius.circular(20.r)),
+                          topRight:
+                              isArabic ? Radius.circular(20.r) : Radius.zero,
+                          bottomRight:
+                              isArabic ? Radius.circular(20.r) : Radius.zero,
+                          topLeft:
+                              !isArabic ? Radius.circular(20.r) : Radius.zero,
+                          bottomLeft:
+                              !isArabic ? Radius.circular(20.r) : Radius.zero,
+                        ),
                         child: CachedImage(
                           url: widget.propertyItem.images!.isNotEmpty
                               ? widget.propertyItem.images!.first
@@ -101,8 +109,8 @@ class _CustomItemCardState extends State<CustomItemCard> {
                                               child: cubit!.isFavLoading
                                                   ? const CupertinoActivityIndicator()
                                                   : SizedBox(
-                                                      height: 30,
-                                                      width: 30,
+                                                      height: 30.h,
+                                                      width: 30.w,
                                                       child: SvgPicture.asset(
                                                         !widget
                                                                 .propertyItem
@@ -164,7 +172,6 @@ class _CustomItemCardState extends State<CustomItemCard> {
                                   Row(
                                     children: [
                                       CustomText(widget.propertyItem.rate,
-                                          //"4.8",
                                           textStyle: TextStyle(
                                               fontSize: FontSize.s12,
                                               color: AppColors.Text)),

@@ -38,7 +38,6 @@ class SplashScreenState extends State<SplashScreen>
 
     _controller = AnimationController(
       duration: const Duration(seconds: 3),
-      // Adjust duration to match your animation
       vsync: this,
     );
 
@@ -68,10 +67,10 @@ class SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary, // Set your preferred background color
+      backgroundColor: AppColors.primary,
       body: Center(
         child: Lottie.asset(
-          AppAssets.lottie.manazelLogo.path, // Your Lottie file path
+          AppAssets.lottie.manazelLogo.path,
           controller: _controller,
           onLoaded: (composition) {
             _controller

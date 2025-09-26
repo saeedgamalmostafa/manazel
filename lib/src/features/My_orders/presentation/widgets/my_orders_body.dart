@@ -54,7 +54,9 @@ class _MyOrdersBodyState extends State<MyOrdersBody> {
                       }
                       final model = data.data![index];
                       return MyOrdersItemCard(
-                        imagePath: AppAssets.png.itemPhoto.path,
+                        orderImage: model.property.images!.isNotEmpty
+                            ? model.property.images!.first
+                            : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE_MdEx5jqXS1AXGmgOxY_PJh7LF5ng2MMsE8PDceRgt_WSM7IxmS3HiIM0qz4F8QPD1o&usqp=CAU',
                         title: model.property.title,
                         profileName: model.name,
                         calendar: model.appointment.dateTimeFormatted,

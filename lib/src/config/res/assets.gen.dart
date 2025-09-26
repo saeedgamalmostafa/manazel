@@ -82,6 +82,10 @@ class $AssetsLottieGen {
   LottieGenImage get apiError =>
       const LottieGenImage('assets/lottie/api_error.json');
 
+  /// File path: assets/lottie/cross_mark.json
+  LottieGenImage get crossMark =>
+      const LottieGenImage('assets/lottie/cross_mark.json');
+
   /// File path: assets/lottie/done.json
   LottieGenImage get done => const LottieGenImage('assets/lottie/done.json');
 
@@ -123,6 +127,7 @@ class $AssetsLottieGen {
   /// List of all assets
   List<LottieGenImage> get values => [
     apiError,
+    crossMark,
     done,
     emptyBox,
     emptyCart,

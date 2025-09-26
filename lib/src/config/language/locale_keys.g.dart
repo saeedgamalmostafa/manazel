@@ -256,8 +256,8 @@ abstract class LocaleKeys {
   static const String _logOut = 'log_out';
   static String get logOut => _logOut.tr();
 
-  static const String _doYouWantLogout = 'do_you_want_logout';
-  static String get doYouWantLogout => _doYouWantLogout.tr();
+  static const String _doYouWantToLogout = 'do_you_want_to_logout_';
+  static String get doYouWantToLogout => _doYouWantToLogout.tr();
 
   static const String _yes = 'yes';
   static String get yes => _yes.tr();
@@ -412,8 +412,8 @@ abstract class LocaleKeys {
   static const String _price = 'price';
   static String get price => _price.tr();
 
-  static const String _doWantToDeleteAccount = 'do_want_to_delete_account';
-  static String get doWantToDeleteAccount => _doWantToDeleteAccount.tr();
+  static const String _doYouWantToDeleteYourAccount = 'do_you_want_to_delete_your_account';
+  static String get doYouWantToDeleteYourAccount => _doYouWantToDeleteYourAccount.tr();
 
   static const String _moneyInWalletYouWillLose = 'money_in_wallet_you_will_lose';
   static String get moneyInWalletYouWillLose => _moneyInWalletYouWillLose.tr();

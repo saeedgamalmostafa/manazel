@@ -1,7 +1,7 @@
 part of '../../my_orders_imports.dart';
 
 class MyOrdersItemCard extends StatelessWidget {
-  final String imagePath;
+  final String orderImage;
   final String title;
   final String profileName;
   final String calendar;
@@ -10,7 +10,7 @@ class MyOrdersItemCard extends StatelessWidget {
   const MyOrdersItemCard({
     super.key,
     this.onTap,
-    required this.imagePath,
+    required this.orderImage,
     required this.title,
     required this.profileName,
     required this.calendar,
@@ -18,6 +18,7 @@ class MyOrdersItemCard extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    final isArabic = context.isArabic;
     return GestureDetector(
         onTap: () {},
         child: Padding(
@@ -34,21 +35,21 @@ class MyOrdersItemCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(20.r),
-                          bottomRight: Radius.circular(20.r)),
-                      child: SizedBox(
-                        width: AppSizes.sW132,
-                        height: AppSizes.sH128,
-                        child: Image.asset(
-                          imagePath,
-                          // AppAssets.png.itemPhoto.path,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: double.infinity,
+                        borderRadius: BorderRadius.only(
+                          topRight:
+                              isArabic ? Radius.circular(20.r) : Radius.zero,
+                          bottomRight:
+                              isArabic ? Radius.circular(20.r) : Radius.zero,
+                          topLeft:
+                              !isArabic ? Radius.circular(20.r) : Radius.zero,
+                          bottomLeft:
+                              !isArabic ? Radius.circular(20.r) : Radius.zero,
                         ),
-                      ),
-                    ),
+                        child: CachedImage(
+                          url: orderImage,
+                          width: AppSizes.sW132,
+                          height: AppSizes.sH128,
+                        )),
                     Expanded(
                       child: Padding(
                         padding: EdgeInsets.symmetric(

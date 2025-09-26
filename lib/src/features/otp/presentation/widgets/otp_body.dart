@@ -28,6 +28,7 @@ class OtpBody extends StatelessWidget {
                       title: LocaleKeys.verificationCode,
                       description: LocaleKeys
                           .pleaseEnterTheVerificationCodeSentToYourMobilePhone),
+                  AppAssets.lottie.done.lottie(),
                   const OtpForms(),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),

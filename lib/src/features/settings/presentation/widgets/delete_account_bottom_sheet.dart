@@ -25,7 +25,7 @@ class DeleteAccountBottomSheet {
                 spacing: 4.sp,
                 children: [
                   CustomText.titleLarge(
-                    LocaleKeys.doWantToDeleteAccount.tr(),
+                    LocaleKeys.doYouWantToDeleteYourAccount,
                     textStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold, color: AppColors.Text),
                   ),

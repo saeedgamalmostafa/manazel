@@ -11,9 +11,9 @@ class _BookDoneBottomSheetState extends State<BookDoneBottomSheet> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Go.pop();
-      Go.push(AppLayoutScreen(currentIndex: 0));
+      Go.push(const AppLayoutScreen(currentIndex: 0));
     });
   }
 
@@ -26,11 +26,7 @@ class _BookDoneBottomSheetState extends State<BookDoneBottomSheet> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Center(
-              child: Image.asset(
-                AppAssets.png.predictiveChart.path,
-              ),
-            ),
+            AppAssets.lottie.done.lottie(),
             SizedBox(height: AppSizes.sH16),
             CustomText.titleLarge(
               Languages.currentLanguage.locale == const Locale("ar")

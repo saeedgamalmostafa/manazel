@@ -38,6 +38,7 @@ class _SearchBottomSheetTypeState extends State<SearchBottomSheetType> {
     return SizedBox(
       height: AppSizes.sH46,
       child: Row(
+        spacing: 8.sp,
         children: widget.types.map((type) {
           final isSelected = selectedId == type.id;
           return Expanded(

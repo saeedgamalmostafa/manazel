@@ -11,14 +11,14 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-import 'package:manazel/src/core/network/dio_service.dart';
-import 'package:manazel/src/core/shared/cubits/lookups_cubit/data/base_data_imports.dart';
-import 'package:manazel/src/core/shared/cubits/user_cubit/user_cubit.dart';
 
+import '../../network/dio_service.dart' as _i37;
 import '../../network/network_service.dart' as _i632;
+import '../cubits/lookups_cubit/data/base_data_imports.dart' as _i1052;
 import '../cubits/lookups_cubit/domain/base_domain_imports.dart' as _i961;
 import '../cubits/lookups_cubit/presentation/cubit/get_base_name_and_id/get_base_name_and_id_cubit.dart'
     as _i563;
+import '../cubits/user_cubit/user_cubit.dart' as _i996;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -33,12 +33,13 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i563.GetBaseEntityCubit<dynamic>>(
         () => _i563.GetBaseEntityCubit());
-    gh.lazySingleton<UserCubit>(() => UserCubit());
-    gh.lazySingleton<_i632.NetworkService>(() => DioService());
-    gh.lazySingleton<BaseRemoteDataSource>(
-        () => BaseRemoteDataSourceImpl(dioService: gh<_i632.NetworkService>()));
-    gh.lazySingleton<_i961.BaseRepository>(() =>
-        BaseRepositoryImpl(baseRemoteDataSource: gh<BaseRemoteDataSource>()));
+    gh.lazySingleton<_i996.UserCubit>(() => _i996.UserCubit());
+    gh.lazySingleton<_i632.NetworkService>(() => _i37.DioService());
+    gh.lazySingleton<_i1052.BaseRemoteDataSource>(() =>
+        _i1052.BaseRemoteDataSourceImpl(
+            dioService: gh<_i632.NetworkService>()));
+    gh.lazySingleton<_i961.BaseRepository>(() => _i1052.BaseRepositoryImpl(
+        baseRemoteDataSource: gh<_i1052.BaseRemoteDataSource>()));
     gh.lazySingleton<_i961.BaseCrudUseCase>(
         () => _i961.BaseCrudUseCase(repository: gh<_i961.BaseRepository>()));
     gh.lazySingleton<_i961.GetBaseEntityUseCase>(() =>

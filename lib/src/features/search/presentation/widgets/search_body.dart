@@ -21,6 +21,7 @@ class _SearchBodyState extends State<SearchBody> {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: AppSizes.sH16),
       child: Column(
+        spacing: 6.sp,
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: AppSizes.sW16),
@@ -66,7 +67,7 @@ class _SearchBodyState extends State<SearchBody> {
                       isScrollControlled: true,
                       shape: RoundedRectangleBorder(
                         borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(20.r)),
+                            BorderRadius.vertical(top: Radius.circular(30.r)),
                       ),
                       builder: (context) {
                         return Padding(
