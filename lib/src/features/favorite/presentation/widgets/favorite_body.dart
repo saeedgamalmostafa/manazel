@@ -54,10 +54,10 @@ class _FavoriteBodyState extends State<FavoriteBody> {
                         }
                       }
                       return CustomItemCard(
-                        favCubit: context.read<FavCubit>(),
                         propertyItem: state.data!.data![index].property,
                         onTap: () {
                           Go.push(PropertyDetailsScreen(
+                            favCubit: context.read<FavCubit>(),
                             id: state.data!.data![index].property.id,
                           )).then((value) {
                             if (context.mounted) {

@@ -116,33 +116,30 @@ class _BuildingDetailsImageSliderState
                   children: [
                     const CustomBackButton(),
                     const Spacer(),
-                    BlocProvider(
-                      create: (context) => FavCubit(),
-                      child: BlocBuilder<FavCubit, AsyncState>(
-                        builder: (context, state) {
-                          final cubit = context.read<FavCubit>();
-                          return ValueListenableBuilder(
-                              valueListenable: widget.model.isFavourite,
-                              builder: (context, value, child) {
-                                return CustomCirclurButton(
-                                  loadingWidget: cubit.isFavLoading
-                                      ? const Center(
-                                          child: CupertinoActivityIndicator())
-                                      : null,
-                                  imagepath: !widget.model.isFavourite.value
-                                      ? AppAssets.svg.favoritePrimaryBorder.path
-                                      : AppAssets.svg.favoritePrimary.path,
-                                  onTap: () {
-                                    cubit.toggleFav(widget.model.id.toString());
+                    BlocBuilder<FavCubit, AsyncState>(
+                      builder: (context, state) {
+                        final cubit = context.read<FavCubit>();
+                        return ValueListenableBuilder(
+                            valueListenable: widget.model.isFavourite,
+                            builder: (context, value, child) {
+                              return CustomCirclurButton(
+                                loadingWidget: cubit.isFavLoading
+                                    ? const Center(
+                                        child: CupertinoActivityIndicator())
+                                    : null,
+                                imagepath: !widget.model.isFavourite.value
+                                    ? AppAssets.svg.favoritePrimaryBorder.path
+                                    : AppAssets.svg.favoritePrimary.path,
+                                onTap: () {
+                                  cubit.toggleFav(widget.model.id.toString());
 
-                                    widget.model.isFavourite.value = !value;
-                                  },
-                                  height: AppSizes.sH40,
-                                  width: AppSizes.sW40,
-                                );
-                              });
-                        },
-                      ),
+                                  widget.model.isFavourite.value = !value;
+                                },
+                                height: AppSizes.sH40,
+                                width: AppSizes.sW40,
+                              );
+                            });
+                      },
                     ),
                   ],
                 ),

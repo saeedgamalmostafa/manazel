@@ -27,14 +27,12 @@ class HomeItemsCard extends StatelessWidget {
             child: SlideAnimation(
               verticalOffset: 20.0,
               child: FadeInAnimation(
-                child: BlocProvider(
-                  create: (context) => FavCubit(),
-                  child: CustomItemCard(
-                    propertyItem: items[i],
-                    onTap: () => Go.push(PropertyDetailsScreen(
-                      id: items[i].id,
-                    )),
-                  ),
+                child: CustomItemCard(
+                  propertyItem: items[i],
+                  onTap: () => Go.push(PropertyDetailsScreen(
+                    favCubit: context.read<FavCubit>(),
+                    id: items[i].id,
+                  )),
                 ),
               ),
             ),

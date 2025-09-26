@@ -11,9 +11,14 @@ class _AppLayoutViewState extends State<AppLayoutScreen>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          AppLayoutCubit()..initData(this, widget.currentIndex),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AppLayoutCubit>(
+          create: (context) =>
+              AppLayoutCubit()..initData(this, widget.currentIndex),
+        ),
+        BlocProvider<FavCubit>(create: (context) => FavCubit.instance),
+      ],
       child: BlocBuilder<AppLayoutCubit, AppLayoutState>(
         builder: (context, state) {
           return DefaultTabController(

@@ -2,7 +2,8 @@ part of '../../building_details_imports.dart';
 
 class PropertyDetailsScreen extends StatelessWidget {
   final int id;
-  const PropertyDetailsScreen({super.key, required this.id});
+  final FavCubit? favCubit;
+  const PropertyDetailsScreen({super.key, required this.id, this.favCubit});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class PropertyDetailsScreen extends StatelessWidget {
       backgroundColor: AppColors.scaffoldBackground,
       body: BlocProvider(
         create: (context) => PropertyDetailsCubit()..fetchPropertyDetails(id),
-        child: const BuildingDetailsBody(),
+        child: BuildingDetailsBody(favCubit: favCubit!),
       ),
     );
   }

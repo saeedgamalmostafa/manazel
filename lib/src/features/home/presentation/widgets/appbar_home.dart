@@ -53,7 +53,10 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
           ),
           InkWell(
             onTap: () {
-              Go.push(SearchScreen());
+              Go.push(BlocProvider.value(
+                value: context.read<FavCubit>(),
+                child: const SearchScreen(),
+              ));
             },
             child: CustomCirclurButton(
               imagepath: AppAssets.svg.search.path,
@@ -61,10 +64,10 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
               width: AppSizes.sW44,
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           InkWell(
             onTap: () {
-              Go.push(NotificationsScreen());
+              Go.push(const NotificationsScreen());
             },
             child: CustomCirclurButton(
               imagepath: AppAssets.svg.notificationPrimary.path,

@@ -1,7 +1,8 @@
 part of '../../building_details_imports.dart';
 
 class BuildingDetailsBody extends StatelessWidget {
-  const BuildingDetailsBody({super.key});
+  final FavCubit favCubit;
+  const BuildingDetailsBody({super.key, required this.favCubit});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +18,11 @@ class BuildingDetailsBody extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 200),
                     child: Column(
                       children: [
-                        BuildingDetailsImageSlider(
-                          model: state.data!,
+                        BlocProvider.value(
+                          value: favCubit,
+                          child: BuildingDetailsImageSlider(
+                            model: state.data!,
+                          ),
                         ),
                         BuildingDetailsItemCard(
                           imagePath: AppAssets.png.itemPhoto.path,

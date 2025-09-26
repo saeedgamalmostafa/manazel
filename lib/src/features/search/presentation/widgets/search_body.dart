@@ -163,14 +163,12 @@ class _PropertyListState extends State<PropertyList> {
                       return const SizedBox.shrink();
                     }
                   }
-                  return BlocProvider(
-                    create: (context) => FavCubit(),
-                    child: CustomItemCard(
-                      propertyItem: data.data![index],
-                      onTap: () => Go.push(PropertyDetailsScreen(
-                        id: data.data![index].id,
-                      )),
-                    ),
+                  return CustomItemCard(
+                    propertyItem: data.data![index],
+                    onTap: () => Go.push(PropertyDetailsScreen(
+                      favCubit: context.read<FavCubit>(),
+                      id: data.data![index].id,
+                    )),
                   );
                 },
               );
