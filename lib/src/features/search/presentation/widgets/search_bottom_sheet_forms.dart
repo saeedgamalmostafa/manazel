@@ -11,7 +11,7 @@ class SearchBottomSheetForms extends StatefulWidget {
 
   final List<DropDownItem> buildingTypes;
   final List<DropDownItem> regions;
-  final ValueChanged<int?>? onBuildingTypeChanged;
+  final ValueChanged<String?>? onBuildingTypeChanged;
   final ValueChanged<int?>? onRegionChanged;
 
   @override
@@ -27,7 +27,7 @@ class _SearchBottomSheetFormsState extends State<SearchBottomSheetForms> {
     super.initState();
     if (widget.buildingTypes.isNotEmpty) {
       selectedBuildingType = widget.buildingTypes.first;
-      widget.onBuildingTypeChanged?.call(selectedBuildingType?.id);
+      widget.onBuildingTypeChanged?.call(selectedBuildingType?.value);
     }
     if (widget.regions.isNotEmpty) {
       selectedRegion = widget.regions.first;
@@ -44,7 +44,7 @@ class _SearchBottomSheetFormsState extends State<SearchBottomSheetForms> {
         selectedItem: selectedBuildingType,
         onChanged: (val) {
           setState(() => selectedBuildingType = val);
-          widget.onBuildingTypeChanged?.call(val?.id);
+          widget.onBuildingTypeChanged?.call(val?.value);
         },
         asyncItems: (f) async {
           return widget.buildingTypes;

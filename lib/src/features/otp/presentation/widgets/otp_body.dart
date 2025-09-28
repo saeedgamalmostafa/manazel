@@ -89,6 +89,7 @@ class _ResendCodeState extends State<ResendCode> {
 
   @override
   Widget build(BuildContext context) {
+    context.locale;
     return ValueListenableBuilder<Duration>(
       valueListenable: durationNotifier,
       builder: (context, duration, child) {

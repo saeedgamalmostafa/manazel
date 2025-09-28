@@ -17,7 +17,7 @@ class _AppLayoutViewState extends State<AppLayoutScreen>
           create: (context) =>
               AppLayoutCubit()..initData(this, widget.currentIndex),
         ),
-        BlocProvider<FavCubit>(create: (context) => FavCubit.instance),
+        BlocProvider<FavCubit>(create: (context) => FavCubit()),
       ],
       child: BlocBuilder<AppLayoutCubit, AppLayoutState>(
         builder: (context, state) {

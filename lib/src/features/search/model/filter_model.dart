@@ -32,15 +32,13 @@ class FilterResponse {
 class DropDownItem {
   final int id;
   final String name;
-
-  DropDownItem({
-    required this.id,
-    required this.name,
-  });
+  final String value;
+  DropDownItem({required this.id, required this.name, required this.value});
 
   factory DropDownItem.fromJson(Map<String, dynamic> json) => DropDownItem(
         id: json['id'] ?? 0,
         name: json['name'] ?? '',
+        value: json['value'] ?? '',
       );
 
   Map<String, dynamic> toJson() => {

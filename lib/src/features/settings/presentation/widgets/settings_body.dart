@@ -22,7 +22,7 @@ class SettingsBody extends StatelessWidget {
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.smartPhone03.path,
-            title: LocaleKeys.changePassword.tr(),
+            title: LocaleKeys.changePhone.tr(),
             onTap: () {
               Go.push(OtpScreen(
                 otpType: OtpType.canCangePhone,

@@ -27,13 +27,21 @@ class _BookAppointmentBottomSheetState
   }
 
   @override
+  void didUpdateWidget(covariant BookAppointmentBottomSheet oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.selectedValue != widget.selectedValue) {
+      tempSelected = widget.selectedValue;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     if (widget.appointments.isEmpty) {
       return SizedBox(
         height: AppSizes.sH200,
         child: Center(
           child: CustomText.titleLarge(
-            "لا توجد مواعيد متاحة", // or LocaleKeys.noAppointments.tr()
+            "لا توجد مواعيد متاحة",
             textStyle: Theme.of(context)
                 .textTheme
                 .titleLarge
@@ -59,22 +67,21 @@ class _BookAppointmentBottomSheetState
                     ?.copyWith(color: AppColors.buttonColor),
               ),
               SizedBox(height: AppSizes.sH18),
-
-              // ✅ Build radios from appointments
               ...widget.appointments.map((appointment) {
-                return BookAppointmentRadioListTile<Appointment?>(
-                  value: appointment,
-                  groupValue: tempSelected,
-                  title: appointment.dateTimeFormatted,
-                  activeColor: Theme.of(context).primaryColor,
-                  onChanged: (value) {
-                    setState(() {
-                      tempSelected = value;
-                    });
-                  },
+                return KeyedSubtree(
+                  key: ValueKey(appointment.id),
+                  child: BookAppointmentRadioListTile<Appointment>(
+                    value: appointment,
+                    groupValue: tempSelected,
+                    title: appointment.dateTimeFormatted,
+                    onChanged: (value) {
+                      setState(() {
+                        tempSelected = value;
+                      });
+                    },
+                  ),
                 );
               }),
-
               const Spacer(),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: AppSizes.sW16),
@@ -87,7 +94,7 @@ class _BookAppointmentBottomSheetState
                   },
                   text: LocaleKeys.sure.tr(),
                 ),
-              )
+              ),
             ],
           ),
         ),

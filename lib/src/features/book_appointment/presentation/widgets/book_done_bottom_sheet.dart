@@ -19,34 +19,33 @@ class _BookDoneBottomSheetState extends State<BookDoneBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: Go.pop,
-      child: Padding(
-        padding: EdgeInsets.only(top: AppSizes.sH21),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            AppAssets.lottie.done.lottie(),
-            SizedBox(height: AppSizes.sH16),
-            CustomText.titleLarge(
-              Languages.currentLanguage.locale == const Locale("ar")
-                  ? "تم حجز موعدك بنجاح\u{1F44B}"
-                  : "Your appointment has been successfully booked\u{1F44B}",
-              textStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold, color: AppColors.Text),
-            ),
-            SizedBox(
-              height: AppSizes.sH6,
-            ),
-            CustomText.titleMedium(
-              LocaleKeys.convertHomePage.tr(),
-              textStyle: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(color: AppColors.SubText),
-            ),
-          ],
-        ),
+    return Padding(
+      padding: EdgeInsets.only(top: AppSizes.sH21),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          AppAssets.lottie.done.lottie(width: double.infinity, height: 150.h),
+          SizedBox(height: AppSizes.sH16),
+          CustomText.titleLarge(
+            Languages.currentLanguage.locale == const Locale("ar")
+                ? "تم حجز موعدك بنجاح\u{1F44B}"
+                : "Your appointment has been successfully booked\u{1F44B}",
+            textStyle: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(fontWeight: FontWeight.bold, color: AppColors.Text),
+          ),
+          SizedBox(
+            height: AppSizes.sH6,
+          ),
+          CustomText.titleMedium(
+            LocaleKeys.convertHomePage.tr(),
+            textStyle: Theme.of(context)
+                .textTheme
+                .titleMedium
+                ?.copyWith(color: AppColors.SubText),
+          ),
+        ],
       ),
     );
   }

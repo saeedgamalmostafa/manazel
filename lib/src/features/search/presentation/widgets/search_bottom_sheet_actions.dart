@@ -8,29 +8,29 @@ class SearchBottomSheetType extends StatefulWidget {
   });
 
   final List<DropDownItem> types;
-  final ValueChanged<int>? onChanged;
+  final ValueChanged<String>? onChanged;
 
   @override
   State<SearchBottomSheetType> createState() => _SearchBottomSheetTypeState();
 }
 
 class _SearchBottomSheetTypeState extends State<SearchBottomSheetType> {
-  int? selectedId;
+  String? selectedType;
 
   @override
   void initState() {
     super.initState();
     if (widget.types.isNotEmpty) {
-      selectedId = widget.types.first.id;
+      selectedType = widget.types.first.value;
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        widget.onChanged?.call(selectedId!);
+        widget.onChanged?.call(selectedType!);
       });
     }
   }
 
-  void _select(int id) {
-    setState(() => selectedId = id);
-    widget.onChanged?.call(id);
+  void _select(String val) {
+    setState(() => selectedType = val);
+    widget.onChanged?.call(val);
   }
 
   @override
@@ -40,7 +40,7 @@ class _SearchBottomSheetTypeState extends State<SearchBottomSheetType> {
       child: Row(
         spacing: 8.sp,
         children: widget.types.map((type) {
-          final isSelected = selectedId == type.id;
+          final isSelected = selectedType == type.id;
           return Expanded(
             child: Padding(
               padding: EdgeInsets.only(
@@ -48,7 +48,7 @@ class _SearchBottomSheetTypeState extends State<SearchBottomSheetType> {
               ),
               child: SearchOutlinedButton(
                 isSelected: isSelected,
-                onTap: () => _select(type.id),
+                onTap: () => _select(type.value),
                 text: type.name,
                 color: AppColors.Text,
               ),

@@ -9,8 +9,8 @@ class FilterSearchBottomSheet extends StatefulWidget {
 }
 
 class _FilterSearchBottomSheetState extends State<FilterSearchBottomSheet> {
-  int? typeId;
-  int? purposeId;
+  String? typeId;
+  String? purposeId;
   int? regionId;
   double? minPrice;
   double? maxPrice;
@@ -25,8 +25,8 @@ class _FilterSearchBottomSheetState extends State<FilterSearchBottomSheet> {
             child: const Center(child: CupertinoActivityIndicator()),
           );
         }
-        typeId = state.data?.type.first.id;
-        purposeId = state.data?.purpose.first.id;
+        typeId = state.data?.type.first.value;
+        purposeId = state.data?.purpose.first.value;
         regionId = state.data?.cities.first.id;
         minPrice = state.data?.priceMin;
         maxPrice = state.data?.priceMax;

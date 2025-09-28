@@ -13,7 +13,7 @@ class _BookAppointmentFormsState extends State<BookAppointmentForms> {
   final TextEditingController _controllerNumber = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final user = UserCubit.instance.user;
-  late final String appointmentId;
+  String? appointmentId;
 
   @override
   void initState() {
@@ -100,17 +100,25 @@ class _BookAppointmentFormsState extends State<BookAppointmentForms> {
                           readOnly: true,
                           onTap: () async {
                             await showModalBottomSheet(
-                              context: context,
-                              builder: (context) => BookAppointmentBottomSheet(
-                                appointments: state.data,
-                                onSelected: (value) {
-                                  setState(() {
-                                    appointmentId = value.id.toString();
-                                    _controller.text = value.dateTimeFormatted;
-                                  });
-                                },
-                              ),
-                            );
+                                context: context,
+                                builder: (context) {
+                                  final selected = state.data
+                                      .where((a) =>
+                                          a.id.toString() == appointmentId)
+                                      .cast<Appointment?>()
+                                      .firstOrNull; // extension from
+                                  return BookAppointmentBottomSheet(
+                                    appointments: state.data,
+                                    selectedValue: selected,
+                                    onSelected: (value) {
+                                      setState(() {
+                                        appointmentId = value.id.toString();
+                                        _controller.text =
+                                            value.dateTimeFormatted;
+                                      });
+                                    },
+                                  );
+                                });
                           },
                           decoration: const InputDecoration(
                             hint: Text(
@@ -151,7 +159,7 @@ class _BookAppointmentFormsState extends State<BookAppointmentForms> {
                               .bookAppointment(
                                 name: _controllerName.text,
                                 phone: _controllerNumber.text,
-                                appointment: appointmentId,
+                                appointment: appointmentId ?? '',
                               );
                         }),
                   ))

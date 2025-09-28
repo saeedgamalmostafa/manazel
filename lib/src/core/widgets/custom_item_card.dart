@@ -74,22 +74,18 @@ class _CustomItemCardState extends State<CustomItemCard> {
                         child: SizedBox(
                           height: AppSizes.sH96,
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Expanded(
                                     child: CustomText(
+                                      textAlign: TextAlign.start,
                                       widget.propertyItem.title,
                                       textStyle: TextStyle(
                                           fontSize: FontSize.s14,
                                           color: AppColors.Text),
                                       maxLines: 1,
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: AppSizes.sW20,
                                   ),
                                   BlocBuilder<FavCubit, AsyncState>(
                                     builder: (context, state) {

@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:manazel/src/core/helpers/toast.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/base_domain_imports.dart';
 import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
@@ -57,14 +58,14 @@ class BookAppointmentCubit extends AsyncCubit<List<Appointment>> {
   }
 }
 
-class Appointment {
+class Appointment extends Equatable {
   final int id;
   final int propertyId;
   final String date;
   final String time;
   final String dateTimeFormatted;
 
-  Appointment({
+  const Appointment({
     required this.id,
     required this.propertyId,
     required this.date,
@@ -86,13 +87,14 @@ class Appointment {
     );
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'property_id': propertyId,
-      'date': date,
-      'time': time,
-      'date_time_formated': dateTimeFormatted,
-    };
-  }
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'property_id': propertyId,
+        'date': date,
+        'time': time,
+        'date_time_formated': dateTimeFormatted,
+      };
+
+  @override
+  List<Object?> get props => [id];
 }
