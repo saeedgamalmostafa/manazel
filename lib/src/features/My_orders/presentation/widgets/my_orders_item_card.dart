@@ -64,15 +64,17 @@ class MyOrdersItemCard extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SvgPicture.asset(AppAssets.svg.building.path),
-                                  CustomText.titleSmall(
-                                    title,
-                                    textStyle: Theme.of(context)
-                                        .textTheme
-                                        .titleSmall
-                                        ?.copyWith(color: AppColors.Text),
-                                    maxLines: 1,
+                                  Expanded(
+                                    child: CustomText.titleSmall(
+                                      title,
+                                      textAlign: TextAlign.start,
+                                      textStyle: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall
+                                          ?.copyWith(color: AppColors.Text),
+                                      maxLines: 1,
+                                    ),
                                   ),
-                                  const Spacer(),
                                   Row(
                                     spacing: 4.sp,
                                     children: [

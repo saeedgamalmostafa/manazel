@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
-import 'package:manazel/src/core/helpers/validators.dart';
 import 'package:manazel/src/features/otp/presentation/cubit/otp_cubit.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -23,6 +22,7 @@ class OtpForms extends StatelessWidget {
         autoDismissKeyboard: true,
         backgroundColor: Colors.transparent,
         keyboardType: TextInputType.number,
+        hintCharacter: '-',
         enableActiveFill: false,
         pinTheme: PinTheme(
           activeColor: AppColors.primary,

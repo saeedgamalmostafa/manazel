@@ -26,7 +26,7 @@ class UserCubit extends Cubit<UserState> with UserUtils {
   late final BaseCrudUseCase baseCrudUseCase;
   Future<void> setUserLoggedIn(
       {required UserModel user, required String token}) async {
-    injector<NetworkService>().setToken(token);
+    setToken(token);
 
     await Future.wait([
       _saveUser(user),
@@ -44,7 +44,8 @@ class UserCubit extends Cubit<UserState> with UserUtils {
     _clearUser();
   }
 
-  Future<void> updateToken(String token) async {
+  Future<void> setToken(String token) async {
+    injector<NetworkService>().setToken(token);
     _saveToken(token);
   }
 

@@ -24,10 +24,10 @@ class SettingsBody extends StatelessWidget {
             imagePath: AppAssets.svg.smartPhone03.path,
             title: LocaleKeys.changePhone.tr(),
             onTap: () {
-              Go.push(OtpScreen(
-                otpType: OtpType.canCangePhone,
-                phone: cubit.userCubit.user.mobile ?? '',
-              ));
+              Go.push(
+                const ChangePhoneScreen(),
+                transitionType: TransitionType.slideFromRight,
+              );
             },
           ),
           NotificationSettingItem(

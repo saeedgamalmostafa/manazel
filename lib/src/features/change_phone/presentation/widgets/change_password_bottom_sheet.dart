@@ -1,37 +1,31 @@
-part of '../../change_password_imports.dart';
+part of '../../change_phone_imports.dart';
 
-class ChangePasswordBottomSheet extends StatefulWidget {
-  const ChangePasswordBottomSheet({super.key});
+class ChangePhoneBottomSheet extends StatefulWidget {
+  const ChangePhoneBottomSheet({super.key});
 
   @override
-  State<ChangePasswordBottomSheet> createState() =>
-      _ChangePasswordBottomSheet();
+  State<ChangePhoneBottomSheet> createState() => _ChangePasswordBottomSheet();
 }
 
-class _ChangePasswordBottomSheet extends State<ChangePasswordBottomSheet> {
+class _ChangePasswordBottomSheet extends State<ChangePhoneBottomSheet> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Go.pop();
-      Go.push(AppLayoutScreen(currentIndex: 0));
+      Go.push(const AppLayoutScreen(currentIndex: 0));
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: Go.pop,
-      child: Padding(
-        padding: EdgeInsets.only(top: AppSizes.sH21),
+    return Padding(
+      padding: EdgeInsets.only(top: AppSizes.sH21),
+      child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Center(
-                // child: Image.asset(
-                //  // AppAssets.png.predictiveChart.path,
-                // ),
-                ),
+            AppAssets.lottie.done.lottie(),
             SizedBox(height: AppSizes.sH16),
             CustomText.titleLarge(
               Languages.currentLanguage.locale == const Locale("ar")

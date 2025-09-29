@@ -19,8 +19,7 @@ class OtpScreen extends StatelessWidget {
       body: BlocProvider(
         create: (context) => OtpCubit()
           ..phone = phone
-          ..otpType = otpType
-          ..sendCode(),
+          ..otpType = otpType,
         child: const OtpBody(),
       ),
     );

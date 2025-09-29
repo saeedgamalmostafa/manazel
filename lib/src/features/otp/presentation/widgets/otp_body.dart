@@ -7,51 +7,61 @@ class OtpBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<OtpCubit>();
     context.locale;
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(top: AppSizes.sH65, bottom: AppSizes.sH50),
-          child: Image.asset(AppAssets.png.manazelWhiteLogoName.path),
-        ),
-        Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(AppRadius.bR50),
-                    topRight: Radius.circular(AppRadius.bR50))),
-            child: SingleChildScrollView(
-              child: Column(
-                spacing: 10.sp,
-                children: [
-                  AuthTitledHeader(
-                      title: LocaleKeys.verificationCode,
-                      description: LocaleKeys
-                          .pleaseEnterTheVerificationCodeSentToYourMobilePhone),
-                  AppAssets.lottie.done.lottie(),
-                  const OtpForms(),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    child: Row(
-                      spacing: 5.sp,
-                      children: [
-                        Text(
-                          LocaleKeys.didntReceiveTheVerificationCode,
-                          style: const TextStyle().setGreyColor.s12,
-                        ),
-                        const ResendCode()
-                      ],
-                    ),
-                  )
-                ],
+    return PopScope(
+      canPop: true,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (!didPop) return;
+
+        if (cubit.otpType == OtpType.changePhone) {
+          await cubit.refreshToken();
+        }
+      },
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: AppSizes.sH20, bottom: AppSizes.sH50),
+            child: Image.asset(AppAssets.png.manazelWhiteLogoName.path),
+          ),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                  color: AppColors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(AppRadius.bR50),
+                      topRight: Radius.circular(AppRadius.bR50))),
+              child: SingleChildScrollView(
+                child: Column(
+                  spacing: 10.sp,
+                  children: [
+                    AuthTitledHeader(
+                        title: LocaleKeys.verificationCode,
+                        description: LocaleKeys
+                            .pleaseEnterTheVerificationCodeSentToYourMobilePhone),
+                    AppAssets.lottie.otp.lottie(height: 150.h),
+                    const OtpForms(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: Row(
+                        spacing: 5.sp,
+                        children: [
+                          Text(
+                            LocaleKeys.didntReceiveTheVerificationCode,
+                            style: const TextStyle().setGreyColor.s12,
+                          ),
+                          const ResendCode()
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-        BottomButton(onTap: () async {
-          await cubit.verifyOtp();
-        })
-      ],
+          BottomButton(onTap: () async {
+            await cubit.verifyOtp();
+          })
+        ],
+      ),
     );
   }
 }

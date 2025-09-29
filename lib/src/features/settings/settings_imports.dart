@@ -8,7 +8,7 @@ import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/
 import 'package:manazel/src/core/widgets/auth_language_status_button.dart';
 import 'package:manazel/src/core/widgets/buttons/loading_button.dart';
 import 'package:manazel/src/core/widgets/custom_more_item.dart';
-import 'package:manazel/src/features/change_password/change_password_imports.dart';
+import 'package:manazel/src/features/change_phone/change_phone_imports.dart';
 import 'package:manazel/src/features/edit_profile/edit_profile_imports.dart';
 import 'package:manazel/src/features/otp/otp_imports.dart';
 import 'package:manazel/src/features/otp/presentation/cubit/otp_cubit.dart';

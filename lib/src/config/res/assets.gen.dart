@@ -108,6 +108,10 @@ class $AssetsLottieGen {
   LottieGenImage get manazelLogo =>
       const LottieGenImage('assets/lottie/manazel_logo.json');
 
+  /// File path: assets/lottie/mobile.json
+  LottieGenImage get mobile =>
+      const LottieGenImage('assets/lottie/mobile.json');
+
   /// File path: assets/lottie/no_data.json
   LottieGenImage get noData =>
       const LottieGenImage('assets/lottie/no_data.json');
@@ -115,6 +119,9 @@ class $AssetsLottieGen {
   /// File path: assets/lottie/no_internet.json
   LottieGenImage get noInternet =>
       const LottieGenImage('assets/lottie/no_internet.json');
+
+  /// File path: assets/lottie/otp.json
+  LottieGenImage get otp => const LottieGenImage('assets/lottie/otp.json');
 
   /// File path: assets/lottie/success.json
   LottieGenImage get success =>
@@ -134,8 +141,10 @@ class $AssetsLottieGen {
     error,
     logout,
     manazelLogo,
+    mobile,
     noData,
     noInternet,
+    otp,
     success,
     successfullOrder,
   ];

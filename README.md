@@ -85,7 +85,7 @@ dart pub global activate flutter_gen
 
 ### Run this Command to generate app icons
 ```bash
-dart run build_runner build
+flutter pub run build_runner build
 ```
 
 flutter pub run build_runner build --delete-conflicting-outputs

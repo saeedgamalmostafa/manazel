@@ -8,6 +8,9 @@ class ApiConstants {
   static const String deleteAccount = '/api/v1/auth/delete-account';
   static const String logout = '/api/v1/auth/logout';
   static const String changeNotfiy = '/api/v1/auth/edit-preferences';
+  static const String verfiyNewPhone = '/api/v1/auth/verify-mobile';
+  static const String changeMobile = '/api/v1/auth/change-mobile';
+  static const String refreshToken = '/api/v1/auth/refresh-token';
 
   // home
   static const String home = '/api/v1/home';
