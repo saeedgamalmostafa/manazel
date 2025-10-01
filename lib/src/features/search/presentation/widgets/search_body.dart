@@ -31,7 +31,7 @@ class _SearchBodyState extends State<SearchBody> {
                   child: SizedBox(
                     height: AppSizes.sH48,
                     child: CustomTextFormField(
-                      hintText: 'ابحث عن عقار',
+                      hintText: LocaleKeys.searchForAProperty,
                       fillColor: Colors.white,
                       prefixIcon: Padding(
                         padding: EdgeInsets.symmetric(
@@ -168,7 +168,13 @@ class _PropertyListState extends State<PropertyList> {
                     onTap: () => Go.push(PropertyDetailsScreen(
                       favCubit: context.read<FavCubit>(),
                       id: data.data![index].id,
-                    )),
+                    )).then((v) {
+                      if (context.mounted) {
+                        context
+                            .read<FilterCubit>()
+                            .getPropertyByFilter(isFirst: true);
+                      }
+                    }),
                   );
                 },
               );

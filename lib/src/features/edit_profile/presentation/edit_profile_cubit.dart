@@ -27,7 +27,8 @@ class EditProfileCubit extends AsyncCubit with ProfileContrlers {
     result.when(
       (response) {
         userCubit.updateUser(response.data!);
-        showDefaultBottomSheet(child: const EditProfileBottomSheet());
+        showDefaultBottomSheet(
+            isDismissible: false, child: const EditProfileBottomSheet());
       },
       (error) {
         showErrorToast(error.message);

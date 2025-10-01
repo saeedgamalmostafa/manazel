@@ -37,10 +37,7 @@ class RateBottomSheet extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(
-                top: AppSizes.sH16,
-                bottom: AppSizes.sH35,
-                right: AppSizes.sW16,
-                left: AppSizes.sW16),
+                top: AppSizes.sH16, right: AppSizes.sW16, left: AppSizes.sW16),
             child: CustomElevatedButton(
                 onPressed: () {
                   Go.push(const RateScreen());

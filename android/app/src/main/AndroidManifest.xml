@@ -2,9 +2,9 @@
 
 
     <application
-        android:label="manazel"
+        android:label="Manazel"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
 
         
         <activity

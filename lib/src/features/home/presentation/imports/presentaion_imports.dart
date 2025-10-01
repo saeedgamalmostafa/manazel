@@ -7,6 +7,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
 import 'package:manazel/src/config/res/constants_manager.dart';
+import 'package:manazel/src/core/extensions/sized_box_helper.dart';
 import 'package:manazel/src/core/helpers/status_builder.dart';
 import 'package:manazel/src/core/navigator/app_navigator.dart';
 import 'package:manazel/src/core/network/api_endpoints.dart';

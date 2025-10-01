@@ -151,5 +151,6 @@
   "more": "More",
   "login": "Login",
   "please_enter_your_login_information": "Please enter your login information",
-  "please_enter_your_data_to_register": "Please enter your data to register"
+  "please_enter_your_data_to_register": "Please enter your data to register",
+  "search_for_a_property": "Search for a property"
 }

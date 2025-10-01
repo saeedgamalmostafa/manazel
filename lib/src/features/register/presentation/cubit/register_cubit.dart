@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:manazel/src/config/res/constants_manager.dart';
-import 'package:manazel/src/core/helpers/helpers.dart';
+import 'package:manazel/src/core/helpers/toast.dart';
 import 'package:manazel/src/core/navigator/app_navigator.dart';
 import 'package:manazel/src/core/network/api_endpoints.dart';
 import 'package:manazel/src/core/network/network_service.dart';
@@ -16,7 +16,8 @@ class RegisterCubit extends AsyncCubit<BaseModel?> with RegisterControllers {
   RegisterCubit() : super(null);
 
   Future<void> register() async {
-    if (!formKey.currentState!.validate()) return;   setLoading();
+    if (!formKey.currentState!.validate()) return;
+    setLoading();
     injector<NetworkService>().removeToken();
     final result = await baseCrudUseCase<UserAuthModel>(CrudBaseParams(
         api: ApiConstants.signUp,
@@ -44,6 +45,8 @@ class RegisterCubit extends AsyncCubit<BaseModel?> with RegisterControllers {
               phone: '+966${phoneController.text}',
             ),
             transitionType: TransitionType.slideFromRight);
+        showSuccessToast('cod is: ${response.data!.verificationCode}',
+            duration: 5);
       },
       (error) {
         setError(errorMessage: error.message, showToast: true);

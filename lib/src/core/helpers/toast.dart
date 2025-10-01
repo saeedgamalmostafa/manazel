@@ -44,7 +44,7 @@ showErrorToast(String message) {
 bool isShow = false;
 Flushbar? flushbar;
 
-Future<void> showSuccessToast(String message) async {
+Future<void> showSuccessToast(String message, {int duration = 2}) async {
   if (Go.navigatorKey.currentContext != null) {
     if (flushbar?.isShowing() ?? false) {
       flushbar?.dismiss();
@@ -54,7 +54,7 @@ Future<void> showSuccessToast(String message) async {
         borderRadius: BorderRadius.circular(16.r),
         margin: EdgeInsets.all(20.sp),
         flushbarPosition: FlushbarPosition.TOP,
-        duration: const Duration(seconds: 2),
+        duration: Duration(seconds: duration),
         messageText: Center(
           child: Text(
             message,

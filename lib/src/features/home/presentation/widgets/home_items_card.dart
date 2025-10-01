@@ -32,7 +32,11 @@ class HomeItemsCard extends StatelessWidget {
                   onTap: () => Go.push(PropertyDetailsScreen(
                     favCubit: context.read<FavCubit>(),
                     id: items[i].id,
-                  )),
+                  )).then((v) {
+                    if (context.mounted) {
+                      context.read<HomeCubit>().fetchHome();
+                    }
+                  }),
                 ),
               ),
             ),

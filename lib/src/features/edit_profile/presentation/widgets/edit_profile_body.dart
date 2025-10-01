@@ -42,13 +42,15 @@ class EditProfileBody extends StatelessWidget {
                 SizedBox(
                   height: AppSizes.sH12,
                 ),
-                CustomText.titleMedium(LocaleKeys.email.tr(),
-                    textStyle: Theme.of(context)
-                        .textTheme
-                        .titleMedium
-                        ?.copyWith(
-                            color: AppColors.Text,
-                            fontWeight: FontWeight.normal)),
+                if (cubit.userCubit.user.email != null &&
+                    cubit.userCubit.user.email!.isNotEmpty)
+                  CustomText.titleMedium(LocaleKeys.email.tr(),
+                      textStyle: Theme.of(context)
+                          .textTheme
+                          .titleMedium
+                          ?.copyWith(
+                              color: AppColors.Text,
+                              fontWeight: FontWeight.normal)),
                 SizedBox(
                   height: AppSizes.sH6,
                 ),

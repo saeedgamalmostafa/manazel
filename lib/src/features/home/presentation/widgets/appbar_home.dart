@@ -8,7 +8,8 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(
-          horizontal: AppSizes.sW24, vertical: AppSizes.sH26),
+              horizontal: AppSizes.sW24, vertical: AppSizes.sH26)
+          .copyWith(top: 30.h),
       decoration: const BoxDecoration(
         color: AppColors.primary,
         borderRadius: BorderRadius.only(
@@ -22,6 +23,7 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                AppSizes.sH10.szH,
                 CustomText.titleLarge(
                   Languages.currentLanguage.locale == const Locale("ar")
                       ? "مرحباً بك\u{1F44B}!"
@@ -56,7 +58,11 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
               Go.push(BlocProvider.value(
                 value: context.read<FavCubit>(),
                 child: const SearchScreen(),
-              ));
+              )).then((v) {
+                if (context.mounted) {
+                  context.read<HomeCubit>().fetchHome();
+                }
+              });
             },
             child: CustomCirclurButton(
               imagepath: AppAssets.svg.search.path,
@@ -81,6 +87,5 @@ class AppbarHome extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 50);
 }

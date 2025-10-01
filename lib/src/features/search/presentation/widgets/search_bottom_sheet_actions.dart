@@ -40,7 +40,7 @@ class _SearchBottomSheetTypeState extends State<SearchBottomSheetType> {
       child: Row(
         spacing: 8.sp,
         children: widget.types.map((type) {
-          final isSelected = selectedType == type.id;
+          final isSelected = selectedType == type.value;
           return Expanded(
             child: Padding(
               padding: EdgeInsets.only(

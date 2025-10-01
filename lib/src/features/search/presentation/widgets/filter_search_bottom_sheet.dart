@@ -100,7 +100,7 @@ class _FilterSearchBottomSheetState extends State<FilterSearchBottomSheet> {
                     "maxPrice": maxPrice?.toStringAsFixed(0),
                   });
                 },
-                text: LocaleKeys.sure.tr(),
+                text: LocaleKeys.confirm.tr(),
               ),
             ],
           ),

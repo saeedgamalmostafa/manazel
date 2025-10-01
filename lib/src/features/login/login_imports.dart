@@ -7,6 +7,7 @@ import 'package:manazel/src/config/language/locale_keys.g.dart';
 import 'package:manazel/src/config/res/app_sizes.dart';
 import 'package:manazel/src/config/res/assets.gen.dart';
 import 'package:manazel/src/config/res/color_manager.dart';
+import 'package:manazel/src/core/extensions/sized_box_helper.dart';
 import 'package:manazel/src/core/helpers/validators.dart';
 
 import 'package:manazel/src/core/widgets/Custom_text_form_field.dart';

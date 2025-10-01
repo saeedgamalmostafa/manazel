@@ -42,7 +42,8 @@ class LoginCubit extends AsyncCubit<UserAuthModel?> with LoginContrlers {
           ),
           transitionType: TransitionType.slideFromRight,
         );
-        showSuccessToast('code : ${response.data?.verificationCode}');
+        showSuccessToast('code : ${response.data?.verificationCode}',
+            duration: 5);
       },
       (error) {
         setError(errorMessage: error.message, showToast: true);

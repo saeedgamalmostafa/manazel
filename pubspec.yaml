@@ -61,6 +61,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   injectable_generator: null
+  flutter_launcher_icons: "^0.14.4"
+
 
 flutter:
   uses-material-design: true
@@ -87,6 +89,12 @@ flutter:
         - asset: assets/fonts/Alexandria-Medium.ttf
         - asset: assets/fonts/Alexandria-Regular.ttf
         - asset: assets/fonts/Alexandria-SemiBold.ttf
+        
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/png/logo.png"
+  min_sdk_android: 21 
 
 flutter_gen:
   output: lib/src/config/res/

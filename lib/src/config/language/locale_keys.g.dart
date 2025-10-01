@@ -457,4 +457,7 @@ abstract class LocaleKeys {
   static const String _pleaseEnterYourDataToRegister = 'please_enter_your_data_to_register';
   static String get pleaseEnterYourDataToRegister => _pleaseEnterYourDataToRegister.tr();
 
+  static const String _searchForAProperty = 'search_for_a_property';
+  static String get searchForAProperty => _searchForAProperty.tr();
+
 }
