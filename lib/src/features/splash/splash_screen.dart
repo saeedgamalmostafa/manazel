@@ -29,10 +29,7 @@ class SplashScreenState extends State<SplashScreen>
   }
 
   void _initApp() async {
-    NotificationNavigator(
-            onRoutingMessage: (RemoteMessage message) {},
-            onNoInitialMessage: () {})
-        .init();
+    NotificationNavigator().init();
 
     NotificationService().setupNotifications();
 

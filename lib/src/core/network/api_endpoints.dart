@@ -15,6 +15,10 @@ class ApiConstants {
   // home
   static const String home = '/api/v1/home';
 
+  // notification
+  static const String notification = '/api/v1/notification/list';
+  static const String deleteNotification = '/api/v1/notification/mark-as-read';
+
   // favorite
   static const String toggleFav = '/api/v1/favourite/add-or-remove';
   static const String getFav = '/api/v1/favourite/list';
@@ -26,4 +30,6 @@ class ApiConstants {
 
   // settings
   static const String editProifle = '/api/v1/auth/edit-profile';
+  static const String terms = '/api/v1/policy/by-id';
+  static const String contactUs = '/api/v1/contact-message';
 }

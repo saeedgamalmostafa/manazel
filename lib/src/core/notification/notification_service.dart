@@ -5,8 +5,8 @@ import 'dart:io';
 
 import "package:firebase_core/firebase_core.dart";
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:manazel/src/config/res/constants_manager.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:manazel/src/config/res/constants_manager.dart';
 
 part 'navigation_types.dart';
 part 'notification_routes.dart';
@@ -120,10 +120,19 @@ class NotificationService {
     NotificationNavigator._instance?.onRoutingMessage(message);
   }
 
+  int count = 0;
   Future<void> _saveFcmToken() async {
-    final token = await FirebaseMessaging.instance.getToken();
-    deviceToken = token ?? "";
-    log("Firebase Fcm token : ${token.toString()}");
+    try {
+      final token = await FirebaseMessaging.instance.getToken();
+      deviceToken = token ?? "";
+      log("Firebase Fcm token : ${token.toString()}");
+    } catch (e, s) {
+      count++;
+      log(e.toString(), stackTrace: s);
+      if (count < 5) {
+        Future.delayed(const Duration(seconds: 3), () => _saveFcmToken());
+      }
+    }
   }
 
   Future<void> _setForegroundNotificationOptions() async {
@@ -136,12 +145,12 @@ class NotificationService {
 
   Future<void> setupNotifications() async {
     await Future.wait([
-      _saveFcmToken(),
       _setForegroundNotificationOptions(),
       _registerNotification(),
       _requestPermissions(),
       NotificationNavigator._instance!.init(),
     ]);
+    await _saveFcmToken();
     await _initLocalNotification();
     _configureNotification();
   }
@@ -149,6 +158,7 @@ class NotificationService {
   void _configureNotification() async {
     FirebaseMessaging.onBackgroundMessage(backgroundHandler);
     FirebaseMessaging.onMessage.listen((RemoteMessage event) {
+      // injector<NotificationCountCubit>().increaseNotificationCount();
       _showNotification(event);
     });
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage event) {
@@ -159,19 +169,16 @@ class NotificationService {
 
 class NotificationNavigator {
   NotificationNavigator._({
-    required this.onRoutingMessage,
-    required this.onNoInitialMessage,
+    this.onNoInitialMessage,
   });
 
   static NotificationNavigator? _instance;
   RemoteMessage? _message;
 
   factory NotificationNavigator({
-    required void Function(RemoteMessage message) onRoutingMessage,
-    required void Function() onNoInitialMessage,
+    void Function()? onNoInitialMessage,
   }) {
     return _instance ??= NotificationNavigator._(
-      onRoutingMessage: onRoutingMessage,
       onNoInitialMessage: onNoInitialMessage,
     );
   }
@@ -181,10 +188,27 @@ class NotificationNavigator {
     if (_message != null) {
       onRoutingMessage(_message!);
     } else {
-      onNoInitialMessage();
+      onNoInitialMessage?.call();
     }
   }
 
-  final void Function(RemoteMessage message) onRoutingMessage;
-  final void Function() onNoInitialMessage;
+  void onRoutingMessage(RemoteMessage? message) {
+    if (message == null) return;
+    NotificationRoutes.navigateByType(message.data);
+  }
+
+  final void Function()? onNoInitialMessage;
+}
+
+class NotificationActionListener {
+  final void Function(Map<String, dynamic> data) onMessage;
+  final List<NotificationType> types;
+  bool conditionCheck(NotificationType type) {
+    return types.any((e) => e.index == type.index);
+  }
+
+  NotificationActionListener({
+    required this.types,
+    required this.onMessage,
+  });
 }

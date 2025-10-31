@@ -145,7 +145,7 @@ class _DefaultTextFieldState extends State<DefaultTextField> {
         label: isLabel ? Text(widget.label!) : null,
         labelStyle: isLabel ? const TextStyle(color: AppColors.primary) : null,
         hintStyle: const TextStyle(
-          color: AppColors.primary,
+          color: AppColors.grey,
           fontWeight: FontWeight.w300,
         ),
         enabledBorder: OutlineInputBorder(

@@ -22,7 +22,11 @@ class CustomCountyDropDown extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AppAssets.svg.saudiCricularFlag.svg(),
+          AppAssets.svg.saudiCricularFlag.svg(
+            width: 24,
+            height: 24,
+            fit: BoxFit.cover,
+          ),
           SizedBox(width: AppSizes.sW6),
           CustomText.titleMedium(
             "966+",

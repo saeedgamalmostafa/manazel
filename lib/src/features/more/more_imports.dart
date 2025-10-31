@@ -18,6 +18,7 @@ import 'package:manazel/src/features/more/presentation/cubit/more_cubit.dart';
 import 'package:manazel/src/features/privacy_policy/privacy_policy_imports.dart';
 import 'package:manazel/src/features/settings/presentation/cubit/settings_cubit.dart';
 import 'package:manazel/src/features/settings/settings_imports.dart';
+import 'package:manazel/src/features/terms/presentation/cubit/terms_cubit.dart';
 import 'package:manazel/src/features/terms/terms_imports.dart';
 import '../../config/language/locale_keys.g.dart';
 import '../../config/res/color_manager.dart';

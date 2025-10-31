@@ -43,21 +43,27 @@ class MoreBody extends StatelessWidget {
             imagePath: AppAssets.svg.alertDiamond.path,
             title: LocaleKeys.aboutUs.tr(),
             onTap: () {
-              Go.push(AboutUsScreen());
+              Go.push(const TermsScreen(
+                type: TermsType.about,
+              ));
             },
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.bookmarkCheck01.path,
             title: LocaleKeys.privacyPolicy.tr(),
             onTap: () {
-              Go.push(PrivacyPolicyScreen());
+              Go.push(const TermsScreen(
+                type: TermsType.privacy,
+              ));
             },
           ),
           CustomMoreItem(
             imagePath: AppAssets.svg.file01.path,
             title: LocaleKeys.terms.tr(),
             onTap: () {
-              Go.push(TermsScreen());
+              Go.push(const TermsScreen(
+                type: TermsType.terms,
+              ));
             },
           ),
           CustomMoreItem(

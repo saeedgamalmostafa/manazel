@@ -43,15 +43,15 @@ class AppLayoutTabs extends StatelessWidget {
                 imagePath: AppAssets.svg.favourite.path,
                 isSelected: state.index == 1,
               ),
-              CustomTabItem(
-                title: LocaleKeys.rate.tr(),
-                imagePath: AppAssets.svg.chatBot.path,
-                isSelected: state.index == 2,
-              ),
+              // CustomTabItem(
+              //   title: LocaleKeys.rate.tr(),
+              //   imagePath: AppAssets.svg.chatBot.path,
+              //   isSelected: state.index == 2,
+              // ),
               CustomTabItem(
                 title: LocaleKeys.more.tr(),
                 imagePath: AppAssets.svg.elements.path,
-                isSelected: state.index == 3,
+                isSelected: state.index == 2,
               ),
             ],
           );

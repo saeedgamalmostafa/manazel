@@ -1,24 +1,23 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:manazel/src/core/helpers/toast.dart';
+import 'package:manazel/src/core/network/api_endpoints.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/base_domain_imports.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/domain/usecases/base_model.dart';
+import 'package:manazel/src/core/shared/cubits/lookups_cubit/presentation/cubit/base_cubit/async_cubit.dart';
 
-part 'contact_us_state.dart';
+class ContactUsCubit extends AsyncCubit {
+  ContactUsCubit() : super(null);
 
-class ContactUsCubit extends Cubit<ContactUsState> {
-  ContactUsCubit() : super(ContactInitial());
+  Future<void> sendMessage(String message) async {
+    final reslut = await baseCrudUseCase(CrudBaseParams(
+        api: ApiConstants.contactUs,
+        queryParameters: {'message': message},
+        httpRequestType: HttpRequestType.post,
+        mapper: (json) {}));
 
-  void sendMessage(String message) async {
-    if (message.trim().isEmpty) {
-      emit(ContactFailure("الرسالة لا يمكن أن تكون فارغة"));
-      return;
-    }
-
-    emit(ContactLoading());
-
-    try {
-      await Future.delayed(Duration(seconds: 2));
-      emit(ContactSuccess());
-    } catch (e) {
-      emit(ContactFailure("فشل في إرسال الرسالة"));
-    }
+    reslut.when((s) {
+      showSuccessToast(s.msg ?? '');
+    }, (e) {
+      showErrorToast(e.message);
+    });
   }
 }

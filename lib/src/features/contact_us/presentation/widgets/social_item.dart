@@ -18,8 +18,13 @@ class SocialItem extends StatelessWidget {
       child: CircleAvatar(
         backgroundColor: AppColors.primary,
         radius: 24,
-        child: SvgPicture.asset(imagePath,
-            width: 21.5, height: 21.5, fit: BoxFit.contain),
+        child: SvgPicture.asset(
+          imagePath,
+          width: 21.5,
+          height: 21.5,
+          fit: BoxFit.contain,
+          color: Colors.white,
+        ),
       ),
     );
   }

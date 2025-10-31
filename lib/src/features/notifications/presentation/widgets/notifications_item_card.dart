@@ -1,7 +1,8 @@
 part of '../../notifications_imports.dart';
 
 class NotificationsItemCard extends StatelessWidget {
-  const NotificationsItemCard({super.key});
+  final NotificationModel model;
+  const NotificationsItemCard({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -10,55 +11,36 @@ class NotificationsItemCard extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(
               vertical: AppSizes.sH8, horizontal: AppSizes.sW8),
-          child: SizedBox(
-            height: AppSizes.sH62,
-            width: AppSizes.sW343,
-            child: Card(
+          child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
               color: AppColors.white,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                        right: AppSizes.sW8,
-                        top: AppSizes.sH9,
-                        bottom: AppSizes.sH9),
-                    child: SvgPicture.asset(
-                      AppAssets.svg.notificationCircle.path,
-                      height: AppSizes.sH44,
-                      width: AppSizes.sW44,
-                    ),
+              child: ListTile(
+                leading: SvgPicture.asset(AppAssets.svg.notificationCircle.path,
+                    height: AppSizes.sH30, width: AppSizes.sW30),
+                title: CustomText.titleSmall(
+                  textAlign: TextAlign.start,
+                  model.message,
+                  textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color: AppColors.TextBold,
+                      fontWeight: FontWeight.normal,
+                      overflow: TextOverflow.ellipsis),
+                  maxLines: 3,
+                ),
+                trailing: InkWell(
+                  onTap: () {
+                    context
+                        .read<NotificationsCubit>()
+                        .deleteNotification(model.id);
+                  },
+                  child: SvgPicture.asset(
+                    AppAssets.svg.cancelCircle.path,
+                    height: AppSizes.sH20,
+                    width: AppSizes.sW20,
                   ),
-                  Expanded(
-                    child: CustomText.titleSmall(
-                      "لديك موعد لمعاينة العقار يوم السبت",
-                      textStyle: Theme.of(context)
-                          .textTheme
-                          .titleSmall
-                          ?.copyWith(
-                              color: AppColors.TextBold,
-                              fontWeight: FontWeight.normal),
-                      maxLines: 1,
-                    ),
-                  ),
-                  SizedBox(width: AppSizes.sW30),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: AppSizes.sW12,
-                        top: AppSizes.sH21,
-                        bottom: AppSizes.sH21),
-                    child: SvgPicture.asset(
-                      AppAssets.svg.cancelCircle.path,
-                      height: AppSizes.sH20,
-                      width: AppSizes.sW20,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+                ),
+              )),
         ));
   }
 }

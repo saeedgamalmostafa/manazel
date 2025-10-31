@@ -20,8 +20,6 @@ class CustomBackButton extends StatelessWidget {
         child: Container(
           alignment: Alignment.centerRight,
           clipBehavior: Clip.antiAlias,
-          height: AppSizes.sH40,
-          width: AppSizes.sW40,
           //margin: const EdgeInsets.all(16),
           decoration: const BoxDecoration(
             color: AppColors.white,
@@ -30,7 +28,8 @@ class CustomBackButton extends StatelessWidget {
           child: Center(
             child: Directionality(
                 textDirection: context.textDirectionReversed,
-                child: AppAssets.svg.arrowRight.svg(matchTextDirection: true)),
+                child: AppAssets.svg.arrowRight
+                    .svg(matchTextDirection: true, height: 35, width: 40)),
           ),
         ),
       ),

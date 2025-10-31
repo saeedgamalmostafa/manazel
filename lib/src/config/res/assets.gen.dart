@@ -168,6 +168,9 @@ class $AssetsPngGen {
   AssetGenImage get itemPhoto =>
       const AssetGenImage('assets/png/item_photo.png');
 
+  /// File path: assets/png/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/png/logo.png');
+
   /// File path: assets/png/manazel_primary_logo_name.png
   AssetGenImage get manazelPrimaryLogoName =>
       const AssetGenImage('assets/png/manazel_primary_logo_name.png');
@@ -190,6 +193,7 @@ class $AssetsPngGen {
     banner,
     buildingPrice,
     itemPhoto,
+    logo,
     manazelPrimaryLogoName,
     manazelWhiteLogo,
     manazelWhiteLogoName,
@@ -348,6 +352,9 @@ class $AssetsSvgGen {
   SvgGenImage get smartPhone03 =>
       const SvgGenImage('assets/svg/smart-phone-03.svg');
 
+  /// File path: assets/svg/tiktok-icon.svg
+  SvgGenImage get tiktokIcon => const SvgGenImage('assets/svg/tiktok-icon.svg');
+
   /// File path: assets/svg/upload-image.svg
   SvgGenImage get uploadImage =>
       const SvgGenImage('assets/svg/upload-image.svg');
@@ -408,6 +415,7 @@ class $AssetsSvgGen {
     searchGray,
     settings01,
     smartPhone03,
+    tiktokIcon,
     uploadImage,
     userEdit01,
     user,

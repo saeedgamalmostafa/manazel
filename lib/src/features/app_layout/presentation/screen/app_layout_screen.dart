@@ -22,7 +22,7 @@ class _AppLayoutViewState extends State<AppLayoutScreen>
       child: BlocBuilder<AppLayoutCubit, AppLayoutState>(
         builder: (context, state) {
           return DefaultTabController(
-            length: 4,
+            length: 3,
             initialIndex: 0,
             child: Scaffold(
               body: AppLayoutScreens(ordersIndex: state.index),

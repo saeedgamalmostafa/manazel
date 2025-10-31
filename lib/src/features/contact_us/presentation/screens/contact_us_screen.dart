@@ -5,15 +5,15 @@ class ContactUsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => ContactUsCubit(),
-      child: Scaffold(
-          backgroundColor: AppColors.scaffoldBackground,
-          appBar: CustomAppBar(
-            title: LocaleKeys.contactUs.tr(),
-            showBackArrow: true,
-          ),
-          body: ContactUsBody()),
-    );
+    return Scaffold(
+        backgroundColor: AppColors.scaffoldBackground,
+        appBar: CustomAppBar(
+          title: LocaleKeys.contactUs.tr(),
+          showBackArrow: true,
+        ),
+        body: BlocProvider(
+          create: (context) => ContactUsCubit(),
+          child: ContactUsBody(),
+        ));
   }
 }
